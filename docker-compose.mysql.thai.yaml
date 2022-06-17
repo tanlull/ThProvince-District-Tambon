@@ -1,11 +1,11 @@
 version: '3'
 services:
   tan-mysql-service:
-    image: mysql:latest
+    image: mysql:5.7
     container_name: tan-mysql-province
     volumes:
       #- c:/mysql/ThProvince:/var/lib/mysql
-      - ./db_all.sql:/docker-entrypoint-initdb.d/db_all.sql
+      - ./db_test.sql:/docker-entrypoint-initdb.d/db_test.sql
     restart: unless-stopped
     #tty: true
     environment:
