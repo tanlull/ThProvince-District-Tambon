@@ -1,0 +1,8 @@
+docker network create tan-network
+
+docker run --restart=always --net tan-network --network-alias db --name mysql-Province -v C:/mysql-province:/var/lib/mysql -p 13306:3306 -e MYSQL_ROOT_PASSWORD=toor -d mysql:latest
+
+docker-compose build
+docker-compose up
+docker-compose up -d
+docker-compose down
