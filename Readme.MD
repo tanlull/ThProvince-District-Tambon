@@ -1,4 +1,8 @@
-API
+#Run
+docker-compose up
+----------------------------------------------------------------
+
+#API
 
 https://thaiaddressapi-thaikub.herokuapp.com/v1/thailand/provinces
 
