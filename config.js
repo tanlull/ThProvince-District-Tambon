@@ -6,6 +6,6 @@ const config = {
     password: "toor",
     database: "ProvinceDB",
   },
-  listPerPage: 50,
+  listPerPage: 100,
 };
 module.exports = config;
