@@ -1,27 +1,28 @@
-select * from province where ProvinceThai like 'พัทลุง';
+select * from Province where ProvinceThai like 'พัทลุง';
 
-select * from district  where ProvinceID = 93;
+select * from District  where ProvinceID = 93;
 
-select * from tambon  where districtID = 9310;
+select * from Tambon  where districtID = 9310;
 
-select * from postal where TambonID  = 931001;
+select * from Postal where TambonID  = 931001;
 
 
 # Get  district  from province 
 select d.DistrictThaiShort 
-from province p,district d
+from Province p,District d
 where p.ProvinceThai  like 'พัทลุง'
 and p.ProvinceID  =d.ProvinceID ;
 
 
 # Get Tambon from district
 select t.TambonThaiShort 
-from district d,tambon t
-where d.districtthaishort = 'ป่าพะยอม'
+from District d,Tambon t
+where d.DistrictThaiShort = 'ป่าพะยอม'
 and d.DistrictID =t.DistrictID;
 
-# Get Postal from district
 select t.TambonThaiShort 
-from district d,tambon t
-where d.districtthaishort = 'ป่าพะยอม'
-and d.DistrictID =t.DistrictID;
+from Province p,District d,Tambon t
+where p.ProvinceThai  like 'พัทลุง'
+and p.ProvinceID  =d.ProvinceID 
+and d.DistrictID =t.DistrictID
+and d.DistrictThaiShort = 'ป่าพะยอม'

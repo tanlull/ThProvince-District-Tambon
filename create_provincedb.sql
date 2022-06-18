@@ -1,4 +1,4 @@
-create table province(
+create table Province(
 ProvinceID INT ,
 ProvinceThai VARCHAR(200) NOT NULL,
 ProvinceEng VARCHAR(200) NOT NULL,
@@ -6,14 +6,14 @@ Region VARCHAR(200) NOT NULL,
 PRIMARY KEY (ProvinceID)
 );
 
-create table district(
+create table District(
 ProvinceID INT,
 DistrictID INT,
 DistrictThaiShort VARCHAR(200) NOT NULL,
 DistrictEngShort VARCHAR(200) NOT NULL,
 DistrictCNT INT,
 PRIMARY KEY (DistrictID),
-FOREIGN KEY (ProvinceID) REFERENCES province(ProvinceID)
+FOREIGN KEY (ProvinceID) REFERENCES Province(ProvinceID)
 );
 
 create table Tambon(
@@ -22,11 +22,11 @@ TambonID INT,
 TambonThaiShort  VARCHAR(200) NOT NULL,
 TambonEngShort  VARCHAR(200) NOT NULL,
 PRIMARY KEY (TambonID),
-FOREIGN KEY (DistrictID) REFERENCES district(DistrictID)
+FOREIGN KEY (DistrictID) REFERENCES District(DistrictID)
 );
 
 
-create table  postal (
+create table  Postal (
   TambonID int DEFAULT NULL,
   PostCode int DEFAULT NULL,
   TambonThaiShort varchar(200) NOT NULL,
@@ -37,7 +37,7 @@ create table  postal (
   FOREIGN KEY (TambonID) REFERENCES Tambon (TambonID)
 );
 
-INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
+INSERT INTO ProvinceDB.Province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
 	 (10,'กรุงเทพมหานคร','Bangkok','ภาคกลาง'),
 	 (11,'สมุทรปราการ','Samut Prakan','ภาคกลาง'),
 	 (12,'นนทบุรี','Nonthaburi','ภาคกลาง'),
@@ -48,7 +48,7 @@ INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VAL
 	 (17,'สิงห์บุรี','Sing Buri','ภาคกลาง'),
 	 (18,'ชัยนาท','Chai Nat','ภาคกลาง'),
 	 (19,'สระบุรี','Saraburi','ภาคกลาง');
-INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
+INSERT INTO ProvinceDB.Province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
 	 (20,'ชลบุรี','Chon Buri','ภาคตะวันออก'),
 	 (21,'ระยอง','Rayong','ภาคตะวันออก'),
 	 (22,'จันทบุรี','Chanthaburi','ภาคตะวันออก'),
@@ -59,7 +59,7 @@ INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VAL
 	 (27,'สระแก้ว','Sa kaeo','ภาคตะวันออก'),
 	 (30,'นครราชสีมา','Nakhon Ratchasima','ภาคตะวันออกเฉียงเหนือ'),
 	 (31,'บุรีรัมย์','Buri Ram','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
+INSERT INTO ProvinceDB.Province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
 	 (32,'สุรินทร์','Surin','ภาคตะวันออกเฉียงเหนือ'),
 	 (33,'ศรีสะเกษ','Si Sa Ket','ภาคตะวันออกเฉียงเหนือ'),
 	 (34,'อุบลราชธานี','Ubon Ratchathani','ภาคตะวันออกเฉียงเหนือ'),
@@ -70,7 +70,7 @@ INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VAL
 	 (39,'หนองบัวลำภู','Nong Bua Lam Phu','ภาคตะวันออกเฉียงเหนือ'),
 	 (40,'ขอนแก่น','Khon Kaen','ภาคตะวันออกเฉียงเหนือ'),
 	 (41,'อุดรธานี','Udon Thani','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
+INSERT INTO ProvinceDB.Province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
 	 (42,'เลย','Loei','ภาคตะวันออกเฉียงเหนือ'),
 	 (43,'หนองคาย','Nong Khai','ภาคตะวันออกเฉียงเหนือ'),
 	 (44,'มหาสารคาม','Maha Sarakham','ภาคตะวันออกเฉียงเหนือ'),
@@ -81,7 +81,7 @@ INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VAL
 	 (49,'มุกดาหาร','Mukdahan','ภาคตะวันออกเฉียงเหนือ'),
 	 (50,'เชียงใหม่','Chiang Mai','ภาคเหนือ'),
 	 (51,'ลำพูน','Lamphun','ภาคเหนือ');
-INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
+INSERT INTO ProvinceDB.Province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
 	 (52,'ลำปาง','Lampang','ภาคเหนือ'),
 	 (53,'อุตรดิตถ์','Uttaradit','ภาคเหนือ'),
 	 (54,'แพร่','Phrae','ภาคเหนือ'),
@@ -92,7 +92,7 @@ INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VAL
 	 (60,'นครสวรรค์','Nakhon Sawan','ภาคกลาง'),
 	 (61,'อุทัยธานี','Uthai Thani','ภาคกลาง'),
 	 (62,'กำแพงเพชร','Kamphaeng Phet','ภาคกลาง');
-INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
+INSERT INTO ProvinceDB.Province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
 	 (63,'ตาก','Tak','ภาคตะวันตก'),
 	 (64,'สุโขทัย','Sukhothai','ภาคกลาง'),
 	 (65,'พิษณุโลก','Phitsanulok','ภาคกลาง'),
@@ -103,7 +103,7 @@ INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VAL
 	 (72,'สุพรรณบุรี','Suphan Buri','ภาคกลาง'),
 	 (73,'นครปฐม','Nakhon Pathom','ภาคกลาง'),
 	 (74,'สมุทรสาคร','Samut Sakhon','ภาคกลาง');
-INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
+INSERT INTO ProvinceDB.Province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
 	 (75,'สมุทรสงคราม','Samut Songkhram','ภาคกลาง'),
 	 (76,'เพชรบุรี','Phetchaburi','ภาคตะวันตก'),
 	 (77,'ประจวบคีรีขันธ์','Prachuap Khiri Khan','ภาคตะวันตก'),
@@ -114,7 +114,7 @@ INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VAL
 	 (84,'สุราษฎร์ธานี','Surat Thani','ภาคใต้'),
 	 (85,'ระนอง','Ranong','ภาคใต้'),
 	 (86,'ชุมพร','Chumphon','ภาคใต้');
-INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
+INSERT INTO ProvinceDB.Province (ProvinceID,ProvinceThai,ProvinceEng,Region) VALUES
 	 (90,'สงขลา','Songkhla','ภาคใต้'),
 	 (91,'สตูล','Satun','ภาคใต้'),
 	 (92,'ตรัง','Trang','ภาคใต้'),
@@ -122,7 +122,7 @@ INSERT INTO ProvinceDB.province (ProvinceID,ProvinceThai,ProvinceEng,Region) VAL
 	 (94,'ปัตตานี','Pattani','ภาคใต้'),
 	 (95,'ยะลา','Yala','ภาคใต้'),
 	 (96,'นราธิวาส','Narathiwat','ภาคใต้');
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (10,1001,'พระนคร','Phra Nakhon',12),
 	 (10,1002,'ดุสิต','Dusit',5),
 	 (10,1003,'หนองจอก','Nong Chok',8),
@@ -133,7 +133,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (10,1008,'ป้อมปราบศัตรูพ่าย','Pom Prap Sattru Phai',5),
 	 (10,1009,'พระโขนง','Phra Khanong',2),
 	 (10,1010,'มีนบุรี','Min Buri',2);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (10,1011,'ลาดกระบัง','Lat Krabang',6),
 	 (10,1012,'ยานนาวา','Yan Nawa',2),
 	 (10,1013,'สัมพันธวงศ์','Samphanthawong',3),
@@ -144,7 +144,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (10,1018,'คลองสาน','Khlong San',4),
 	 (10,1019,'ตลิ่งชัน','Taling Chan',6),
 	 (10,1020,'บางกอกน้อย','Bangkok Noi',5);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (10,1021,'บางขุนเทียน','Bang Khun Thian',2),
 	 (10,1022,'ภาษีเจริญ','Phasi Charoen',7),
 	 (10,1023,'หนองแขม','Nong Khaem',2),
@@ -155,7 +155,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (10,1028,'สาทร','Sathon',3),
 	 (10,1029,'บางซื่อ','Bang Sue',2),
 	 (10,1030,'จตุจักร','Chatuchak',5);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (10,1031,'บางคอแหลม','Bang Kho Laem',3),
 	 (10,1032,'ประเวศ','Prawet',3),
 	 (10,1033,'คลองเตย','Khlong Toei',3),
@@ -166,7 +166,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (10,1038,'ลาดพร้าว','Lat Phrao',2),
 	 (10,1039,'วัฒนา','Vadhana',3),
 	 (10,1040,'บางแค','Bang Khae',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (10,1041,'หลักสี่','Lak Si',2),
 	 (10,1042,'สายไหม','Sai Mai',3),
 	 (10,1043,'คันนายาว','Khan Na Yao',2),
@@ -177,7 +177,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (10,1048,'ทวีวัฒนา','Thawi Watthana',2),
 	 (10,1049,'ทุ่งครุ','Thung Khru',2),
 	 (10,1050,'บางบอน','Bang Bon',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (11,1101,'เมืองสมุทรปราการ','Mueang Samut Prakan',13),
 	 (11,1102,'บางบ่อ','Bang Bo',8),
 	 (11,1103,'บางพลี','Bang Phli',6),
@@ -188,7 +188,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (12,1202,'บางกรวย','Bang Kruai',9),
 	 (12,1203,'บางใหญ่','Bang Yai',6),
 	 (12,1204,'บางบัวทอง','Bang Bua Thong',8);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (12,1205,'ไทรน้อย','Sai Noi',7),
 	 (12,1206,'ปากเกร็ด','Pak Kret',12),
 	 (13,1301,'เมืองปทุมธานี','Mueang Pathum Thani',14),
@@ -199,7 +199,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (13,1306,'ลำลูกกา','Lam Luk Ka',8),
 	 (13,1307,'สามโคก','Sam Khok',11),
 	 (14,1401,'พระนครศรีอยุธยา','Phra Nakhon Si Ayutthaya',21);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (14,1402,'ท่าเรือ','Tha Ruea',10),
 	 (14,1403,'นครหลวง','Nakhon Luang',12),
 	 (14,1404,'บางไทร','Bang Sai',23),
@@ -210,7 +210,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (14,1409,'ภาชี','Phachi',8),
 	 (14,1410,'ลาดบัวหลวง','Lat Bua Luang',7),
 	 (14,1411,'วังน้อย','Wang Noi',10);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (14,1412,'เสนา','Sena',17),
 	 (14,1413,'บางซ้าย','Bang Sai',6),
 	 (14,1414,'อุทัย','Uthai',11),
@@ -221,7 +221,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (15,1503,'ป่าโมก','Pa Mok',8),
 	 (15,1504,'โพธิ์ทอง','Pho Thong',15),
 	 (15,1505,'แสวงหา','Sawaeng Ha',7);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (15,1506,'วิเศษชัยชาญ','Wiset Chai Chan',15),
 	 (15,1507,'สามโก้','Samko',5),
 	 (16,1601,'เมืองลพบุรี','Mueang Lop Buri',24),
@@ -232,7 +232,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (16,1606,'บ้านหมี่','Ban Mi',22),
 	 (16,1607,'ท่าหลวง','Tha Luang',6),
 	 (16,1608,'สระโบสถ์','Sa Bot',5);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (16,1609,'โคกเจริญ','Khok Charoen',5),
 	 (16,1610,'ลำสนธิ','Lam Sonthi',6),
 	 (16,1611,'หนองม่วง','Nong Muang',6),
@@ -243,7 +243,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (17,1705,'ท่าช้าง','Tha Chang',4),
 	 (17,1706,'อินทร์บุรี','In Buri',10),
 	 (18,1801,'เมืองชัยนาท','Mueang Chai Nat',9);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (18,1802,'มโนรมย์','Manorom',7),
 	 (18,1803,'วัดสิงห์','Wat Sing',7),
 	 (18,1804,'สรรพยา','Sapphaya',7),
@@ -254,7 +254,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (19,1901,'เมืองสระบุรี','Mueang Saraburi',11),
 	 (19,1902,'แก่งคอย','Kaeng Khoi',14),
 	 (19,1903,'หนองแค','Nong Khae',18);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (19,1904,'วิหารแดง','Wihan Daeng',6),
 	 (19,1905,'หนองแซง','Nong Saeng',9),
 	 (19,1906,'บ้านหมอ','Ban Mo',9),
@@ -265,7 +265,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (19,1911,'มวกเหล็ก','Muak Lek',6),
 	 (19,1912,'วังม่วง','Wang Muang',3),
 	 (19,1913,'เฉลิมพระเกียรติ','Chaloem Phra Kiat',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (20,2001,'เมืองชลบุรี','Mueang Chon Buri',18),
 	 (20,2002,'บ้านบึง','Ban Bueng',8),
 	 (20,2003,'หนองใหญ่','Nong Yai',5),
@@ -276,7 +276,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (20,2008,'เกาะสีชัง','Ko Sichang',1),
 	 (20,2009,'สัตหีบ','Sattahip',5),
 	 (20,2010,'บ่อทอง','Bo Thong',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (20,2011,'เกาะจันทร์','Ko Chan',2),
 	 (21,2101,'เมืองระยอง','Mueang Rayong',15),
 	 (21,2102,'บ้านฉาง','Ban Chang',3),
@@ -287,7 +287,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (21,2107,'เขาชะเมา','Khao Chamao',4),
 	 (21,2108,'นิคมพัฒนา','Nikhom Phatthana',4),
 	 (22,2201,'เมืองจันทบุรี','Mueang Chanthaburi',11);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (22,2202,'ขลุง','Khlung',12),
 	 (22,2203,'ท่าใหม่','Tha Mai',14),
 	 (22,2204,'โป่งน้ำร้อน','Pong Nam Ron',5),
@@ -298,7 +298,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (22,2209,'นายายอาม','Na Yai Am',6),
 	 (22,2210,'เขาคิชฌกูฏ','Khao Khitchakut',5),
 	 (23,2301,'เมืองตราด','Mueang Trat',14);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (23,2302,'คลองใหญ่','Khlong Yai',3),
 	 (23,2303,'เขาสมิง','Khao Saming',8),
 	 (23,2304,'บ่อไร่','Bo Rai',5),
@@ -309,7 +309,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (24,2402,'บางคล้า','Bang Khla',9),
 	 (24,2403,'บางน้ำเปรี้ยว','Bang Nam Priao',10),
 	 (24,2404,'บางปะกง','Bang Pakong',12);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (24,2405,'บ้านโพธิ์','Ban Pho',17),
 	 (24,2406,'พนมสารคาม','Phanom Sarakham',8),
 	 (24,2407,'ราชสาส์น','Ratchasan',3),
@@ -320,7 +320,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (25,2501,'เมืองปราจีนบุรี','Mueang Prachin Buri',13),
 	 (25,2502,'กบินทร์บุรี','Kabin Buri',14),
 	 (25,2503,'นาดี','Na Di',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (25,2506,'บ้านสร้าง','Ban Sang',9),
 	 (25,2507,'ประจันตคาม','Prachantakham',9),
 	 (25,2508,'ศรีมหาโพธิ','Si Maha Phot',10),
@@ -331,7 +331,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (26,2604,'องครักษ์','Ongkharak',11),
 	 (27,2701,'เมืองสระแก้ว','Mueang Sa Kaeo',8),
 	 (27,2702,'คลองหาด','Khlong Hat',7);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (27,2703,'ตาพระยา','Ta Phraya',5),
 	 (27,2704,'วังน้ำเย็น','Wang Nam Yen',4),
 	 (27,2705,'วัฒนานคร','Watthana Nakhon',11),
@@ -342,7 +342,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (30,3001,'เมืองนครราชสีมา','Mueang Nakhon Ratchasima',25),
 	 (30,3002,'ครบุรี','Khon Buri',12),
 	 (30,3003,'เสิงสาง','Soeng Sang',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (30,3004,'คง','Khong',10),
 	 (30,3005,'บ้านเหลื่อม','Ban Lueam',4),
 	 (30,3006,'จักราช','Chakkarat',8),
@@ -353,7 +353,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (30,3011,'ขามสะแกแสง','Kham Sakaesaeng',7),
 	 (30,3012,'บัวใหญ่','Bua Yai',10),
 	 (30,3013,'ประทาย','Prathai',13);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (30,3014,'ปักธงชัย','Pak Thong Chai',16),
 	 (30,3015,'พิมาย','Phimai',12),
 	 (30,3016,'ห้วยแถลง','Huai Thalaeng',10),
@@ -364,7 +364,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (30,3021,'ปากช่อง','Pak Chong',12),
 	 (30,3022,'หนองบุญมาก','Nong Bunmak',9),
 	 (30,3023,'แก้งสนามนาง','Kaeng Sanam Nang',5);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (30,3024,'โนนแดง','Non Daeng',5),
 	 (30,3025,'วังน้ำเขียว','Wang Nam Khiao',5),
 	 (30,3026,'เทพารักษ์','Thepharak',4),
@@ -375,7 +375,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (30,3031,'สีดา','Sida',5),
 	 (30,3032,'เฉลิมพระเกียรติ','Chaloem Phra Kiat',5),
 	 (31,3101,'เมืองบุรีรัมย์','Mueang Buri Ram',19);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (31,3102,'คูเมือง','Khu Mueang',7),
 	 (31,3103,'กระสัง','Krasang',11),
 	 (31,3104,'นางรอง','Nang Rong',15),
@@ -386,7 +386,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (31,3109,'พุทไธสง','Phutthaisong',7),
 	 (31,3110,'ลำปลายมาศ','Lam Plai Mat',16),
 	 (31,3111,'สตึก','Satuek',12);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (31,3112,'ปะคำ','Pakham',5),
 	 (31,3113,'นาโพธิ์','Na Pho',5),
 	 (31,3114,'หนองหงส์','Nong Hong',7),
@@ -397,7 +397,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (31,3119,'บ้านใหม่ไชยพจน์','Ban Mai Chaiyaphot',5),
 	 (31,3120,'โนนดินแดง','Non Din Daeng',3),
 	 (31,3121,'บ้านด่าน','Ban Dan',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (31,3122,'แคนดง','Khaen Dong',4),
 	 (31,3123,'เฉลิมพระเกียรติ','Chaloem Phra Kiat',5),
 	 (32,3201,'เมืองสุรินทร์','Mueang Surin',21),
@@ -408,7 +408,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (32,3206,'กาบเชิง','Kap Choeng',6),
 	 (32,3207,'รัตนบุรี','Rattanaburi',12),
 	 (32,3208,'สนม','Sanom',7);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (32,3209,'ศีขรภูมิ','Sikhoraphum',15),
 	 (32,3210,'สังขะ','Sangkha',12),
 	 (32,3211,'ลำดวน','Lamduan',5),
@@ -419,7 +419,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (32,3216,'เขวาสินรินทร์','Khwao Sinrin',5),
 	 (32,3217,'โนนนารายณ์','Non Narai',5),
 	 (33,3301,'เมืองศรีสะเกษ','Mueang Si Sa Ket',18);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (33,3302,'ยางชุมน้อย','Yang Chum Noi',7),
 	 (33,3303,'กันทรารมย์','Kanthararom',16),
 	 (33,3304,'กันทรลักษ์','Kantharalak',20),
@@ -430,7 +430,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (33,3309,'ราษีไศล','Rasi Salai',13),
 	 (33,3310,'อุทุมพรพิสัย','Uthumphon Phisai',19),
 	 (33,3311,'บึงบูรพ์','Bueng Bun',2);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (33,3312,'ห้วยทับทัน','Huai Thap Than',6),
 	 (33,3313,'โนนคูณ','Non Khun',5),
 	 (33,3314,'ศรีรัตนะ','Si Rattana',7),
@@ -441,7 +441,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (33,3319,'เบญจลักษ์','Benchalak',5),
 	 (33,3320,'พยุห์','Phayu',5),
 	 (33,3321,'โพธิ์ศรีสุวรรณ','Pho Si Suwan',5);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (33,3322,'ศิลาลาด','Sila Lat',4),
 	 (34,3401,'เมืองอุบลราชธานี','Mueang Ubon Ratchathani',12),
 	 (34,3402,'ศรีเมืองใหม่','Si Mueang Mai',11),
@@ -452,7 +452,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (34,3408,'นาจะหลวย','Na Chaluai',6),
 	 (34,3409,'น้ำยืน','Nam Yuen',7),
 	 (34,3410,'บุณฑริก','Buntharik',8);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (34,3411,'ตระการพืชผล','Trakan Phuet Phon',23),
 	 (34,3412,'กุดข้าวปุ้น','Kut Khaopun',5),
 	 (34,3414,'ม่วงสามสิบ','Muang Sam Sip',14),
@@ -463,7 +463,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (34,3422,'สำโรง','Samrong',9),
 	 (34,3424,'ดอนมดแดง','Don Mot Daeng',4),
 	 (34,3425,'สิรินธร','Sirindhorn',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (34,3426,'ทุ่งศรีอุดม','Thung Si Udom',5),
 	 (34,3429,'นาเยีย','Na Yia',3),
 	 (34,3430,'นาตาล','Na Tan',4),
@@ -474,7 +474,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (35,3502,'ทรายมูล','Sai Mun',5),
 	 (35,3503,'กุดชุม','Kut Chum',9),
 	 (35,3504,'คำเขื่อนแก้ว','Kham Khuean Kaeo',13);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (35,3505,'ป่าติ้ว','Pa Tio',5),
 	 (35,3506,'มหาชนะชัย','Maha Chana Chai',10),
 	 (35,3507,'ค้อวัง','Kho Wang',4),
@@ -485,7 +485,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (36,3603,'คอนสวรรค์','Khon Sawan',9),
 	 (36,3604,'เกษตรสมบูรณ์','Kaset Sombun',11),
 	 (36,3605,'หนองบัวแดง','Nong Bua Daeng',8);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (36,3606,'จัตุรัส','Chatturat',9),
 	 (36,3607,'บำเหน็จณรงค์','Bamnet Narong',7),
 	 (36,3608,'หนองบัวระเหว','Nong Bua Rawe',5),
@@ -496,7 +496,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (36,3613,'คอนสาร','Khon San',8),
 	 (36,3614,'ภักดีชุมพล','Phakdi Chumphon',4),
 	 (36,3615,'เนินสง่า','Noen Sa-nga',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (36,3616,'ซับใหญ่','Sap Yai',3),
 	 (37,3701,'เมืองอำนาจเจริญ','Mueang Amnat Charoen',19),
 	 (37,3702,'ชานุมาน','Chanuman',5),
@@ -507,7 +507,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (37,3707,'ลืออำนาจ','Lue Amnat',7),
 	 (38,3801,'เมืองบึงกาฬ','Mueang Bueng Kan',12),
 	 (38,3802,'พรเจริญ','Phon Charoen',7);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (38,3803,'โซ่พิสัย','So Phisai',7),
 	 (38,3804,'เซกา','Seka',9),
 	 (38,3805,'ปากคาด','Pak Khat',6),
@@ -518,7 +518,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (39,3902,'นากลาง','Na Klang',9),
 	 (39,3903,'โนนสัง','Non Sang',10),
 	 (39,3904,'ศรีบุญเรือง','Si Bun Rueang',12);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (39,3905,'สุวรรณคูหา','Suwannakhuha',8),
 	 (39,3906,'นาวัง','Na Wang',5),
 	 (40,4001,'เมืองขอนแก่น','Mueang Khon Kaen',18),
@@ -529,7 +529,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (40,4006,'สีชมพู','Si Chomphu',10),
 	 (40,4007,'น้ำพอง','Nam Phong',12),
 	 (40,4008,'อุบลรัตน์','Ubolratana',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (40,4009,'กระนวน','Kranuan',9),
 	 (40,4010,'บ้านไผ่','Ban Phai',10),
 	 (40,4011,'เปือยน้อย','Pueai Noi',4),
@@ -540,7 +540,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (40,4016,'ภูเวียง','Phu Wiang',11),
 	 (40,4017,'มัญจาคีรี','Mancha Khiri',8),
 	 (40,4018,'ชนบท','Chonnabot',8);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (40,4019,'เขาสวนกวาง','Khao Suan Kwang',5),
 	 (40,4020,'ภูผาม่าน','Phu Pha Man',5),
 	 (40,4021,'ซำสูง','Sam Sung',5),
@@ -551,7 +551,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (40,4029,'เวียงเก่า','Wiang Kao',3),
 	 (41,4101,'เมืองอุดรธานี','Mueang Udon Thani',21),
 	 (41,4102,'กุดจับ','Kut Chap',7);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (41,4103,'หนองวัวซอ','Nong Wua So',8),
 	 (41,4104,'กุมภวาปี','Kumphawapi',13),
 	 (41,4105,'โนนสะอาด','Non Sa-at',6),
@@ -562,7 +562,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (41,4110,'วังสามหมอ','Wang Sam Mo',6),
 	 (41,4111,'บ้านดุง','Ban Dung',13),
 	 (41,4117,'บ้านผือ','Ban Phue',13);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (41,4118,'น้ำโสม','Nam Som',7),
 	 (41,4119,'เพ็ญ','Phen',11),
 	 (41,4120,'สร้างคอม','Sang Khom',6),
@@ -573,7 +573,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (41,4125,'ประจักษ์ศิลปาคม','Prachak Sinlapakhom',3),
 	 (42,4201,'เมืองเลย','Mueang Loei',14),
 	 (42,4202,'นาด้วง','Na Duang',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (42,4203,'เชียงคาน','Chiang Khan',8),
 	 (42,4204,'ปากชม','Pak Chom',6),
 	 (42,4205,'ด่านซ้าย','Dan Sai',10),
@@ -584,7 +584,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (42,4210,'ภูกระดึง','Phu Kradueng',4),
 	 (42,4211,'ภูหลวง','Phu Luang',5),
 	 (42,4212,'ผาขาว','Pha Khao',5);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (42,4213,'เอราวัณ','Erawan',4),
 	 (42,4214,'หนองหิน','Nong Hin',3),
 	 (43,4301,'เมืองหนองคาย','Mueang Nong Khai',16),
@@ -595,7 +595,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (43,4314,'สระใคร','Sakhrai',3),
 	 (43,4315,'เฝ้าไร่','Fao Rai',5),
 	 (43,4316,'รัตนวาปี','Rattanawapi',5);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (43,4317,'โพธิ์ตาก','Pho Tak',3),
 	 (44,4401,'เมืองมหาสารคาม','Mueang Maha Sarakham',14),
 	 (44,4402,'แกดำ','Kae Dam',5),
@@ -606,7 +606,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (44,4407,'นาเชือก','Na Chueak',10),
 	 (44,4408,'พยัคฆภูมิพิสัย','Phayakkhaphum Phisai',14),
 	 (44,4409,'วาปีปทุม','Wapi Pathum',15);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (44,4410,'นาดูน','Na Dun',9),
 	 (44,4411,'ยางสีสุราช','Yang Si Surat',7),
 	 (44,4412,'กุดรัง','Kut Rang',5),
@@ -617,7 +617,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (45,4504,'จตุรพักตรพิมาน','Chaturaphak Phiman',12),
 	 (45,4505,'ธวัชบุรี','Thawat Buri',12),
 	 (45,4506,'พนมไพร','Phanom Phrai',13);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (45,4507,'โพนทอง','Phon Thong',14),
 	 (45,4508,'โพธิ์ชัย','Pho Chai',9),
 	 (45,4509,'หนองพอก','Nong Phok',9),
@@ -628,7 +628,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (45,4514,'อาจสามารถ','At Samat',10),
 	 (45,4515,'เมยวดี','Moei Wadi',4),
 	 (45,4516,'ศรีสมเด็จ','Si Somdet',8);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (45,4517,'จังหาร','Changhan',8),
 	 (45,4518,'เชียงขวัญ','Chiang Khwan',6),
 	 (45,4519,'หนองฮี','Nong Hi',4),
@@ -639,7 +639,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (46,4604,'ร่องคำ','Rong Kham',3),
 	 (46,4605,'กุฉินารายณ์','Kuchinarai',12),
 	 (46,4606,'เขาวง','Khao Wong',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (46,4607,'ยางตลาด','Yang Talat',15),
 	 (46,4608,'ห้วยเม็ก','Huai Mek',9),
 	 (46,4609,'สหัสขันธ์','Sahatsakhan',8),
@@ -650,7 +650,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (46,4614,'ห้วยผึ้ง','Huai Phueng',4),
 	 (46,4615,'สามชัย','Sam Chai',4),
 	 (46,4616,'นาคู','Na Khu',5);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (46,4617,'ดอนจาน','Don Chan',5),
 	 (46,4618,'ฆ้องชัย','Khong Chai',5),
 	 (47,4701,'เมืองสกลนคร','Mueang Sakon Nakhon',16),
@@ -661,7 +661,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (47,4706,'วาริชภูมิ','Waritchaphum',5),
 	 (47,4707,'นิคมน้ำอูน','Nikhom Nam Un',4),
 	 (47,4708,'วานรนิวาส','Wanon Niwat',14);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (47,4709,'คำตากล้า','Kham Ta Kla',4),
 	 (47,4710,'บ้านม่วง','Ban Muang',9),
 	 (47,4711,'อากาศอำนวย','Akat Amnuai',8),
@@ -672,7 +672,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (47,4716,'เจริญศิลป์','Charoen Sin',5),
 	 (47,4717,'โพนนาแก้ว','Phon Na Kaeo',5),
 	 (47,4718,'ภูพาน','Phu Phan',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (48,4801,'เมืองนครพนม','Mueang Nakhon Phanom',15),
 	 (48,4802,'ปลาปาก','Pla Pak',8),
 	 (48,4803,'ท่าอุเทน','Tha Uthen',9),
@@ -683,7 +683,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (48,4808,'ศรีสงคราม','Si Songkhram',9),
 	 (48,4809,'นาหว้า','Na Wa',6),
 	 (48,4810,'โพนสวรรค์','Phon Sawan',7);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (48,4811,'นาทม','Na Thom',3),
 	 (48,4812,'วังยาง','Wang Yang',4),
 	 (49,4901,'เมืองมุกดาหาร','Mueang Mukdahan',13),
@@ -694,7 +694,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (49,4906,'หว้านใหญ่','Wan Yai',5),
 	 (49,4907,'หนองสูง','Nong Sung',6),
 	 (50,5001,'เมืองเชียงใหม่','Mueang Chiang Mai',16);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (50,5002,'จอมทอง','Chom Thong',6),
 	 (50,5003,'แม่แจ่ม','Mae Chaem',7),
 	 (50,5004,'เชียงดาว','Chiang Dao',7),
@@ -705,7 +705,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (50,5009,'ฝาง','Fang',8),
 	 (50,5010,'แม่อาย','Mae Ai',7),
 	 (50,5011,'พร้าว','Phrao',11);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (50,5012,'สันป่าตอง','San Pa Tong',11),
 	 (50,5013,'สันกำแพง','San Kamphaeng',10),
 	 (50,5014,'สันทราย','San Sai',12),
@@ -716,7 +716,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (50,5019,'สารภี','Saraphi',12),
 	 (50,5020,'เวียงแหง','Wiang Haeng',3),
 	 (50,5021,'ไชยปราการ','Chai Prakan',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (50,5022,'แม่วาง','Mae Wang',5),
 	 (50,5023,'แม่ออน','Mae On',6),
 	 (50,5024,'ดอยหล่อ','Doi Lo',4),
@@ -727,7 +727,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (51,5104,'ลี้','Li',8),
 	 (51,5105,'ทุ่งหัวช้าง','Thung Hua Chang',3),
 	 (51,5106,'ป่าซาง','Pa Sang',9);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (51,5107,'บ้านธิ','Ban Thi',2),
 	 (51,5108,'เวียงหนองล่อง','Wiang Nong Long',3),
 	 (52,5201,'เมืองลำปาง','Mueang Lampang',19),
@@ -738,7 +738,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (52,5206,'แจ้ห่ม','Chae Hom',7),
 	 (52,5207,'วังเหนือ','Wang Nuea',8),
 	 (52,5208,'เถิน','Thoen',8);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (52,5209,'แม่พริก','Mae Phrik',4),
 	 (52,5210,'แม่ทะ','Mae Tha',10),
 	 (52,5211,'สบปราบ','Sop Prap',4),
@@ -749,7 +749,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (53,5303,'ท่าปลา','Tha Pla',7),
 	 (53,5304,'น้ำปาด','Nam Pat',7),
 	 (53,5305,'ฟากท่า','Fak Tha',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (53,5306,'บ้านโคก','Ban Khok',4),
 	 (53,5307,'พิชัย','Phichai',11),
 	 (53,5308,'ลับแล','Laplae',8),
@@ -760,7 +760,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (54,5404,'สูงเม่น','Sung Men',12),
 	 (54,5405,'เด่นชัย','Den Chai',5),
 	 (54,5406,'สอง','Song',8);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (54,5407,'วังชิ้น','Wang Chin',7),
 	 (54,5408,'หนองม่วงไข่','Nong Muang Khai',6),
 	 (55,5501,'เมืองน่าน','Mueang Nan',11),
@@ -771,7 +771,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (55,5506,'ท่าวังผา','Tha Wang Pha',10),
 	 (55,5507,'เวียงสา','Wiang Sa',17),
 	 (55,5508,'ทุ่งช้าง','Thung Chang',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (55,5509,'เชียงกลาง','Chiang Klang',6),
 	 (55,5510,'นาหมื่น','Na Muen',4),
 	 (55,5511,'สันติสุข','Santi Suk',3),
@@ -782,7 +782,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (56,5601,'เมืองพะเยา','Mueang Phayao',15),
 	 (56,5602,'จุน','Chun',7),
 	 (56,5603,'เชียงคำ','Chiang Kham',10);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (56,5604,'เชียงม่วน','Chiang Muan',3),
 	 (56,5605,'ดอกคำใต้','Dok Khamtai',12),
 	 (56,5606,'ปง','Pong',7),
@@ -793,7 +793,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (57,5702,'เวียงชัย','Wiang Chai',5),
 	 (57,5703,'เชียงของ','Chiang Khong',7),
 	 (57,5704,'เทิง','Thoeng',10);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (57,5705,'พาน','Phan',15),
 	 (57,5706,'ป่าแดด','Pa Daet',5),
 	 (57,5707,'แม่จัน','Mae Chan',11),
@@ -804,7 +804,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (57,5712,'พญาเม็งราย','Phaya Mengrai',5),
 	 (57,5713,'เวียงแก่น','Wiang Kaen',4),
 	 (57,5714,'ขุนตาล','Khun Tan',3);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (57,5715,'แม่ฟ้าหลวง','Mae Fa Luang',4),
 	 (57,5716,'แม่ลาว','Mae Lao',5),
 	 (57,5717,'เวียงเชียงรุ้ง','Wiang Chiang Rung',3),
@@ -815,7 +815,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (58,5804,'แม่สะเรียง','Mae Sariang',7),
 	 (58,5805,'แม่ลาน้อย','Mae La Noi',8),
 	 (58,5806,'สบเมย','Sop Moei',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (58,5807,'ปางมะผ้า','Pang Mapha',4),
 	 (60,6001,'เมืองนครสวรรค์','Mueang Nakhon Sawan',17),
 	 (60,6002,'โกรกพระ','Krok Phra',9),
@@ -826,7 +826,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (60,6007,'ตาคลี','Takhli',10),
 	 (60,6008,'ท่าตะโก','Tha Tako',10),
 	 (60,6009,'ไพศาลี','Phaisali',8);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (60,6010,'พยุหะคีรี','Phayuha Khiri',11),
 	 (60,6011,'ลาดยาว','Lat Yao',12),
 	 (60,6012,'ตากฟ้า','Tak Fa',7),
@@ -837,7 +837,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (61,6102,'ทัพทัน','Thap Than',10),
 	 (61,6103,'สว่างอารมณ์','Sawang Arom',5),
 	 (61,6104,'หนองฉาง','Nong Chang',10);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (61,6105,'หนองขาหย่าง','Nong Khayang',9),
 	 (61,6106,'บ้านไร่','Ban Rai',13),
 	 (61,6107,'ลานสัก','Lan Sak',6),
@@ -848,7 +848,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (62,6204,'ขาณุวรลักษบุรี','Khanu Woralaksaburi',11),
 	 (62,6205,'คลองขลุง','Khlong Khlung',10),
 	 (62,6206,'พรานกระต่าย','Phran Kratai',10);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (62,6207,'ลานกระบือ','Lan Krabue',7),
 	 (62,6208,'ทรายทองวัฒนา','Sai Thong Watthana',3),
 	 (62,6209,'ปางศิลาทอง','Pang Sila Thong',3),
@@ -859,7 +859,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (63,6303,'สามเงา','Sam Ngao',6),
 	 (63,6304,'แม่ระมาด','Mae Ramat',6),
 	 (63,6305,'ท่าสองยาง','Tha Song Yang',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (63,6306,'แม่สอด','Mae Sot',10),
 	 (63,6307,'พบพระ','Phop Phra',5),
 	 (63,6308,'อุ้มผาง','Umphang',6),
@@ -870,7 +870,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (64,6404,'กงไกรลาศ','Kong Krailat',11),
 	 (64,6405,'ศรีสัชนาลัย','Si Satchanalai',11),
 	 (64,6406,'ศรีสำโรง','Si Samrong',13);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (64,6407,'สวรรคโลก','Sawankhalok',14),
 	 (64,6408,'ศรีนคร','Si Nakhon',5),
 	 (64,6409,'ทุ่งเสลี่ยม','Thung Saliam',5),
@@ -881,7 +881,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (65,6505,'บางกระทุ่ม','Bang Krathum',9),
 	 (65,6506,'พรหมพิราม','Phrom Phiram',12),
 	 (65,6507,'วัดโบสถ์','Wat Bot',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (65,6508,'วังทอง','Wang Thong',11),
 	 (65,6509,'เนินมะปราง','Noen Maprang',7),
 	 (66,6601,'เมืองพิจิตร','Mueang Phichit',16),
@@ -892,7 +892,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (66,6606,'โพทะเล','Pho Thale',11),
 	 (66,6607,'สามง่าม','Sam Ngam',5),
 	 (66,6608,'ทับคล้อ','Thap Khlo',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (66,6609,'สากเหล็ก','Sak Lek',5),
 	 (66,6610,'บึงนาราง','Bueng Na Rang',5),
 	 (66,6611,'ดงเจริญ','Dong Charoen',5),
@@ -903,7 +903,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (67,6704,'หล่มเก่า','Lom Kao',9),
 	 (67,6705,'วิเชียรบุรี','Wichian Buri',14),
 	 (67,6706,'ศรีเทพ','Si Thep',7);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (67,6707,'หนองไผ่','Nong Phai',13),
 	 (67,6708,'บึงสามพัน','Bueng Sam Phan',9),
 	 (67,6709,'น้ำหนาว','Nam Nao',4),
@@ -914,7 +914,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (70,7003,'สวนผึ้ง','Suan Phueng',4),
 	 (70,7004,'ดำเนินสะดวก','Damnoen Saduak',13),
 	 (70,7005,'บ้านโป่ง','Ban Pong',15);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (70,7006,'บางแพ','Bang Phae',7),
 	 (70,7007,'โพธาราม','Photharam',19),
 	 (70,7008,'ปากท่อ','Pak Tho',12),
@@ -925,7 +925,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (71,7103,'บ่อพลอย','Bo Phloi',6),
 	 (71,7104,'ศรีสวัสดิ์','Si Sawat',6),
 	 (71,7105,'ท่ามะกา','Tha Maka',17);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (71,7106,'ท่าม่วง','Tha Muang',13),
 	 (71,7107,'ทองผาภูมิ','Thong Pha Phum',7),
 	 (71,7108,'สังขละบุรี','Sangkhla Buri',3),
@@ -936,7 +936,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (71,7113,'ห้วยกระเจา','Huai Krachao',4),
 	 (72,7201,'เมืองสุพรรณบุรี','Mueang Suphan Buri',20),
 	 (72,7202,'เดิมบางนางบวช','Doem Bang Nang Buat',14);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (72,7203,'ด่านช้าง','Dan Chang',7),
 	 (72,7204,'บางปลาม้า','Bang Pla Ma',14),
 	 (72,7205,'ศรีประจันต์','Si Prachan',9),
@@ -947,7 +947,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (72,7210,'หนองหญ้าไซ','Nong Ya Sai',6),
 	 (73,7301,'เมืองนครปฐม','Mueang Nakhon Pathom',25),
 	 (73,7302,'กำแพงแสน','Kamphaeng Saen',15);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (73,7303,'นครชัยศรี','Nakhon Chai Si',24),
 	 (73,7304,'ดอนตูม','Don Tum',8),
 	 (73,7305,'บางเลน','Bang Len',15),
@@ -958,7 +958,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (74,7403,'บ้านแพ้ว','Ban Phaeo',12),
 	 (75,7501,'เมืองสมุทรสงคราม','Mueang Samut Songkhram',11),
 	 (75,7502,'บางคนที','Bang Khonthi',13);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (75,7503,'อัมพวา','Amphawa',12),
 	 (76,7601,'เมืองเพชรบุรี','Mueang Phetchaburi',24),
 	 (76,7602,'เขาย้อย','Khao Yoi',10),
@@ -969,7 +969,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (76,7607,'บ้านแหลม','Ban Laem',10),
 	 (76,7608,'แก่งกระจาน','Kaeng Krachan',6),
 	 (77,7701,'เมืองประจวบคีรีขันธ์','Mueang Prachuap Khiri Khan',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (77,7702,'กุยบุรี','Kui Buri',6),
 	 (77,7703,'ทับสะแก','Thap Sakae',6),
 	 (77,7704,'บางสะพาน','Bang Saphan',7),
@@ -980,7 +980,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (80,8001,'เมืองนครศรีธรรมราช','Mueang Nakhon Si Thammarat',16),
 	 (80,8002,'พรหมคีรี','Phrom Khiri',5),
 	 (80,8003,'ลานสกา','Lan Saka',5);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (80,8004,'ฉวาง','Chawang',10),
 	 (80,8005,'พิปูน','Phipun',5),
 	 (80,8006,'เชียรใหญ่','Chian Yai',10),
@@ -991,7 +991,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (80,8011,'ทุ่งใหญ่','Thung Yai',7),
 	 (80,8012,'ปากพนัง','Pak Phanang',18),
 	 (80,8013,'ร่อนพิบูลย์','Ron Phibun',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (80,8014,'สิชล','Sichon',9),
 	 (80,8015,'ขนอม','Khanom',3),
 	 (80,8016,'หัวไทร','Hua Sai',11),
@@ -1002,7 +1002,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (80,8021,'นบพิตำ','Nopphitam',4),
 	 (80,8022,'ช้างกลาง','Chang Klang',3),
 	 (80,8023,'เฉลิมพระเกียรติ','Chaloem Phra Kiat',4);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (81,8101,'เมืองกระบี่','Mueang Krabi',10),
 	 (81,8102,'เขาพนม','Khao Phanom',6),
 	 (81,8103,'เกาะลันตา','Ko Lanta',5),
@@ -1013,7 +1013,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (81,8108,'เหนือคลอง','Nuea Khlong',8),
 	 (82,8201,'เมืองพังงา','Mueang Phang-nga',9),
 	 (82,8202,'เกาะยาว','Ko Yao',3);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (82,8203,'กะปง','Kapong',5),
 	 (82,8204,'ตะกั่วทุ่ง','Takua Thung',7),
 	 (82,8205,'ตะกั่วป่า','Takua Pa',8),
@@ -1024,7 +1024,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (83,8302,'กะทู้','Kathu',3),
 	 (83,8303,'ถลาง','Thalang',6),
 	 (84,8401,'เมืองสุราษฎร์ธานี','Mueang Surat Thani',11);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (84,8402,'กาญจนดิษฐ์','Kanchanadit',13),
 	 (84,8403,'ดอนสัก','Don Sak',4),
 	 (84,8404,'เกาะสมุย','Ko Samui',7),
@@ -1035,7 +1035,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (84,8409,'บ้านตาขุน','Ban Ta Khun',4),
 	 (84,8410,'พนม','Phanom',6),
 	 (84,8411,'ท่าฉาง','Tha Chang',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (84,8412,'บ้านนาสาร','Ban Na San',11),
 	 (84,8413,'บ้านนาเดิม','Ban Na Doem',4),
 	 (84,8414,'เคียนซา','Khian Sa',5),
@@ -1046,7 +1046,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (84,8419,'วิภาวดี','Vibhavadi',2),
 	 (85,8501,'เมืองระนอง','Mueang Ranong',9),
 	 (85,8502,'ละอุ่น','La-un',7);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (85,8503,'กะเปอร์','Kapoe',5),
 	 (85,8504,'กระบุรี','Kra Buri',7),
 	 (85,8505,'สุขสำราญ','Suk Samran',2),
@@ -1057,7 +1057,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (86,8605,'ละแม','Lamae',4),
 	 (86,8606,'พะโต๊ะ','Phato',4),
 	 (86,8607,'สวี','Sawi',11);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (86,8608,'ทุ่งตะโก','Thung Tako',4),
 	 (90,9001,'เมืองสงขลา','Mueang Songkhla',6),
 	 (90,9002,'สทิงพระ','Sathing Phra',11),
@@ -1068,7 +1068,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (90,9007,'ระโนด','Ranot',12),
 	 (90,9008,'กระแสสินธุ์','Krasae Sin',4),
 	 (90,9009,'รัตภูมิ','Rattaphum',5);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (90,9010,'สะเดา','Sadao',9),
 	 (90,9011,'หาดใหญ่','Hat Yai',13),
 	 (90,9012,'นาหม่อม','Na Mom',4),
@@ -1079,7 +1079,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (91,9101,'เมืองสตูล','Mueang Satun',12),
 	 (91,9102,'ควนโดน','Khuan Don',4),
 	 (91,9103,'ควนกาหลง','Khuan Kalong',3);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (91,9104,'ท่าแพ','Tha Phae',4),
 	 (91,9105,'ละงู','La-ngu',6),
 	 (91,9106,'ทุ่งหว้า','Thung Wa',5),
@@ -1090,7 +1090,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (92,9204,'ปะเหลียน','Palian',10),
 	 (92,9205,'สิเกา','Sikao',5),
 	 (92,9206,'ห้วยยอด','Huai Yot',16);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (92,9207,'วังวิเศษ','Wang Wiset',5),
 	 (92,9208,'นาโยง','Na Yong',6),
 	 (92,9209,'รัษฎา','Ratsada',5),
@@ -1101,7 +1101,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (93,9304,'ตะโหมด','Tamot',3),
 	 (93,9305,'ควนขนุน','Khuan Khanun',12),
 	 (93,9306,'ปากพะยูน','Pak Phayun',7);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (93,9307,'ศรีบรรพต','Si Banphot',3),
 	 (93,9308,'ป่าบอน','Pa Bon',5),
 	 (93,9309,'บางแก้ว','Bang Kaeo',3),
@@ -1112,7 +1112,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (94,9403,'หนองจิก','Nong Chik',12),
 	 (94,9404,'ปะนาเระ','Panare',10),
 	 (94,9405,'มายอ','Mayo',13);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (94,9406,'ทุ่งยางแดง','Thung Yang Daeng',4),
 	 (94,9407,'สายบุรี','Sai Buri',11),
 	 (94,9408,'ไม้แก่น','Mai Kaen',4),
@@ -1123,7 +1123,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (95,9501,'เมืองยะลา','Mueang Yala',14),
 	 (95,9502,'เบตง','Betong',5),
 	 (95,9503,'บันนังสตา','Bannang Sata',6);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (95,9504,'ธารโต','Than To',4),
 	 (95,9505,'ยะหา','Yaha',7),
 	 (95,9506,'รามัน','Raman',16),
@@ -1134,7 +1134,7 @@ INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,Distric
 	 (96,9603,'บาเจาะ','Bacho',6),
 	 (96,9604,'ยี่งอ','Yi-ngo',6),
 	 (96,9605,'ระแงะ','Ra-ngae',7);
-INSERT INTO ProvinceDB.district (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
+INSERT INTO ProvinceDB.District (ProvinceID,DistrictID,DistrictThaiShort,DistrictEngShort,DistrictCNT) VALUES
 	 (96,9606,'รือเสาะ','Rueso',9),
 	 (96,9607,'ศรีสาคร','Si Sakhon',6),
 	 (96,9608,'แว้ง','Waeng',6),
@@ -9323,7 +9323,7 @@ INSERT INTO ProvinceDB.Tambon (DistrictID,TambonID,TambonThaiShort,TambonEngShor
 	 (9613,961301,'จวบ','Chuap'),
 	 (9613,961302,'บูกิต','Bukit'),
 	 (9613,961303,'มะรือโบออก','Maruebo Ok');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (101301,10100,'จักรวรรดิ','สัมพันธวงศ์','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100804,10100,'บ้านบาตร','ป้อมปราบศัตรูพ่าย','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100801,10100,'ป้อมปราบ','ป้อมปราบศัตรูพ่าย','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9334,7 +9334,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (100805,10100,'วัดโสมนัส','ป้อมปราบศัตรูพ่าย','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103302,10110,'คลองตัน','คลองเตย','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103902,10110,'คลองตันเหนือ','วัฒนา','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (103301,10110,'คลองเตย','คลองเตย','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103901,10110,'คลองเตยเหนือ','วัฒนา','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103303,10110,'พระโขนง','คลองเตย','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9345,7 +9345,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (103103,10120,'บางโคล่','บางคอแหลม','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102801,10120,'ทุ่งวัดดอน','สาทร','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102802,10120,'ยานนาวา','สาทร','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (102803,10120,'ทุ่งมหาเมฆ','สาทร','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103101,10120,'บางคอแหลม','บางคอแหลม','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103102,10120,'วัดพระยาไกร','บางคอแหลม','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9356,7 +9356,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (110402,10130,'บางพึ่ง','พระประแดง','สมุทรปราการ','ภาคกลาง'),
 	 (110412,10130,'บางกอบัว','พระประแดง','สมุทรปราการ','ภาคกลาง'),
 	 (110404,10130,'บางครุ','พระประแดง','สมุทรปราการ','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (110411,10130,'บางกระสอบ','พระประแดง','สมุทรปราการ','ภาคกลาง'),
 	 (110407,10130,'สำโรงใต้','พระประแดง','สมุทรปราการ','ภาคกลาง'),
 	 (110410,10130,'บางน้ำผึ้ง','พระประแดง','สมุทรปราการ','ภาคกลาง'),
@@ -9367,7 +9367,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (110401,10130,'ตลาด','พระประแดง','สมุทรปราการ','ภาคกลาง'),
 	 (110415,10130,'สำโรงกลาง','พระประแดง','สมุทรปราการ','ภาคกลาง'),
 	 (102401,10140,'ราษฎร์บูรณะ','ราษฎร์บูรณะ','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (102402,10140,'บางปะกอก','ราษฎร์บูรณะ','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104902,10140,'ทุ่งครุ','ทุ่งครุ','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104901,10140,'บางมด','ทุ่งครุ','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9378,7 +9378,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (103504,10150,'จอมทอง','จอมทอง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (105002,10150,'บางบอนเหนือ','บางบอน','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103503,10150,'บางมด','จอมทอง','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (103502,10150,'บางค้อ','จอมทอง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103501,10150,'บางขุนเทียน','จอมทอง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102105,10150,'ท่าข้าม','บางขุนเทียน','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9389,7 +9389,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (104002,10160,'บางแคเหนือ','บางแค','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104001,10160,'บางแค','บางแค','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102208,10160,'คลองขวาง','ภาษีเจริญ','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (102202,10160,'บางด้วน','ภาษีเจริญ','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102302,10160,'หนองแขม','หนองแขม','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102206,10160,'บางจาก','ภาษีเจริญ','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9400,7 +9400,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (101905,10170,'บางระมาด','ตลิ่งชัน','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104801,10170,'ทวีวัฒนา','ทวีวัฒนา','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101907,10170,'บางเชือกหนัง','ตลิ่งชัน','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (101902,10170,'ตลิ่งชัน','ตลิ่งชัน','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101901,10170,'คลองชักพระ','ตลิ่งชัน','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101903,10170,'ฉิมพลี','ตลิ่งชัน','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9411,7 +9411,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (100106,10200,'เสาชิงช้า','พระนคร','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100105,10200,'ศาลเจ้าพ่อเสือ','พระนคร','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100111,10200,'บางขุนพรหม','พระนคร','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (100112,10200,'วัดสามพระยา','พระนคร','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100104,10200,'สำราญราษฎร์','พระนคร','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100110,10200,'บ้านพานถม','พระนคร','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9422,7 +9422,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (103605,10210,'สนามบิน','ดอนเมือง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104101,10210,'ทุ่งสองห้อง','หลักสี่','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104102,10210,'ตลาดบางเขน','หลักสี่','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (103604,10210,'ดอนเมือง','ดอนเมือง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104203,10220,'คลองถนน','สายไหม','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104202,10220,'ออเงิน','สายไหม','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9433,7 +9433,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (104301,10230,'คันนายาว','คันนายาว','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102705,10230,'นวลจันทร์','บึงกุ่ม','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103802,10230,'จรเข้บัว','ลาดพร้าว','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (103801,10230,'ลาดพร้าว','ลาดพร้าว','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100508,10230,'ท่าแร้ง','บางเขน','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102701,10230,'คลองกุ่ม','บึงกุ่ม','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9444,7 +9444,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (102701,10240,'คลองกุ่ม','บึงกุ่ม','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100608,10240,'หัวหมาก','บางกะปิ','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103402,10250,'อ่อนนุช','สวนหลวง','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (104403,10250,'ทับช้าง','สะพานสูง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103401,10250,'สวนหลวง','สวนหลวง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103203,10250,'ดอกไม้','ประเวศ','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9455,7 +9455,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (100608,10250,'หัวหมาก','บางกะปิ','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100910,10260,'พระโขนงใต้','พระโขนง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104703,10260,'บางนาใต้','บางนา','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (104702,10260,'บางนาเหนือ','บางนา','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100905,10260,'บางจาก','พระโขนง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103303,10260,'พระโขนง','คลองเตย','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9466,7 +9466,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (110115,10270,'เทพารักษ์','เมืองสมุทรปราการ','สมุทรปราการ','ภาคกลาง'),
 	 (110103,10270,'บางเมือง','เมืองสมุทรปราการ','สมุทรปราการ','ภาคกลาง'),
 	 (110102,10270,'สำโรงเหนือ','เมืองสมุทรปราการ','สมุทรปราการ','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (110101,10270,'ปากน้ำ','เมืองสมุทรปราการ','สมุทรปราการ','ภาคกลาง'),
 	 (110117,10280,'แพรกษาใหม่','เมืองสมุทรปราการ','สมุทรปราการ','ภาคกลาง'),
 	 (110104,10280,'ท้ายบ้าน','เมืองสมุทรปราการ','สมุทรปราการ','ภาคกลาง'),
@@ -9477,7 +9477,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (110501,10290,'นาเกลือ','พระสมุทรเจดีย์','สมุทรปราการ','ภาคกลาง'),
 	 (110502,10290,'บ้านคลองสวน','พระสมุทรเจดีย์','สมุทรปราการ','ภาคกลาง'),
 	 (110503,10290,'แหลมฟ้าผ่า','พระสมุทรเจดีย์','สมุทรปราการ','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (110504,10290,'ปากคลองบางปลากด','พระสมุทรเจดีย์','สมุทรปราการ','ภาคกลาง'),
 	 (110505,10290,'ในคลองบางปลากด','พระสมุทรเจดีย์','สมุทรปราการ','ภาคกลาง'),
 	 (100206,10300,'ถนนนครไชยศรี','ดุสิต','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9488,7 +9488,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (100203,10303,'สวนจิตรลดา','ดุสิต','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101701,10310,'ห้วยขวาง','ห้วยขวาง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101702,10310,'บางกะปิ','ห้วยขวาง','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (101704,10310,'สามเสนนอก','ห้วยขวาง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104504,10310,'พลับพลา','วังทองหลาง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104503,10310,'คลองเจ้าคุณสิงห์','วังทองหลาง','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9499,7 +9499,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (100704,10330,'ลุมพินี','ปทุมวัน','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100702,10330,'วังใหม่','ปทุมวัน','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102601,10400,'ดินแดง','ดินแดง','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (103704,10400,'มักกะสัน','ราชเทวี','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103703,10400,'ถนนเพชรบุรี','ราชเทวี','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103702,10400,'ถนนพญาไท','ราชเทวี','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9510,7 +9510,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (100702,10400,'วังใหม่','ปทุมวัน','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100403,10500,'สุริยวงศ์','บางรัก','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100402,10500,'สีลม','บางรัก','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (100404,10500,'บางรัก','บางรัก','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100405,10500,'สี่พระยา','บางรัก','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100401,10500,'มหาพฤฒาราม','บางรัก','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9521,7 +9521,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (104602,10510,'สามวาตะวันออก','คลองสามวา','กรุงเทพมหานคร','ภาคกลาง'),
 	 (104601,10510,'สามวาตะวันตก','คลองสามวา','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101001,10510,'มีนบุรี','มีนบุรี','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (101002,10510,'แสนแสบ','มีนบุรี','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101105,10520,'ทับยาว','ลาดกระบัง','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101104,10520,'ลำปลาทิว','ลาดกระบัง','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9532,7 +9532,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (100307,10530,'ลำผักชี','หนองจอก','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100301,10530,'กระทุ่มราย','หนองจอก','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100302,10530,'หนองจอก','หนองจอก','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (100303,10530,'คลองสิบ','หนองจอก','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100304,10530,'คลองสิบสอง','หนองจอก','กรุงเทพมหานคร','ภาคกลาง'),
 	 (100305,10530,'โคกแฝด','หนองจอก','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9543,7 +9543,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (110308,10540,'ราชาเทวะ','บางพลี','สมุทรปราการ','ภาคกลาง'),
 	 (110303,10540,'บางปลา','บางพลี','สมุทรปราการ','ภาคกลาง'),
 	 (110304,10540,'บางโฉลง','บางพลี','สมุทรปราการ','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (110309,10540,'หนองปรือ','บางพลี','สมุทรปราการ','ภาคกลาง'),
 	 (110205,10550,'คลองด่าน','บางบ่อ','สมุทรปราการ','ภาคกลาง'),
 	 (110208,10560,'คลองนิยมยาตรา','บางบ่อ','สมุทรปราการ','ภาคกลาง'),
@@ -9554,7 +9554,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (110202,10560,'บ้านระกาศ','บางบ่อ','สมุทรปราการ','ภาคกลาง'),
 	 (110201,10560,'บางบ่อ','บางบ่อ','สมุทรปราการ','ภาคกลาง'),
 	 (110603,10570,'ศีรษะจรเข้ใหญ่','บางเสาธง','สมุทรปราการ','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (110602,10570,'ศีรษะจรเข้น้อย','บางเสาธง','สมุทรปราการ','ภาคกลาง'),
 	 (110601,10570,'บางเสาธง','บางเสาธง','สมุทรปราการ','ภาคกลาง'),
 	 (101601,10600,'วัดอรุณ','บางกอกใหญ่','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9565,7 +9565,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (101506,10600,'ดาวคะนอง','ธนบุรี','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101505,10600,'ตลาดพลู','ธนบุรี','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101504,10600,'บุคคโล','ธนบุรี','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (101804,10600,'คลองต้นไทร','คลองสาน','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101803,10600,'บางลำภูล่าง','คลองสาน','กรุงเทพมหานคร','ภาคกลาง'),
 	 (101802,10600,'คลองสาน','คลองสาน','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9576,7 +9576,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (102503,10700,'บางบำหรุ','บางพลัด','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102004,10700,'ศิริราช','บางกอกน้อย','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102502,10700,'บางอ้อ','บางพลัด','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (102005,10700,'บ้านช่างหล่อ','บางกอกน้อย','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102009,10700,'อรุณอมรินทร์','บางกอกน้อย','กรุงเทพมหานคร','ภาคกลาง'),
 	 (102006,10700,'บางขุนนนท์','บางกอกน้อย','กรุงเทพมหานคร','ภาคกลาง'),
@@ -9587,7 +9587,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (103005,10900,'จตุจักร','จตุจักร','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103003,10900,'จันทรเกษม','จตุจักร','กรุงเทพมหานคร','ภาคกลาง'),
 	 (103002,10900,'เสนานิคม','จตุจักร','กรุงเทพมหานคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (103001,10900,'ลาดยาว','จตุจักร','กรุงเทพมหานคร','ภาคกลาง'),
 	 (120110,11000,'บางรักน้อย','เมืองนนทบุรี','นนทบุรี','ภาคกลาง'),
 	 (120109,11000,'ไทรม้า','เมืองนนทบุรี','นนทบุรี','ภาคกลาง'),
@@ -9598,7 +9598,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (120103,11000,'บางเขน','เมืองนนทบุรี','นนทบุรี','ภาคกลาง'),
 	 (120102,11000,'ตลาดขวัญ','เมืองนนทบุรี','นนทบุรี','ภาคกลาง'),
 	 (120101,11000,'สวนใหญ่','เมืองนนทบุรี','นนทบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (120105,11000,'ท่าทราย','เมืองนนทบุรี','นนทบุรี','ภาคกลาง'),
 	 (120401,11110,'โสนลอย','บางบัวทอง','นนทบุรี','ภาคกลาง'),
 	 (120407,11110,'พิมลราช','บางบัวทอง','นนทบุรี','ภาคกลาง'),
@@ -9609,7 +9609,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (120404,11110,'บางคูรัด','บางบัวทอง','นนทบุรี','ภาคกลาง'),
 	 (120403,11110,'บางรักใหญ่','บางบัวทอง','นนทบุรี','ภาคกลาง'),
 	 (120612,11120,'คลองเกลือ','ปากเกร็ด','นนทบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (120610,11120,'คลองข่อย','ปากเกร็ด','นนทบุรี','ภาคกลาง'),
 	 (120609,11120,'อ้อมเกร็ด','ปากเกร็ด','นนทบุรี','ภาคกลาง'),
 	 (120608,11120,'เกาะเกร็ด','ปากเกร็ด','นนทบุรี','ภาคกลาง'),
@@ -9620,7 +9620,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (120604,11120,'บางพูด','ปากเกร็ด','นนทบุรี','ภาคกลาง'),
 	 (120603,11120,'บ้านใหม่','ปากเกร็ด','นนทบุรี','ภาคกลาง'),
 	 (120602,11120,'บางตลาด','ปากเกร็ด','นนทบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (120607,11120,'ท่าอิฐ','ปากเกร็ด','นนทบุรี','ภาคกลาง'),
 	 (120208,11130,'ปลายบาง','บางกรวย','นนทบุรี','ภาคกลาง'),
 	 (120207,11130,'มหาสวัสดิ์','บางกรวย','นนทบุรี','ภาคกลาง'),
@@ -9631,7 +9631,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (120202,11130,'บางกรวย','บางกรวย','นนทบุรี','ภาคกลาง'),
 	 (120201,11130,'วัดชลอ','บางกรวย','นนทบุรี','ภาคกลาง'),
 	 (120204,11130,'บางขนุน','บางกรวย','นนทบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (120304,11140,'เสาธงหิน','บางใหญ่','นนทบุรี','ภาคกลาง'),
 	 (120303,11140,'บางเลน','บางใหญ่','นนทบุรี','ภาคกลาง'),
 	 (120306,11140,'บ้านใหม่','บางใหญ่','นนทบุรี','ภาคกลาง'),
@@ -9642,7 +9642,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (120503,11150,'หนองเพรางาย','ไทรน้อย','นนทบุรี','ภาคกลาง'),
 	 (120502,11150,'ราษฎร์นิยม','ไทรน้อย','นนทบุรี','ภาคกลาง'),
 	 (120501,11150,'ไทรน้อย','ไทรน้อย','นนทบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (120507,11150,'ทวีวัฒนา','ไทรน้อย','นนทบุรี','ภาคกลาง'),
 	 (120506,11150,'คลองขวาง','ไทรน้อย','นนทบุรี','ภาคกลาง'),
 	 (120504,11150,'ไทรใหญ่','ไทรน้อย','นนทบุรี','ภาคกลาง'),
@@ -9653,7 +9653,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (130109,12000,'บางเดื่อ','เมืองปทุมธานี','ปทุมธานี','ภาคกลาง'),
 	 (130111,12000,'บางพูน','เมืองปทุมธานี','ปทุมธานี','ภาคกลาง'),
 	 (130112,12000,'บางกะดี','เมืองปทุมธานี','ปทุมธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (130113,12000,'สวนพริกไทย','เมืองปทุมธานี','ปทุมธานี','ภาคกลาง'),
 	 (130114,12000,'หลักหก','เมืองปทุมธานี','ปทุมธานี','ภาคกลาง'),
 	 (130103,12000,'บ้านกลาง','เมืองปทุมธานี','ปทุมธานี','ภาคกลาง'),
@@ -9664,7 +9664,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (130303,12110,'รังสิต','ธัญบุรี','ปทุมธานี','ภาคกลาง'),
 	 (130304,12110,'ลำผักกูด','ธัญบุรี','ปทุมธานี','ภาคกลาง'),
 	 (130306,12110,'บึงน้ำรักษ์','ธัญบุรี','ปทุมธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (130305,12110,'บึงสนั่น','ธัญบุรี','ปทุมธานี','ภาคกลาง'),
 	 (130205,12110,'คลองห้า','คลองหลวง','ปทุมธานี','ภาคกลาง'),
 	 (130206,12110,'คลองหก','คลองหลวง','ปทุมธานี','ภาคกลาง'),
@@ -9675,7 +9675,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (130201,12120,'คลองหนึ่ง','คลองหลวง','ปทุมธานี','ภาคกลาง'),
 	 (130205,12120,'คลองห้า','คลองหลวง','ปทุมธานี','ภาคกลาง'),
 	 (130206,12120,'คลองหก','คลองหลวง','ปทุมธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (130201,12121,'คลองหนึ่ง','คลองหลวง','ปทุมธานี','ภาคกลาง'),
 	 (130301,12130,'ประชาธิปัตย์','ธัญบุรี','ปทุมธานี','ภาคกลาง'),
 	 (130302,12130,'บึงยี่โถ','ธัญบุรี','ปทุมธานี','ภาคกลาง'),
@@ -9686,7 +9686,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (130504,12140,'คูขวาง','ลาดหลุมแก้ว','ปทุมธานี','ภาคกลาง'),
 	 (130503,12140,'คูบางหลวง','ลาดหลุมแก้ว','ปทุมธานี','ภาคกลาง'),
 	 (130507,12140,'หน้าไม้','ลาดหลุมแก้ว','ปทุมธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (130502,12140,'ลาดหลุมแก้ว','ลาดหลุมแก้ว','ปทุมธานี','ภาคกลาง'),
 	 (130602,12150,'ลาดสวาย','ลำลูกกา','ปทุมธานี','ภาคกลาง'),
 	 (130608,12150,'พืชอุดม','ลำลูกกา','ปทุมธานี','ภาคกลาง'),
@@ -9697,7 +9697,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (130607,12150,'บึงคอไห','ลำลูกกา','ปทุมธานี','ภาคกลาง'),
 	 (130710,12160,'บางกระบือ','สามโคก','ปทุมธานี','ภาคกลาง'),
 	 (130703,12160,'สามโคก','สามโคก','ปทุมธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (130711,12160,'ท้ายเกาะ','สามโคก','ปทุมธานี','ภาคกลาง'),
 	 (130705,12160,'บางโพธิ์เหนือ','สามโคก','ปทุมธานี','ภาคกลาง'),
 	 (130702,12160,'คลองควาย','สามโคก','ปทุมธานี','ภาคกลาง'),
@@ -9708,7 +9708,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (130708,12160,'บ้านงิ้ว','สามโคก','ปทุมธานี','ภาคกลาง'),
 	 (130704,12160,'กระแชง','สามโคก','ปทุมธานี','ภาคกลาง'),
 	 (130401,12170,'บึงบา','หนองเสือ','ปทุมธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (130407,12170,'นพรัตน์','หนองเสือ','ปทุมธานี','ภาคกลาง'),
 	 (130406,12170,'ศาลาครุ','หนองเสือ','ปทุมธานี','ภาคกลาง'),
 	 (130405,12170,'หนองสามวัง','หนองเสือ','ปทุมธานี','ภาคกลาง'),
@@ -9719,7 +9719,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140102,13000,'กะมัง','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140116,13000,'บ้านเกาะ','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140117,13000,'คลองสวนพลู','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140114,13000,'ลุมพลี','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140118,13000,'คลองสระบัว','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140119,13000,'เกาะเรียน','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9730,7 +9730,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140111,13000,'คลองตะเคียน','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140101,13000,'ประตูชัย','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140109,13000,'สำเภาล่ม','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140108,13000,'ภูเขาทอง','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140110,13000,'สวนพริก','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140115,13000,'บ้านใหม่','พระนครศรีอยุธยา','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9741,7 +9741,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (141411,13000,'ข้าวเม่า','อุทัย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141410,13000,'ธนู','อุทัย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141217,13110,'เจ้าเสด็จ','เสนา','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (141216,13110,'บ้านหลวง','เสนา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141215,13110,'ดอนทอง','เสนา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141214,13110,'ลาดงา','เสนา','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9752,7 +9752,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (141213,13110,'สามตุ่ม','เสนา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141205,13110,'บางนมโค','เสนา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141206,13110,'หัวเวียง','เสนา','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (141207,13110,'มารวิชัย','เสนา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141212,13110,'ชายนา','เสนา','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141208,13110,'บ้านโพธิ์','เสนา','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9763,7 +9763,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140816,13120,'บ้านใหญ่','ผักไห่','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140811,13120,'โคกช้าง','ผักไห่','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140809,13120,'กุฎี','ผักไห่','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140806,13120,'ท่าดินแดง','ผักไห่','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140805,13120,'ตาลาน','ผักไห่','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140803,13120,'บ้านแค','ผักไห่','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9774,7 +9774,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140201,13130,'ท่าเรือ','ท่าเรือ','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140202,13130,'จำปา','ท่าเรือ','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140209,13130,'หนองขนาก','ท่าเรือ','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140210,13130,'ท่าเจ้าสนุก','ท่าเรือ','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140208,13130,'ปากท่า','ท่าเรือ','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140206,13130,'วังแดง','ท่าเรือ','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9785,7 +9785,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140902,13140,'โคกม่วง','ภาชี','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140904,13140,'หนองน้ำใส','ภาชี','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140905,13140,'ดอนหญ้านาง','ภาชี','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140906,13140,'ไผ่ล้อม','ภาชี','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140907,13140,'กระจิว','ภาชี','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140908,13140,'พระแก้ว','ภาชี','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9796,7 +9796,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (141511,13150,'ท่าตอ','มหาราช','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141505,13150,'บางนา','มหาราช','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141506,13150,'โรงช้าง','มหาราช','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (141507,13150,'เจ้าปลุก','มหาราช','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141508,13150,'พิตเพียน','มหาราช','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141509,13150,'บ้านนา','มหาราช','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9807,7 +9807,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140608,13160,'วัดยม','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140609,13160,'บางประแดง','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140610,13160,'สามเรือน','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140611,13160,'เกาะเกิด','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140612,13160,'บ้านพลับ','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140607,13160,'บ้านหว้า','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9818,7 +9818,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140615,13160,'ตลิ่งชัน','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140601,13160,'บ้านเลน','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140603,13160,'บ้านโพ','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140617,13160,'ตลาดเกรียบ','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140618,13160,'ขนอนหลวง','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140613,13160,'บ้านแป้ง','บางปะอิน','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9829,7 +9829,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (141110,13170,'ชะแมบ','วังน้อย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141101,13170,'ลำตาเสา','วังน้อย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141102,13170,'บ่อตาโล่','วังน้อย','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (141103,13170,'วังน้อย','วังน้อย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141104,13170,'ลำไทร','วังน้อย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141108,13170,'วังจุฬา','วังน้อย','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9840,7 +9840,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140404,13190,'บ้านแป้ง','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140401,13190,'บางไทร','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140423,13190,'โคกช้าง','บางไทร','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140403,13190,'สนามชัย','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140402,13190,'บางพลี','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140418,13190,'บ้านเกาะ','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9851,7 +9851,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140415,13190,'กกแก้วบูรพา','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140411,13190,'บ้านกลึง','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140405,13190,'หน้าไม้','บางไทร','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140406,13190,'บางยี่โท','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140410,13190,'กระแชง','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140409,13190,'ช่างเหล็ก','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9862,7 +9862,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (141406,13210,'อุทัย','อุทัย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141407,13210,'เสนา','อุทัย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141408,13210,'หนองน้ำส้ม','อุทัย','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (141403,13210,'สามบัณฑิต','อุทัย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141409,13210,'โพสาวหาญ','อุทัย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141405,13210,'หนองไม้ซุง','อุทัย','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9873,7 +9873,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140713,13220,'บ้านลี่','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140707,13220,'หันสัง','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140706,13220,'บางเพลิง','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140708,13220,'บางนางร้า','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140705,13220,'ทางกลาง','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140704,13220,'เสาธง','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9884,7 +9884,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140717,13220,'บ้านขล้อ','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140716,13220,'ตาลเอน','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140715,13220,'พุทเลา','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140714,13220,'โพธิ์สามต้น','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140712,13220,'ขวัญเมือง','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140701,13220,'บางปะหัน','บางปะหัน','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9895,7 +9895,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (141004,13230,'พระยาบันลือ','ลาดบัวหลวง','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141003,13230,'สามเมือง','ลาดบัวหลวง','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141002,13230,'หลักชัย','ลาดบัวหลวง','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (141001,13230,'ลาดบัวหลวง','ลาดบัวหลวง','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (160104,13240,'โก่งธนู','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (141605,13240,'สองห้อง','บ้านแพรก','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9906,7 +9906,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140516,13250,'บ้านกุ่ม','บางบาล','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140515,13250,'บางชะนี','บางบาล','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140501,13250,'บางบาล','บางบาล','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140502,13250,'วัดยม','บางบาล','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140507,13250,'บ้านคลัง','บางบาล','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140503,13250,'ไทรน้อย','บางบาล','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9917,7 +9917,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140504,13250,'สะพานไทย','บางบาล','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140512,13250,'บางหลวง','บางบาล','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140513,13250,'บางหลวงโดด','บางบาล','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140514,13250,'บางหัก','บางบาล','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140511,13250,'วัดตะกู','บางบาล','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140508,13250,'พระขาว','บางบาล','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9928,7 +9928,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140305,13260,'ปากจั่น','นครหลวง','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140306,13260,'บางระกำ','นครหลวง','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140307,13260,'บางพระครู','นครหลวง','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (140310,13260,'คลองสะแก','นครหลวง','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140311,13260,'สามไถ','นครหลวง','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140312,13260,'พระนอน','นครหลวง','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9939,7 +9939,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (141304,13270,'ปลายกลัด','บางซ้าย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141303,13270,'เต่าเล่า','บางซ้าย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (141302,13270,'แก้วฟ้า','บางซ้าย','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (141301,13270,'บางซ้าย','บางซ้าย','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140813,13280,'หนองน้ำใหญ่','ผักไห่','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140812,13280,'จักราช','ผักไห่','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -9950,7 +9950,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (140420,13290,'ช้างใหญ่','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140422,13290,'เชียงรากน้อย','บางไทร','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (140421,13290,'โพแตง','บางไทร','พระนครศรีอยุธยา','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (150109,14000,'หัวไผ่','เมืองอ่างทอง','อ่างทอง','ภาคกลาง'),
 	 (150107,14000,'มหาดไทย','เมืองอ่างทอง','อ่างทอง','ภาคกลาง'),
 	 (150106,14000,'ตลาดกรวด','เมืองอ่างทอง','อ่างทอง','ภาคกลาง'),
@@ -9961,7 +9961,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (150101,14000,'ตลาดหลวง','เมืองอ่างทอง','อ่างทอง','ภาคกลาง'),
 	 (150111,14000,'โพสะ','เมืองอ่างทอง','อ่างทอง','ภาคกลาง'),
 	 (150112,14000,'บ้านรี','เมืองอ่างทอง','อ่างทอง','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (150113,14000,'คลองวัว','เมืองอ่างทอง','อ่างทอง','ภาคกลาง'),
 	 (150114,14000,'ย่านซื่อ','เมืองอ่างทอง','อ่างทอง','ภาคกลาง'),
 	 (150110,14000,'จำปาหล่อ','เมืองอ่างทอง','อ่างทอง','ภาคกลาง'),
@@ -9972,7 +9972,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (150611,14110,'สี่ร้อย','วิเศษชัยชาญ','อ่างทอง','ภาคกลาง'),
 	 (150606,14110,'ยี่ล้น','วิเศษชัยชาญ','อ่างทอง','ภาคกลาง'),
 	 (150607,14110,'บางจัก','วิเศษชัยชาญ','อ่างทอง','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (150608,14110,'ห้วยคันแหลน','วิเศษชัยชาญ','อ่างทอง','ภาคกลาง'),
 	 (150609,14110,'คลองขนาก','วิเศษชัยชาญ','อ่างทอง','ภาคกลาง'),
 	 (150614,14110,'หลักแก้ว','วิเศษชัยชาญ','อ่างทอง','ภาคกลาง'),
@@ -9983,7 +9983,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (150603,14110,'ไผ่ดำพัฒนา','วิเศษชัยชาญ','อ่างทอง','ภาคกลาง'),
 	 (150615,14110,'ตลาดใหม่','วิเศษชัยชาญ','อ่างทอง','ภาคกลาง'),
 	 (150413,14120,'สามง่าม','โพธิ์ทอง','อ่างทอง','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (150412,14120,'ทางพระ','โพธิ์ทอง','อ่างทอง','ภาคกลาง'),
 	 (150404,14120,'หนองแม่ไก่','โพธิ์ทอง','อ่างทอง','ภาคกลาง'),
 	 (150410,14120,'ยางช้าย','โพธิ์ทอง','อ่างทอง','ภาคกลาง'),
@@ -9994,7 +9994,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (150405,14120,'รำมะสัก','โพธิ์ทอง','อ่างทอง','ภาคกลาง'),
 	 (150414,14120,'บางเจ้าฉ่า','โพธิ์ทอง','อ่างทอง','ภาคกลาง'),
 	 (150403,14120,'บางพลับ','โพธิ์ทอง','อ่างทอง','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (150401,14120,'อ่างแก้ว','โพธิ์ทอง','อ่างทอง','ภาคกลาง'),
 	 (150411,14120,'บ่อแร่','โพธิ์ทอง','อ่างทอง','ภาคกลาง'),
 	 (150415,14120,'คำหยาด','โพธิ์ทอง','อ่างทอง','ภาคกลาง'),
@@ -10005,7 +10005,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (150303,14130,'สายทอง','ป่าโมก','อ่างทอง','ภาคกลาง'),
 	 (150305,14130,'บางเสด็จ','ป่าโมก','อ่างทอง','ภาคกลาง'),
 	 (150306,14130,'นรสิงห์','ป่าโมก','อ่างทอง','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (150307,14130,'เอกราช','ป่าโมก','อ่างทอง','ภาคกลาง'),
 	 (150308,14130,'โผงเผง','ป่าโมก','อ่างทอง','ภาคกลาง'),
 	 (150207,14140,'หลักฟ้า','ไชโย','อ่างทอง','ภาคกลาง'),
@@ -10016,7 +10016,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (150208,14140,'ชะไว','ไชโย','อ่างทอง','ภาคกลาง'),
 	 (150209,14140,'ตรีณรงค์','ไชโย','อ่างทอง','ภาคกลาง'),
 	 (150206,14140,'ไชโย','ไชโย','อ่างทอง','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (150205,14140,'ราชสถิตย์','ไชโย','อ่างทอง','ภาคกลาง'),
 	 (150502,14150,'ศรีพราน','แสวงหา','อ่างทอง','ภาคกลาง'),
 	 (150501,14150,'แสวงหา','แสวงหา','อ่างทอง','ภาคกลาง'),
@@ -10027,7 +10027,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (150503,14150,'บ้านพราน','แสวงหา','อ่างทอง','ภาคกลาง'),
 	 (150701,14160,'สามโก้','สามโก้','อ่างทอง','ภาคกลาง'),
 	 (150702,14160,'ราษฎรพัฒนา','สามโก้','อ่างทอง','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (150703,14160,'อบทม','สามโก้','อ่างทอง','ภาคกลาง'),
 	 (150704,14160,'โพธิ์ม่วงพันธ์','สามโก้','อ่างทอง','ภาคกลาง'),
 	 (150705,14160,'มงคลธรรมนิมิต','สามโก้','อ่างทอง','ภาคกลาง'),
@@ -10038,7 +10038,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160123,15000,'โพธิ์ตรุ','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (160116,15000,'นิคมสร้างตนเอง','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (160119,15000,'ท้ายตลาด','เมืองลพบุรี','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (160120,15000,'ป่าตาล','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (160124,15000,'สี่คลอง','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (160118,15000,'บ้านข่อย','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
@@ -10049,7 +10049,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160121,15000,'พรหมมาสตร์','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (160110,15000,'งิ้วราย','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (160122,15000,'โพธิ์เก้าต้น','เมืองลพบุรี','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (160102,15000,'ท่าหิน','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (160117,15000,'บางขันหมาก','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (160114,15000,'ท่าแค','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
@@ -10060,7 +10060,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160617,15110,'สายห้วยแก้ว','บ้านหมี่','ลพบุรี','ภาคกลาง'),
 	 (160618,15110,'มหาสอน','บ้านหมี่','ลพบุรี','ภาคกลาง'),
 	 (160620,15110,'เชียงงา','บ้านหมี่','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (160621,15110,'หนองเมือง','บ้านหมี่','ลพบุรี','ภาคกลาง'),
 	 (160622,15110,'สนามแจง','บ้านหมี่','ลพบุรี','ภาคกลาง'),
 	 (160616,15110,'หนองกระเบียน','บ้านหมี่','ลพบุรี','ภาคกลาง'),
@@ -10071,7 +10071,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160604,15110,'ดงพลับ','บ้านหมี่','ลพบุรี','ภาคกลาง'),
 	 (160603,15110,'บ้านกล้วย','บ้านหมี่','ลพบุรี','ภาคกลาง'),
 	 (160602,15110,'บ้านทราย','บ้านหมี่','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (160601,15110,'ไผ่ใหญ่','บ้านหมี่','ลพบุรี','ภาคกลาง'),
 	 (160610,15110,'บางกะพี้','บ้านหมี่','ลพบุรี','ภาคกลาง'),
 	 (160608,15110,'บางพึ่ง','บ้านหมี่','ลพบุรี','ภาคกลาง'),
@@ -10082,7 +10082,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160305,15120,'ห้วยโป่ง','โคกสำโรง','ลพบุรี','ภาคกลาง'),
 	 (160310,15120,'ดงมะรุม','โคกสำโรง','ลพบุรี','ภาคกลาง'),
 	 (160307,15120,'สะแกราบ','โคกสำโรง','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (160308,15120,'เพนียด','โคกสำโรง','ลพบุรี','ภาคกลาง'),
 	 (160318,15120,'วังขอนขว้าง','โคกสำโรง','ลพบุรี','ภาคกลาง'),
 	 (160322,15120,'หนองแขม','โคกสำโรง','ลพบุรี','ภาคกลาง'),
@@ -10093,7 +10093,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160401,15130,'ลำนารายณ์','ชัยบาดาล','ลพบุรี','ภาคกลาง'),
 	 (160403,15130,'ศิลาทิพย์','ชัยบาดาล','ลพบุรี','ภาคกลาง'),
 	 (161006,15130,'เขาน้อย','ลำสนธิ','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (160404,15130,'ห้วยหิน','ชัยบาดาล','ลพบุรี','ภาคกลาง'),
 	 (160406,15130,'บัวชุม','ชัยบาดาล','ลพบุรี','ภาคกลาง'),
 	 (160407,15130,'ท่าดินดำ','ชัยบาดาล','ลพบุรี','ภาคกลาง'),
@@ -10104,7 +10104,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160412,15130,'เกาะรัง','ชัยบาดาล','ลพบุรี','ภาคกลาง'),
 	 (160417,15130,'นิคมลำนารายณ์','ชัยบาดาล','ลพบุรี','ภาคกลาง'),
 	 (160414,15130,'ท่ามะนาว','ชัยบาดาล','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (160207,15140,'หนองบัว','พัฒนานิคม','ลพบุรี','ภาคกลาง'),
 	 (160206,15140,'ชอนน้อย','พัฒนานิคม','ลพบุรี','ภาคกลาง'),
 	 (160205,15140,'โคกสลุง','พัฒนานิคม','ลพบุรี','ภาคกลาง'),
@@ -10115,7 +10115,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160510,15150,'บ้านเบิก','ท่าวุ้ง','ลพบุรี','ภาคกลาง'),
 	 (160508,15150,'หัวสำโรง','ท่าวุ้ง','ลพบุรี','ภาคกลาง'),
 	 (160511,15150,'มุจลินท์','ท่าวุ้ง','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (160501,15150,'ท่าวุ้ง','ท่าวุ้ง','ลพบุรี','ภาคกลาง'),
 	 (160506,15150,'โคกสลุด','ท่าวุ้ง','ลพบุรี','ภาคกลาง'),
 	 (160504,15150,'บางลี่','ท่าวุ้ง','ลพบุรี','ภาคกลาง'),
@@ -10126,7 +10126,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160107,15160,'โคกกะเทียม','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (160117,15160,'บางขันหมาก','เมืองลพบุรี','ลพบุรี','ภาคกลาง'),
 	 (160114,15160,'ท่าแค','เมืองลพบุรี','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (161105,15170,'ยางโทน','หนองม่วง','ลพบุรี','ภาคกลาง'),
 	 (161101,15170,'หนองม่วง','หนองม่วง','ลพบุรี','ภาคกลาง'),
 	 (161102,15170,'บ่อทอง','หนองม่วง','ลพบุรี','ภาคกลาง'),
@@ -10137,7 +10137,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160613,15180,'บางขาม','บ้านหมี่','ลพบุรี','ภาคกลาง'),
 	 (160605,15180,'บ้านชี','บ้านหมี่','ลพบุรี','ภาคกลาง'),
 	 (160608,15180,'บางพึ่ง','บ้านหมี่','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (161001,15190,'ลำสนธิ','ลำสนธิ','ลพบุรี','ภาคกลาง'),
 	 (161002,15190,'ซับสมบูรณ์','ลำสนธิ','ลพบุรี','ภาคกลาง'),
 	 (160410,15190,'นาโสม','ชัยบาดาล','ลพบุรี','ภาคกลาง'),
@@ -10148,7 +10148,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160202,15220,'ช่องสาริกา','พัฒนานิคม','ลพบุรี','ภาคกลาง'),
 	 (160204,15220,'ดีลัง','พัฒนานิคม','ลพบุรี','ภาคกลาง'),
 	 (160704,15230,'หนองผักแว่น','ท่าหลวง','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (160418,15230,'ชัยบาดาล','ชัยบาดาล','ลพบุรี','ภาคกลาง'),
 	 (160706,15230,'หัวลำ','ท่าหลวง','ลพบุรี','ภาคกลาง'),
 	 (160705,15230,'ทะเลวังวัด','ท่าหลวง','ลพบุรี','ภาคกลาง'),
@@ -10159,7 +10159,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160701,15230,'ท่าหลวง','ท่าหลวง','ลพบุรี','ภาคกลาง'),
 	 (160804,15240,'ห้วยใหญ่','สระโบสถ์','ลพบุรี','ภาคกลาง'),
 	 (160803,15240,'ทุ่งท่าช้าง','สระโบสถ์','ลพบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (160801,15240,'สระโบสถ์','สระโบสถ์','ลพบุรี','ภาคกลาง'),
 	 (160805,15240,'นิยมชัย','สระโบสถ์','ลพบุรี','ภาคกลาง'),
 	 (160802,15240,'มหาโพธิ','สระโบสถ์','ลพบุรี','ภาคกลาง'),
@@ -10170,7 +10170,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (160901,15250,'โคกเจริญ','โคกเจริญ','ลพบุรี','ภาคกลาง'),
 	 (160802,15250,'มหาโพธิ','สระโบสถ์','ลพบุรี','ภาคกลาง'),
 	 (170102,16000,'บางมัญ','เมืองสิงห์บุรี','สิงห์บุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (170103,16000,'โพกรวม','เมืองสิงห์บุรี','สิงห์บุรี','ภาคกลาง'),
 	 (170108,16000,'บางกระบือ','เมืองสิงห์บุรี','สิงห์บุรี','ภาคกลาง'),
 	 (170107,16000,'จักรสีห์','เมืองสิงห์บุรี','สิงห์บุรี','ภาคกลาง'),
@@ -10181,7 +10181,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (170608,16110,'ทองเอน','อินทร์บุรี','สิงห์บุรี','ภาคกลาง'),
 	 (170610,16110,'โพธิ์ชัย','อินทร์บุรี','สิงห์บุรี','ภาคกลาง'),
 	 (170607,16110,'น้ำตาล','อินทร์บุรี','สิงห์บุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (170609,16110,'ห้วยชัน','อินทร์บุรี','สิงห์บุรี','ภาคกลาง'),
 	 (170606,16110,'ท่างาม','อินทร์บุรี','สิงห์บุรี','ภาคกลาง'),
 	 (170604,16110,'งิ้วราย','อินทร์บุรี','สิงห์บุรี','ภาคกลาง'),
@@ -10192,7 +10192,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (170406,16120,'หัวป่า','พรหมบุรี','สิงห์บุรี','ภาคกลาง'),
 	 (170405,16120,'บ้านแป้ง','พรหมบุรี','สิงห์บุรี','ภาคกลาง'),
 	 (170403,16120,'บางน้ำเชี่ยว','พรหมบุรี','สิงห์บุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (170401,16120,'พระงาม','พรหมบุรี','สิงห์บุรี','ภาคกลาง'),
 	 (170407,16120,'โรงช้าง','พรหมบุรี','สิงห์บุรี','ภาคกลาง'),
 	 (170404,16120,'บ้านหม้อ','พรหมบุรี','สิงห์บุรี','ภาคกลาง'),
@@ -10203,7 +10203,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (170205,16130,'แม่ลา','บางระจัน','สิงห์บุรี','ภาคกลาง'),
 	 (170206,16130,'บ้านจ่า','บางระจัน','สิงห์บุรี','ภาคกลาง'),
 	 (170207,16130,'พักทัน','บางระจัน','สิงห์บุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (170208,16130,'สระแจง','บางระจัน','สิงห์บุรี','ภาคกลาง'),
 	 (170503,16140,'วิหารขาว','ท่าช้าง','สิงห์บุรี','ภาคกลาง'),
 	 (170501,16140,'ถอนสมอ','ท่าช้าง','สิงห์บุรี','ภาคกลาง'),
@@ -10214,7 +10214,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (170303,16150,'โพสังโฆ','ค่ายบางระจัน','สิงห์บุรี','ภาคกลาง'),
 	 (170304,16150,'ท่าข้าม','ค่ายบางระจัน','สิงห์บุรี','ภาคกลาง'),
 	 (170305,16150,'คอทราย','ค่ายบางระจัน','สิงห์บุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (170306,16150,'หนองกระทุ่ม','ค่ายบางระจัน','สิงห์บุรี','ภาคกลาง'),
 	 (170402,16160,'พรหมบุรี','พรหมบุรี','สิงห์บุรี','ภาคกลาง'),
 	 (180102,17000,'บ้านกล้วย','เมืองชัยนาท','ชัยนาท','ภาคกลาง'),
@@ -10225,7 +10225,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (180108,17000,'เสือโฮก','เมืองชัยนาท','ชัยนาท','ภาคกลาง'),
 	 (180109,17000,'นางลือ','เมืองชัยนาท','ชัยนาท','ภาคกลาง'),
 	 (180107,17000,'ธรรมามูล','เมืองชัยนาท','ชัยนาท','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (180106,17000,'หาดท่าเสา','เมืองชัยนาท','ชัยนาท','ภาคกลาง'),
 	 (180201,17110,'คุ้งสำเภา','มโนรมย์','ชัยนาท','ภาคกลาง'),
 	 (180204,17110,'ท่าฉนวน','มโนรมย์','ชัยนาท','ภาคกลาง'),
@@ -10236,7 +10236,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (180304,17120,'หนองบัว','วัดสิงห์','ชัยนาท','ภาคกลาง'),
 	 (180301,17120,'วัดสิงห์','วัดสิงห์','ชัยนาท','ภาคกลาง'),
 	 (180701,17120,'หนองมะโมง','หนองมะโมง','ชัยนาท','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (180307,17120,'บ่อแร่','วัดสิงห์','ชัยนาท','ภาคกลาง'),
 	 (180704,17120,'กุดจอก','หนองมะโมง','ชัยนาท','ภาคกลาง'),
 	 (180311,17120,'วังหมัน','วัดสิงห์','ชัยนาท','ภาคกลาง'),
@@ -10247,7 +10247,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (180801,17130,'เนินขาม','เนินขาม','ชัยนาท','ภาคกลาง'),
 	 (180601,17130,'หันคา','หันคา','ชัยนาท','ภาคกลาง'),
 	 (180609,17130,'เด่นใหญ่','หันคา','ชัยนาท','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (180608,17130,'วังไก่เถื่อน','หันคา','ชัยนาท','ภาคกลาง'),
 	 (180802,17130,'กะบกเตี้ย','เนินขาม','ชัยนาท','ภาคกลาง'),
 	 (180602,17130,'บ้านเชี่ยน','หันคา','ชัยนาท','ภาคกลาง'),
@@ -10258,7 +10258,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (180503,17140,'ห้วยกรด','สรรคบุรี','ชัยนาท','ภาคกลาง'),
 	 (180502,17140,'เที่ยงแท้','สรรคบุรี','ชัยนาท','ภาคกลาง'),
 	 (180501,17140,'แพรกศรีราชา','สรรคบุรี','ชัยนาท','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (180507,17140,'ดอนกำ','สรรคบุรี','ชัยนาท','ภาคกลาง'),
 	 (180508,17140,'ห้วยกรดพัฒนา','สรรคบุรี','ชัยนาท','ภาคกลาง'),
 	 (180504,17140,'โพงาม','สรรคบุรี','ชัยนาท','ภาคกลาง'),
@@ -10269,7 +10269,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (180405,17150,'โพนางดำออก','สรรพยา','ชัยนาท','ภาคกลาง'),
 	 (180402,17150,'ตลุก','สรรพยา','ชัยนาท','ภาคกลาง'),
 	 (180401,17150,'สรรพยา','สรรพยา','ชัยนาท','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (180606,17160,'หนองแซง','หันคา','ชัยนาท','ภาคกลาง'),
 	 (180607,17160,'ห้วยงู','หันคา','ชัยนาท','ภาคกลาง'),
 	 (180611,17160,'สามง่ามท่าโบสถ์','หันคา','ชัยนาท','ภาคกลาง'),
@@ -10280,7 +10280,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190110,18000,'ปากข้าวสาร','เมืองสระบุรี','สระบุรี','ภาคกลาง'),
 	 (190111,18000,'หนองปลาไหล','เมืองสระบุรี','สระบุรี','ภาคกลาง'),
 	 (190108,18000,'หนองโน','เมืองสระบุรี','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (190109,18000,'หนองยาว','เมืองสระบุรี','สระบุรี','ภาคกลาง'),
 	 (190112,18000,'กุดนกเปล้า','เมืองสระบุรี','สระบุรี','ภาคกลาง'),
 	 (190113,18000,'ตลิ่งชัน','เมืองสระบุรี','สระบุรี','ภาคกลาง'),
@@ -10291,7 +10291,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190105,18000,'ดาวเรือง','เมืองสระบุรี','สระบุรี','ภาคกลาง'),
 	 (190101,18000,'ปากเพรียว','เมืองสระบุรี','สระบุรี','ภาคกลาง'),
 	 (190107,18000,'โคกสว่าง','เมืองสระบุรี','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (190114,18000,'ตะกุด','เมืองสระบุรี','สระบุรี','ภาคกลาง'),
 	 (191305,18000,'ห้วยบง','เฉลิมพระเกียรติ','สระบุรี','ภาคกลาง'),
 	 (190208,18110,'บ้านป่า','แก่งคอย','สระบุรี','ภาคกลาง'),
@@ -10302,7 +10302,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190204,18110,'ห้วยแห้ง','แก่งคอย','สระบุรี','ภาคกลาง'),
 	 (190206,18110,'หินซ้อน','แก่งคอย','สระบุรี','ภาคกลาง'),
 	 (190205,18110,'ท่าคล้อ','แก่งคอย','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (190212,18110,'เตาปูน','แก่งคอย','สระบุรี','ภาคกลาง'),
 	 (190207,18110,'บ้านธาตุ','แก่งคอย','สระบุรี','ภาคกลาง'),
 	 (190210,18110,'ชะอม','แก่งคอย','สระบุรี','ภาคกลาง'),
@@ -10313,7 +10313,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190907,18120,'ห้วยป่าหวาย','พระพุทธบาท','สระบุรี','ภาคกลาง'),
 	 (190906,18120,'เขาวง','พระพุทธบาท','สระบุรี','ภาคกลาง'),
 	 (190905,18120,'พุคำจาน','พระพุทธบาท','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (190904,18120,'นายาว','พระพุทธบาท','สระบุรี','ภาคกลาง'),
 	 (190903,18120,'ธารเกษม','พระพุทธบาท','สระบุรี','ภาคกลาง'),
 	 (190902,18120,'ขุนโขลน','พระพุทธบาท','สระบุรี','ภาคกลาง'),
@@ -10324,7 +10324,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190604,18130,'ตลาดน้อย','บ้านหมอ','สระบุรี','ภาคกลาง'),
 	 (190607,18130,'ไผ่ขวาง','บ้านหมอ','สระบุรี','ภาคกลาง'),
 	 (190609,18130,'หนองบัว','บ้านหมอ','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (190605,18130,'หรเทพ','บ้านหมอ','สระบุรี','ภาคกลาง'),
 	 (190602,18130,'บางโขมด','บ้านหมอ','สระบุรี','ภาคกลาง'),
 	 (190312,18140,'หนองแขม','หนองแค','สระบุรี','ภาคกลาง'),
@@ -10335,7 +10335,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190311,18140,'หนองไข่น้ำ','หนองแค','สระบุรี','ภาคกลาง'),
 	 (190314,18140,'หนองจรเข้','หนองแค','สระบุรี','ภาคกลาง'),
 	 (190318,18140,'หนองโรง','หนองแค','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (190307,18140,'ไผ่ต่ำ','หนองแค','สระบุรี','ภาคกลาง'),
 	 (190306,18140,'บัวลอย','หนองแค','สระบุรี','ภาคกลาง'),
 	 (190401,18150,'หนองหมู','วิหารแดง','สระบุรี','ภาคกลาง'),
@@ -10346,7 +10346,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190404,18150,'วิหารแดง','วิหารแดง','สระบุรี','ภาคกลาง'),
 	 (191005,18160,'ศาลารีไทย','เสาไห้','สระบุรี','ภาคกลาง'),
 	 (191007,18160,'ท่าช้าง','เสาไห้','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (191009,18160,'ม่วงงาม','เสาไห้','สระบุรี','ภาคกลาง'),
 	 (191010,18160,'เริงราง','เสาไห้','สระบุรี','ภาคกลาง'),
 	 (191011,18160,'เมืองเก่า','เสาไห้','สระบุรี','ภาคกลาง'),
@@ -10357,7 +10357,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (191003,18160,'หัวปลวก','เสาไห้','สระบุรี','ภาคกลาง'),
 	 (191008,18160,'พระยาทด','เสาไห้','สระบุรี','ภาคกลาง'),
 	 (191004,18160,'งิ้วงาม','เสาไห้','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (190504,18170,'หนองสีดา','หนองแซง','สระบุรี','ภาคกลาง'),
 	 (190502,18170,'หนองควายโซ','หนองแซง','สระบุรี','ภาคกลาง'),
 	 (190505,18170,'หนองกบ','หนองแซง','สระบุรี','ภาคกลาง'),
@@ -10368,7 +10368,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190509,18170,'เขาดิน','หนองแซง','สระบุรี','ภาคกลาง'),
 	 (190503,18170,'หนองหัวโพ','หนองแซง','สระบุรี','ภาคกลาง'),
 	 (191104,18180,'หนองย่างเสือ','มวกเหล็ก','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (191102,18180,'มิตรภาพ','มวกเหล็ก','สระบุรี','ภาคกลาง'),
 	 (191101,18180,'มวกเหล็ก','มวกเหล็ก','สระบุรี','ภาคกลาง'),
 	 (190804,18190,'บ้านโปร่ง','หนองโดน','สระบุรี','ภาคกลาง'),
@@ -10379,7 +10379,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190703,18210,'บ้านหลวง','ดอนพุด','สระบุรี','ภาคกลาง'),
 	 (190702,18210,'ไผ่หลิ่ว','ดอนพุด','สระบุรี','ภาคกลาง'),
 	 (190701,18210,'ดอนพุด','ดอนพุด','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (190605,18210,'หรเทพ','บ้านหมอ','สระบุรี','ภาคกลาง'),
 	 (191109,18220,'ซับสนุ่น','มวกเหล็ก','สระบุรี','ภาคกลาง'),
 	 (191201,18220,'แสลงพัน','วังม่วง','สระบุรี','ภาคกลาง'),
@@ -10390,7 +10390,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190315,18230,'หนองนาก','หนองแค','สระบุรี','ภาคกลาง'),
 	 (190313,18230,'หนองจิก','หนองแค','สระบุรี','ภาคกลาง'),
 	 (190309,18230,'ห้วยขมิ้น','หนองแค','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (190310,18230,'ห้วยทราย','หนองแค','สระบุรี','ภาคกลาง'),
 	 (190306,18230,'บัวลอย','หนองแค','สระบุรี','ภาคกลาง'),
 	 (191304,18240,'พุแค','เฉลิมพระเกียรติ','สระบุรี','ภาคกลาง'),
@@ -10401,7 +10401,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (190308,18250,'โพนทอง','หนองแค','สระบุรี','ภาคกลาง'),
 	 (140903,18250,'ระโสม','ภาชี','พระนครศรีอยุธยา','ภาคกลาง'),
 	 (190202,18260,'ทับกวาง','แก่งคอย','สระบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (190608,18270,'บ้านครัว','บ้านหมอ','สระบุรี','ภาคกลาง'),
 	 (190602,18270,'บางโขมด','บ้านหมอ','สระบุรี','ภาคกลาง'),
 	 (140203,18270,'ท่าหลวง','ท่าเรือ','พระนครศรีอยุธยา','ภาคกลาง'),
@@ -10412,7 +10412,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (200103,20000,'บ้านโขด','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก'),
 	 (200111,20000,'บางทราย','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก'),
 	 (200105,20000,'บ้านสวน','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (200110,20000,'หนองไม้แดง','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก'),
 	 (200109,20000,'ดอนหัวฬ่อ','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก'),
 	 (200106,20000,'หนองรี','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก'),
@@ -10423,7 +10423,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (200116,20000,'เสม็ด','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก'),
 	 (200115,20000,'ห้วยกะปิ','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก'),
 	 (200706,20110,'เขาคันทรง','ศรีราชา','ชลบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (200702,20110,'สุรศักดิ์','ศรีราชา','ชลบุรี','ภาคตะวันออก'),
 	 (200701,20110,'ศรีราชา','ศรีราชา','ชลบุรี','ภาคตะวันออก'),
 	 (200707,20110,'บางพระ','ศรีราชา','ชลบุรี','ภาคตะวันออก'),
@@ -10434,7 +10434,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (200115,20130,'ห้วยกะปิ','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก'),
 	 (200104,20130,'แสนสุข','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก'),
 	 (200116,20130,'เสม็ด','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (200104,20131,'แสนสุข','เมืองชลบุรี','ชลบุรี','ภาคตะวันออก'),
 	 (200604,20140,'บ้านเซิด','พนัสนิคม','ชลบุรี','ภาคตะวันออก'),
 	 (200606,20140,'หมอนนาง','พนัสนิคม','ชลบุรี','ภาคตะวันออก'),
@@ -10445,7 +10445,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (200614,20140,'หนองขยาด','พนัสนิคม','ชลบุรี','ภาคตะวันออก'),
 	 (200602,20140,'หน้าพระธาตุ','พนัสนิคม','ชลบุรี','ภาคตะวันออก'),
 	 (200616,20140,'หนองเหียง','พนัสนิคม','ชลบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (200621,20140,'ไร่หลักทอง','พนัสนิคม','ชลบุรี','ภาคตะวันออก'),
 	 (200610,20140,'หัวถนน','พนัสนิคม','ชลบุรี','ภาคตะวันออก'),
 	 (200603,20140,'วัดหลวง','พนัสนิคม','ชลบุรี','ภาคตะวันออก'),
@@ -10456,7 +10456,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (200609,20140,'กุฎโง้ง','พนัสนิคม','ชลบุรี','ภาคตะวันออก'),
 	 (200620,20140,'โคกเพลาะ','พนัสนิคม','ชลบุรี','ภาคตะวันออก'),
 	 (200605,20140,'นาเริก','พนัสนิคม','ชลบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (200617,20140,'นาวังหิน','พนัสนิคม','ชลบุรี','ภาคตะวันออก'),
 	 (200408,20150,'นาเกลือ','บางละมุง','ชลบุรี','ภาคตะวันออก'),
 	 (200407,20150,'ตะเคียนเตี้ย','บางละมุง','ชลบุรี','ภาคตะวันออก'),
@@ -10467,7 +10467,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (200401,20150,'บางละมุง','บางละมุง','ชลบุรี','ภาคตะวันออก'),
 	 (200404,20150,'โป่ง','บางละมุง','ชลบุรี','ภาคตะวันออก'),
 	 (200506,20160,'โคกขี้หนอน','พานทอง','ชลบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (200510,20160,'เกาะลอย','พานทอง','ชลบุรี','ภาคตะวันออก'),
 	 (200509,20160,'บางนาง','พานทอง','ชลบุรี','ภาคตะวันออก'),
 	 (200511,20160,'บางหัก','พานทอง','ชลบุรี','ภาคตะวันออก'),
@@ -10478,7 +10478,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (200505,20160,'หนองหงษ์','พานทอง','ชลบุรี','ภาคตะวันออก'),
 	 (200504,20160,'หนองกะขะ','พานทอง','ชลบุรี','ภาคตะวันออก'),
 	 (200507,20160,'บ้านเก่า','พานทอง','ชลบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (200205,20170,'หนองบอนแดง','บ้านบึง','ชลบุรี','ภาคตะวันออก'),
 	 (200204,20170,'หนองซ้ำซาก','บ้านบึง','ชลบุรี','ภาคตะวันออก'),
 	 (200203,20170,'มาบไผ่','บ้านบึง','ชลบุรี','ภาคตะวันออก'),
@@ -10489,7 +10489,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (200901,20180,'สัตหีบ','สัตหีบ','ชลบุรี','ภาคตะวันออก'),
 	 (200901,20182,'สัตหีบ','สัตหีบ','ชลบุรี','ภาคตะวันออก'),
 	 (200303,20190,'หนองเสือช้าง','หนองใหญ่','ชลบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (200302,20190,'คลองพลู','หนองใหญ่','ชลบุรี','ภาคตะวันออก'),
 	 (200301,20190,'หนองใหญ่','หนองใหญ่','ชลบุรี','ภาคตะวันออก'),
 	 (200304,20190,'ห้างสูง','หนองใหญ่','ชลบุรี','ภาคตะวันออก'),
@@ -10500,7 +10500,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (200704,20230,'บึง','ศรีราชา','ชลบุรี','ภาคตะวันออก'),
 	 (200703,20230,'ทุ่งสุขลา','ศรีราชา','ชลบุรี','ภาคตะวันออก'),
 	 (200708,20230,'บ่อวิน','ศรีราชา','ชลบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (200705,20230,'หนองขาม','ศรีราชา','ชลบุรี','ภาคตะวันออก'),
 	 (201101,20240,'เกาะจันทร์','เกาะจันทร์','ชลบุรี','ภาคตะวันออก'),
 	 (201102,20240,'ท่าบุญมี','เกาะจันทร์','ชลบุรี','ภาคตะวันออก'),
@@ -10511,7 +10511,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (200904,20251,'บางเสร่','สัตหีบ','ชลบุรี','ภาคตะวันออก'),
 	 (201005,20270,'เกษตรสุวรรณ','บ่อทอง','ชลบุรี','ภาคตะวันออก'),
 	 (201004,20270,'ธาตุทอง','บ่อทอง','ชลบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (201003,20270,'บ่อกวางทอง','บ่อทอง','ชลบุรี','ภาคตะวันออก'),
 	 (201001,20270,'บ่อทอง','บ่อทอง','ชลบุรี','ภาคตะวันออก'),
 	 (201006,20270,'พลวงทอง','บ่อทอง','ชลบุรี','ภาคตะวันออก'),
@@ -10522,7 +10522,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (210107,21000,'บ้านแลง','เมืองระยอง','ระยอง','ภาคตะวันออก'),
 	 (210101,21000,'ท่าประดู่','เมืองระยอง','ระยอง','ภาคตะวันออก'),
 	 (210104,21000,'ปากน้ำ','เมืองระยอง','ระยอง','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (210102,21000,'เชิงเนิน','เมืองระยอง','ระยอง','ภาคตะวันออก'),
 	 (210108,21000,'นาตาขวัญ','เมืองระยอง','ระยอง','ภาคตะวันออก'),
 	 (210109,21000,'เนินพระ','เมืองระยอง','ระยอง','ภาคตะวันออก'),
@@ -10533,7 +10533,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (210308,21110,'บ้านนา','แกลง','ระยอง','ภาคตะวันออก'),
 	 (210303,21110,'ชากโดน','แกลง','ระยอง','ภาคตะวันออก'),
 	 (210302,21110,'วังหว้า','แกลง','ระยอง','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (210301,21110,'ทางเกวียน','แกลง','ระยอง','ภาคตะวันออก'),
 	 (210309,21110,'ทุ่งควายกิน','แกลง','ระยอง','ภาคตะวันออก'),
 	 (210317,21110,'ห้วยยาง','แกลง','ระยอง','ภาคตะวันออก'),
@@ -10544,7 +10544,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (210704,21110,'เขาน้อย','เขาชะเมา','ระยอง','ภาคตะวันออก'),
 	 (210501,21120,'บ้านค่าย','บ้านค่าย','ระยอง','ภาคตะวันออก'),
 	 (210503,21120,'หนองตะพาน','บ้านค่าย','ระยอง','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (210504,21120,'ตาขัน','บ้านค่าย','ระยอง','ภาคตะวันออก'),
 	 (210505,21120,'บางบุตร','บ้านค่าย','ระยอง','ภาคตะวันออก'),
 	 (210506,21120,'หนองบัว','บ้านค่าย','ระยอง','ภาคตะวันออก'),
@@ -10555,7 +10555,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (210201,21130,'สำนักท้อน','บ้านฉาง','ระยอง','ภาคตะวันออก'),
 	 (210601,21140,'ปลวกแดง','ปลวกแดง','ระยอง','ภาคตะวันออก'),
 	 (210605,21140,'มาบยางพร','ปลวกแดง','ระยอง','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (210606,21140,'หนองไร่','ปลวกแดง','ระยอง','ภาคตะวันออก'),
 	 (210604,21140,'แม่น้ำคู้','ปลวกแดง','ระยอง','ภาคตะวันออก'),
 	 (210603,21140,'ละหาร','ปลวกแดง','ระยอง','ภาคตะวันออก'),
@@ -10566,7 +10566,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (210105,21160,'เพ','เมืองระยอง','ระยอง','ภาคตะวันออก'),
 	 (210106,21160,'แกลง','เมืองระยอง','ระยอง','ภาคตะวันออก'),
 	 (210311,21170,'คลองปูน','แกลง','ระยอง','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (210313,21170,'ปากน้ำกระแส','แกลง','ระยอง','ภาคตะวันออก'),
 	 (210312,21170,'พังราด','แกลง','ระยอง','ภาคตะวันออก'),
 	 (210802,21180,'มาบข่า','นิคมพัฒนา','ระยอง','ภาคตะวันออก'),
@@ -10577,7 +10577,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (210305,21190,'กร่ำ','แกลง','ระยอง','ภาคตะวันออก'),
 	 (210402,21210,'ชุมแสง','วังจันทร์','ระยอง','ภาคตะวันออก'),
 	 (210403,21210,'ป่ายุบใน','วังจันทร์','ระยอง','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (210401,21210,'วังจันทร์','วังจันทร์','ระยอง','ภาคตะวันออก'),
 	 (210404,21210,'พลงตาเอี่ยม','วังจันทร์','ระยอง','ภาคตะวันออก'),
 	 (220104,22000,'เกาะขวาง','เมืองจันทบุรี','จันทบุรี','ภาคตะวันออก'),
@@ -10588,7 +10588,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (220106,22000,'ท่าช้าง','เมืองจันทบุรี','จันทบุรี','ภาคตะวันออก'),
 	 (220111,22000,'พลับพลา','เมืองจันทบุรี','จันทบุรี','ภาคตะวันออก'),
 	 (220102,22000,'วัดใหม่','เมืองจันทบุรี','จันทบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (220109,22000,'แสลง','เมืองจันทบุรี','จันทบุรี','ภาคตะวันออก'),
 	 (220101,22000,'ตลาด','เมืองจันทบุรี','จันทบุรี','ภาคตะวันออก'),
 	 (220110,22000,'หนองบัว','เมืองจันทบุรี','จันทบุรี','ภาคตะวันออก'),
@@ -10599,7 +10599,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (220207,22110,'ซึ้ง','ขลุง','จันทบุรี','ภาคตะวันออก'),
 	 (220205,22110,'บางชัน','ขลุง','จันทบุรี','ภาคตะวันออก'),
 	 (220206,22110,'วันยาว','ขลุง','จันทบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (220208,22110,'มาบไพ','ขลุง','จันทบุรี','ภาคตะวันออก'),
 	 (220209,22110,'วังสรรพรส','ขลุง','จันทบุรี','ภาคตะวันออก'),
 	 (220203,22110,'เกวียนหัก','ขลุง','จันทบุรี','ภาคตะวันออก'),
@@ -10610,7 +10610,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (220314,22120,'คลองขุด','ท่าใหม่','จันทบุรี','ภาคตะวันออก'),
 	 (220313,22120,'ตะกาดเง้า','ท่าใหม่','จันทบุรี','ภาคตะวันออก'),
 	 (220301,22120,'ท่าใหม่','ท่าใหม่','จันทบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (220304,22120,'บ่อพุ','ท่าใหม่','จันทบุรี','ภาคตะวันออก'),
 	 (220305,22120,'พลอยแหวน','ท่าใหม่','จันทบุรี','ภาคตะวันออก'),
 	 (220302,22120,'ยายร้า','ท่าใหม่','จันทบุรี','ภาคตะวันออก'),
@@ -10621,7 +10621,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (220602,22130,'เกาะเปริด','แหลมสิงห์','จันทบุรี','ภาคตะวันออก'),
 	 (220404,22140,'หนองตาคง','โป่งน้ำร้อน','จันทบุรี','ภาคตะวันออก'),
 	 (220402,22140,'โป่งน้ำร้อน','โป่งน้ำร้อน','จันทบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (220410,22140,'คลองใหญ่','โป่งน้ำร้อน','จันทบุรี','ภาคตะวันออก'),
 	 (220401,22140,'ทับไทร','โป่งน้ำร้อน','จันทบุรี','ภาคตะวันออก'),
 	 (220409,22140,'เทพนิมิต','โป่งน้ำร้อน','จันทบุรี','ภาคตะวันออก'),
@@ -10632,7 +10632,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (220508,22150,'อ่างคีรี','มะขาม','จันทบุรี','ภาคตะวันออก'),
 	 (220506,22150,'ฉมัน','มะขาม','จันทบุรี','ภาคตะวันออก'),
 	 (220501,22150,'มะขาม','มะขาม','จันทบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (210310,22160,'กองดิน','แกลง','ระยอง','ภาคตะวันออก'),
 	 (220802,22160,'ขุนซ่อง','แก่งหางแมว','จันทบุรี','ภาคตะวันออก'),
 	 (220804,22160,'พวา','แก่งหางแมว','จันทบุรี','ภาคตะวันออก'),
@@ -10643,7 +10643,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (220905,22160,'ช้างข้าม','นายายอาม','จันทบุรี','ภาคตะวันออก'),
 	 (220904,22170,'สนามไชย','นายายอาม','จันทบุรี','ภาคตะวันออก'),
 	 (220324,22170,'เขาแก้ว','ท่าใหม่','จันทบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (220902,22170,'วังโตนด','นายายอาม','จันทบุรี','ภาคตะวันออก'),
 	 (220906,22170,'วังใหม่','นายายอาม','จันทบุรี','ภาคตะวันออก'),
 	 (220903,22170,'กระแจะ','นายายอาม','จันทบุรี','ภาคตะวันออก'),
@@ -10654,7 +10654,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (220704,22180,'ทรายขาว','สอยดาว','จันทบุรี','ภาคตะวันออก'),
 	 (220703,22180,'ทับช้าง','สอยดาว','จันทบุรี','ภาคตะวันออก'),
 	 (220702,22180,'ทุ่งขนาน','สอยดาว','จันทบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (220701,22180,'ปะตง','สอยดาว','จันทบุรี','ภาคตะวันออก'),
 	 (220606,22190,'บางสระเก้า','แหลมสิงห์','จันทบุรี','ภาคตะวันออก'),
 	 (220604,22190,'พลิ้ว','แหลมสิงห์','จันทบุรี','ภาคตะวันออก'),
@@ -10665,7 +10665,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (221005,22210,'จันทเขลม','เขาคิชฌกูฏ','จันทบุรี','ภาคตะวันออก'),
 	 (221004,22210,'คลองพลู','เขาคิชฌกูฏ','จันทบุรี','ภาคตะวันออก'),
 	 (230112,23000,'ตะกาง','เมืองตราด','ตราด','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (230104,23000,'หนองคันทรง','เมืองตราด','ตราด','ภาคตะวันออก'),
 	 (230103,23000,'หนองโสน','เมืองตราด','ตราด','ภาคตะวันออก'),
 	 (230102,23000,'หนองเสม็ด','เมืองตราด','ตราด','ภาคตะวันออก'),
@@ -10676,7 +10676,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (230109,23000,'เนินทราย','เมืองตราด','ตราด','ภาคตะวันออก'),
 	 (230110,23000,'ท่าพริก','เมืองตราด','ตราด','ภาคตะวันออก'),
 	 (230111,23000,'ท่ากุ่ม','เมืองตราด','ตราด','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (230107,23000,'วังกระแจะ','เมืองตราด','ตราด','ภาคตะวันออก'),
 	 (230602,23000,'เกาะกูด','เกาะกูด','ตราด','ภาคตะวันออก'),
 	 (230114,23000,'แหลมกลัด','เมืองตราด','ตราด','ภาคตะวันออก'),
@@ -10687,7 +10687,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (230601,23120,'เกาะหมาก','เกาะกูด','ตราด','ภาคตะวันออก'),
 	 (230507,23120,'คลองใหญ่','แหลมงอบ','ตราด','ภาคตะวันออก'),
 	 (230503,23120,'บางปิด','แหลมงอบ','ตราด','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (230502,23120,'น้ำเชี่ยว','แหลมงอบ','ตราด','ภาคตะวันออก'),
 	 (230501,23120,'แหลมงอบ','แหลมงอบ','ตราด','ภาคตะวันออก'),
 	 (230303,23130,'วังตะเคียน','เขาสมิง','ตราด','ภาคตะวันออก'),
@@ -10698,7 +10698,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (230403,23140,'ด่านชุมพล','บ่อไร่','ตราด','ภาคตะวันออก'),
 	 (230404,23140,'หนองบอน','บ่อไร่','ตราด','ภาคตะวันออก'),
 	 (230401,23140,'บ่อพลอย','บ่อไร่','ตราด','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (230307,23150,'เทพนิมิต','เขาสมิง','ตราด','ภาคตะวันออก'),
 	 (230302,23150,'แสนตุ้ง','เขาสมิง','ตราด','ภาคตะวันออก'),
 	 (230304,23150,'ท่าโสม','เขาสมิง','ตราด','ภาคตะวันออก'),
@@ -10709,7 +10709,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (240116,24000,'คลองเปรง','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240118,24000,'คลองหลวงแพ่ง','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240117,24000,'คลองอุดมชลจร','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (240110,24000,'คลองนครเนื่องเขต','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240107,24000,'คลองจุกกระเฌอ','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240104,24000,'คลองนา','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก'),
@@ -10720,7 +10720,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (240105,24000,'บางตีนเป็ด','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240119,24000,'บางเตย','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240106,24000,'บางไผ่','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (240113,24000,'บางพระ','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240103,24000,'บ้านใหม่','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240111,24000,'วังตะเคียน','เมืองฉะเชิงเทรา','ฉะเชิงเทรา','ภาคตะวันออก'),
@@ -10731,7 +10731,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (241101,24000,'ก้อนแก้ว','คลองเขื่อน','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (241104,24000,'บางโรง','คลองเขื่อน','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (241103,24000,'บางเล่า','คลองเขื่อน','ฉะเชิงเทรา','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (241102,24000,'คลองเขื่อน','คลองเขื่อน','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240204,24110,'บางสวน','บางคล้า','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240213,24110,'เสม็ดใต้','บางคล้า','ฉะเชิงเทรา','ภาคตะวันออก'),
@@ -10742,7 +10742,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (240208,24110,'บางกระเจ็ด','บางคล้า','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240212,24110,'เสม็ดเหนือ','บางคล้า','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (241105,24110,'บางตลาด','คลองเขื่อน','ฉะเชิงเทรา','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (240210,24110,'ท่าทองหลาง','บางคล้า','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240702,24120,'เมืองใหม่','ราชสาส์น','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240703,24120,'ดงน้อย','ราชสาส์น','ฉะเชิงเทรา','ภาคตะวันออก'),
@@ -10753,7 +10753,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (240603,24120,'พนมสารคาม','พนมสารคาม','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240602,24120,'บ้านซ่อง','พนมสารคาม','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240606,24120,'ท่าถ่าน','พนมสารคาม','ฉะเชิงเทรา','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (240608,24120,'เขาหินซ้อน','พนมสารคาม','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240601,24120,'เกาะขนุน','พนมสารคาม','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240408,24130,'หนองจอก','บางปะกง','ฉะเชิงเทรา','ภาคตะวันออก'),
@@ -10764,7 +10764,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (240402,24130,'ท่าสะอ้าน','บางปะกง','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240410,24130,'ท่าข้าม','บางปะกง','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240517,24140,'สิบเอ็ดศอก','บ้านโพธิ์','ฉะเชิงเทรา','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (240513,24140,'แหลมประดู่','บ้านโพธิ์','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240510,24140,'หนองบัว','บ้านโพธิ์','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240502,24140,'เกาะไร่','บ้านโพธิ์','ฉะเชิงเทรา','ภาคตะวันออก'),
@@ -10775,7 +10775,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (240515,24140,'สนามจันทร์','บ้านโพธิ์','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240508,24140,'ท่าพลับ','บ้านโพธิ์','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240514,24140,'ลาดขวาง','บ้านโพธิ์','ฉะเชิงเทรา','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (240501,24140,'บ้านโพธิ์','บ้านโพธิ์','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240516,24140,'แสนภูดาษ','บ้านโพธิ์','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240511,24140,'บางซ่อน','บ้านโพธิ์','ฉะเชิงเทรา','ภาคตะวันออก'),
@@ -10786,7 +10786,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (240310,24150,'โพรงอากาศ','บางน้ำเปรี้ยว','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240307,24150,'โยธะกา','บางน้ำเปรี้ยว','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240303,24150,'สิงโตทอง','บางน้ำเปรี้ยว','ฉะเชิงเทรา','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (240304,24150,'หมอนทอง','บางน้ำเปรี้ยว','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240302,24150,'บางขนาก','บางน้ำเปรี้ยว','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240805,24160,'ลาดกระทิง','สนามชัยเขต','ฉะเชิงเทรา','ภาคตะวันออก'),
@@ -10797,7 +10797,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (240801,24160,'คู้ยายหมี','สนามชัยเขต','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240305,24170,'บึงน้ำรักษ์','บางน้ำเปรี้ยว','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240308,24170,'ดอนฉิมพลี','บางน้ำเปรี้ยว','ฉะเชิงเทรา','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (240306,24170,'ดอนเกาะกา','บางน้ำเปรี้ยว','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240406,24180,'บางเกลือ','บางปะกง','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240403,24180,'บางวัว','บางปะกง','ฉะเชิงเทรา','ภาคตะวันออก'),
@@ -10808,7 +10808,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (240904,24190,'หนองไม้แก่น','แปลงยาว','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240902,24190,'วังเย็น','แปลงยาว','ฉะเชิงเทรา','ภาคตะวันออก'),
 	 (240901,24190,'แปลงยาว','แปลงยาว','ฉะเชิงเทรา','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (250113,25000,'โนนห้อม','เมืองปราจีนบุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250111,25000,'ดงขี้เหล็ก','เมืองปราจีนบุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250102,25000,'รอบเมือง','เมืองปราจีนบุรี','ปราจีนบุรี','ภาคตะวันออก'),
@@ -10819,7 +10819,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (250103,25000,'วัดโบสถ์','เมืองปราจีนบุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250101,25000,'หน้าเมือง','เมืองปราจีนบุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250214,25110,'วังท่าช้าง','กบินทร์บุรี','ปราจีนบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (250213,25110,'เขาไม้แก้ว','กบินทร์บุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250212,25110,'นาแขม','กบินทร์บุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250211,25110,'หนองกี่','กบินทร์บุรี','ปราจีนบุรี','ภาคตะวันออก'),
@@ -10830,7 +10830,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (250203,25110,'วังดาล','กบินทร์บุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250201,25110,'กบินทร์','กบินทร์บุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250206,25110,'วังตะเคียน','กบินทร์บุรี','ปราจีนบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (250205,25110,'ย่านรี','กบินทร์บุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250204,25110,'นนทรี','กบินทร์บุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250707,25130,'บุฝ้าย','ประจันตคาม','ปราจีนบุรี','ภาคตะวันออก'),
@@ -10841,7 +10841,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (250701,25130,'ประจันตคาม','ประจันตคาม','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250704,25130,'หนองแสง','ประจันตคาม','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250702,25130,'เกาะลอย','ประจันตคาม','ปราจีนบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (250708,25130,'หนองแก้ว','ประจันตคาม','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250804,25140,'ท่าตูม','ศรีมหาโพธิ','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250801,25140,'ศรีมหาโพธิ','ศรีมหาโพธิ','ปราจีนบุรี','ภาคตะวันออก'),
@@ -10852,7 +10852,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (250809,25140,'หาดยาง','ศรีมหาโพธิ','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250806,25140,'ดงกระทงยาม','ศรีมหาโพธิ','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250803,25140,'บ้านทาม','ศรีมหาโพธิ','ปราจีนบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (250802,25140,'สัมพันธ์','ศรีมหาโพธิ','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250604,25150,'บางยาง','บ้านสร้าง','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250608,25150,'บางขาม','บ้านสร้าง','ปราจีนบุรี','ภาคตะวันออก'),
@@ -10863,7 +10863,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (250603,25150,'บางเตย','บ้านสร้าง','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250606,25150,'บางพลวง','บ้านสร้าง','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250605,25150,'บางแตน','บ้านสร้าง','ปราจีนบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (250903,25190,'คู้ลำพัน','ศรีมโหสถ','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250901,25190,'โคกปีบ','ศรีมโหสถ','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250904,25190,'ไผ่ชะเลือด','ศรีมโหสถ','ปราจีนบุรี','ภาคตะวันออก'),
@@ -10874,7 +10874,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (250302,25220,'สำพันตา','นาดี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250303,25220,'สะพานหิน','นาดี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250304,25220,'ทุ่งโพธิ์','นาดี','ปราจีนบุรี','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (250108,25230,'บ้านพระ','เมืองปราจีนบุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250109,25230,'โคกไม้ลาย','เมืองปราจีนบุรี','ปราจีนบุรี','ภาคตะวันออก'),
 	 (250112,25230,'เนินหอม','เมืองปราจีนบุรี','ปราจีนบุรี','ภาคตะวันออก'),
@@ -10885,7 +10885,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (260111,26000,'หินตั้ง','เมืองนครนายก','นครนายก','ภาคกลาง'),
 	 (260110,26000,'สาริกา','เมืองนครนายก','นครนายก','ภาคกลาง'),
 	 (260108,26000,'ดงละคร','เมืองนครนายก','นครนายก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (260109,26000,'ศรีนาวา','เมืองนครนายก','นครนายก','ภาคกลาง'),
 	 (260106,26000,'ดอนยอ','เมืองนครนายก','นครนายก','ภาคกลาง'),
 	 (260105,26000,'ท่าทราย','เมืองนครนายก','นครนายก','ภาคกลาง'),
@@ -10896,7 +10896,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (260113,26000,'พรหมณี','เมืองนครนายก','นครนายก','ภาคกลาง'),
 	 (260113,26001,'พรหมณี','เมืองนครนายก','นครนายก','ภาคกลาง'),
 	 (260303,26110,'บ้านพริก','บ้านนา','นครนายก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (260309,26110,'เขาเพิ่ม','บ้านนา','นครนายก','ภาคกลาง'),
 	 (260301,26110,'บ้านนา','บ้านนา','นครนายก','ภาคกลาง'),
 	 (260302,26110,'บ้านพร้าว','บ้านนา','นครนายก','ภาคกลาง'),
@@ -10907,7 +10907,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (260306,26110,'บางอ้อ','บ้านนา','นครนายก','ภาคกลาง'),
 	 (260305,26110,'ทองหลาง','บ้านนา','นครนายก','ภาคกลาง'),
 	 (260402,26120,'บึงศาล','องครักษ์','นครนายก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (260406,26120,'ทรายมูล','องครักษ์','นครนายก','ภาคกลาง'),
 	 (260403,26120,'ศีรษะกระบือ','องครักษ์','นครนายก','ภาคกลาง'),
 	 (260407,26120,'บางปลากด','องครักษ์','นครนายก','ภาคกลาง'),
@@ -10918,7 +10918,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (260411,26120,'คลองใหญ่','องครักษ์','นครนายก','ภาคกลาง'),
 	 (260405,26120,'บางสมบูรณ์','องครักษ์','นครนายก','ภาคกลาง'),
 	 (260410,26120,'ชุมพล','องครักษ์','นครนายก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (260202,26130,'เกาะโพธิ์','ปากพลี','นครนายก','ภาคกลาง'),
 	 (260203,26130,'ปากพลี','ปากพลี','นครนายก','ภาคกลาง'),
 	 (260204,26130,'โคกกรวด','ปากพลี','นครนายก','ภาคกลาง'),
@@ -10929,7 +10929,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (270102,27000,'บ้านแก้ง','เมืองสระแก้ว','สระแก้ว','ภาคตะวันออก'),
 	 (270702,27000,'หนองหว้า','เขาฉกรรจ์','สระแก้ว','ภาคตะวันออก'),
 	 (270101,27000,'สระแก้ว','เมืองสระแก้ว','สระแก้ว','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (270703,27000,'พระเพลิง','เขาฉกรรจ์','สระแก้ว','ภาคตะวันออก'),
 	 (270103,27000,'ศาลาลำดวน','เมืองสระแก้ว','สระแก้ว','ภาคตะวันออก'),
 	 (270704,27000,'เขาสามสิบ','เขาฉกรรจ์','สระแก้ว','ภาคตะวันออก'),
@@ -10940,7 +10940,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (270111,27000,'หนองบอน','เมืองสระแก้ว','สระแก้ว','ภาคตะวันออก'),
 	 (270108,27000,'สระขวัญ','เมืองสระแก้ว','สระแก้ว','ภาคตะวันออก'),
 	 (270801,27120,'โคกสูง','โคกสูง','สระแก้ว','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (270603,27120,'หันทราย','อรัญประเทศ','สระแก้ว','ภาคตะวันออก'),
 	 (270605,27120,'ท่าข้าม','อรัญประเทศ','สระแก้ว','ภาคตะวันออก'),
 	 (270602,27120,'เมืองไผ่','อรัญประเทศ','สระแก้ว','ภาคตะวันออก'),
@@ -10951,7 +10951,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (270804,27120,'โนนหมากมุ่น','โคกสูง','สระแก้ว','ภาคตะวันออก'),
 	 (270611,27120,'คลองทับจันทร์','อรัญประเทศ','สระแก้ว','ภาคตะวันออก'),
 	 (270607,27120,'ทับพริก','อรัญประเทศ','สระแก้ว','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (270604,27120,'คลองน้ำใส','อรัญประเทศ','สระแก้ว','ภาคตะวันออก'),
 	 (270609,27120,'ผ่านศึก','อรัญประเทศ','สระแก้ว','ภาคตะวันออก'),
 	 (270803,27120,'หนองแวง','โคกสูง','สระแก้ว','ภาคตะวันออก'),
@@ -10962,7 +10962,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (270510,27160,'หนองตะเคียนบอน','วัฒนานคร','สระแก้ว','ภาคตะวันออก'),
 	 (270501,27160,'วัฒนานคร','วัฒนานคร','สระแก้ว','ภาคตะวันออก'),
 	 (270511,27160,'ห้วยโจด','วัฒนานคร','สระแก้ว','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (270508,27160,'แซร์ออ','วัฒนานคร','สระแก้ว','ภาคตะวันออก'),
 	 (270505,27160,'หนองน้ำใส','วัฒนานคร','สระแก้ว','ภาคตะวันออก'),
 	 (270502,27160,'ท่าเกวียน','วัฒนานคร','สระแก้ว','ภาคตะวันออก'),
@@ -10973,7 +10973,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (270302,27180,'ทัพเสด็จ','ตาพระยา','สระแก้ว','ภาคตะวันออก'),
 	 (270307,27180,'ทัพไทย','ตาพระยา','สระแก้ว','ภาคตะวันออก'),
 	 (270306,27180,'ทัพราช','ตาพระยา','สระแก้ว','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (270309,27180,'โคคลาน','ตาพระยา','สระแก้ว','ภาคตะวันออก'),
 	 (270301,27180,'ตาพระยา','ตาพระยา','สระแก้ว','ภาคตะวันออก'),
 	 (270406,27210,'ทุ่งมหาเจริญ','วังน้ำเย็น','สระแก้ว','ภาคตะวันออก'),
@@ -10984,7 +10984,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (270903,27250,'วังทอง','วังสมบูรณ์','สระแก้ว','ภาคตะวันออก'),
 	 (270901,27250,'วังสมบูรณ์','วังสมบูรณ์','สระแก้ว','ภาคตะวันออก'),
 	 (270902,27250,'วังใหม่','วังสมบูรณ์','สระแก้ว','ภาคตะวันออก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (270201,27260,'คลองหาด','คลองหาด','สระแก้ว','ภาคตะวันออก'),
 	 (270202,27260,'ไทยอุดม','คลองหาด','สระแก้ว','ภาคตะวันออก'),
 	 (270203,27260,'ซับมะกรูด','คลองหาด','สระแก้ว','ภาคตะวันออก'),
@@ -10995,7 +10995,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300111,30000,'หัวทะเล','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300124,30000,'หนองกระทุ่ม','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (303204,30000,'หนองงูเหลือม','เฉลิมพระเกียรติ','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (300123,30000,'พะเนา','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300121,30000,'สีมุม','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300120,30000,'สุรนารี','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11006,7 +11006,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300118,30000,'ไชยมงคล','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300114,30000,'พุดซา','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300113,30000,'บ้านใหม่','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (300103,30000,'หนองจะบก','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300112,30000,'บ้านเกาะ','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300102,30000,'โพธิ์กลาง','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11017,7 +11017,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301507,30110,'ชีวาน','พิมาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301505,30110,'ท่าหลวง','พิมาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301512,30110,'หนองระเวียง','พิมาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301511,30110,'ธารละหลอด','พิมาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301510,30110,'ดงใหญ่','พิมาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301509,30110,'กระชอน','พิมาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11028,7 +11028,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301502,30110,'สัมฤทธิ์','พิมาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301501,30110,'ในเมือง','พิมาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301214,30120,'กุดจอก','บัวใหญ่','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301215,30120,'ด่านช้าง','บัวใหญ่','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301207,30120,'หนองบัวสะอาด','บัวใหญ่','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301203,30120,'ห้วยยาง','บัวใหญ่','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11039,7 +11039,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301224,30120,'หนองแจ้งใหญ่','บัวใหญ่','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (303002,30120,'โนนจาน','บัวลาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (303001,30120,'เมืองพะไล','บัวลาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301208,30120,'โนนทองหลาง','บัวใหญ่','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301220,30120,'ขุนทอง','บัวใหญ่','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301201,30120,'บัวใหญ่','บัวใหญ่','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11050,7 +11050,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (302104,30130,'วังกะทะ','ปากช่อง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302105,30130,'หมูสี','ปากช่อง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302110,30130,'หนองน้ำแดง','ปากช่อง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (302109,30130,'คลองม่วง','ปากช่อง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302108,30130,'โป่งตาลอง','ปากช่อง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302111,30130,'วังไทร','ปากช่อง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11061,7 +11061,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (302009,30140,'มิตรภาพ','สีคิ้ว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302008,30140,'วังโรงใหญ่','สีคิ้ว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302006,30140,'กุดน้อย','สีคิ้ว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (302005,30140,'หนองหญ้าขาว','สีคิ้ว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302003,30140,'กฤษณา','สีคิ้ว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302002,30140,'บ้านหัน','สีคิ้ว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11072,7 +11072,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301412,30150,'ลำนางแก้ว','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301402,30150,'ตะคุ','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301406,30150,'นกออก','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301407,30150,'ดอน','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301409,30150,'ตูม','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301410,30150,'งิ้ว','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11083,7 +11083,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301403,30150,'โคกไทย','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301418,30150,'สุขเกษม','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301417,30150,'ธงชัยเหนือ','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301416,30150,'ภูหลวง','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301405,30150,'ตะขบ','ปักธงชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301007,30160,'หลุมข้าว','โนนสูง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11094,7 +11094,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301016,30160,'ลำมูล','โนนสูง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301004,30160,'บิง','โนนสูง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301010,30160,'จันอัด','โนนสูง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301011,30160,'ขามเฒ่า','โนนสูง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301014,30160,'เมืองปราสาท','โนนสูง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301012,30160,'ด่านคล้า','โนนสูง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11105,7 +11105,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301807,30170,'มะเกลือเก่า','สูงเนิน','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301806,30170,'โค้งยาง','สูงเนิน','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301805,30170,'โนนค่า','สูงเนิน','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301804,30170,'บุ่งขี้เหล็ก','สูงเนิน','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301803,30170,'โคราช','สูงเนิน','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301802,30170,'เสมา','สูงเนิน','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11116,7 +11116,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301301,30180,'ประทาย','ประทาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301303,30180,'กระทุ่มราย','ประทาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301304,30180,'วังไม้แดง','ประทาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301318,30180,'เมืองโดน','ประทาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301317,30180,'โคกกลาง','ประทาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301315,30180,'ทุ่งสว่าง','ประทาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11127,7 +11127,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301308,30180,'หนองค่าย','ประทาย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300705,30190,'ท่าลาดขาว','โชคชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300702,30190,'พลับพลา','โชคชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (300704,30190,'ทุ่งอรุณ','โชคชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300703,30190,'ท่าอ่าง','โชคชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300710,30190,'ด่านเกวียน','โชคชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11138,7 +11138,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300709,30190,'ละลมใหม่พัฒนา','โชคชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302602,30210,'หนองแวง','เทพารักษ์','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300806,30210,'บ้านเก่า','ด่านขุนทด','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (300803,30210,'ด่านนอก','ด่านขุนทด','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300808,30210,'พันชนะ','ด่านขุนทด','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300802,30210,'ด่านขุนทด','ด่านขุนทด','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11149,7 +11149,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300811,30210,'หนองบัวตะเกียด','ด่านขุนทด','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300804,30210,'ด่านใน','ด่านขุนทด','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300812,30210,'หนองบัวละคร','ด่านขุนทด','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (300813,30210,'หินดาด','ด่านขุนทด','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302604,30210,'วังยายทอง','เทพารักษ์','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300815,30210,'ห้วยบง','ด่านขุนทด','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11160,7 +11160,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (302801,30220,'สระพระ','พระทองคำ','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302802,30220,'มาบกราด','พระทองคำ','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302803,30220,'พังเทียม','พระทองคำ','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (302804,30220,'ทัพรั้ง','พระทองคำ','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302805,30220,'หนองหอย','พระทองคำ','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300904,30220,'สำโรง','โนนไทย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11171,7 +11171,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300914,30220,'มะค่า','โนนไทย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300905,30220,'ค้างพลู','โนนไทย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300901,30220,'โนนไทย','โนนไทย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (300907,30220,'บัลลังก์','โนนไทย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300610,30230,'ศรีละกอ','จักราช','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (303201,30230,'ช้างทอง','เฉลิมพระเกียรติ','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11182,7 +11182,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300605,30230,'หนองขาม','จักราช','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300604,30230,'สีสุก','จักราช','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300603,30230,'ทองหลาง','จักราช','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (300611,30230,'คลองเมือง','จักราช','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300601,30230,'จักราช','จักราช','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300613,30230,'หินโคน','จักราช','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11193,7 +11193,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301604,30240,'หลุ่งตะเคียน','ห้วยแถลง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301605,30240,'หินดาด','ห้วยแถลง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301606,30240,'งิ้ว','ห้วยแถลง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301607,30240,'กงรถ','ห้วยแถลง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301608,30240,'หลุ่งประดู่','ห้วยแถลง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301610,30240,'ห้วยแคน','ห้วยแถลง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11204,7 +11204,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300211,30250,'ตะแบกบาน','ครบุรี','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300202,30250,'เฉลียง','ครบุรี','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300209,30250,'ลำเพียก','ครบุรี','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (300210,30250,'ครบุรีใต้','ครบุรี','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300206,30250,'มาบตะโกเอน','ครบุรี','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300205,30250,'จระเข้หิน','ครบุรี','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11215,7 +11215,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300404,30260,'ตาจั่น','คง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300405,30260,'บ้านปรางค์','คง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300406,30260,'หนองมะนาว','คง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (300407,30260,'หนองบัว','คง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300408,30260,'โนนเต็ง','คง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300401,30260,'เมืองคง','คง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11226,7 +11226,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301717,30270,'โนนยอ','ชุมพวง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301716,30270,'โนนตูม','ชุมพวง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301714,30270,'หนองหลัก','ชุมพวง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301710,30270,'โนนรัง','ชุมพวง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301705,30270,'ตลาดไทร','ชุมพวง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301704,30270,'สาหร่าย','ชุมพวง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11237,7 +11237,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (301701,30270,'ชุมพวง','ชุมพวง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302902,30270,'บ้านยาง','ลำทะเมนชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302702,30270,'กระเบื้องนอก','เมืองยาง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (302901,30270,'ขุย','ลำทะเมนชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302903,30270,'ช่องแมว','ลำทะเมนชัย','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301904,30280,'หนองสรวง','ขามทะเลสอ','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11248,7 +11248,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300117,30280,'โคกกรวด','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301105,30290,'พะงาด','ขามสะแกแสง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301107,30290,'เมืองเกษตร','ขามสะแกแสง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (301104,30290,'ชีวึก','ขามสะแกแสง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301106,30290,'หนองหัวฟาน','ขามสะแกแสง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (301103,30290,'เมืองนาท','ขามสะแกแสง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11259,7 +11259,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300104,30310,'โคกสูง','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300115,30310,'บ้านโพธิ์','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300116,30310,'จอหอ','เมืองนครราชสีมา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (302102,30320,'กลางดง','ปากช่อง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302112,30320,'พญาเย็น','ปากช่อง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300306,30330,'บ้านราษฎร์','เสิงสาง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11270,7 +11270,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (300305,30330,'สุขไพบูลย์','เสิงสาง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302004,30340,'ลาดบัวขาว','สีคิ้ว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302010,30340,'คลองไผ่','สีคิ้ว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (300504,30350,'ช่อระกา','บ้านเหลื่อม','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300503,30350,'โคกกระเบื้อง','บ้านเหลื่อม','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (300502,30350,'วังโพธิ์','บ้านเหลื่อม','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11281,7 +11281,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (302401,30360,'โนนแดง','โนนแดง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302404,30360,'วังหิน','โนนแดง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302505,30370,'ไทยสามัคคี','วังน้ำเขียว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (302504,30370,'อุดมทรัพย์','วังน้ำเขียว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302502,30370,'วังหมี','วังน้ำเขียว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302501,30370,'วังน้ำเขียว','วังน้ำเขียว','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11292,7 +11292,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (302202,30410,'สารภี','หนองบุญมาก','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302203,30410,'ไทยเจริญ','หนองบุญมาก','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302207,30410,'ลุงเขว้า','หนองบุญมาก','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (302204,30410,'หนองหัวแรต','หนองบุญมาก','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302208,30410,'หนองไม้ไผ่','หนองบุญมาก','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302209,30410,'บ้านใหม่','หนองบุญมาก','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11303,7 +11303,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (303104,30430,'สามเมือง','สีดา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (303103,30430,'โนนประดู่','สีดา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (303102,30430,'โพนทอง','สีดา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (303101,30430,'สีดา','สีดา','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302304,30440,'สีสุก','แก้งสนามนาง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
 	 (302301,30440,'แก้งสนามนาง','แก้งสนามนาง','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -11314,7 +11314,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (312101,31000,'บ้านด่าน','บ้านด่าน','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311606,31000,'โคกเหล็ก','ห้วยราช','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311607,31000,'เมืองโพธิ์','ห้วยราช','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (312102,31000,'ปราสาท','บ้านด่าน','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311605,31000,'สนวน','ห้วยราช','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311601,31000,'ห้วยราช','ห้วยราช','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11325,7 +11325,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310126,31000,'กลันทา','เมืองบุรีรัมย์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310125,31000,'สะแกซำ','เมืองบุรีรัมย์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310122,31000,'หลักเขต','เมืองบุรีรัมย์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (310120,31000,'ชุมเห็ด','เมืองบุรีรัมย์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310119,31000,'บัวทอง','เมืองบุรีรัมย์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (312103,31000,'วังเหนือ','บ้านด่าน','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11336,7 +11336,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310101,31000,'ในเมือง','เมืองบุรีรัมย์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310102,31000,'อิสาณ','เมืองบุรีรัมย์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310103,31000,'เสม็ด','เมืองบุรีรัมย์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (310105,31000,'สะแกโพรง','เมืองบุรีรัมย์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310104,31000,'บ้านบัว','เมืองบุรีรัมย์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311604,31000,'บ้านตะโก','ห้วยราช','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11347,7 +11347,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (311702,31110,'ทุ่งจังหัน','โนนสุวรรณ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311701,31110,'โนนสุวรรณ','โนนสุวรรณ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311703,31110,'โกรกแก้ว','โนนสุวรรณ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (310408,31110,'หนองกง','นางรอง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311704,31110,'ดงอีจาน','โนนสุวรรณ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310413,31110,'ถนนหัก','นางรอง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11358,7 +11358,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310401,31110,'นางรอง','นางรอง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (312303,31110,'อีสานเขต','เฉลิมพระเกียรติ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (312302,31110,'ตาเป๊ก','เฉลิมพระเกียรติ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (312301,31110,'เจริญสุข','เฉลิมพระเกียรติ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310414,31110,'หนองไทร','นางรอง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311801,31110,'ชำนิ','ชำนิ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11369,7 +11369,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310425,31110,'หัวถนน','นางรอง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310426,31110,'ทุ่งแสงทอง','นางรอง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310427,31110,'หนองโสน','นางรอง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (311806,31110,'โคกสนวน','ชำนิ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311805,31110,'ละลวด','ชำนิ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311804,31110,'ช่อผกา','ชำนิ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11380,7 +11380,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310903,31120,'บ้านจาน','พุทไธสง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310906,31120,'บ้านเป้า','พุทไธสง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310907,31120,'บ้านแวง','พุทไธสง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (310910,31120,'หายโศก','พุทไธสง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310902,31120,'มะเฟือง','พุทไธสง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311903,31120,'แดงใหญ่','บ้านใหม่ไชยพจน์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11391,7 +11391,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (311003,31130,'แสลงพัน','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311004,31130,'ทะเมนชัย','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311005,31130,'ตลาดโพธิ์','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (311006,31130,'หนองกะทิง','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311015,31130,'บุโพธิ์','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311007,31130,'โคกกลาง','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11402,7 +11402,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (311012,31130,'โคกล่าม','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311013,31130,'หินโคน','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311002,31130,'หนองคู','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (311001,31130,'ลำปลายมาศ','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311016,31130,'หนองโดน','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311014,31130,'หนองบัวโคก','ลำปลายมาศ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11413,7 +11413,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310721,31140,'สี่เหลี่ยม','ประโคนชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310708,31140,'โคกย่าง','ประโคนชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310720,31140,'ประทัดบุ','ประโคนชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (310719,31140,'โคกตูม','ประโคนชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310718,31140,'โคกมะขาม','ประโคนชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310716,31140,'หนองบอน','ประโคนชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11424,7 +11424,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310703,31140,'บ้านไทร','ประโคนชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310710,31140,'โคกม้า','ประโคนชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (312203,31150,'สระบัว','แคนดง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (312204,31150,'หัวฝาย','แคนดง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311104,31150,'เมืองแก','สตึก','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311105,31150,'หนองใหญ่','สตึก','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11435,7 +11435,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (311101,31150,'สตึก','สตึก','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311102,31150,'นิคม','สตึก','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311110,31150,'ชุมแสง','สตึก','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (311111,31150,'ท่าม่วง','สตึก','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311112,31150,'สะแก','สตึก','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311114,31150,'สนามชัย','สตึก','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11446,7 +11446,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310305,31160,'หนองเต็ง','กระสัง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310303,31160,'สองชั้น','กระสัง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310311,31160,'ศรีภูมิ','กระสัง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (310304,31160,'สูงเนิน','กระสัง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310302,31160,'ลำดวน','กระสัง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310308,31160,'บ้านปรือ','กระสัง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11457,7 +11457,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (312304,31170,'ถาวร','เฉลิมพระเกียรติ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310604,31170,'สำโรงใหม่','ละหานทราย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310607,31170,'หนองแวง','ละหานทราย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (310603,31170,'ตาจง','ละหานทราย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310601,31170,'ละหานทราย','ละหานทราย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310611,31170,'โคกว่าน','ละหานทราย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11468,7 +11468,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310808,31180,'จันทบเพชร','บ้านกรวด','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310806,31180,'หินลาด','บ้านกรวด','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310809,31180,'เขาดินเหนือ','บ้านกรวด','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (310803,31180,'หนองไม้งาม','บ้านกรวด','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310802,31180,'โนนเจริญ','บ้านกรวด','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310801,31180,'บ้านกรวด','บ้านกรวด','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11479,7 +11479,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310206,31190,'ตูมใหญ่','คูเมือง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310207,31190,'หนองขมาร','คูเมือง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310205,31190,'หินเหล็กไฟ','คูเมือง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (310506,31210,'ทุ่งกระตาดพัฒนา','หนองกี่','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310503,31210,'เมืองไผ่','หนองกี่','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310505,31210,'โคกสว่าง','หนองกี่','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11490,7 +11490,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (310504,31210,'ดอนอะราง','หนองกี่','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310508,31210,'ท่าโพธิ์ชัย','หนองกี่','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (310501,31210,'หนองกี่','หนองกี่','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (311201,31220,'ปะคำ','ปะคำ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311204,31220,'โคกมะม่วง','ปะคำ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311202,31220,'ไทยเจริญ','ปะคำ','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11501,7 +11501,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (311303,31230,'บ้านดู่','นาโพธิ์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311304,31230,'ดอนกอก','นาโพธิ์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311305,31230,'ศรีสว่าง','นาโพธิ์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (311401,31240,'สระแก้ว','หนองหงส์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311402,31240,'ห้วยหิน','หนองหงส์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311407,31240,'สระทอง','หนองหงส์','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11512,7 +11512,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (311502,31250,'โคกขมิ้น','พลับพลาชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311501,31250,'จันดุม','พลับพลาชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311503,31250,'ป่าชัน','พลับพลาชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (311505,31250,'สำโรง','พลับพลาชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (311504,31250,'สะเดา','พลับพลาชัย','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
 	 (312003,31260,'ลำนางรอง','โนนดินแดง','บุรีรัมย์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11523,7 +11523,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (321604,32000,'ปราสาททอง','เขวาสินรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321605,32000,'บ้านแร่','เขวาสินรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321602,32000,'บึง','เขวาสินรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320121,32000,'บุฤาษี','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320101,32000,'ในเมือง','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320112,32000,'คอโค','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11534,7 +11534,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (320105,32000,'ท่าสว่าง','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320114,32000,'เฉนียง','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320104,32000,'นาดี','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320103,32000,'เพี้ยราม','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320116,32000,'เทนมีย์','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320102,32000,'ตั้งใจ','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11545,7 +11545,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (320110,32000,'แกใหญ่','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320125,32000,'แสลงพันธ์','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320126,32000,'กาเกาะ','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320120,32000,'ราม','เมืองสุรินทร์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320911,32110,'กุดหวาย','ศีขรภูมิ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320905,32110,'แตล','ศีขรภูมิ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11556,7 +11556,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (320914,32110,'ตรมไพร','ศีขรภูมิ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320901,32110,'ระแงง','ศีขรภูมิ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320902,32110,'ตรึม','ศีขรภูมิ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320913,32110,'นารุ่ง','ศีขรภูมิ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320910,32110,'ช่างปี่','ศีขรภูมิ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320912,32110,'ขวาวใหญ่','ศีขรภูมิ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11567,7 +11567,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (320304,32120,'โพนครก','ท่าตูม','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320310,32120,'ทุ่งกุลา','ท่าตูม','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320309,32120,'หนองเมธี','ท่าตูม','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320302,32120,'กระโพ','ท่าตูม','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320308,32120,'บัวโคก','ท่าตูม','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320301,32120,'ท่าตูม','ท่าตูม','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11578,7 +11578,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (321704,32130,'ระเวียง','โนนนารายณ์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320704,32130,'ดอนแรด','รัตนบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320714,32130,'กุดขาคีม','รัตนบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320713,32130,'น้ำเขียว','รัตนบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320711,32130,'เบิด','รัตนบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320706,32130,'หนองบัวบาน','รัตนบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11589,7 +11589,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (320702,32130,'ธาตุ','รัตนบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320701,32130,'รัตนบุรี','รัตนบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321703,32130,'โนน','โนนนารายณ์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (321702,32130,'คำผง','โนนนารายณ์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321701,32130,'หนองหลวง','โนนนารายณ์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320703,32130,'แก','รัตนบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11600,7 +11600,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (320515,32140,'บ้านพลวง','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320505,32140,'ทุ่งมน','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320504,32140,'ปรือ','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320516,32140,'กันตวจระมวล','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320503,32140,'ไพล','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320510,32140,'บ้านไทร','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11611,7 +11611,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (320512,32140,'เชื้อเพลิง','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320513,32140,'ปราสาททนง','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320508,32140,'โคกยาง','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320514,32140,'ตานี','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320518,32140,'ประทัดบุ','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320517,32140,'สมุด','ปราสาท','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11622,7 +11622,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (321006,32150,'ดม','สังขะ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321505,32150,'ศรีสุข','ศรีณรงค์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321503,32150,'ตรวจ','ศรีณรงค์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (321001,32150,'สังขะ','สังขะ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321007,32150,'พระแก้ว','สังขะ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321008,32150,'บ้านจารย์','สังขะ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11633,7 +11633,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (321012,32150,'ทับทัน','สังขะ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321013,32150,'ตาคง','สังขะ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321015,32150,'บ้านชบ','สังขะ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (321017,32150,'เทพรักษา','สังขะ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321504,32150,'หนองแวง','ศรีณรงค์','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320807,32160,'หนองอียอ','สนม','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11644,7 +11644,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (320803,32160,'หนองระฆัง','สนม','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320802,32160,'โพนโก','สนม','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321205,32170,'ศรีสุข','สำโรงทาบ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (321201,32170,'สำโรงทาบ','สำโรงทาบ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321203,32170,'กระออม','สำโรงทาบ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321209,32170,'สะโน','สำโรงทาบ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11655,7 +11655,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (321207,32170,'หมื่นศรี','สำโรงทาบ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321210,32170,'ประดู่','สำโรงทาบ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320405,32180,'หนองสนิท','จอมพระ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320401,32180,'จอมพระ','จอมพระ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320403,32180,'กระหาด','จอมพระ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320404,32180,'บุแกรง','จอมพระ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11666,7 +11666,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (320406,32180,'บ้านผือ','จอมพระ','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320205,32190,'ยะวึก','ชุมพลบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320206,32190,'เมืองบัว','ชุมพลบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320202,32190,'นาหนองไผ่','ชุมพลบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320201,32190,'ชุมพลบุรี','ชุมพลบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320207,32190,'สระขุด','ชุมพลบุรี','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11677,7 +11677,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (320601,32210,'กาบเชิง','กาบเชิง','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320605,32210,'ด่าน','กาบเชิง','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320606,32210,'แนงมุด','กาบเชิง','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (320604,32210,'คูตัน','กาบเชิง','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320607,32210,'โคกตะเคียน','กาบเชิง','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (320610,32210,'ตะเคียน','กาบเชิง','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11688,7 +11688,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (321105,32220,'ตระเปียงเตีย','ลำดวน','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321306,32230,'สำเภาลูน','บัวเชด','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321301,32230,'บัวเชด','บัวเชด','สุรินทร์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (321303,32230,'จรัส','บัวเชด','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321304,32230,'ตาวัง','บัวเชด','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
 	 (321302,32230,'สะเดา','บัวเชด','สุรินทร์','ภาคตะวันออกเฉียงเหนือ'),
@@ -11699,7 +11699,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330124,33000,'หมากเขียบ','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330104,33000,'ซำ','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330102,33000,'เมืองใต้','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330123,33000,'โพธิ์','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330112,33000,'โพนค้อ','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330105,33000,'จาน','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11710,7 +11710,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330116,33000,'หญ้าปล้อง','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330115,33000,'โพนเขวา','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330122,33000,'น้ำคำ','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330121,33000,'หนองแก้ว','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330127,33000,'หนองไผ่','เมืองศรีสะเกษ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330401,33110,'บึงมะลู','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11721,7 +11721,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330408,33110,'รุง','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330409,33110,'ตระกาจ','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330411,33110,'จานใหญ่','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330414,33110,'กระแชง','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330413,33110,'ชำ','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330415,33110,'โนนสำราญ','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11732,7 +11732,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330424,33110,'ทุ่งใหญ่','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330425,33110,'ภูผาหมอก','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330412,33110,'ภูเงิน','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330419,33110,'เสาธงชัย','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330402,33110,'กุดเสลา','กันทรลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331905,33110,'ท่าคล้อ','เบญจลักษ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11743,7 +11743,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (331015,33120,'แข้','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331803,33120,'หนองใหญ่','เมืองจันทร์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331802,33120,'ตาโกน','เมืองจันทร์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (331801,33120,'เมืองจันทร์','เมืองจันทร์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331022,33120,'สระกำแพงใหญ่','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331018,33120,'หนองห้าง','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11754,7 +11754,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (331011,33120,'หัวช้าง','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331010,33120,'ตาเกษ','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331008,33120,'ขะยูง','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (332105,33120,'อีเซ','โพธิ์ศรีสุวรรณ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (332104,33120,'ผือใหญ่','โพธิ์ศรีสุวรรณ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (332103,33120,'หนองม้า','โพธิ์ศรีสุวรรณ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11765,7 +11765,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (331002,33120,'อี่หล่ำ','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331003,33120,'ก้านเหลือง','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331004,33120,'ทุ่งไชย','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (331005,33120,'สำโรง','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331006,33120,'แขม','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331007,33120,'หนองไฮ','อุทุมพรพิสัย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11776,7 +11776,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (331504,33130,'เขิน','น้ำเกลี้ยง','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330308,33130,'ละทาย','กันทรารมย์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330309,33130,'เมืองน้อย','กันทรารมย์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330310,33130,'อีปาด','กันทรารมย์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330311,33130,'บัวน้อย','กันทรารมย์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331506,33130,'คูบ','น้ำเกลี้ยง','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11787,7 +11787,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (331501,33130,'น้ำเกลี้ยง','น้ำเกลี้ยง','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330307,33130,'ทาม','กันทรารมย์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330312,33130,'หนองบัว','กันทรารมย์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330313,33130,'ดู่','กันทรารมย์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330314,33130,'ผักแพว','กันทรารมย์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330315,33130,'จาน','กันทรารมย์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11798,7 +11798,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330511,33140,'หัวเสือ','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330526,33140,'หนองฉลอง','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330510,33140,'ห้วยใต้','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330515,33140,'นิคมพัฒนา','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330509,33140,'ห้วยเหนือ','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330524,33140,'กฤษณา','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11809,7 +11809,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330525,33140,'ลมศักดิ์','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330508,33140,'ตาอุด','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331701,33140,'โคกตาล','ภูสิงห์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330506,33140,'ปรือใหญ่','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330505,33140,'โสน','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330504,33140,'ดองกำเม็ด','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11820,7 +11820,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (331707,33140,'ไพรพัฒนา','ภูสิงห์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330527,33140,'ศรีตระกูล','ขุขันธ์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331706,33140,'ดงรัก','ภูสิงห์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (331705,33140,'ตะเคียนราม','ภูสิงห์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331704,33140,'ละลม','ภูสิงห์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331703,33140,'ห้วยตึ๊กชู','ภูสิงห์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11831,7 +11831,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330811,33150,'โพธิ์กระสังข์','ขุนหาญ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330810,33150,'ภูฝ้าย','ขุนหาญ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330808,33150,'โนนสูง','ขุนหาญ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330807,33150,'ขุนหาญ','ขุนหาญ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330806,33150,'กระหวัน','ขุนหาญ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330805,33150,'ไพร','ขุนหาญ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11842,7 +11842,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330902,33160,'เมืองแคน','ราษีไศล','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330901,33160,'เมืองคง','ราษีไศล','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330906,33160,'จิกสังข์ทอง','ราษีไศล','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330907,33160,'ด่าน','ราษีไศล','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330909,33160,'หนองอึ่ง','ราษีไศล','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330910,33160,'บัวหุ่ง','ราษีไศล','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11853,7 +11853,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330915,33160,'สร้างปี่','ราษีไศล','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (332201,33160,'กุง','ศิลาลาด','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (332202,33160,'คลีกลิ้ง','ศิลาลาด','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (332203,33160,'หนองบัวดง','ศิลาลาด','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (332204,33160,'โจดม่วง','ศิลาลาด','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330908,33160,'ดู่','ราษีไศล','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11864,7 +11864,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330709,33170,'สวาย','ปรางค์กู่','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330708,33170,'ดู่','ปรางค์กู่','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330707,33170,'สำโรงปราสาท','ปรางค์กู่','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330702,33170,'กู่','ปรางค์กู่','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330701,33170,'พิมาย','ปรางค์กู่','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330704,33170,'ตูม','ปรางค์กู่','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11875,7 +11875,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (330604,33180,'สำโรงพลัน','ไพรบึง','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330605,33180,'สุขสวัสดิ์','ไพรบึง','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330606,33180,'โนนปูน','ไพรบึง','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (330207,33190,'ยางชุมใหญ่','ยางชุมน้อย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330203,33190,'คอนกาม','ยางชุมน้อย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (330205,33190,'กุดเมืองฮาม','ยางชุมน้อย','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11886,7 +11886,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (331201,33210,'ห้วยทับทัน','ห้วยทับทัน','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331202,33210,'เมืองหลวง','ห้วยทับทัน','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331203,33210,'กล้วยกว้าง','ห้วยทับทัน','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (331204,33210,'ผักไหม','ห้วยทับทัน','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331205,33210,'จานแสนไชย','ห้วยทับทัน','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331206,33210,'ปราสาท','ห้วยทับทัน','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11897,7 +11897,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (332004,33230,'โนนเพ็ก','พยุห์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (332003,33230,'ตำแย','พยุห์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (332002,33230,'พรหมสวัสดิ์','พยุห์','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (331401,33240,'ศรีแก้ว','ศรีรัตนะ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331405,33240,'เสื่องข้าว','ศรีรัตนะ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331402,33240,'พิงพวย','ศรีรัตนะ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11908,7 +11908,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (331304,33250,'หนองกุง','โนนคูณ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331302,33250,'บก','โนนคูณ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331301,33250,'โนนค้อ','โนนคูณ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (331305,33250,'เหล่ากวาง','โนนคูณ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331303,33250,'โพธิ์','โนนคูณ','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331606,33270,'ทุ่งสว่าง','วังหิน','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
@@ -11919,7 +11919,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (331605,33270,'ศรีสำราญ','วังหิน','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331608,33270,'โพนยาง','วังหิน','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ'),
 	 (331607,33270,'วังหิน','วังหิน','ศรีสะเกษ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (340112,34000,'ไร่น้อย','เมืองอุบลราชธานี','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340120,34000,'ปะอาว','เมืองอุบลราชธานี','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340119,34000,'ขี้เหล็ก','เมืองอุบลราชธานี','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -11930,7 +11930,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (340107,34000,'ปทุม','เมืองอุบลราชธานี','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340108,34000,'ขามใหญ่','เมืองอุบลราชธานี','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340113,34000,'กระโสบ','เมืองอุบลราชธานี','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (340111,34000,'หนองบ่อ','เมืองอุบลราชธานี','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (343102,34000,'โพนเมือง','เหล่าเสือโก้ก','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342401,34000,'ดอนมดแดง','ดอนมดแดง','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -11941,7 +11941,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (342403,34000,'ท่าเมือง','ดอนมดแดง','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (343104,34000,'หนองบก','เหล่าเสือโก้ก','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342402,34000,'เหล่าแดง','ดอนมดแดง','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (341909,34110,'โพธิ์ไทร','พิบูลมังสาหาร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341902,34110,'กุดชมภู','พิบูลมังสาหาร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341911,34110,'ระเว','พิบูลมังสาหาร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -11952,7 +11952,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (341919,34110,'บ้านแขม','พิบูลมังสาหาร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341904,34110,'ดอนจิก','พิบูลมังสาหาร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341905,34110,'ทรายมูล','พิบูลมังสาหาร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (341906,34110,'นาโพธิ์','พิบูลมังสาหาร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341901,34110,'พิบูล','พิบูลมังสาหาร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341910,34110,'โพธิ์ศรี','พิบูลมังสาหาร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -11963,7 +11963,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (341106,34130,'คอนสาย','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341113,34130,'ไหล่ทุ่ง','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341114,34130,'เป้า','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (341105,34130,'ขามเปี้ย','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341108,34130,'นาพิน','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341115,34130,'เซเป็ด','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -11974,7 +11974,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (341118,34130,'ถ้ำแข้','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341117,34130,'หนองเต่า','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341121,34130,'กุดยาลวน','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (341122,34130,'บ้านแดง','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341104,34130,'กุศกร','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341110,34130,'โนนกุง','ตระการพืชผล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -11985,7 +11985,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (341410,34140,'หนองฮาง','ม่วงสามสิบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341401,34140,'ม่วงสามสิบ','ม่วงสามสิบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341402,34140,'เหล่าบก','ม่วงสามสิบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (341403,34140,'ดุมใหญ่','ม่วงสามสิบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341404,34140,'หนองช้างใหญ่','ม่วงสามสิบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341405,34140,'หนองเมือง','ม่วงสามสิบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -11996,7 +11996,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (341414,34140,'โพนแพง','ม่วงสามสิบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341413,34140,'นาเลิง','ม่วงสามสิบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341411,34140,'ยางโยภาพ','ม่วงสามสิบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (341412,34140,'ไผ่ใหญ่','ม่วงสามสิบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340410,34150,'ธาตุน้อย','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340417,34150,'สหธาตุ','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12007,7 +12007,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (340402,34150,'สร้างถ่อ','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340403,34150,'ค้อทอง','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340404,34150,'ก่อเอ้','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (340407,34150,'ท่าไห','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340418,34150,'หนองเหล่า','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340405,34150,'หัวดอน','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12018,7 +12018,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (340713,34160,'ท่าโพธิ์ศรี','เดชอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340720,34160,'โพนงาม','เดชอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340721,34160,'ป่าโมง','เดชอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (340723,34160,'โนนสมบูรณ์','เดชอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342903,34160,'นาเรือง','นาเยีย','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340712,34160,'แก้ง','เดชอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12029,7 +12029,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (342605,34160,'โคกชำแระ','ทุ่งศรีอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342604,34160,'กุดเรือ','ทุ่งศรีอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342603,34160,'นาเกษม','ทุ่งศรีอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (342602,34160,'หนองอ้ม','ทุ่งศรีอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340709,34160,'กุดประทาย','เดชอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340708,34160,'สมสะอาด','เดชอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12040,7 +12040,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (340717,34160,'นากระแซง','เดชอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340716,34160,'คำครั่ง','เดชอุดม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (343003,34170,'กองโพน','นาตาล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (343001,34170,'นาตาล','นาตาล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340511,34170,'หนองนกทา','เขมราฐ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (343002,34170,'พะลาน','นาตาล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12051,7 +12051,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (340503,34170,'ขามป้อม','เขมราฐ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340501,34170,'เขมราฐ','เขมราฐ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (343004,34170,'พังเคน','นาตาล','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (340507,34170,'หนองผือ','เขมราฐ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340513,34170,'หัวนา','เขมราฐ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341505,34190,'โนนโหนน','วารินชำราบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12062,7 +12062,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (341510,34190,'คำน้ำแซบ','วารินชำราบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341501,34190,'วารินชำราบ','วารินชำราบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (343203,34190,'บุ่งมะแลง','สว่างวีระวงศ์','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (341502,34190,'ธาตุ','วารินชำราบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341515,34190,'คำขวาง','วารินชำราบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (343202,34190,'ท่าช้าง','สว่างวีระวงศ์','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12073,7 +12073,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (341518,34190,'แสนสุข','วารินชำราบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341520,34190,'หนองกินเพล','วารินชำราบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340304,34220,'หนองแสงใหญ่','โขงเจียม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (340303,34220,'นาโพธิ์กลาง','โขงเจียม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340305,34220,'ห้วยไผ่','โขงเจียม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340302,34220,'ห้วยยาง','โขงเจียม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12084,7 +12084,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (341004,34230,'นาโพธิ์','บุณฑริก','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341003,34230,'คอแลน','บุณฑริก','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341005,34230,'หนองสะโน','บุณฑริก','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (341002,34230,'ห้วยข่า','บุณฑริก','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341001,34230,'โพนงาม','บุณฑริก','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340203,34250,'เอือดใหญ่','ศรีเมืองใหม่','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12095,7 +12095,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (340207,34250,'ตะบ่าย','ศรีเมืองใหม่','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340209,34250,'หนามแท่ง','ศรีเมืองใหม่','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340210,34250,'นาเลิน','ศรีเมืองใหม่','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (340205,34250,'ลาดควาย','ศรีเมืองใหม่','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340211,34250,'ดอนใหญ่','ศรีเมืองใหม่','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340201,34250,'นาคำ','ศรีเมืองใหม่','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12106,7 +12106,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (340911,34260,'เก่าขาม','น้ำยืน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (343304,34260,'โคกสะอาด','น้ำขุ่น','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340906,34260,'บุเปือย','น้ำยืน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (343302,34260,'ไพบูลย์','น้ำขุ่น','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340901,34260,'โซง','น้ำยืน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340904,34260,'โดมประดิษฐ์','น้ำยืน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12117,7 +12117,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (341202,34270,'โนนสวาง','กุดข้าวปุ้น','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (341201,34270,'ข้าวปุ้น','กุดข้าวปุ้น','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340803,34280,'พรสวรรค์','นาจะหลวย','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (340802,34280,'โนนสมบูรณ์','นาจะหลวย','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340801,34280,'นาจะหลวย','นาจะหลวย','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340805,34280,'โสกแสง','นาจะหลวย','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12128,7 +12128,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (341504,34310,'ท่าลาด','วารินชำราบ','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340411,34320,'บ้านไทย','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340414,34320,'โนนรัง','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (340413,34320,'กลางใหญ่','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (340412,34320,'บ้านกอก','เขื่องใน','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342002,34330,'สำโรง','ตาลสุม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12139,7 +12139,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (342001,34330,'ตาลสุม','ตาลสุม','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342106,34340,'เหล่างาม','โพธิ์ไทร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342103,34340,'สำโรง','โพธิ์ไทร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (342102,34340,'ม่วงใหญ่','โพธิ์ไทร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342105,34340,'สารภี','โพธิ์ไทร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342101,34340,'โพธิ์ไทร','โพธิ์ไทร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12150,7 +12150,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (342504,34350,'นิคมสร้างตนเองลำโดมน้อย','สิรินธร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342503,34350,'โนนก่อ','สิรินธร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342501,34350,'คันไร่','สิรินธร','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (342207,34360,'โนนกลาง','สำโรง','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342204,34360,'ค้อน้อย','สำโรง','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342209,34360,'ขามป้อม','สำโรง','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12161,7 +12161,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (342206,34360,'โคกสว่าง','สำโรง','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (342202,34360,'โคกก่อง','สำโรง','อุบลราชธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (350101,35000,'ในเมือง','เมืองยโสธร','ยโสธร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (350117,35000,'หนองเรือ','เมืองยโสธร','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350116,35000,'ทุ่งนางโอก','เมืองยโสธร','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350115,35000,'ขุมเงิน','เมืองยโสธร','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
@@ -12172,7 +12172,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (350110,35000,'สิงห์','เมืองยโสธร','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350108,35000,'ขั้นไดใหญ่','เมืองยโสธร','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350107,35000,'เดิด','เมืองยโสธร','ยโสธร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (350106,35000,'ดู่ทุ่ง','เมืองยโสธร','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350105,35000,'ค้อเหนือ','เมืองยโสธร','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350104,35000,'สำราญ','เมืองยโสธร','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
@@ -12183,7 +12183,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (350411,35110,'เหล่าไฮ','คำเขื่อนแก้ว','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350410,35110,'กุดกุง','คำเขื่อนแก้ว','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350413,35110,'ดงเจริญ','คำเขื่อนแก้ว','ยโสธร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (350408,35110,'กู่จาน','คำเขื่อนแก้ว','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350405,35110,'ทุ่งมน','คำเขื่อนแก้ว','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350404,35110,'โพนทัน','คำเขื่อนแก้ว','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
@@ -12194,7 +12194,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (350905,35120,'คำไผ่','ไทยเจริญ','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350904,35120,'คำเตย','ไทยเจริญ','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350903,35120,'ส้มผ่อ','ไทยเจริญ','ยโสธร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (350902,35120,'น้ำคำ','ไทยเจริญ','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350814,35120,'ศรีแก้ว','เลิงนกทา','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350813,35120,'สร้างมิ่ง','เลิงนกทา','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
@@ -12205,7 +12205,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (350806,35120,'สามัคคี','เลิงนกทา','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350811,35120,'กุดแห่','เลิงนกทา','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350802,35120,'บุ่งค้า','เลิงนกทา','ยโสธร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (350803,35120,'สวาท','เลิงนกทา','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350610,35130,'สงยาง','มหาชนะชัย','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350601,35130,'ฟ้าหยาด','มหาชนะชัย','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
@@ -12216,7 +12216,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (350607,35130,'โนนทราย','มหาชนะชัย','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350606,35130,'ม่วง','มหาชนะชัย','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350604,35130,'ผือฮี','มหาชนะชัย','ยโสธร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (350609,35130,'พระเสาร์','มหาชนะชัย','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350307,35140,'โพนงาม','กุดชุม','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350308,35140,'คำน้ำสร้าง','กุดชุม','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
@@ -12227,7 +12227,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (350303,35140,'กำแมด','กุดชุม','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350304,35140,'นาโส่','กุดชุม','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350305,35140,'ห้วยแก้ง','กุดชุม','ยโสธร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (350502,35150,'กระจาย','ป่าติ้ว','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350501,35150,'โพธิ์ไทร','ป่าติ้ว','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350505,35150,'ศรีฐาน','ป่าติ้ว','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
@@ -12238,7 +12238,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (350703,35160,'น้ำอ้อม','ค้อวัง','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350702,35160,'กุดน้ำใส','ค้อวัง','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350203,35170,'ดงมะไฟ','ทรายมูล','ยโสธร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (350204,35170,'นาเวียง','ทรายมูล','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350201,35170,'ทรายมูล','ทรายมูล','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (350205,35170,'ไผ่','ทรายมูล','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
@@ -12249,7 +12249,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (350409,35180,'นาแก','คำเขื่อนแก้ว','ยโสธร','ภาคตะวันออกเฉียงเหนือ'),
 	 (360103,36000,'โพนทอง','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360102,36000,'รอบเมือง','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (360104,36000,'นาฝาย','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360110,36000,'หนองนาแซง','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360109,36000,'นาเสียว','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12260,7 +12260,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (360119,36000,'ซับสีทอง','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360118,36000,'บุ่งคล้า','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360117,36000,'โคกสูง','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (360101,36000,'ในเมือง','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360114,36000,'ห้วยต้อน','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360113,36000,'ท่าหินโงม','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12271,7 +12271,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (361005,36110,'กุดยม','ภูเขียว','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361008,36110,'หนองตูม','ภูเขียว','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361007,36110,'โคกสะอาด','ภูเขียว','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (361004,36110,'บ้านแก้ง','ภูเขียว','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361006,36110,'บ้านเพชร','ภูเขียว','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361009,36110,'โอโล','ภูเขียว','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12282,7 +12282,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (360401,36120,'บ้านยาง','เกษตรสมบูรณ์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360402,36120,'บ้านหัน','เกษตรสมบูรณ์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360403,36120,'บ้านเดื่อ','เกษตรสมบูรณ์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (360408,36120,'หนองข่า','เกษตรสมบูรณ์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360412,36120,'โนนทอง','เกษตรสมบูรณ์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360410,36120,'บ้านบัว','เกษตรสมบูรณ์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12293,7 +12293,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (361603,36130,'ตะโกทอง','ซับใหญ่','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361602,36130,'ท่ากูบ','ซับใหญ่','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361601,36130,'ซับใหญ่','ซับใหญ่','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (361504,36130,'รังงาม','เนินสง่า','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360610,36130,'หนองบัวใหญ่','จัตุรัส','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360606,36130,'หนองโดน','จัตุรัส','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12304,7 +12304,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (360603,36130,'บ้านขาม','จัตุรัส','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360601,36130,'บ้านกอก','จัตุรัส','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361503,36130,'กะฮาด','เนินสง่า','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (361502,36130,'ตาเนิน','เนินสง่า','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360302,36140,'ยางหวาย','คอนสวรรค์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360303,36140,'ช่องสามหมอ','คอนสวรรค์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12315,7 +12315,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (360308,36140,'หนองขาม','คอนสวรรค์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360307,36140,'โคกมั่งงอย','คอนสวรรค์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360305,36140,'ห้วยไร่','คอนสวรรค์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (361203,36150,'นาหนองทุ่ม','แก้งคร้อ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361204,36150,'บ้านแก้ง','แก้งคร้อ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361205,36150,'หนองสังข์','แก้งคร้อ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12326,7 +12326,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (361209,36150,'ท่ามะไฟหวาน','แก้งคร้อ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361210,36150,'หนองไผ่','แก้งคร้อ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361201,36150,'ช่องสามหมอ','แก้งคร้อ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (360706,36160,'เกาะมะนาว','บำเหน็จณรงค์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360707,36160,'โคกเพชรพัฒนา','บำเหน็จณรงค์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360701,36160,'บ้านชวน','บำเหน็จณรงค์','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12337,7 +12337,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (360204,36170,'ชีบน','บ้านเขว้า','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360202,36170,'ตลาดแร้ง','บ้านเขว้า','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360201,36170,'บ้านเขว้า','บ้านเขว้า','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (360203,36170,'ลุ่มลำชี','บ้านเขว้า','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361302,36180,'ทุ่งพระ','คอนสาร','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361303,36180,'โนนคูณ','คอนสาร','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12348,7 +12348,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (361308,36180,'ดงกลาง','คอนสาร','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361301,36180,'คอนสาร','คอนสาร','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361102,36190,'สามสวน','บ้านแท่น','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (361104,36190,'บ้านเต่า','บ้านแท่น','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361103,36190,'สระพัง','บ้านแท่น','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361101,36190,'บ้านแท่น','บ้านแท่น','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12359,7 +12359,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (360507,36210,'หนองแวง','หนองบัวแดง','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360508,36210,'คูเมือง','หนองบัวแดง','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360511,36210,'วังชมภู','หนองบัวแดง','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (360509,36210,'ท่าใหญ่','หนองบัวแดง','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360501,36210,'หนองบัวแดง','หนองบัวแดง','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (300818,36220,'หนองไทร','ด่านขุนทด','นครราชสีมา','ภาคตะวันออกเฉียงเหนือ'),
@@ -12370,7 +12370,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (360904,36230,'บ้านไร่','เทพสถิต','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360905,36230,'โป่งนก','เทพสถิต','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360903,36230,'นายางกลัก','เทพสถิต','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (360902,36230,'ห้วยยายจิ๋ว','เทพสถิต','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360901,36230,'วะตะแบก','เทพสถิต','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360112,36240,'หนองไผ่','เมืองชัยภูมิ','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12381,7 +12381,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (360805,36250,'โสกปลาดุก','หนองบัวระเหว','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360804,36250,'โคกสะอาด','หนองบัวระเหว','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (360803,36250,'ห้วยแย้','หนองบัวระเหว','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (361401,36260,'บ้านเจียง','ภักดีชุมพล','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361402,36260,'เจาทอง','ภักดีชุมพล','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
 	 (361404,36260,'แหลมทอง','ภักดีชุมพล','ชัยภูมิ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12392,7 +12392,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (370101,37000,'บุ่ง','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370108,37000,'นาผือ','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370111,37000,'นาหมอม้า','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (370114,37000,'ห้วยไร่','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370109,37000,'น้ำปลีก','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370110,37000,'นาวัง','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12403,7 +12403,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (370118,37000,'นายม','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370102,37000,'ไก่คำ','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370117,37000,'ดอนเมย','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (370116,37000,'กุดปลาดุก','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370115,37000,'หนองมะแซว','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370103,37000,'นาจิก','เมืองอำนาจเจริญ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12414,7 +12414,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (370304,37110,'ลือ','ปทุมราชวงศา','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370307,37110,'นาป่าแซง','ปทุมราชวงศา','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370302,37110,'คำโพน','ปทุมราชวงศา','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (370703,37120,'เปือย','ลืออำนาจ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370707,37120,'โคกกลาง','ลืออำนาจ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370706,37120,'แมด','ลืออำนาจ','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12425,7 +12425,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (370402,37180,'จานลาน','พนา','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370401,37180,'พนา','พนา','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370404,37180,'พระเหลา','พนา','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (370403,37180,'ไม้กลอน','พนา','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370202,37210,'โคกสาร','ชานุมาน','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370205,37210,'ป่าก่อ','ชานุมาน','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12436,7 +12436,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (370606,37240,'สร้างถ่อน้อย','หัวตะพาน','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370604,37240,'หนองแก้ว','หัวตะพาน','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370603,37240,'เค็งใหญ่','หัวตะพาน','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (370602,37240,'คำพระ','หัวตะพาน','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370601,37240,'หัวตะพาน','หัวตะพาน','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370607,37240,'จิกดู่','หัวตะพาน','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12447,7 +12447,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (370503,37290,'ไร่สีสุก','เสนางคนิคม','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370505,37290,'หนองไฮ','เสนางคนิคม','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ'),
 	 (370504,37290,'นาเวียง','เสนางคนิคม','อำนาจเจริญ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (380110,38000,'วิศิษฐ์','เมืองบึงกาฬ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380101,38000,'บึงกาฬ','เมืองบึงกาฬ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380102,38000,'โนนสมบูรณ์','เมืองบึงกาฬ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12458,7 +12458,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (380112,38000,'โป่งเปือย','เมืองบึงกาฬ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380108,38000,'ไคสี','เมืองบึงกาฬ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380109,38000,'ชัยพร','เมืองบึงกาฬ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (380103,38000,'โนนสว่าง','เมืองบึงกาฬ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380107,38000,'นาสวรรค์','เมืองบึงกาฬ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380802,38000,'หนองเดิ่น','บุ่งคล้า','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12469,7 +12469,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (380407,38150,'ท่าสะอาด','เซกา','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380405,38150,'ป่งไฮ','เซกา','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380406,38150,'น้ำจั้น','เซกา','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (380403,38150,'ท่ากกแดง','เซกา','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380402,38150,'ซาง','เซกา','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380401,38150,'เซกา','เซกา','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12480,7 +12480,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (380303,38170,'ศรีชมภู','โซ่พิสัย','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380307,38170,'เหล่าทอง','โซ่พิสัย','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380302,38170,'หนองพันทา','โซ่พิสัย','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (380301,38170,'โซ่','โซ่พิสัย','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380205,38180,'วังชมภู','พรเจริญ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380207,38180,'ศรีสำราญ','พรเจริญ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12491,7 +12491,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (380204,38180,'หนองหัวช้าง','พรเจริญ','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380506,38190,'นาดง','ปากคาด','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380505,38190,'สมสนุก','ปากคาด','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (380504,38190,'โนนศิลา','ปากคาด','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380503,38190,'นากั้ง','ปากคาด','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380501,38190,'ปากคาด','ปากคาด','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12502,7 +12502,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (380702,38210,'ชุมภูพร','ศรีวิไล','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380701,38210,'ศรีวิไล','ศรีวิไล','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380601,38220,'บึงโขงหลง','บึงโขงหลง','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (380604,38220,'ท่าดอกคำ','บึงโขงหลง','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380603,38220,'ดงบัง','บึงโขงหลง','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
 	 (380602,38220,'โพธิ์หมากแข้ง','บึงโขงหลง','บึงกาฬ','ภาคตะวันออกเฉียงเหนือ'),
@@ -12513,7 +12513,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (390109,39000,'โนนขมิ้น','เมืองหนองบัวลำภู','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390104,39000,'หนองสวรรค์','เมืองหนองบัวลำภู','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390111,39000,'กุดจิก','เมืองหนองบัวลำภู','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (390110,39000,'ลำภู','เมืองหนองบัวลำภู','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390113,39000,'นาคำไฮ','เมืองหนองบัวลำภู','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390108,39000,'บ้านพร้าว','เมืองหนองบัวลำภู','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
@@ -12524,7 +12524,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (390106,39000,'บ้านขาม','เมืองหนองบัวลำภู','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390301,39140,'โนนสัง','โนนสัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390309,39140,'นิคมพัฒนา','โนนสัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (390308,39140,'โคกม่วง','โนนสัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390307,39140,'โคกใหญ่','โนนสัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390306,39140,'โนนเมือง','โนนสัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
@@ -12535,7 +12535,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (390310,39140,'ปางกู่','โนนสัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390602,39170,'นาแก','นาวัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390603,39170,'วังทอง','นาวัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (390604,39170,'วังปลาป้อม','นาวัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390605,39170,'เทพคีรี','นาวัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390601,39170,'นาเหล่า','นาวัง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
@@ -12546,7 +12546,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (390210,39170,'อุทัยสวรรค์','นากลาง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390209,39170,'โนนเมือง','นากลาง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390406,39180,'โนนสะอาด','ศรีบุญเรือง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (390403,39180,'หนองบัวใต้','ศรีบุญเรือง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390404,39180,'กุดสะเทียน','ศรีบุญเรือง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390405,39180,'นากอก','ศรีบุญเรือง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
@@ -12557,7 +12557,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (390409,39180,'หนองกุงแก้ว','ศรีบุญเรือง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390411,39180,'ทรายทอง','ศรีบุญเรือง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390412,39180,'หันนางาม','ศรีบุญเรือง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (390408,39180,'โนนม่วง','ศรีบุญเรือง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390504,39270,'นาด่าน','สุวรรณคูหา','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390503,39270,'นาดี','สุวรรณคูหา','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
@@ -12568,7 +12568,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (390507,39270,'บุญทัน','สุวรรณคูหา','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390508,39270,'กุดผึ้ง','สุวรรณคูหา','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390207,39350,'เก่ากลอย','นากลาง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (390211,39350,'ดงสวรรค์','นากลาง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (390205,39350,'กุดดินจี่','นากลาง','หนองบัวลำภู','ภาคตะวันออกเฉียงเหนือ'),
 	 (400111,40000,'แดงใหญ่','เมืองขอนแก่น','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12579,7 +12579,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (400102,40000,'สำราญ','เมืองขอนแก่น','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400114,40000,'ศิลา','เมืองขอนแก่น','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400110,40000,'บ้านค้อ','เมืองขอนแก่น','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (400105,40000,'บ้านทุ่ม','เมืองขอนแก่น','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400115,40000,'บ้านเป็ด','เมืองขอนแก่น','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400109,40000,'บ้านหว้า','เมืองขอนแก่น','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12590,7 +12590,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (400101,40000,'ในเมือง','เมืองขอนแก่น','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400101,40002,'ในเมือง','เมืองขอนแก่น','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401009,40110,'บ้านลาน','บ้านไผ่','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (401013,40110,'ป่าปอ','บ้านไผ่','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401011,40110,'ภูเหล็ก','บ้านไผ่','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401017,40110,'หัวหนอง','บ้านไผ่','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12601,7 +12601,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (401002,40110,'ในเมือง','บ้านไผ่','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402502,40110,'หนองปลาหมอ','โนนศิลา','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402402,40110,'โคกสำราญ','บ้านแฮด','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (402403,40110,'โนนสมบูรณ์','บ้านแฮด','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402401,40110,'บ้านแฮด','บ้านแฮด','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402404,40110,'หนองแซง','บ้านแฮด','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12612,7 +12612,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (402503,40110,'บ้านหัน','โนนศิลา','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401208,40120,'โคกสง่า','พล','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401203,40120,'โจดหนองแก','พล','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (401211,40120,'โนนข่า','พล','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401207,40120,'เพ็กใหญ่','พล','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401201,40120,'เมืองพล','พล','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12623,7 +12623,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (401213,40120,'หัวทุ่ง','พล','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401210,40120,'ลอมคอม','พล','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401204,40120,'เก่างิ้ว','พล','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (400501,40130,'ชุมแพ','ชุมแพ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400508,40130,'วังหินลาด','ชุมแพ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400505,40130,'ขัวเรียง','ชุมแพ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12634,7 +12634,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (400504,40130,'โนนอุดม','ชุมแพ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400703,40140,'หนองกุง','น้ำพอง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400710,40140,'ท่ากระเสริม','น้ำพอง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (400702,40140,'วังชัย','น้ำพอง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400711,40140,'พังทุย','น้ำพอง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400709,40140,'ทรายมูล','น้ำพอง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12645,7 +12645,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (402901,40150,'ในเมือง','เวียงเก่า','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402302,40150,'บ้านโคก','หนองนาคำ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402301,40150,'กุดธาตุ','หนองนาคำ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (402903,40150,'เขาน้อย','เวียงเก่า','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402303,40150,'ขนวน','หนองนาคำ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401610,40150,'หนองกุงธนสาร','ภูเวียง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12656,7 +12656,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (401616,40150,'ดินดำ','ภูเวียง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401614,40150,'ทุ่งชมพู','ภูเวียง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401604,40150,'หว้าทอง','ภูเวียง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (401606,40150,'นาชุมแสง','ภูเวียง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401617,40150,'ภูเวียง','ภูเวียง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401607,40150,'นาหว้า','ภูเวียง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12667,7 +12667,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (401701,40160,'กุดเค้า','มัญจาคีรี','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401710,40160,'ท่าศาลา','มัญจาคีรี','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401707,40160,'นางาม','มัญจาคีรี','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (402202,40160,'โพธิ์ไชย','โคกโพธิ์ไชย','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401706,40160,'นาข่า','มัญจาคีรี','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402201,40160,'บ้านโคก','โคกโพธิ์ไชย','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12678,7 +12678,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (400912,40170,'หัวนาคำ','กระนวน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402103,40170,'บ้านโนน','ซำสูง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400906,40170,'ห้วยยาง','กระนวน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (402104,40170,'คูคำ','ซำสูง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402102,40170,'คำแมด','ซำสูง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402101,40170,'กระนวน','ซำสูง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12689,7 +12689,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (400901,40170,'หนองโก','กระนวน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400910,40170,'หนองโน','กระนวน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400905,40170,'ห้วยโจด','กระนวน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (401804,40180,'ห้วยแก','ชนบท','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401806,40180,'ศรีบุญเรือง','ชนบท','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401802,40180,'กุดเพียขอม','ชนบท','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12700,7 +12700,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (401801,40180,'ชนบท','ชนบท','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401508,40190,'ดงเค็ง','หนองสองห้อง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401509,40190,'หันโจด','หนองสองห้อง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (401501,40190,'หนองสองห้อง','หนองสองห้อง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401506,40190,'หนองเม็ก','หนองสองห้อง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401512,40190,'หนองไผ่ล้อม','หนองสองห้อง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12711,7 +12711,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (401504,40190,'ตะกั่วป่า','หนองสองห้อง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401507,40190,'ดอนดู่','หนองสองห้อง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401502,40190,'คึมชาด','หนองสองห้อง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (400408,40210,'โนนทัน','หนองเรือ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400407,40210,'กุดกว้าง','หนองเรือ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400406,40210,'โนนทอง','หนองเรือ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12722,7 +12722,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (400603,40220,'นาจาน','สีชมพู','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400608,40220,'บริบูรณ์','สีชมพู','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400609,40220,'บ้านใหม่','สีชมพู','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (400610,40220,'ภูห่าน','สีชมพู','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400604,40220,'วังเพิ่ม','สีชมพู','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400602,40220,'ศรีสุข','สีชมพู','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12733,7 +12733,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (401401,40230,'แวงน้อย','แวงน้อย','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401404,40230,'ละหานนา','แวงน้อย','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401405,40230,'ท่าวัด','แวงน้อย','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (401406,40230,'ทางขวาง','แวงน้อย','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401402,40230,'ก้านเหลือง','แวงน้อย','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400410,40240,'บ้านผือ','หนองเรือ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12744,7 +12744,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (400805,40250,'ศรีสุขสำราญ','อุบลรัตน์','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400803,40250,'เขื่อนอุบลรัตน์','อุบลรัตน์','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400802,40250,'บ้านดง','อุบลรัตน์','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (400801,40250,'โคกสูง','อุบลรัตน์','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400804,40250,'นาคำ','อุบลรัตน์','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400104,40260,'ท่าพระ','เมืองขอนแก่น','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12755,7 +12755,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (400204,40270,'บ้านเหล่า','บ้านฝาง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400206,40270,'บ้านฝาง','บ้านฝาง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400203,40270,'โนนฆ้อง','บ้านฝาง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (400207,40270,'โคกงาม','บ้านฝาง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401902,40280,'ดงเมืองแอม','เขาสวนกวาง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401905,40280,'คำม่วง','เขาสวนกวาง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12766,7 +12766,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (400503,40290,'นาหนองทุ่ม','ชุมแพ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400502,40290,'โนนหัน','ชุมแพ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400512,40290,'โนนสะอาด','ชุมแพ','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (400706,40310,'ม่วงหวาน','น้ำพอง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400705,40310,'สะอาด','น้ำพอง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400712,40310,'กุดน้ำใส','น้ำพอง','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12777,7 +12777,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (400302,40320,'พระบุ','พระยืน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (400303,40320,'บ้านโต้น','พระยืน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401301,40330,'คอนฉิม','แวงใหญ่','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (401302,40330,'ใหม่นาเพียง','แวงใหญ่','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401303,40330,'โนนทอง','แวงใหญ่','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (401305,40330,'โนนสะอาด','แวงใหญ่','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12788,7 +12788,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (401101,40340,'เปือยน้อย','เปือยน้อย','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402003,40350,'ภูผาม่าน','ภูผาม่าน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402005,40350,'ห้วยม่วง','ภูผาม่าน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (402004,40350,'วังสวาบ','ภูผาม่าน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402002,40350,'นาฝาย','ภูผาม่าน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
 	 (402001,40350,'โนนคอม','ภูผาม่าน','ขอนแก่น','ภาคตะวันออกเฉียงเหนือ'),
@@ -12799,7 +12799,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (410104,41000,'หนองบัว','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410119,41000,'โคกสะอาด','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410105,41000,'บ้านตาด','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (410117,41000,'บ้านจั่น','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410107,41000,'หมูม่น','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410112,41000,'บ้านเลื่อม','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12810,7 +12810,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (410102,41000,'นิคมสงเคราะห์','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410115,41000,'หนองไฮ','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410114,41000,'สามพร้าว','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (410109,41000,'หนองนาคำ','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410118,41000,'หนองขอนกว้าง','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410410,41110,'สีออ','กุมภวาปี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12821,7 +12821,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (410401,41110,'ตูมใต้','กุมภวาปี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410414,41110,'ท่าลี่','กุมภวาปี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (412501,41110,'นาม่วง','ประจักษ์ศิลปาคม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (412502,41110,'ห้วยสามพาด','ประจักษ์ศิลปาคม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (412503,41110,'อุ่มจาน','ประจักษ์ศิลปาคม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410404,41110,'แชแล','กุมภวาปี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12832,7 +12832,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (410612,41130,'ผักตบ','หนองหาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410614,41130,'หนองไผ่','หนองหาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410617,41130,'ดอนหายโศก','หนองหาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (410607,41130,'สร้อยพร้าว','หนองหาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410601,41130,'หนองหาน','หนองหาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410606,41130,'สะแบง','หนองหาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12843,7 +12843,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (412402,41130,'โนนทองอินทร์','กู่แก้ว','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (412403,41130,'ค้อใหญ่','กู่แก้ว','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (412404,41130,'คอนสาย','กู่แก้ว','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (411901,41150,'เพ็ญ','เพ็ญ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411903,41150,'นาพู่','เพ็ญ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411904,41150,'เชียงหวาง','เพ็ญ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12854,7 +12854,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (411909,41150,'เตาไห','เพ็ญ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411910,41150,'โคกกลาง','เพ็ญ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411911,41150,'สร้างแป้น','เพ็ญ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (411907,41150,'บ้านเหล่า','เพ็ญ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411711,41160,'หนองหัวคู','บ้านผือ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411713,41160,'หนองแวง','บ้านผือ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12865,7 +12865,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (411702,41160,'หายโศก','บ้านผือ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411703,41160,'เขือน้ำ','บ้านผือ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411704,41160,'คำบง','บ้านผือ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (411707,41160,'จำปาโมง','บ้านผือ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411706,41160,'ข้าวสาร','บ้านผือ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411705,41160,'โนนทอง','บ้านผือ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12876,7 +12876,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (411104,41190,'โพนสูง','บ้านดุง','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411103,41190,'ดงเย็น','บ้านดุง','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411112,41190,'บ้านตาด','บ้านดุง','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (411101,41190,'ศรีสุทโธ','บ้านดุง','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411110,41190,'วังทอง','บ้านดุง','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411111,41190,'บ้านม่วง','บ้านดุง','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12887,7 +12887,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (411802,41210,'น้ำโสม','น้ำโสม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411807,41210,'โสมเยี่ยม','น้ำโสม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411806,41210,'บ้านหยวก','น้ำโสม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (411801,41210,'นางัว','น้ำโสม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411805,41210,'หนองแวง','น้ำโสม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411812,41210,'สามัคคี','น้ำโสม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12898,7 +12898,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (410307,41220,'โนนหวาย','หนองวัวซอ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410906,41230,'นายูง','ศรีธาตุ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410905,41230,'หนองนกเขียน','ศรีธาตุ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (410904,41230,'หัวนาคำ','ศรีธาตุ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410903,41230,'บ้านโปร่ง','ศรีธาตุ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410902,41230,'จำปี','ศรีธาตุ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12909,7 +12909,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (410503,41240,'โพธิ์ศรีสำราญ','โนนสะอาด','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410505,41240,'หนองกุงศรี','โนนสะอาด','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410501,41240,'โนนสะอาด','โนนสะอาด','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (410506,41240,'โคกกลาง','โนนสะอาด','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410202,41250,'ปะโค','กุดจับ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410201,41250,'กุดจับ','กุดจับ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12920,7 +12920,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (410204,41250,'เชียงเพ็ง','กุดจับ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (412006,41260,'บ้านหินโงม','สร้างคอม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (412005,41260,'นาสะอาด','สร้างคอม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (412004,41260,'บ้านโคก','สร้างคอม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (412003,41260,'บ้านยวด','สร้างคอม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (412001,41260,'สร้างคอม','สร้างคอม','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12931,7 +12931,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (411002,41280,'หนองหญ้าไซ','วังสามหมอ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411004,41280,'ผาสุก','วังสามหมอ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (411005,41280,'คำโคกสูง','วังสามหมอ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (410804,41290,'โพนสูง','ไชยวาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410803,41290,'คำเลาะ','ไชยวาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410802,41290,'หนองหลัก','ไชยวาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12942,7 +12942,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (410704,41310,'นาทม','ทุ่งฝน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410618,41320,'หนองสระปลา','หนองหาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410610,41320,'บ้านยา','หนองหาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (410609,41320,'บ้านเชียง','หนองหาน','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410106,41330,'โนนสูง','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410121,41330,'หนองไผ่','เมืองอุดรธานี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12953,7 +12953,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (410305,41360,'น้ำพ่น','หนองวัวซอ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410306,41360,'หนองบัวบาน','หนองวัวซอ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410301,41360,'หมากหญ้า','หนองวัวซอ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (410308,41360,'หนองวัวซอ','หนองวัวซอ','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410402,41370,'พันดอน','กุมภวาปี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (410409,41370,'เสอเพลอ','กุมภวาปี','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
@@ -12964,7 +12964,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (412202,41380,'บ้านก้อง','นายูง','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (412201,41380,'นายูง','นายูง','อุดรธานี','ภาคตะวันออกเฉียงเหนือ'),
 	 (420114,42000,'กกทอง','เมืองเลย','เลย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (420112,42000,'นาแขม','เมืองเลย','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420111,42000,'ชัยพฤกษ์','เมืองเลย','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420110,42000,'น้ำสวย','เมืองเลย','เลย','ภาคตะวันออกเฉียงเหนือ'),
@@ -12975,7 +12975,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (420104,42000,'กกดู่','เมืองเลย','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420102,42000,'เมือง','เมืองเลย','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420101,42000,'กุดป่อง','เมืองเลย','เลย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (420107,42000,'นาอาน','เมืองเลย','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420103,42100,'นาอ้อ','เมืองเลย','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420113,42100,'ศรีสองรัก','เมืองเลย','เลย','ภาคตะวันออกเฉียงเหนือ'),
@@ -12986,7 +12986,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (420304,42110,'เขาแก้ว','เชียงคาน','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420303,42110,'นาซ่าว','เชียงคาน','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420302,42110,'ธาตุ','เชียงคาน','เลย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (420301,42110,'เชียงคาน','เชียงคาน','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420510,42120,'นาหอ','ด่านซ้าย','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420509,42120,'วังยาว','ด่านซ้าย','เลย','ภาคตะวันออกเฉียงเหนือ'),
@@ -12997,7 +12997,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (420507,42120,'กกสะทอน','ด่านซ้าย','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420502,42120,'ปากหมัน','ด่านซ้าย','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420501,42120,'ด่านซ้าย','ด่านซ้าย','เลย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (420503,42120,'นาดี','ด่านซ้าย','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420913,42130,'ศรีสงคราม','วังสะพุง','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420912,42130,'โคกขมิ้น','วังสะพุง','เลย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13008,7 +13008,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (420904,42130,'หนองงิ้ว','วังสะพุง','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420903,42130,'หนองหญ้าปล้อง','วังสะพุง','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420902,42130,'ทรายขาว','วังสะพุง','เลย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (420901,42130,'วังสะพุง','วังสะพุง','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420806,42140,'น้ำทูน','ท่าลี่','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420805,42140,'โคกใหญ่','ท่าลี่','เลย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13019,7 +13019,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (420401,42150,'ปากชม','ปากชม','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420402,42150,'เชียงกลม','ปากชม','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420403,42150,'หาดคัมภีร์','ปากชม','เลย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (420404,42150,'ห้วยบ่อซืน','ปากชม','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420406,42150,'ชมเจริญ','ปากชม','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420405,42150,'ห้วยพิชัย','ปากชม','เลย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13030,7 +13030,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (420702,42160,'ท่าศาลา','ภูเรือ','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420701,42160,'หนองบัว','ภูเรือ','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420601,42170,'นาแห้ว','นาแห้ว','เลย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (420602,42170,'แสงภา','นาแห้ว','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420603,42170,'นาพึง','นาแห้ว','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420604,42170,'นามาลา','นาแห้ว','เลย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13041,7 +13041,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (421010,42180,'ห้วยส้ม','ภูกระดึง','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (421402,42190,'ตาดข่า','หนองหิน','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (421401,42190,'หนองหิน','หนองหิน','เลย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (421403,42190,'ปวนพุ','หนองหิน','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420203,42210,'ท่าสะอาด','นาด้วง','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (420201,42210,'นาด้วง','นาด้วง','เลย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13052,7 +13052,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (421303,42220,'ผาสามยอด','เอราวัณ','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (421302,42220,'ผาอินทร์แปลง','เอราวัณ','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (421105,42230,'เลยวังไสย์','ภูหลวง','เลย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (421104,42230,'ห้วยสีเสียด','ภูหลวง','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (421102,42230,'หนองคัน','ภูหลวง','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (421106,42230,'แก่งศรีภูมิ','ภูหลวง','เลย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13063,7 +13063,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (421202,42240,'ท่าช้างคล้อง','ผาขาว','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (421205,42240,'บ้านเพิ่ม','ผาขาว','เลย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430109,43000,'บ้านเดื่อ','เมืองหนองคาย','หนองคาย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (430119,43000,'สีกาย','เมืองหนองคาย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430118,43000,'เมืองหมี','เมืองหนองคาย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430117,43000,'ปะโค','เมืองหนองคาย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13074,7 +13074,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (430105,43000,'เวียงคุก','เมืองหนองคาย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430103,43000,'โพธิ์ชัย','เมืองหนองคาย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430102,43000,'มีชัย','เมืองหนองคาย','หนองคาย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (430101,43000,'ในเมือง','เมืองหนองคาย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430107,43000,'หาดคำ','เมืองหนองคาย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430110,43100,'ค่ายบกหวาน','เมืองหนองคาย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13085,7 +13085,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (431403,43100,'บ้านฝาง','สระใคร','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430210,43110,'หนองนาง','ท่าบ่อ','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430209,43110,'โพนสา','ท่าบ่อ','หนองคาย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (430208,43110,'นาข่า','ท่าบ่อ','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430207,43110,'บ้านว่าน','ท่าบ่อ','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430205,43110,'บ้านเดื่อ','ท่าบ่อ','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13096,7 +13096,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (430206,43110,'บ้านถ่อน','ท่าบ่อ','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (431601,43120,'รัตนวาปี','รัตนวาปี','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (431604,43120,'พระบาทนาสิงห์','รัตนวาปี','หนองคาย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (431605,43120,'โพนแพง','รัตนวาปี','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430513,43120,'บ้านโพธิ์','โพนพิสัย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430522,43120,'สร้างนางขาว','โพนพิสัย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13107,7 +13107,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (430506,43120,'ทุ่งหลวง','โพนพิสัย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430504,43120,'ชุมช้าง','โพนพิสัย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430503,43120,'กุดบง','โพนพิสัย','หนองคาย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (430501,43120,'จุมพล','โพนพิสัย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (431602,43120,'นาทับไฮ','รัตนวาปี','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430508,43120,'นาหนัง','โพนพิสัย','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13118,7 +13118,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (430701,43130,'พานพร้าว','ศรีเชียงใหม่','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430703,43130,'บ้านหม้อ','ศรีเชียงใหม่','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430705,43130,'หนองปลาปาก','ศรีเชียงใหม่','หนองคาย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (430704,43130,'พระพุทธบาท','ศรีเชียงใหม่','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430804,43160,'นางิ้ว','สังคม','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (430805,43160,'สังคม','สังคม','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
@@ -13129,7 +13129,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (431504,43230,'วังหลวง','เฝ้าไร่','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (431503,43230,'หนองหลวง','เฝ้าไร่','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (431502,43230,'นาดี','เฝ้าไร่','หนองคาย','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (431501,43230,'เฝ้าไร่','เฝ้าไร่','หนองคาย','ภาคตะวันออกเฉียงเหนือ'),
 	 (440114,44000,'บัวค้อ','เมืองมหาสารคาม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440113,44000,'หนองโน','เมืองมหาสารคาม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13140,7 +13140,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (440102,44000,'เขวา','เมืองมหาสารคาม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440108,44000,'แก่งเลิงจาน','เมืองมหาสารคาม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440107,44000,'เกิ้ง','เมืองมหาสารคาม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (440106,44000,'ดอนหว่าน','เมืองมหาสารคาม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440105,44000,'โคกก่อ','เมืองมหาสารคาม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440104,44000,'แวงน่าง','เมืองมหาสารคาม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13151,7 +13151,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (440803,44110,'เวียงสะอาด','พยัคฆภูมิพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440805,44110,'นาสีนวล','พยัคฆภูมิพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440809,44110,'ราษฎร์เจริญ','พยัคฆภูมิพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (440810,44110,'หนองบัวแก้ว','พยัคฆภูมิพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440812,44110,'เมืองเตา','พยัคฆภูมิพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440815,44110,'ลานสะแก','พยัคฆภูมิพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13162,7 +13162,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (440804,44110,'เม็กดำ','พยัคฆภูมิพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440818,44110,'ราษฎร์พัฒนา','พยัคฆภูมิพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440913,44120,'หนองทุ่ม','วาปีปทุม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (440909,44120,'นาข่า','วาปีปทุม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440904,44120,'ดงใหญ่','วาปีปทุม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440903,44120,'เสือโก้ก','วาปีปทุม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13173,7 +13173,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (440910,44120,'บ้านหวาย','วาปีปทุม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440905,44120,'โพธิ์ชัย','วาปีปทุม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440911,44120,'หนองไฮ','วาปีปทุม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (440914,44120,'หนองแสน','วาปีปทุม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440915,44120,'โคกสีทองหลาง','วาปีปทุม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440912,44120,'ประชาพัฒนา','วาปีปทุม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13184,7 +13184,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (441203,44130,'เลิงแฝก','กุดรัง','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441204,44130,'หนองแวง','กุดรัง','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441205,44130,'ห้วยเตย','กุดรัง','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (440619,44130,'หนองโก','บรบือ','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440602,44130,'บ่อใหญ่','บรบือ','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440618,44130,'หนองสิม','บรบือ','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13195,7 +13195,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (440610,44130,'หนองจิก','บรบือ','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440611,44130,'บัวมาศ','บรบือ','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440607,44130,'โนนราษี','บรบือ','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (440606,44130,'กำพี้','บรบือ','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440605,44130,'หนองม่วง','บรบือ','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440604,44130,'วังไชย','บรบือ','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13206,7 +13206,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (440307,44140,'หนองเหล็ก','โกสุมพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440301,44140,'หัวขวาง','โกสุมพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440305,44140,'แพง','โกสุมพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (440304,44140,'เขวาไร่','โกสุมพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440303,44140,'วังยาว','โกสุมพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440302,44140,'ยางน้อย','โกสุมพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13217,7 +13217,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (440315,44140,'หนองกุงสวรรค์','โกสุมพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440316,44140,'เลิงใต้','โกสุมพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440317,44140,'ดอนกลาง','โกสุมพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (440314,44140,'แห่ใต้','โกสุมพิสัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440408,44150,'ศรีสุข','กันทรวิชัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440406,44150,'ขามเรียง','กันทรวิชัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13228,7 +13228,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (440403,44150,'มะค่า','กันทรวิชัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440402,44150,'คันธารราษฎร์','กันทรวิชัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440401,44150,'โคกพระ','กันทรวิชัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (440409,44150,'กุดใส้จ่อ','กันทรวิชัย','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440507,44160,'นาทอง','เชียงยืน','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440506,44160,'กู่ทอง','เชียงยืน','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13239,7 +13239,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (440512,44160,'เหล่าบัวบาน','เชียงยืน','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440501,44160,'เชียงยืน','เชียงยืน','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441301,44160,'ชื่นชม','ชื่นชม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (441302,44160,'กุดปลาดุก','ชื่นชม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441303,44160,'เหล่าดอกไม้','ชื่นชม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441304,44160,'หนองกุง','ชื่นชม','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13250,7 +13250,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (440707,44170,'หนองเม็ก','นาเชือก','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440710,44170,'สันป่าตอง','นาเชือก','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440708,44170,'หนองเรือ','นาเชือก','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (440703,44170,'หนองแดง','นาเชือก','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440706,44170,'ปอพาน','นาเชือก','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440705,44170,'หนองโพธิ์','นาเชือก','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13261,7 +13261,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (441008,44180,'กู่สันตรัตน์','นาดูน','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441005,44180,'ดงดวน','นาดูน','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441009,44180,'พระธาตุ','นาดูน','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (441006,44180,'หัวดง','นาดูน','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441004,44180,'ดงบัง','นาดูน','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (440201,44190,'แกดำ','แกดำ','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13272,7 +13272,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (441101,44210,'ยางสีสุราช','ยางสีสุราช','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441102,44210,'นาภู','ยางสีสุราช','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441104,44210,'บ้านกู่','ยางสีสุราช','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (441105,44210,'ดงเมือง','ยางสีสุราช','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441106,44210,'สร้างแซ่ง','ยางสีสุราช','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
 	 (441103,44210,'แวงดง','ยางสีสุราช','มหาสารคาม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13283,7 +13283,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450118,45000,'หนองแวง','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451705,45000,'ดงสิงห์','จังหาร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451706,45000,'ยางใหญ่','จังหาร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (451707,45000,'ผักแว่น','จังหาร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450105,45000,'นาโพธิ์','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451708,45000,'แสนชาติ','จังหาร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13294,7 +13294,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450101,45000,'ในเมือง','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450102,45000,'รอบเมือง','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450103,45000,'เหนือเมือง','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450106,45000,'สะอาดสมบูรณ์','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451702,45000,'ปาฝา','จังหาร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450104,45000,'ขอนแก่น','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13305,7 +13305,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450109,45000,'ปอภาร','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451602,45000,'ศรีสมเด็จ','ศรีสมเด็จ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450125,45000,'เมืองทอง','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (451603,45000,'เมืองเปลือย','ศรีสมเด็จ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450108,45000,'สีแก้ว','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450120,45000,'ดงลาน','เมืองร้อยเอ็ด','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13316,7 +13316,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450706,45110,'โพธิ์ทอง','โพนทอง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450705,45110,'หนองใหญ่','โพนทอง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450707,45110,'โนนชัยศรี','โพนทอง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450704,45110,'สว่าง','โพนทอง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450703,45110,'นาอุดม','โพนทอง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450709,45110,'อุ่มเม่า','โพนทอง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13327,7 +13327,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450714,45110,'โคกสูง','โพนทอง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450701,45110,'แวง','โพนทอง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450708,45110,'โพธิ์ศรีสว่าง','โพนทอง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450712,45110,'สระนกแก้ว','โพนทอง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451010,45120,'ภูเงิน','เสลภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451001,45120,'กลาง','เสลภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13338,7 +13338,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (451009,45120,'โพธิ์ทอง','เสลภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451011,45120,'เกาะแก้ว','เสลภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451015,45120,'หนองหลวง','เสลภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (451013,45120,'เหล่าน้อย','เสลภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451016,45120,'พรสวรรค์','เสลภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451017,45120,'ขวัญเมือง','เสลภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13349,7 +13349,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (451006,45120,'วังหลวง','เสลภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451007,45120,'ท่าม่วง','เสลภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451104,45130,'หินกอง','สุวรรณภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (451101,45130,'สระคู','สุวรรณภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451102,45130,'ดอกไม้','สุวรรณภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451114,45130,'ทุ่งศรีเมือง','สุวรรณภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13360,7 +13360,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (451109,45130,'หัวช้าง','สุวรรณภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451110,45130,'น้ำคำ','สุวรรณภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451111,45130,'ห้วยหินลาด','สุวรรณภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (451112,45130,'ช้างเผือก','สุวรรณภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451113,45130,'ทุ่งกุลา','สุวรรณภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451103,45130,'นาใหญ่','สุวรรณภูมิ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13371,7 +13371,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (451901,45140,'หนองฮี','หนองฮี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450604,45140,'หนองทัพไทย','พนมไพร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450613,45140,'คำไฮ','พนมไพร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450617,45140,'ชานุวรรณ','พนมไพร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450612,45140,'นานวล','พนมไพร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450614,45140,'สระแก้ว','พนมไพร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13382,7 +13382,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450607,45140,'โคกสว่าง','พนมไพร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450601,45140,'พนมไพร','พนมไพร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450606,45140,'วารีสวัสดิ์','พนมไพร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450605,45140,'โพธิ์ใหญ่','พนมไพร','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450207,45150,'หนองแวง','เกษตรวิสัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450210,45150,'น้ำอ้อม','เกษตรวิสัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13393,7 +13393,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450203,45150,'เหล่าหลวง','เกษตรวิสัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450204,45150,'สิงห์โคก','เกษตรวิสัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450212,45150,'ทุ่งทอง','เกษตรวิสัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450213,45150,'ดงครั่งน้อย','เกษตรวิสัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450206,45150,'บ้านฝาง','เกษตรวิสัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450201,45150,'เกษตรวิสัย','เกษตรวิสัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13404,7 +13404,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (451405,45160,'หนองหมื่นถ่าน','อาจสามารถ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451409,45160,'ขี้เหล็ก','อาจสามารถ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451408,45160,'หนองบัว','อาจสามารถ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (451407,45160,'โหรา','อาจสามารถ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451401,45160,'อาจสามารถ','อาจสามารถ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451406,45160,'หนองขาม','อาจสามารถ','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13415,7 +13415,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450506,45170,'อุ่มเม้า','ธวัชบุรี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450507,45170,'มะอึ','ธวัชบุรี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450515,45170,'ไพศาล','ธวัชบุรี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450517,45170,'เมืองน้อย','ธวัชบุรี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450520,45170,'บึงนคร','ธวัชบุรี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450522,45170,'ราชธานี','ธวัชบุรี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13426,7 +13426,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (452004,45170,'มะบ้า','ทุ่งเขาหลวง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (452003,45170,'บึงงาม','ทุ่งเขาหลวง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (452002,45170,'เทอดไทย','ทุ่งเขาหลวง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (452001,45170,'ทุ่งเขาหลวง','ทุ่งเขาหลวง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450502,45170,'ธงธานี','ธวัชบุรี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450503,45170,'หนองไผ่','ธวัชบุรี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13437,7 +13437,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450401,45180,'หัวช้าง','จตุรพักตรพิมาน','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450412,45180,'ศรีโคตร','จตุรพักตรพิมาน','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450408,45180,'ป่าสังข์','จตุรพักตรพิมาน','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450411,45180,'ดู่น้อย','จตุรพักตรพิมาน','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450409,45180,'อีง่อง','จตุรพักตรพิมาน','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450410,45180,'ลิ้นฟ้า','จตุรพักตรพิมาน','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13448,7 +13448,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450301,45190,'บัวแดง','ปทุมรัตต์','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450307,45190,'โนนสง่า','ปทุมรัตต์','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450306,45190,'สระบัว','ปทุมรัตต์','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450305,45190,'โนนสวรรค์','ปทุมรัตต์','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450304,45190,'โพนสูง','ปทุมรัตต์','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450303,45190,'หนองแคน','ปทุมรัตต์','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13459,7 +13459,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450903,45210,'ภูเขาทอง','หนองพอก','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450908,45210,'ผาน้ำย้อย','หนองพอก','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450906,45210,'หนองขุ่นใหญ่','หนองพอก','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450909,45210,'ท่าสีดา','หนองพอก','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450907,45210,'รอบเมือง','หนองพอก','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451203,45220,'คูเมือง','เมืองสรวง','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13470,7 +13470,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (450809,45230,'โพธิ์ศรี','โพธิ์ชัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450801,45230,'ขามเปี้ย','โพธิ์ชัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450808,45230,'ดอนโอง','โพธิ์ชัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (450802,45230,'เชียงใหม่','โพธิ์ชัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450803,45230,'บัวคำ','โพธิ์ชัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (450807,45230,'หนองตาไก้','โพธิ์ชัย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13481,7 +13481,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (451304,45240,'ยางคำ','โพนทราย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451302,45240,'สามขา','โพนทราย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451301,45240,'โพนทราย','โพนทราย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (451303,45240,'ศรีสว่าง','โพนทราย','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451503,45250,'บุ่งเลิศ','เมยวดี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
 	 (451501,45250,'เมยวดี','เมยวดี','ร้อยเอ็ด','ภาคตะวันออกเฉียงเหนือ'),
@@ -13492,7 +13492,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (460104,46000,'ไผ่','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460108,46000,'บึงวิชัย','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460120,46000,'นาจารย์','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (460107,46000,'เชียงเครือ','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461705,46000,'นาจำปา','ดอนจาน','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460116,46000,'กลางหมื่น','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13503,7 +13503,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (461703,46000,'ดงพยุง','ดอนจาน','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460117,46000,'ขมิ้น','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460113,46000,'ภูดิน','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (460101,46000,'กาฬสินธุ์','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460121,46000,'ลำคลอง','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460105,46000,'ลำปาว','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13514,7 +13514,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (460102,46000,'เหนือ','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460111,46000,'ภูปอ','เมืองกาฬสินธุ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460507,46110,'สามขา','กุฉินารายณ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (460511,46110,'สมสะอาด','กุฉินารายณ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460508,46110,'นาขาม','กุฉินารายณ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460506,46110,'กุดหว้า','กุฉินารายณ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13525,7 +13525,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (460510,46110,'นาโก','กุฉินารายณ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460503,46110,'เหล่าใหญ่','กุฉินารายณ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460501,46110,'บัวขาว','กุฉินารายณ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (460505,46110,'เหล่าไฮงาม','กุฉินารายณ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460714,46120,'โนนสูง','ยางตลาด','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460715,46120,'หนองตอกแป้น','ยางตลาด','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13536,7 +13536,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (460711,46120,'คลองขาม','ยางตลาด','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460710,46120,'นาเชือก','ยางตลาด','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460713,46120,'นาดี','ยางตลาด','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (460702,46120,'หัวงัว','ยางตลาด','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460704,46120,'บัวบาน','ยางตลาด','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460707,46120,'หัวนาคำ','ยางตลาด','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13547,7 +13547,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (460301,46130,'กมลาไสย','กมลาไสย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460311,46130,'โคกสมบูรณ์','กมลาไสย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460302,46130,'หลักเมือง','กมลาไสย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (460305,46130,'ธัญญา','กมลาไสย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460303,46130,'โพนงาม','กมลาไสย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460308,46130,'หนองแปน','กมลาไสย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13558,7 +13558,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (461803,46130,'โคกสะอาด','ฆ้องชัย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461804,46130,'โนนศิลาเลิง','ฆ้องชัย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460903,46140,'นามะเขือ','สหัสขันธ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (460905,46140,'นิคม','สหัสขันธ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460908,46140,'โนนน้ำเกลี้ยง','สหัสขันธ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460907,46140,'โนนบุรี','สหัสขันธ์','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13569,7 +13569,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (461308,46150,'ลำห้วยหลัว','สมเด็จ','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461306,46150,'ผาเสวย','สมเด็จ','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461304,46150,'มหาไชย','สมเด็จ','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (461307,46150,'ศรีสมเด็จ','สมเด็จ','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461301,46150,'สมเด็จ','สมเด็จ','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461302,46150,'หนองแวง','สมเด็จ','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13580,7 +13580,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (460608,46160,'สระพังทอง','เขาวง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460602,46160,'สงเปลือย','เขาวง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461601,46160,'นาคู','นาคู','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (460601,46160,'คุ้มเก่า','เขาวง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460606,46160,'กุดสิมคุ้มใหม่','เขาวง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460611,46160,'กุดปลาค้าว','เขาวง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13591,7 +13591,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (460803,46170,'กุดโดน','ห้วยเม็ก','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460807,46170,'คำเหมือดแก้ว','ห้วยเม็ก','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460802,46170,'คำใหญ่','ห้วยเม็ก','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (460809,46170,'ทรายทอง','ห้วยเม็ก','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460808,46170,'โนนสะอาด','ห้วยเม็ก','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460804,46170,'บึงนาเรียง','ห้วยเม็ก','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13602,7 +13602,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (461501,46180,'สำราญ','สามชัย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461504,46180,'หนองช้าง','สามชัย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461502,46180,'สำราญใต้','สามชัย','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (461002,46180,'โพน','คำม่วง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461001,46180,'ทุ่งคลอง','คำม่วง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461007,46180,'นาทัน','คำม่วง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13613,7 +13613,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (461105,46190,'นาตาล','ท่าคันโท','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461104,46190,'กุดจิก','ท่าคันโท','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461106,46190,'ดงสมบูรณ์','ท่าคันโท','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (461101,46190,'ท่าคันโท','ท่าคันโท','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460403,46210,'เหล่าอ้อย','ร่องคำ','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (460402,46210,'สามัคคี','ร่องคำ','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13624,7 +13624,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (461202,46220,'หนองบัว','หนองกุงศรี','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461201,46220,'หนองกุงศรี','หนองกุงศรี','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461205,46220,'เสาเล้า','หนองกุงศรี','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (461203,46220,'โคกเครือ','หนองกุงศรี','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461209,46220,'หนองหิน','หนองกุงศรี','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461207,46220,'ดงมูล','หนองกุงศรี','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
@@ -13635,7 +13635,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (460204,46230,'หลักเหลี่ยม','นามน','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461403,46240,'นิคมห้วยผึ้ง','ห้วยผึ้ง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461402,46240,'ไค้นุ่น','ห้วยผึ้ง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (461401,46240,'คำบง','ห้วยผึ้ง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (461404,46240,'หนองอีบุตร','ห้วยผึ้ง','กาฬสินธุ์','ภาคตะวันออกเฉียงเหนือ'),
 	 (470112,47000,'ห้วยยาง','เมืองสกลนคร','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13646,7 +13646,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (470117,47000,'เหล่าปอแดง','เมืองสกลนคร','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470116,47000,'ธาตุนาเวง','เมืองสกลนคร','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470115,47000,'ดงมะไฟ','เมืองสกลนคร','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (470113,47000,'พังขว้าง','เมืองสกลนคร','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470109,47000,'ม่วงลาย','เมืองสกลนคร','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470103,47000,'งิ้วด่อน','เมืองสกลนคร','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13657,7 +13657,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (471207,47110,'โพนสูง','สว่างแดนดิน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471204,47110,'บ้านต้าย','สว่างแดนดิน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471201,47110,'สว่างแดนดิน','สว่างแดนดิน','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (471208,47110,'โคกสี','สว่างแดนดิน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471215,47110,'ทรายมูล','สว่างแดนดิน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471210,47110,'หนองหลวง','สว่างแดนดิน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13668,7 +13668,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (470804,47120,'หนองสนม','วานรนิวาส','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470807,47120,'หนองแวง','วานรนิวาส','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470803,47120,'ขัวก่าย','วานรนิวาส','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (470802,47120,'เดื่อศรีคันไชย','วานรนิวาส','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470801,47120,'วานรนิวาส','วานรนิวาส','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470814,47120,'หนองแวงใต้','วานรนิวาส','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13679,7 +13679,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (470809,47120,'นาซอ','วานรนิวาส','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470808,47120,'ศรีวิชัย','วานรนิวาส','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470806,47120,'ธาตุ','วานรนิวาส','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (470401,47130,'พรรณา','พรรณานิคม','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470402,47130,'วังยาง','พรรณานิคม','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470405,47130,'ไร่','พรรณานิคม','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13690,7 +13690,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (470410,47130,'เชิงชุม','พรรณานิคม','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471002,47140,'มาย','บ้านม่วง','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471003,47140,'ดงหม้อทอง','บ้านม่วง','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (471004,47140,'ดงเหนือ','บ้านม่วง','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471005,47140,'ดงหม้อทองใต้','บ้านม่วง','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471006,47140,'ห้วยหลัว','บ้านม่วง','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13701,7 +13701,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (470605,47150,'ค้อเขียว','วาริชภูมิ','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470603,47150,'หนองลาด','วาริชภูมิ','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470604,47150,'คำบ่อ','วาริชภูมิ','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (470602,47150,'ปลาโหล','วาริชภูมิ','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470601,47150,'วาริชภูมิ','วาริชภูมิ','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470503,47160,'แร่','พังโคน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13712,7 +13712,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (471107,47170,'บะหว้า','อากาศอำนวย','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471106,47170,'นาฮี','อากาศอำนวย','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471108,47170,'สามัคคีพัฒนา','อากาศอำนวย','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (471104,47170,'โพนงาม','อากาศอำนวย','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471103,47170,'วาใหญ่','อากาศอำนวย','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471102,47170,'โพนแพง','อากาศอำนวย','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13723,7 +13723,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (471803,47180,'โคกภู','ภูพาน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471804,47180,'กกปลาซิว','ภูพาน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470305,47180,'กุดไห','กุดบาก','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (471801,47180,'สร้างค้อ','ภูพาน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471802,47180,'หลุบเลา','ภูพาน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471304,47190,'ปทุมวาปี','ส่องดาว','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13734,7 +13734,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (470202,47210,'นาโพธิ์','กุสุมาลย์','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470204,47210,'โพธิไพศาล','กุสุมาลย์','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470102,47220,'ขมิ้น','เมืองสกลนคร','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (470404,47220,'นาหัวบ่อ','พรรณานิคม','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470403,47220,'พอกน้อย','พรรณานิคม','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470118,47220,'หนองลาด','เมืองสกลนคร','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13745,7 +13745,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (471703,47230,'นาตงวัฒนา','โพนนาแก้ว','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471704,47230,'บ้านแป้น','โพนนาแก้ว','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470205,47230,'อุ่มจาน','กุสุมาลย์','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (470107,47230,'ท่าแร่','เมืองสกลนคร','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471220,47240,'ธาตุทอง','สว่างแดนดิน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471217,47240,'ตาลเนิ้ง','สว่างแดนดิน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13756,7 +13756,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (470902,47250,'หนองบัวสิม','คำตากล้า','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470901,47250,'คำตากล้า','คำตากล้า','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (470904,47250,'แพด','คำตากล้า','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (471403,47260,'นาตาล','เต่างอย','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471404,47260,'จันทร์เพ็ญ','เต่างอย','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471401,47260,'เต่างอย','เต่างอย','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13767,7 +13767,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (470702,47270,'หนองปลิง','นิคมน้ำอูน','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471502,47280,'เหล่าโพนค้อ','โคกศรีสุพรรณ','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471501,47280,'ตองโขบ','โคกศรีสุพรรณ','สกลนคร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (471503,47280,'ด่านม่วงคำ','โคกศรีสุพรรณ','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471504,47280,'แมดนาท่ม','โคกศรีสุพรรณ','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
 	 (471603,47290,'ทุ่งแก','เจริญศิลป์','สกลนคร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13778,7 +13778,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (480115,48000,'โพธิ์ตาก','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480101,48000,'ในเมือง','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480102,48000,'หนองแสง','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (480103,48000,'นาทราย','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480104,48000,'นาราชควาย','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480106,48000,'บ้านผึ้ง','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13789,7 +13789,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (480111,48000,'คำเตย','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480112,48000,'หนองญาติ','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480113,48000,'ดงขวาง','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (480114,48000,'วังตามัว','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480108,48000,'ขามเฒ่า','เมืองนครพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480501,48110,'ธาตุพนม','ธาตุพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13800,7 +13800,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (480506,48110,'แสนพัน','ธาตุพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480512,48110,'ธาตุพนมเหนือ','ธาตุพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480511,48110,'กุดฉิม','ธาตุพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (480510,48110,'นาหนาด','ธาตุพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480509,48110,'อุ่มเหม้า','ธาตุพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480507,48110,'ดอนนางหงส์','ธาตุพนม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13811,7 +13811,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (480304,48120,'ไชยบุรี','ท่าอุเทน','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480305,48120,'พนอม','ท่าอุเทน','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480306,48120,'พะทาย','ท่าอุเทน','นครพนม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (480311,48120,'เวินพระบาท','ท่าอุเทน','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480312,48120,'รามราช','ท่าอุเทน','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480314,48120,'หนองเทา','ท่าอุเทน','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13822,7 +13822,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (480701,48130,'นาแก','นาแก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480712,48130,'บ้านแก้ง','นาแก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480715,48130,'สีชมพู','นาแก','นครพนม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (480713,48130,'คำพี้','นาแก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480709,48130,'นาเลียง','นาแก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480708,48130,'หนองบ่อ','นาแก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13833,7 +13833,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (480702,48130,'พระซอง','นาแก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480703,48130,'หนองสังข์','นาแก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (481102,48140,'หนองซน','นาทม','นครพนม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (480401,48140,'บ้านแพง','บ้านแพง','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480402,48140,'ไผ่ล้อม','บ้านแพง','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480403,48140,'โพนทอง','บ้านแพง','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13844,7 +13844,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (481103,48140,'ดอนเตย','นาทม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480803,48150,'บ้านเอื้อง','ศรีสงคราม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480801,48150,'ศรีสงคราม','ศรีสงคราม','นครพนม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (480804,48150,'สามผง','ศรีสงคราม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480802,48150,'นาเดื่อ','ศรีสงคราม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480805,48150,'ท่าบ่อสงคราม','ศรีสงคราม','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13855,7 +13855,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (480201,48160,'ปลาปาก','ปลาปาก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480206,48160,'มหาชัย','ปลาปาก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480205,48160,'โคกสูง','ปลาปาก','นครพนม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (480204,48160,'โคกสว่าง','ปลาปาก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480203,48160,'กุตาไก้','ปลาปาก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480202,48160,'หนองฮี','ปลาปาก','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13866,7 +13866,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (480605,48170,'โคกหินแฮ่','เรณูนคร','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480604,48170,'นางาม','เรณูนคร','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480603,48170,'ท่าลาด','เรณูนคร','นครพนม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (480602,48170,'โพนทอง','เรณูนคร','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480601,48170,'เรณู','เรณูนคร','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480609,48170,'นาขาม','เรณูนคร','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13877,7 +13877,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (480906,48180,'ท่าเรือ','นาหว้า','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (480901,48180,'นาหว้า','นาหว้า','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (481001,48190,'โพนสวรรค์','โพนสวรรค์','นครพนม','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (481002,48190,'นาหัวบ่อ','โพนสวรรค์','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (481007,48190,'นาใน','โพนสวรรค์','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
 	 (481006,48190,'โพนจาน','โพนสวรรค์','นครพนม','ภาคตะวันออกเฉียงเหนือ'),
@@ -13888,7 +13888,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (490107,49000,'นาโสก','เมืองมุกดาหาร','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490108,49000,'นาสีนวน','เมืองมุกดาหาร','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490104,49000,'บางทรายใหญ่','เมืองมุกดาหาร','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (490110,49000,'คำอาฮวน','เมืองมุกดาหาร','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490111,49000,'ดงเย็น','เมืองมุกดาหาร','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490113,49000,'กุดแข้','เมืองมุกดาหาร','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13899,7 +13899,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (490112,49000,'ดงมอน','เมืองมุกดาหาร','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490105,49000,'โพนทราย','เมืองมุกดาหาร','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490512,49110,'คำบก','คำชะอี','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (490503,49110,'บ้านซ่ง','คำชะอี','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490504,49110,'คำชะอี','คำชะอี','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490505,49110,'หนองเอี่ยน','คำชะอี','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13910,7 +13910,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (490514,49110,'น้ำเที่ยง','คำชะอี','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490304,49120,'เหล่าหมี','ดอนตาล','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490303,49120,'ป่าไร่','ดอนตาล','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (490305,49120,'บ้านบาก','ดอนตาล','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490306,49120,'นาสะเม็ง','ดอนตาล','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490307,49120,'บ้านแก้ง','ดอนตาล','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13921,7 +13921,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (490203,49130,'หนองแวง','นิคมคำสร้อย','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490202,49130,'นากอก','นิคมคำสร้อย','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490201,49130,'นิคมคำสร้อย','นิคมคำสร้อย','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (490207,49130,'ร่มเกล้า','นิคมคำสร้อย','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490205,49130,'นาอุดม','นิคมคำสร้อย','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490406,49140,'พังแดง','ดงหลวง','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13932,7 +13932,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (490404,49140,'หนองแคน','ดงหลวง','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490602,49150,'ป่งขาม','หว้านใหญ่','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490601,49150,'หว้านใหญ่','หว้านใหญ่','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (490605,49150,'ดงหมู','หว้านใหญ่','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490604,49150,'ชะโนด','หว้านใหญ่','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490603,49150,'บางทรายน้อย','หว้านใหญ่','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
@@ -13943,7 +13943,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (490705,49160,'หนองสูงใต้','หนองสูง','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (490706,49160,'หนองสูงเหนือ','หนองสูง','มุกดาหาร','ภาคตะวันออกเฉียงเหนือ'),
 	 (500111,50000,'หนองหอย','เมืองเชียงใหม่','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (500113,50000,'หนองป่าครั่ง','เมืองเชียงใหม่','เชียงใหม่','ภาคเหนือ'),
 	 (500114,50000,'ฟ้าฮ่าม','เมืองเชียงใหม่','เชียงใหม่','ภาคเหนือ'),
 	 (500112,50000,'ท่าศาลา','เมืองเชียงใหม่','เชียงใหม่','ภาคเหนือ'),
@@ -13954,7 +13954,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (500110,50100,'ป่าแดด','เมืองเชียงใหม่','เชียงใหม่','ภาคเหนือ'),
 	 (500906,50110,'สันทราย','ฝาง','เชียงใหม่','ภาคเหนือ'),
 	 (500901,50110,'เวียง','ฝาง','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (500905,50110,'แม่สูน','ฝาง','เชียงใหม่','ภาคเหนือ'),
 	 (500910,50110,'แม่คะ','ฝาง','เชียงใหม่','ภาคเหนือ'),
 	 (500903,50110,'ม่อนปิ่น','ฝาง','เชียงใหม่','ภาคเหนือ'),
@@ -13965,7 +13965,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (501208,50120,'ทุ่งสะโตก','สันป่าตอง','เชียงใหม่','ภาคเหนือ'),
 	 (501204,50120,'มะขามหลวง','สันป่าตอง','เชียงใหม่','ภาคเหนือ'),
 	 (501215,50120,'มะขุนหวาน','สันป่าตอง','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (501202,50120,'สันกลาง','สันป่าตอง','เชียงใหม่','ภาคเหนือ'),
 	 (501201,50120,'ยุหว่า','สันป่าตอง','เชียงใหม่','ภาคเหนือ'),
 	 (501205,50120,'แม่ก๊า','สันป่าตอง','เชียงใหม่','ภาคเหนือ'),
@@ -13976,7 +13976,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (502303,50130,'บ้านสหกรณ์','แม่ออน','เชียงใหม่','ภาคเหนือ'),
 	 (501305,50130,'แช่ช้าง','สันกำแพง','เชียงใหม่','ภาคเหนือ'),
 	 (501310,50130,'แม่ปูคา','สันกำแพง','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (501312,50130,'ต้นเปา','สันกำแพง','เชียงใหม่','ภาคเหนือ'),
 	 (501302,50130,'ทรายมูล','สันกำแพง','เชียงใหม่','ภาคเหนือ'),
 	 (502301,50130,'ออนเหนือ','แม่ออน','เชียงใหม่','ภาคเหนือ'),
@@ -13987,7 +13987,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (501301,50130,'สันกำแพง','สันกำแพง','เชียงใหม่','ภาคเหนือ'),
 	 (502302,50130,'ออนกลาง','แม่ออน','เชียงใหม่','ภาคเหนือ'),
 	 (501304,50130,'บวกค้าง','สันกำแพง','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (501313,50130,'สันกลาง','สันกำแพง','เชียงใหม่','ภาคเหนือ'),
 	 (501902,50140,'สารภี','สารภี','เชียงใหม่','ภาคเหนือ'),
 	 (501912,50140,'ป่าบง','สารภี','เชียงใหม่','ภาคเหนือ'),
@@ -13998,7 +13998,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (501908,50140,'ท่ากว้าง','สารภี','เชียงใหม่','ภาคเหนือ'),
 	 (501910,50140,'ท่าวังตาล','สารภี','เชียงใหม่','ภาคเหนือ'),
 	 (501906,50140,'หนองแฝก','สารภี','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (501907,50140,'หนองผึ้ง','สารภี','เชียงใหม่','ภาคเหนือ'),
 	 (501901,50140,'ยางเนิ้ง','สารภี','เชียงใหม่','ภาคเหนือ'),
 	 (501911,50140,'สันทราย','สารภี','เชียงใหม่','ภาคเหนือ'),
@@ -14009,7 +14009,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (500605,50150,'แม่หอพระ','แม่แตง','เชียงใหม่','ภาคเหนือ'),
 	 (500607,50150,'บ้านเป้า','แม่แตง','เชียงใหม่','ภาคเหนือ'),
 	 (500612,50150,'กื้ดช้าง','แม่แตง','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (500603,50150,'ขี้เหล็ก','แม่แตง','เชียงใหม่','ภาคเหนือ'),
 	 (500609,50150,'ป่าแป๋','แม่แตง','เชียงใหม่','ภาคเหนือ'),
 	 (500604,50150,'ช่อแล','แม่แตง','เชียงใหม่','ภาคเหนือ'),
@@ -14020,7 +14020,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (502404,50160,'สันติสุข','ดอยหล่อ','เชียงใหม่','ภาคเหนือ'),
 	 (500204,50160,'ข่วงเปา','จอมทอง','เชียงใหม่','ภาคเหนือ'),
 	 (500205,50160,'สบเตี๊ยะ','จอมทอง','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (502402,50160,'สองแคว','ดอยหล่อ','เชียงใหม่','ภาคเหนือ'),
 	 (502401,50160,'ดอยหล่อ','ดอยหล่อ','เชียงใหม่','ภาคเหนือ'),
 	 (502403,50160,'ยางคราม','ดอยหล่อ','เชียงใหม่','ภาคเหนือ'),
@@ -14031,7 +14031,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (500407,50170,'ทุ่งข้าวพวง','เชียงดาว','เชียงใหม่','ภาคเหนือ'),
 	 (500401,50170,'เชียงดาว','เชียงดาว','เชียงใหม่','ภาคเหนือ'),
 	 (500404,50170,'แม่นะ','เชียงดาว','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (500402,50170,'เมืองนะ','เชียงดาว','เชียงใหม่','ภาคเหนือ'),
 	 (500709,50180,'แม่สา','แม่ริม','เชียงใหม่','ภาคเหนือ'),
 	 (500703,50180,'สันโป่ง','แม่ริม','เชียงใหม่','ภาคเหนือ'),
@@ -14042,7 +14042,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (500701,50180,'ริมใต้','แม่ริม','เชียงใหม่','ภาคเหนือ'),
 	 (500704,50180,'ขี้เหล็ก','แม่ริม','เชียงใหม่','ภาคเหนือ'),
 	 (500702,50180,'ริมเหนือ','แม่ริม','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (500711,50180,'เหมืองแก้ว','แม่ริม','เชียงใหม่','ภาคเหนือ'),
 	 (501101,50190,'เวียง','พร้าว','เชียงใหม่','ภาคเหนือ'),
 	 (501102,50190,'ทุ่งหลวง','พร้าว','เชียงใหม่','ภาคเหนือ'),
@@ -14053,7 +14053,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (501104,50190,'ป่าไหน่','พร้าว','เชียงใหม่','ภาคเหนือ'),
 	 (501106,50190,'บ้านโป่ง','พร้าว','เชียงใหม่','ภาคเหนือ'),
 	 (501103,50190,'ป่าตุ้ม','พร้าว','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (501110,50190,'แม่ปั๋ง','พร้าว','เชียงใหม่','ภาคเหนือ'),
 	 (501108,50190,'เขื่อนผาก','พร้าว','เชียงใหม่','ภาคเหนือ'),
 	 (500101,50200,'ศรีภูมิ','เมืองเชียงใหม่','เชียงใหม่','ภาคเหนือ'),
@@ -14064,7 +14064,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (501402,50210,'สันทรายน้อย','สันทราย','เชียงใหม่','ภาคเหนือ'),
 	 (501401,50210,'สันทรายหลวง','สันทราย','เชียงใหม่','ภาคเหนือ'),
 	 (501404,50210,'สันนาเม็ง','สันทราย','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (501405,50210,'สันป่าเปา','สันทราย','เชียงใหม่','ภาคเหนือ'),
 	 (501403,50210,'สันพระเนตร','สันทราย','เชียงใหม่','ภาคเหนือ'),
 	 (501406,50210,'หนองแหย่ง','สันทราย','เชียงใหม่','ภาคเหนือ'),
@@ -14075,7 +14075,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (500511,50220,'แม่ฮ้อยเงิน','ดอยสะเก็ด','เชียงใหม่','ภาคเหนือ'),
 	 (500512,50220,'แม่โป่ง','ดอยสะเก็ด','เชียงใหม่','ภาคเหนือ'),
 	 (500509,50220,'แม่คือ','ดอยสะเก็ด','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (500506,50220,'ป่าลาน','ดอยสะเก็ด','เชียงใหม่','ภาคเหนือ'),
 	 (500513,50220,'ป่าเมี่ยง','ดอยสะเก็ด','เชียงใหม่','ภาคเหนือ'),
 	 (500504,50220,'ป่าป้อง','ดอยสะเก็ด','เชียงใหม่','ภาคเหนือ'),
@@ -14086,7 +14086,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (500501,50220,'เชิงดอย','ดอยสะเก็ด','เชียงใหม่','ภาคเหนือ'),
 	 (501510,50230,'บ้านปง','หางดง','เชียงใหม่','ภาคเหนือ'),
 	 (501501,50230,'หางดง','หางดง','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (501502,50230,'หนองแก๋ว','หางดง','เชียงใหม่','ภาคเหนือ'),
 	 (501503,50230,'หารแก้ว','หางดง','เชียงใหม่','ภาคเหนือ'),
 	 (501511,50230,'น้ำแพร่','หางดง','เชียงใหม่','ภาคเหนือ'),
@@ -14097,7 +14097,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (501506,50230,'สบแม่ข่า','หางดง','เชียงใหม่','ภาคเหนือ'),
 	 (500206,50240,'บ้านแปะ','จอมทอง','เชียงใหม่','ภาคเหนือ'),
 	 (501606,50240,'นาคอเรือ','ฮอด','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (501605,50240,'บ่อสลี','ฮอด','เชียงใหม่','ภาคเหนือ'),
 	 (501601,50240,'หางดง','ฮอด','เชียงใหม่','ภาคเหนือ'),
 	 (501602,50240,'ฮอด','ฮอด','เชียงใหม่','ภาคเหนือ'),
@@ -14108,7 +14108,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (500802,50250,'สะเมิงเหนือ','สะเมิง','เชียงใหม่','ภาคเหนือ'),
 	 (500804,50250,'บ่อแก้ว','สะเมิง','เชียงใหม่','ภาคเหนือ'),
 	 (500801,50250,'สะเมิงใต้','สะเมิง','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (500803,50250,'แม่สาบ','สะเมิง','เชียงใหม่','ภาคเหนือ'),
 	 (501703,50260,'มืดกา','ดอยเต่า','เชียงใหม่','ภาคเหนือ'),
 	 (501706,50260,'โปงทุ่ง','ดอยเต่า','เชียงใหม่','ภาคเหนือ'),
@@ -14119,7 +14119,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (500304,50270,'แม่ศึก','แม่แจ่ม','เชียงใหม่','ภาคเหนือ'),
 	 (500305,50270,'แม่นาจร','แม่แจ่ม','เชียงใหม่','ภาคเหนือ'),
 	 (500307,50270,'ปางหินฝน','แม่แจ่ม','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (500303,50270,'บ้านทับ','แม่แจ่ม','เชียงใหม่','ภาคเหนือ'),
 	 (500302,50270,'ท่าผา','แม่แจ่ม','เชียงใหม่','ภาคเหนือ'),
 	 (500308,50270,'กองแขก','แม่แจ่ม','เชียงใหม่','ภาคเหนือ'),
@@ -14130,7 +14130,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (501006,50280,'บ้านหลวง','แม่อาย','เชียงใหม่','ภาคเหนือ'),
 	 (501007,50280,'มะลิกา','แม่อาย','เชียงใหม่','ภาคเหนือ'),
 	 (501004,50280,'แม่นาวาง','แม่อาย','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (501002,50280,'แม่สาว','แม่อาย','เชียงใหม่','ภาคเหนือ'),
 	 (501408,50290,'หนองหาร','สันทราย','เชียงใหม่','ภาคเหนือ'),
 	 (501410,50290,'แม่แฝกใหม่','สันทราย','เชียงใหม่','ภาคเหนือ'),
@@ -14141,7 +14141,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (500107,50300,'ช้างเผือก','เมืองเชียงใหม่','เชียงใหม่','ภาคเหนือ'),
 	 (500104,50300,'ช้างม่อย','เมืองเชียงใหม่','เชียงใหม่','ภาคเหนือ'),
 	 (500116,50300,'สันผีเสื้อ','เมืองเชียงใหม่','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (501805,50310,'สบโขง','อมก๋อย','เชียงใหม่','ภาคเหนือ'),
 	 (501803,50310,'แม่ตื่น','อมก๋อย','เชียงใหม่','ภาคเหนือ'),
 	 (501804,50310,'ม่อนจอง','อมก๋อย','เชียงใหม่','ภาคเหนือ'),
@@ -14152,7 +14152,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (502103,50320,'แม่ทะลบ','ไชยปราการ','เชียงใหม่','ภาคเหนือ'),
 	 (500911,50320,'แม่ข่า','ฝาง','เชียงใหม่','ภาคเหนือ'),
 	 (500904,50320,'แม่งอน','ฝาง','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (502104,50320,'หนองบัว','ไชยปราการ','เชียงใหม่','ภาคเหนือ'),
 	 (502102,50320,'ศรีดงเย็น','ไชยปราการ','เชียงใหม่','ภาคเหนือ'),
 	 (500608,50330,'สันป่ายาง','แม่แตง','เชียงใหม่','ภาคเหนือ'),
@@ -14163,7 +14163,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (502001,50350,'เมืองแหง','เวียงแหง','เชียงใหม่','ภาคเหนือ'),
 	 (502003,50350,'แสนไห','เวียงแหง','เชียงใหม่','ภาคเหนือ'),
 	 (502204,50360,'แม่วิน','แม่วาง','เชียงใหม่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (502201,50360,'บ้านกาด','แม่วาง','เชียงใหม่','ภาคเหนือ'),
 	 (502202,50360,'ทุ่งปี๊','แม่วาง','เชียงใหม่','ภาคเหนือ'),
 	 (502203,50360,'ทุ่งรวงทอง','แม่วาง','เชียงใหม่','ภาคเหนือ'),
@@ -14174,7 +14174,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (510106,51000,'ริมปิง','เมืองลำพูน','ลำพูน','ภาคเหนือ'),
 	 (510105,51000,'ประตูป่า','เมืองลำพูน','ลำพูน','ภาคเหนือ'),
 	 (510116,51000,'ศรีบัวบาน','เมืองลำพูน','ลำพูน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (510113,51000,'มะเขือแจ้','เมืองลำพูน','ลำพูน','ภาคเหนือ'),
 	 (510112,51000,'บ้านกลาง','เมืองลำพูน','ลำพูน','ภาคเหนือ'),
 	 (510117,51000,'หนองหนาม','เมืองลำพูน','ลำพูน','ภาคเหนือ'),
@@ -14185,7 +14185,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (510409,51110,'ศรีวิชัย','ลี้','ลำพูน','ภาคเหนือ'),
 	 (510408,51110,'ป่าไผ่','ลี้','ลำพูน','ภาคเหนือ'),
 	 (510406,51110,'แม่ลาน','ลี้','ลำพูน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (510401,51110,'ลี้','ลี้','ลำพูน','ภาคเหนือ'),
 	 (510402,51110,'แม่ตืน','ลี้','ลำพูน','ภาคเหนือ'),
 	 (510405,51110,'ก้อ','ลี้','ลำพูน','ภาคเหนือ'),
@@ -14196,7 +14196,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (510803,51120,'วังผาง','เวียงหนองล่อง','ลำพูน','ภาคเหนือ'),
 	 (510611,51120,'นครเจดีย์','ป่าซาง','ลำพูน','ภาคเหนือ'),
 	 (510608,51120,'น้ำดิบ','ป่าซาง','ลำพูน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (510607,51120,'ท่าตุ้ม','ป่าซาง','ลำพูน','ภาคเหนือ'),
 	 (510606,51120,'มะกอก','ป่าซาง','ลำพูน','ภาคเหนือ'),
 	 (510605,51120,'บ้านเรือน','ป่าซาง','ลำพูน','ภาคเหนือ'),
@@ -14207,7 +14207,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (510305,51130,'หนองปลาสะวาย','บ้านโฮ่ง','ลำพูน','ภาคเหนือ'),
 	 (510304,51130,'ศรีเตี้ย','บ้านโฮ่ง','ลำพูน','ภาคเหนือ'),
 	 (510303,51130,'เหล่ายาว','บ้านโฮ่ง','ลำพูน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (510302,51130,'ป่าพลู','บ้านโฮ่ง','ลำพูน','ภาคเหนือ'),
 	 (510301,51130,'บ้านโฮ่ง','บ้านโฮ่ง','ลำพูน','ภาคเหนือ'),
 	 (510201,51140,'ทาปลาดุก','แม่ทา','ลำพูน','ภาคเหนือ'),
@@ -14218,7 +14218,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (510501,51160,'ทุ่งหัวช้าง','ทุ่งหัวช้าง','ลำพูน','ภาคเหนือ'),
 	 (510503,51160,'ตะเคียนปม','ทุ่งหัวช้าง','ลำพูน','ภาคเหนือ'),
 	 (510205,51170,'ทาทุ่งหลวง','แม่ทา','ลำพูน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (510204,51170,'ทาขุมเงิน','แม่ทา','ลำพูน','ภาคเหนือ'),
 	 (510203,51170,'ทากาศ','แม่ทา','ลำพูน','ภาคเหนือ'),
 	 (510206,51170,'ทาแม่ลอบ','แม่ทา','ลำพูน','ภาคเหนือ'),
@@ -14229,7 +14229,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (520111,52000,'พิชัย','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
 	 (520110,52000,'บ้านเสด็จ','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
 	 (520109,52000,'บ้านแลง','เมืองลำปาง','ลำปาง','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (520117,52000,'ต้นธงชัย','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
 	 (520118,52000,'นิคมพัฒนา','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
 	 (520119,52000,'บุญนาคพัฒนา','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
@@ -14240,7 +14240,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (520103,52100,'สวนดอก','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
 	 (520104,52100,'สบตุ๋ย','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
 	 (520106,52100,'ชมพู','เมืองลำปาง','ลำปาง','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (520114,52100,'บ้านเป้า','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
 	 (520116,52100,'บ่อแฮ้ว','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
 	 (520108,52100,'ปงแสนทอง','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
@@ -14251,7 +14251,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (520503,52110,'บ้านโป่ง','งาว','ลำปาง','ภาคเหนือ'),
 	 (520502,52110,'หลวงใต้','งาว','ลำปาง','ภาคเหนือ'),
 	 (520501,52110,'หลวงเหนือ','งาว','ลำปาง','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (520510,52110,'แม่ตีบ','งาว','ลำปาง','ภาคเหนือ'),
 	 (520506,52110,'นาแก','งาว','ลำปาง','ภาคเหนือ'),
 	 (520509,52110,'บ้านหวด','งาว','ลำปาง','ภาคเหนือ'),
@@ -14262,7 +14262,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (520606,52120,'ทุ่งผึ้ง','แจ้ห่ม','ลำปาง','ภาคเหนือ'),
 	 (520605,52120,'เมืองมาย','แจ้ห่ม','ลำปาง','ภาคเหนือ'),
 	 (520604,52120,'แม่สุก','แจ้ห่ม','ลำปาง','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (520601,52120,'แจ้ห่ม','แจ้ห่ม','ลำปาง','ภาคเหนือ'),
 	 (520603,52120,'ปงดอน','แจ้ห่ม','ลำปาง','ภาคเหนือ'),
 	 (520302,52130,'นาแก้ว','เกาะคา','ลำปาง','ภาคเหนือ'),
@@ -14273,7 +14273,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (520305,52130,'ศาลา','เกาะคา','ลำปาง','ภาคเหนือ'),
 	 (520301,52130,'ลำปางหลวง','เกาะคา','ลำปาง','ภาคเหนือ'),
 	 (520303,52130,'ไหล่หิน','เกาะคา','ลำปาง','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (520304,52130,'วังพร้าว','เกาะคา','ลำปาง','ภาคเหนือ'),
 	 (520707,52140,'วังแก้ว','วังเหนือ','ลำปาง','ภาคเหนือ'),
 	 (520701,52140,'ทุ่งฮั้ว','วังเหนือ','ลำปาง','ภาคเหนือ'),
@@ -14284,7 +14284,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (520706,52140,'วังซ้าย','วังเหนือ','ลำปาง','ภาคเหนือ'),
 	 (520708,52140,'วังทรายคำ','วังเหนือ','ลำปาง','ภาคเหนือ'),
 	 (521010,52150,'วังเงิน','แม่ทะ','ลำปาง','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (521008,52150,'หัวเสือ','แม่ทะ','ลำปาง','ภาคเหนือ'),
 	 (521007,52150,'ดอนไฟ','แม่ทะ','ลำปาง','ภาคเหนือ'),
 	 (521006,52150,'น้ำโจ้','แม่ทะ','ลำปาง','ภาคเหนือ'),
@@ -14295,7 +14295,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (521011,52150,'สันดอนแก้ว','แม่ทะ','ลำปาง','ภาคเหนือ'),
 	 (521001,52150,'แม่ทะ','แม่ทะ','ลำปาง','ภาคเหนือ'),
 	 (520805,52160,'เวียงมอก','เถิน','ลำปาง','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (520806,52160,'นาโป่ง','เถิน','ลำปาง','ภาคเหนือ'),
 	 (520807,52160,'แม่ถอด','เถิน','ลำปาง','ภาคเหนือ'),
 	 (520808,52160,'เถินบุรี','เถิน','ลำปาง','ภาคเหนือ'),
@@ -14306,7 +14306,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (521104,52170,'นายาง','สบปราบ','ลำปาง','ภาคเหนือ'),
 	 (521102,52170,'สมัย','สบปราบ','ลำปาง','ภาคเหนือ'),
 	 (521101,52170,'สบปราบ','สบปราบ','ลำปาง','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (520903,52180,'แม่ปุ','แม่พริก','ลำปาง','ภาคเหนือ'),
 	 (520901,52180,'แม่พริก','แม่พริก','ลำปาง','ภาคเหนือ'),
 	 (520902,52180,'ผาปัง','แม่พริก','ลำปาง','ภาคเหนือ'),
@@ -14317,7 +14317,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (521206,52190,'แม่สัน','ห้างฉัตร','ลำปาง','ภาคเหนือ'),
 	 (521207,52190,'วอแก้ว','ห้างฉัตร','ลำปาง','ภาคเหนือ'),
 	 (521203,52190,'เมืองยาว','ห้างฉัตร','ลำปาง','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (521204,52190,'ปงยางคก','ห้างฉัตร','ลำปาง','ภาคเหนือ'),
 	 (520403,52210,'เสริมซ้าย','เสริมงาม','ลำปาง','ภาคเหนือ'),
 	 (520404,52210,'เสริมกลาง','เสริมงาม','ลำปาง','ภาคเหนือ'),
@@ -14328,7 +14328,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (520204,52220,'แม่เมาะ','แม่เมาะ','ลำปาง','ภาคเหนือ'),
 	 (520203,52220,'จางเหนือ','แม่เมาะ','ลำปาง','ภาคเหนือ'),
 	 (520201,52220,'บ้านดง','แม่เมาะ','ลำปาง','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (521001,52220,'แม่ทะ','แม่ทะ','ลำปาง','ภาคเหนือ'),
 	 (520105,52220,'พระบาท','เมืองลำปาง','ลำปาง','ภาคเหนือ'),
 	 (520802,52230,'แม่วะ','เถิน','ลำปาง','ภาคเหนือ'),
@@ -14339,7 +14339,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (521301,52240,'เมืองปาน','เมืองปาน','ลำปาง','ภาคเหนือ'),
 	 (521302,52240,'บ้านขอ','เมืองปาน','ลำปาง','ภาคเหนือ'),
 	 (530107,53000,'หาดกรวด','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (530102,53000,'ท่าเสา','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ'),
 	 (530105,53000,'คุ้งตะเภา','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ'),
 	 (530109,53000,'งิ้วงาม','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ'),
@@ -14350,7 +14350,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (530104,53000,'ป่าเซ่า','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ'),
 	 (530113,53000,'วังดิน','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ'),
 	 (530101,53000,'ท่าอิฐ','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (530114,53000,'แสนตอ','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ'),
 	 (530116,53000,'ขุนฝาง','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ'),
 	 (530117,53000,'ถ้ำฉลอง','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ'),
@@ -14361,7 +14361,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (530403,53110,'เด่นเหล็ก','น้ำปาด','อุตรดิตถ์','ภาคเหนือ'),
 	 (530405,53110,'น้ำไผ่','น้ำปาด','อุตรดิตถ์','ภาคเหนือ'),
 	 (530401,53110,'แสนตอ','น้ำปาด','อุตรดิตถ์','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (530402,53110,'บ้านฝาย','น้ำปาด','อุตรดิตถ์','ภาคเหนือ'),
 	 (530407,53110,'ท่าแฝก','น้ำปาด','อุตรดิตถ์','ภาคเหนือ'),
 	 (530701,53120,'ในเมือง','พิชัย','อุตรดิตถ์','ภาคเหนือ'),
@@ -14372,7 +14372,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (530709,53120,'พญาแมน','พิชัย','อุตรดิตถ์','ภาคเหนือ'),
 	 (530711,53120,'นายาง','พิชัย','อุตรดิตถ์','ภาคเหนือ'),
 	 (530707,53120,'ท่ามะเฟือง','พิชัย','อุตรดิตถ์','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (530710,53120,'นาอิน','พิชัย','อุตรดิตถ์','ภาคเหนือ'),
 	 (530804,53130,'ฝายหลวง','ลับแล','อุตรดิตถ์','ภาคเหนือ'),
 	 (530805,53130,'ชัยจุมพล','ลับแล','อุตรดิตถ์','ภาคเหนือ'),
@@ -14383,7 +14383,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (530201,53140,'วังแดง','ตรอน','อุตรดิตถ์','ภาคเหนือ'),
 	 (530203,53140,'หาดสองแคว','ตรอน','อุตรดิตถ์','ภาคเหนือ'),
 	 (530204,53140,'น้ำอ่าง','ตรอน','อุตรดิตถ์','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (530205,53140,'ข่อยสูง','ตรอน','อุตรดิตถ์','ภาคเหนือ'),
 	 (530305,53150,'น้ำหมัน','ท่าปลา','อุตรดิตถ์','ภาคเหนือ'),
 	 (530307,53150,'นางพญา','ท่าปลา','อุตรดิตถ์','ภาคเหนือ'),
@@ -14394,7 +14394,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (530503,53160,'บ้านเสี้ยว','ฟากท่า','อุตรดิตถ์','ภาคเหนือ'),
 	 (530502,53160,'สองคอน','ฟากท่า','อุตรดิตถ์','ภาคเหนือ'),
 	 (530501,53160,'ฟากท่า','ฟากท่า','อุตรดิตถ์','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (530106,53170,'วังกะพี้','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ'),
 	 (530103,53170,'บ้านเกาะ','เมืองอุตรดิตถ์','อุตรดิตถ์','ภาคเหนือ'),
 	 (530601,53180,'ม่วงเจ็ดต้น','บ้านโคก','อุตรดิตถ์','ภาคเหนือ'),
@@ -14405,7 +14405,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (530308,53190,'ร่วมจิต','ท่าปลา','อุตรดิตถ์','ภาคเหนือ'),
 	 (530302,53190,'หาดล้า','ท่าปลา','อุตรดิตถ์','ภาคเหนือ'),
 	 (530806,53210,'ไผ่ล้อม','ลับแล','อุตรดิตถ์','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (530807,53210,'ทุ่งยั้ง','ลับแล','อุตรดิตถ์','ภาคเหนือ'),
 	 (530808,53210,'ด่านแม่คำมัน','ลับแล','อุตรดิตถ์','ภาคเหนือ'),
 	 (530704,53220,'ท่าสัก','พิชัย','อุตรดิตถ์','ภาคเหนือ'),
@@ -14416,7 +14416,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (530904,53230,'น้ำพี้','ทองแสนขัน','อุตรดิตถ์','ภาคเหนือ'),
 	 (540110,54000,'ป่าแมต','เมืองแพร่','แพร่','ภาคเหนือ'),
 	 (540111,54000,'บ้านถิ่น','เมืองแพร่','แพร่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (540101,54000,'ในเวียง','เมืองแพร่','แพร่','ภาคเหนือ'),
 	 (540106,54000,'เหมืองหม้อ','เมืองแพร่','แพร่','ภาคเหนือ'),
 	 (540105,54000,'ทุ่งโฮ้ง','เมืองแพร่','แพร่','ภาคเหนือ'),
@@ -14427,7 +14427,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (540113,54000,'วังหงส์','เมืองแพร่','แพร่','ภาคเหนือ'),
 	 (540109,54000,'ห้วยม้า','เมืองแพร่','แพร่','ภาคเหนือ'),
 	 (540107,54000,'วังธง','เมืองแพร่','แพร่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (540108,54000,'แม่หล่าย','เมืองแพร่','แพร่','ภาคเหนือ'),
 	 (540116,54000,'ท่าข้าม','เมืองแพร่','แพร่','ภาคเหนือ'),
 	 (540117,54000,'แม่ยม','เมืองแพร่','แพร่','ภาคเหนือ'),
@@ -14438,7 +14438,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (540114,54000,'แม่คำมี','เมืองแพร่','แพร่','ภาคเหนือ'),
 	 (540115,54000,'ทุ่งกวาว','เมืองแพร่','แพร่','ภาคเหนือ'),
 	 (540501,54110,'เด่นชัย','เด่นชัย','แพร่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (540502,54110,'แม่จั๊วะ','เด่นชัย','แพร่','ภาคเหนือ'),
 	 (540503,54110,'ไทรย้อย','เด่นชัย','แพร่','ภาคเหนือ'),
 	 (540504,54110,'ห้วยไร่','เด่นชัย','แพร่','ภาคเหนือ'),
@@ -14449,7 +14449,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (540605,54120,'หัวเมือง','สอง','แพร่','ภาคเหนือ'),
 	 (540604,54120,'เตาปูน','สอง','แพร่','ภาคเหนือ'),
 	 (540602,54120,'บ้านกลาง','สอง','แพร่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (540603,54120,'ห้วยหม้าย','สอง','แพร่','ภาคเหนือ'),
 	 (540607,54120,'แดนชุมพล','สอง','แพร่','ภาคเหนือ'),
 	 (540403,54130,'หัวฝาย','สูงเม่น','แพร่','ภาคเหนือ'),
@@ -14460,7 +14460,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (540409,54130,'ร่องกาศ','สูงเม่น','แพร่','ภาคเหนือ'),
 	 (540410,54130,'สบสาย','สูงเม่น','แพร่','ภาคเหนือ'),
 	 (540412,54130,'พระหลวง','สูงเม่น','แพร่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (540402,54130,'น้ำชำ','สูงเม่น','แพร่','ภาคเหนือ'),
 	 (540407,54130,'บ้านปง','สูงเม่น','แพร่','ภาคเหนือ'),
 	 (540401,54130,'สูงเม่น','สูงเม่น','แพร่','ภาคเหนือ'),
@@ -14471,7 +14471,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (540207,54140,'ทุ่งศรี','ร้องกวาง','แพร่','ภาคเหนือ'),
 	 (540208,54140,'แม่ยางตาล','ร้องกวาง','แพร่','ภาคเหนือ'),
 	 (540209,54140,'แม่ยางฮ่อ','ร้องกวาง','แพร่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (540210,54140,'ไผ่โทน','ร้องกวาง','แพร่','ภาคเหนือ'),
 	 (540201,54140,'ร้องกวาง','ร้องกวาง','แพร่','ภาคเหนือ'),
 	 (540204,54140,'ร้องเข็ม','ร้องกวาง','แพร่','ภาคเหนือ'),
@@ -14482,7 +14482,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (540308,54150,'บ่อเหล็กลอง','ลอง','แพร่','ภาคเหนือ'),
 	 (540307,54150,'ทุ่งแล้ง','ลอง','แพร่','ภาคเหนือ'),
 	 (540303,54150,'ต้าผามอก','ลอง','แพร่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (540306,54150,'หัวทุ่ง','ลอง','แพร่','ภาคเหนือ'),
 	 (540305,54150,'ปากกาง','ลอง','แพร่','ภาคเหนือ'),
 	 (540304,54150,'เวียงต้า','ลอง','แพร่','ภาคเหนือ'),
@@ -14493,7 +14493,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (540701,54160,'วังชิ้น','วังชิ้น','แพร่','ภาคเหนือ'),
 	 (540705,54160,'แม่พุง','วังชิ้น','แพร่','ภาคเหนือ'),
 	 (540704,54160,'นาพูน','วังชิ้น','แพร่','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (540801,54170,'แม่คำมี','หนองม่วงไข่','แพร่','ภาคเหนือ'),
 	 (540803,54170,'น้ำรัด','หนองม่วงไข่','แพร่','ภาคเหนือ'),
 	 (540806,54170,'ทุ่งแค้ว','หนองม่วงไข่','แพร่','ภาคเหนือ'),
@@ -14504,7 +14504,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (551401,55000,'ม่วงตึ๊ด','ภูเพียง','น่าน','ภาคเหนือ'),
 	 (550108,55000,'ดู่ใต้','เมืองน่าน','น่าน','ภาคเหนือ'),
 	 (550103,55000,'ผาสิงห์','เมืองน่าน','น่าน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (550109,55000,'กองควาย','เมืองน่าน','น่าน','ภาคเหนือ'),
 	 (550102,55000,'บ่อ','เมืองน่าน','น่าน','ภาคเหนือ'),
 	 (550101,55000,'ในเวียง','เมืองน่าน','น่าน','ภาคเหนือ'),
@@ -14515,7 +14515,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (550104,55000,'ไชยสถาน','เมืองน่าน','น่าน','ภาคเหนือ'),
 	 (551403,55000,'น้ำแก่น','ภูเพียง','น่าน','ภาคเหนือ'),
 	 (551402,55000,'นาปัง','ภูเพียง','น่าน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (551404,55000,'น้ำเกี๋ยน','ภูเพียง','น่าน','ภาคเหนือ'),
 	 (551405,55000,'เมืองจัง','ภูเพียง','น่าน','ภาคเหนือ'),
 	 (551406,55000,'ท่าน้าว','ภูเพียง','น่าน','ภาคเหนือ'),
@@ -14526,7 +14526,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (550707,55110,'น้ำมวบ','เวียงสา','น่าน','ภาคเหนือ'),
 	 (550704,55110,'ตาลชุม','เวียงสา','น่าน','ภาคเหนือ'),
 	 (550715,55110,'จอมจันทร์','เวียงสา','น่าน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (550705,55110,'นาเหลือง','เวียงสา','น่าน','ภาคเหนือ'),
 	 (550712,55110,'ส้านนาหนองใหม่','เวียงสา','น่าน','ภาคเหนือ'),
 	 (550710,55110,'ปงสนุก','เวียงสา','น่าน','ภาคเหนือ'),
@@ -14537,7 +14537,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (550708,55110,'น้ำปั้ว','เวียงสา','น่าน','ภาคเหนือ'),
 	 (550709,55110,'ยาบหัวนา','เวียงสา','น่าน','ภาคเหนือ'),
 	 (550713,55110,'แม่ขะนิง','เวียงสา','น่าน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (550702,55110,'ขึ่ง','เวียงสา','น่าน','ภาคเหนือ'),
 	 (550501,55120,'ปัว','ปัว','น่าน','ภาคเหนือ'),
 	 (550511,55120,'ภูคา','ปัว','น่าน','ภาคเหนือ'),
@@ -14548,7 +14548,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (550510,55120,'เจดีย์ชัย','ปัว','น่าน','ภาคเหนือ'),
 	 (550504,55120,'ศิลาแลง','ปัว','น่าน','ภาคเหนือ'),
 	 (550505,55120,'ศิลาเพชร','ปัว','น่าน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (550512,55120,'สกาด','ปัว','น่าน','ภาคเหนือ'),
 	 (550506,55120,'อวน','ปัว','น่าน','ภาคเหนือ'),
 	 (550509,55120,'ไชยวัฒนา','ปัว','น่าน','ภาคเหนือ'),
@@ -14559,7 +14559,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (551501,55130,'ห้วยโก๋น','เฉลิมพระเกียรติ','น่าน','ภาคเหนือ'),
 	 (550608,55140,'แสนทอง','ท่าวังผา','น่าน','ภาคเหนือ'),
 	 (550606,55140,'ศรีภูมิ','ท่าวังผา','น่าน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (550605,55140,'ตาลชุม','ท่าวังผา','น่าน','ภาคเหนือ'),
 	 (550604,55140,'ยม','ท่าวังผา','น่าน','ภาคเหนือ'),
 	 (550603,55140,'ผาตอ','ท่าวังผา','น่าน','ภาคเหนือ'),
@@ -14570,7 +14570,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (550607,55140,'จอมพระ','ท่าวังผา','น่าน','ภาคเหนือ'),
 	 (550404,55150,'สถาน','นาน้อย','น่าน','ภาคเหนือ'),
 	 (550403,55150,'ศรีษะเกษ','นาน้อย','น่าน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (550407,55150,'น้ำตก','นาน้อย','น่าน','ภาคเหนือ'),
 	 (550406,55150,'บัวใหญ่','นาน้อย','น่าน','ภาคเหนือ'),
 	 (550405,55150,'สันทะ','นาน้อย','น่าน','ภาคเหนือ'),
@@ -14581,7 +14581,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (551303,55160,'ยอด','สองแคว','น่าน','ภาคเหนือ'),
 	 (551302,55160,'ชนแดน','สองแคว','น่าน','ภาคเหนือ'),
 	 (550902,55160,'เปือ','เชียงกลาง','น่าน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (550909,55160,'พระพุทธบาท','เชียงกลาง','น่าน','ภาคเหนือ'),
 	 (551301,55160,'นาไร่หลวง','สองแคว','น่าน','ภาคเหนือ'),
 	 (550901,55160,'เชียงกลาง','เชียงกลาง','น่าน','ภาคเหนือ'),
@@ -14592,7 +14592,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (550202,55170,'หนองแดง','แม่จริม','น่าน','ภาคเหนือ'),
 	 (550206,55170,'แม่จริม','แม่จริม','น่าน','ภาคเหนือ'),
 	 (551001,55180,'นาทะนุง','นาหมื่น','น่าน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (551004,55180,'ปิงหลวง','นาหมื่น','น่าน','ภาคเหนือ'),
 	 (551002,55180,'บ่อแก้ว','นาหมื่น','น่าน','ภาคเหนือ'),
 	 (551003,55180,'เมืองลี','นาหมื่น','น่าน','ภาคเหนือ'),
@@ -14603,7 +14603,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (551103,55210,'พงษ์','สันติสุข','น่าน','ภาคเหนือ'),
 	 (551102,55210,'ป่าแลวหลวง','สันติสุข','น่าน','ภาคเหนือ'),
 	 (551101,55210,'ดู่พงษ์','สันติสุข','น่าน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (551202,55220,'บ่อเกลือใต้','บ่อเกลือ','น่าน','ภาคเหนือ'),
 	 (551204,55220,'ภูฟ้า','บ่อเกลือ','น่าน','ภาคเหนือ'),
 	 (551205,55220,'ดงพญา','บ่อเกลือ','น่าน','ภาคเหนือ'),
@@ -14614,7 +14614,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (560102,56000,'แม่ต๋ำ','เมืองพะเยา','พะเยา','ภาคเหนือ'),
 	 (560106,56000,'บ้านต๊ำ','เมืองพะเยา','พะเยา','ภาคเหนือ'),
 	 (560903,56000,'แม่อิง','ภูกามยาว','พะเยา','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (560113,56000,'ท่าวังทอง','เมืองพะเยา','พะเยา','ภาคเหนือ'),
 	 (560105,56000,'บ้านตุ่น','เมืองพะเยา','พะเยา','ภาคเหนือ'),
 	 (560114,56000,'แม่ใส','เมืองพะเยา','พะเยา','ภาคเหนือ'),
@@ -14625,7 +14625,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (560101,56000,'เวียง','เมืองพะเยา','พะเยา','ภาคเหนือ'),
 	 (560110,56000,'แม่กา','เมืองพะเยา','พะเยา','ภาคเหนือ'),
 	 (560111,56000,'บ้านใหม่','เมืองพะเยา','พะเยา','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (560116,56000,'ท่าจำปี','เมืองพะเยา','พะเยา','ภาคเหนือ'),
 	 (560115,56000,'บ้านสาง','เมืองพะเยา','พะเยา','ภาคเหนือ'),
 	 (560104,56000,'แม่นาเรือ','เมืองพะเยา','พะเยา','ภาคเหนือ'),
@@ -14636,7 +14636,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (560804,56110,'เชียงแรง','ภูซาง','พะเยา','ภาคเหนือ'),
 	 (560312,56110,'แม่ลาว','เชียงคำ','พะเยา','ภาคเหนือ'),
 	 (560803,56110,'ทุ่งกล้วย','ภูซาง','พะเยา','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (560310,56110,'ร่มเย็น','เชียงคำ','พะเยา','ภาคเหนือ'),
 	 (560309,56110,'เจดีย์คำ','เชียงคำ','พะเยา','ภาคเหนือ'),
 	 (560802,56110,'ป่าสัก','ภูซาง','พะเยา','ภาคเหนือ'),
@@ -14647,7 +14647,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (560308,56110,'ฝายกวาง','เชียงคำ','พะเยา','ภาคเหนือ'),
 	 (560512,56120,'คือเวียง','ดอกคำใต้','พะเยา','ภาคเหนือ'),
 	 (560510,56120,'บุญเกิด','ดอกคำใต้','พะเยา','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (560503,56120,'บ้านถ้ำ','ดอกคำใต้','พะเยา','ภาคเหนือ'),
 	 (560502,56120,'ดอนศรีชุม','ดอกคำใต้','พะเยา','ภาคเหนือ'),
 	 (560511,56120,'สว่างอารมณ์','ดอกคำใต้','พะเยา','ภาคเหนือ'),
@@ -14658,7 +14658,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (560508,56120,'หนองหล่ม','ดอกคำใต้','พะเยา','ภาคเหนือ'),
 	 (560501,56120,'ดอกคำใต้','ดอกคำใต้','พะเยา','ภาคเหนือ'),
 	 (560509,56120,'ดงสุวรรณ','ดอกคำใต้','พะเยา','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (560702,56130,'ศรีถ้อย','แม่ใจ','พะเยา','ภาคเหนือ'),
 	 (560706,56130,'เจริญราษฎร์','แม่ใจ','พะเยา','ภาคเหนือ'),
 	 (560705,56130,'บ้านเหล่า','แม่ใจ','พะเยา','ภาคเหนือ'),
@@ -14669,7 +14669,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (560602,56140,'ควร','ปง','พะเยา','ภาคเหนือ'),
 	 (560603,56140,'ออย','ปง','พะเยา','ภาคเหนือ'),
 	 (560604,56140,'งิม','ปง','พะเยา','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (560605,56140,'ผาช้างน้อย','ปง','พะเยา','ภาคเหนือ'),
 	 (560606,56140,'นาปรัง','ปง','พะเยา','ภาคเหนือ'),
 	 (560607,56140,'ขุนควร','ปง','พะเยา','ภาคเหนือ'),
@@ -14680,7 +14680,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (560203,56150,'ลอ','จุน','พะเยา','ภาคเหนือ'),
 	 (560202,56150,'จุน','จุน','พะเยา','ภาคเหนือ'),
 	 (560201,56150,'ห้วยข้าวก่ำ','จุน','พะเยา','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (560401,56160,'เชียงม่วน','เชียงม่วน','พะเยา','ภาคเหนือ'),
 	 (560402,56160,'บ้านมาง','เชียงม่วน','พะเยา','ภาคเหนือ'),
 	 (560403,56160,'สระ','เชียงม่วน','พะเยา','ภาคเหนือ'),
@@ -14691,7 +14691,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (570101,57000,'เวียง','เมืองเชียงราย','เชียงราย','ภาคเหนือ'),
 	 (570102,57000,'รอบเวียง','เมืองเชียงราย','เชียงราย','ภาคเหนือ'),
 	 (570118,57000,'ท่าสาย','เมืองเชียงราย','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (570111,57000,'แม่กรณ์','เมืองเชียงราย','เชียงราย','ภาคเหนือ'),
 	 (570120,57000,'ดอยฮาง','เมืองเชียงราย','เชียงราย','ภาคเหนือ'),
 	 (570116,57000,'ป่าอ้อดอนชัย','เมืองเชียงราย','เชียงราย','ภาคเหนือ'),
@@ -14702,7 +14702,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (570121,57100,'ท่าสุด','เมืองเชียงราย','เชียงราย','ภาคเหนือ'),
 	 (570103,57100,'บ้านดู่','เมืองเชียงราย','เชียงราย','ภาคเหนือ'),
 	 (570114,57100,'ริมกก','เมืองเชียงราย','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (571801,57110,'ปงน้อย','ดอยหลวง','เชียงราย','ภาคเหนือ'),
 	 (571803,57110,'หนองป่าก่อ','ดอยหลวง','เชียงราย','ภาคเหนือ'),
 	 (570701,57110,'แม่จัน','แม่จัน','เชียงราย','ภาคเหนือ'),
@@ -14713,7 +14713,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (571503,57110,'แม่สลองนอก','แม่ฟ้าหลวง','เชียงราย','ภาคเหนือ'),
 	 (570708,57110,'ป่าตึง','แม่จัน','เชียงราย','ภาคเหนือ'),
 	 (570704,57110,'ป่าซาง','แม่จัน','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (570706,57110,'ท่าข้าวเปลือก','แม่จัน','เชียงราย','ภาคเหนือ'),
 	 (570713,57110,'จอมสวรรค์','แม่จัน','เชียงราย','ภาคเหนือ'),
 	 (570509,57120,'ม่วงคำ','พาน','เชียงราย','ภาคเหนือ'),
@@ -14724,7 +14724,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (570506,57120,'หัวง้ม','พาน','เชียงราย','ภาคเหนือ'),
 	 (570508,57120,'ป่าหุ่ง','พาน','เชียงราย','ภาคเหนือ'),
 	 (570515,57120,'เวียงห้าว','พาน','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (570510,57120,'ทรายขาว','พาน','เชียงราย','ภาคเหนือ'),
 	 (570505,57120,'ดอยงาม','พาน','เชียงราย','ภาคเหนือ'),
 	 (570511,57120,'สันกลาง','พาน','เชียงราย','ภาคเหนือ'),
@@ -14735,7 +14735,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (570904,57130,'โป่งผา','แม่สาย','เชียงราย','ภาคเหนือ'),
 	 (570901,57130,'แม่สาย','แม่สาย','เชียงราย','ภาคเหนือ'),
 	 (570906,57130,'เวียงพางคำ','แม่สาย','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (570303,57140,'ครึ่ง','เชียงของ','เชียงราย','ภาคเหนือ'),
 	 (570304,57140,'บุญเรือง','เชียงของ','เชียงราย','ภาคเหนือ'),
 	 (570310,57140,'ริมโขง','เชียงของ','เชียงราย','ภาคเหนือ'),
@@ -14746,7 +14746,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (570806,57150,'โยนก','เชียงแสน','เชียงราย','ภาคเหนือ'),
 	 (570804,57150,'ศรีดอนมูล','เชียงแสน','เชียงราย','ภาคเหนือ'),
 	 (570802,57150,'ป่าสัก','เชียงแสน','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (570801,57150,'เวียง','เชียงแสน','เชียงราย','ภาคเหนือ'),
 	 (570805,57150,'แม่เงิน','เชียงแสน','เชียงราย','ภาคเหนือ'),
 	 (570803,57150,'บ้านแซว','เชียงแสน','เชียงราย','ภาคเหนือ'),
@@ -14757,7 +14757,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (570402,57160,'งิ้ว','เทิง','เชียงราย','ภาคเหนือ'),
 	 (571104,57170,'ป่างิ้ว','เวียงป่าเป้า','เชียงราย','ภาคเหนือ'),
 	 (571101,57170,'สันสลี','เวียงป่าเป้า','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (571102,57170,'เวียง','เวียงป่าเป้า','เชียงราย','ภาคเหนือ'),
 	 (571103,57170,'บ้านโป่ง','เวียงป่าเป้า','เชียงราย','ภาคเหนือ'),
 	 (571003,57180,'แม่พริก','แม่สรวย','เชียงราย','ภาคเหนือ'),
@@ -14768,7 +14768,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (571007,57180,'เจดีย์หลวง','แม่สรวย','เชียงราย','ภาคเหนือ'),
 	 (571004,57180,'ศรีถ้อย','แม่สรวย','เชียงราย','ภาคเหนือ'),
 	 (570602,57190,'ป่าแงะ','ป่าแดด','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (570603,57190,'สันมะค่า','ป่าแดด','เชียงราย','ภาคเหนือ'),
 	 (570606,57190,'ศรีโพธิ์เงิน','ป่าแดด','เชียงราย','ภาคเหนือ'),
 	 (570605,57190,'โรงช้าง','ป่าแดด','เชียงราย','ภาคเหนือ'),
@@ -14779,7 +14779,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (571701,57210,'ทุ่งก่อ','เวียงเชียงรุ้ง','เชียงราย','ภาคเหนือ'),
 	 (570203,57210,'ผางาม','เวียงชัย','เชียงราย','ภาคเหนือ'),
 	 (570202,57210,'เวียงชัย','เวียงชัย','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (570208,57210,'เมืองชุม','เวียงชัย','เชียงราย','ภาคเหนือ'),
 	 (571702,57210,'ดงมหาวัน','เวียงเชียงรุ้ง','เชียงราย','ภาคเหนือ'),
 	 (570908,57220,'บ้านด้าย','แม่สาย','เชียงราย','ภาคเหนือ'),
@@ -14790,7 +14790,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (570403,57230,'ปล้อง','เทิง','เชียงราย','ภาคเหนือ'),
 	 (570405,57230,'เชียงเคี่ยน','เทิง','เชียงราย','ภาคเหนือ'),
 	 (570402,57230,'งิ้ว','เทิง','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (571504,57240,'แม่ฟ้าหลวง','แม่ฟ้าหลวง','เชียงราย','ภาคเหนือ'),
 	 (571501,57240,'เทอดไทย','แม่ฟ้าหลวง','เชียงราย','ภาคเหนือ'),
 	 (570703,57240,'แม่คำ','แม่จัน','เชียงราย','ภาคเหนือ'),
@@ -14801,7 +14801,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (571603,57250,'บัวสลี','แม่ลาว','เชียงราย','ภาคเหนือ'),
 	 (571604,57250,'ป่าก่อดำ','แม่ลาว','เชียงราย','ภาคเหนือ'),
 	 (571107,57260,'แม่เจดีย์ใหม่','เวียงป่าเป้า','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (571105,57260,'เวียงกาหลง','เวียงป่าเป้า','เชียงราย','ภาคเหนือ'),
 	 (571106,57260,'แม่เจดีย์','เวียงป่าเป้า','เชียงราย','ภาคเหนือ'),
 	 (570702,57270,'จันจว้า','แม่จัน','เชียงราย','ภาคเหนือ'),
@@ -14812,7 +14812,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (571202,57290,'แม่ต๋ำ','พญาเม็งราย','เชียงราย','ภาคเหนือ'),
 	 (571204,57290,'เม็งราย','พญาเม็งราย','เชียงราย','ภาคเหนือ'),
 	 (571205,57290,'ตาดควัน','พญาเม็งราย','เชียงราย','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (571203,57290,'ไม้ยา','พญาเม็งราย','เชียงราย','ภาคเหนือ'),
 	 (571303,57310,'หล่ายงาว','เวียงแก่น','เชียงราย','ภาคเหนือ'),
 	 (571301,57310,'ม่วงยาย','เวียงแก่น','เชียงราย','ภาคเหนือ'),
@@ -14823,7 +14823,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (571401,57340,'ต้า','ขุนตาล','เชียงราย','ภาคเหนือ'),
 	 (580105,58000,'หมอกจำแป่','เมืองแม่ฮ่องสอน','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580101,58000,'จองคำ','เมืองแม่ฮ่องสอน','แม่ฮ่องสอน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (580109,58000,'ห้วยปูลิง','เมืองแม่ฮ่องสอน','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580106,58000,'ห้วยผา','เมืองแม่ฮ่องสอน','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580102,58000,'ห้วยโป่ง','เมืองแม่ฮ่องสอน','แม่ฮ่องสอน','ภาคเหนือ'),
@@ -14834,7 +14834,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (580406,58110,'เสาหิน','แม่สะเรียง','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580401,58110,'บ้านกาศ','แม่สะเรียง','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580606,58110,'แม่สามแลบ','สบเมย','แม่ฮ่องสอน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (580408,58110,'ป่าแป๋','แม่สะเรียง','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580605,58110,'ป่าโปง','สบเมย','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580403,58110,'แม่คง','แม่สะเรียง','แม่ฮ่องสอน','ภาคเหนือ'),
@@ -14845,7 +14845,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (580603,58110,'กองก๋อย','สบเมย','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580503,58120,'ท่าผาปุ้ม','แม่ลาน้อย','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580508,58120,'ขุนแม่ลาน้อย','แม่ลาน้อย','แม่ฮ่องสอน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (580507,58120,'สันติคีรี','แม่ลาน้อย','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580506,58120,'แม่นาจาง','แม่ลาน้อย','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580505,58120,'ห้วยห้อม','แม่ลาน้อย','แม่ฮ่องสอน','ภาคเหนือ'),
@@ -14856,7 +14856,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (502503,58130,'แจ่มหลวง','กัลยาณิวัฒนา','เชียงใหม่','ภาคเหนือ'),
 	 (502501,58130,'บ้านจันทร์','กัลยาณิวัฒนา','เชียงใหม่','ภาคเหนือ'),
 	 (580301,58130,'เวียงใต้','ปาย','แม่ฮ่องสอน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (580307,58130,'โป่งสา','ปาย','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580306,58130,'เมืองแปง','ปาย','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580302,58130,'เวียงเหนือ','ปาย','แม่ฮ่องสอน','ภาคเหนือ'),
@@ -14867,7 +14867,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (580204,58140,'แม่ยวมน้อย','ขุนยวม','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580203,58140,'เมืองปอน','ขุนยวม','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580201,58140,'ขุนยวม','ขุนยวม','แม่ฮ่องสอน','ภาคเหนือ');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (580206,58140,'แม่อูคอ','ขุนยวม','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580202,58140,'แม่เงา','ขุนยวม','แม่ฮ่องสอน','ภาคเหนือ'),
 	 (580704,58150,'นาปู่ป้อม','ปางมะผ้า','แม่ฮ่องสอน','ภาคเหนือ'),
@@ -14878,7 +14878,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (600112,60000,'พระนอน','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง'),
 	 (600116,60000,'หนองปลิง','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง'),
 	 (600117,60000,'บึงเสนาท','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (600104,60000,'แควใหญ่','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง'),
 	 (600110,60000,'บ้านมะเกลือ','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง'),
 	 (600111,60000,'บ้านแก่ง','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง'),
@@ -14889,7 +14889,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (600102,60000,'กลางแดด','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง'),
 	 (600107,60000,'นครสวรรค์ออก','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง'),
 	 (600101,60000,'ปากน้ำโพ','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (600113,60000,'วัดไทร','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง'),
 	 (600403,60110,'ธารทหาร','หนองบัว','นครสวรรค์','ภาคกลาง'),
 	 (600404,60110,'ห้วยร่วม','หนองบัว','นครสวรรค์','ภาคกลาง'),
@@ -14900,7 +14900,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (600408,60110,'ทุ่งทอง','หนองบัว','นครสวรรค์','ภาคกลาง'),
 	 (600409,60110,'วังบ่อ','หนองบัว','นครสวรรค์','ภาคกลาง'),
 	 (600402,60110,'หนองกลับ','หนองบัว','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (600307,60120,'หนองกระเจา','ชุมแสง','นครสวรรค์','ภาคกลาง'),
 	 (600303,60120,'พิกุล','ชุมแสง','นครสวรรค์','ภาคกลาง'),
 	 (600311,60120,'ฆะมัง','ชุมแสง','นครสวรรค์','ภาคกลาง'),
@@ -14911,7 +14911,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (600305,60120,'ท่าไม้','ชุมแสง','นครสวรรค์','ภาคกลาง'),
 	 (600304,60120,'เกยไชย','ชุมแสง','นครสวรรค์','ภาคกลาง'),
 	 (601011,60130,'สระทะเล','พยุหะคีรี','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (601007,60130,'เขาทอง','พยุหะคีรี','นครสวรรค์','ภาคกลาง'),
 	 (601006,60130,'ย่านมัทรี','พยุหะคีรี','นครสวรรค์','ภาคกลาง'),
 	 (601005,60130,'ยางขาว','พยุหะคีรี','นครสวรรค์','ภาคกลาง'),
@@ -14922,7 +14922,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (601001,60130,'พยุหะ','พยุหะคีรี','นครสวรรค์','ภาคกลาง'),
 	 (601008,60130,'ท่าน้ำอ้อย','พยุหะคีรี','นครสวรรค์','ภาคกลาง'),
 	 (601009,60130,'น้ำทรง','พยุหะคีรี','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (600701,60140,'ตาคลี','ตาคลี','นครสวรรค์','ภาคกลาง'),
 	 (600705,60140,'หัวหวาย','ตาคลี','นครสวรรค์','ภาคกลาง'),
 	 (600706,60140,'หนองโพ','ตาคลี','นครสวรรค์','ภาคกลาง'),
@@ -14933,7 +14933,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (601301,60150,'แม่วงก์','แม่วงก์','นครสวรรค์','ภาคกลาง'),
 	 (601101,60150,'ลาดยาว','ลาดยาว','นครสวรรค์','ภาคกลาง'),
 	 (601117,60150,'สระแก้ว','ลาดยาว','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (601116,60150,'ศาลเจ้าไก่ต่อ','ลาดยาว','นครสวรรค์','ภาคกลาง'),
 	 (601110,60150,'เนินขี้เหล็ก','ลาดยาว','นครสวรรค์','ภาคกลาง'),
 	 (601109,60150,'บ้านไร่','ลาดยาว','นครสวรรค์','ภาคกลาง'),
@@ -14944,7 +14944,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (601105,60150,'สร้อยละคร','ลาดยาว','นครสวรรค์','ภาคกลาง'),
 	 (601104,60150,'วังเมือง','ลาดยาว','นครสวรรค์','ภาคกลาง'),
 	 (601103,60150,'วังม้า','ลาดยาว','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (601502,60150,'ปางสวรรค์','ชุมตาบง','นครสวรรค์','ภาคกลาง'),
 	 (601501,60150,'ชุมตาบง','ชุมตาบง','นครสวรรค์','ภาคกลาง'),
 	 (601102,60150,'ห้วยน้ำหอม','ลาดยาว','นครสวรรค์','ภาคกลาง'),
@@ -14955,7 +14955,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (600804,60160,'สายลำโพง','ท่าตะโก','นครสวรรค์','ภาคกลาง'),
 	 (600803,60160,'หัวถนน','ท่าตะโก','นครสวรรค์','ภาคกลาง'),
 	 (600809,60160,'พนมเศษ','ท่าตะโก','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (600802,60160,'พนมรอก','ท่าตะโก','นครสวรรค์','ภาคกลาง'),
 	 (600806,60160,'ดอนคา','ท่าตะโก','นครสวรรค์','ภาคกลาง'),
 	 (600801,60160,'ท่าตะโก','ท่าตะโก','นครสวรรค์','ภาคกลาง'),
@@ -14966,7 +14966,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (600205,60170,'นากลาง','โกรกพระ','นครสวรรค์','ภาคกลาง'),
 	 (600204,60170,'บางประมุง','โกรกพระ','นครสวรรค์','ภาคกลาง'),
 	 (600203,60170,'บางมะฝ่อ','โกรกพระ','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (600202,60170,'ยางตาล','โกรกพระ','นครสวรรค์','ภาคกลาง'),
 	 (600201,60170,'โกรกพระ','โกรกพระ','นครสวรรค์','ภาคกลาง'),
 	 (600509,60180,'ด่านช้าง','บรรพตพิสัย','นครสวรรค์','ภาคกลาง'),
@@ -14977,7 +14977,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (600504,60180,'อ่างทอง','บรรพตพิสัย','นครสวรรค์','ภาคกลาง'),
 	 (600511,60180,'หนองตางู','บรรพตพิสัย','นครสวรรค์','ภาคกลาง'),
 	 (600512,60180,'บึงปลาทู','บรรพตพิสัย','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (600507,60180,'ตาขีด','บรรพตพิสัย','นครสวรรค์','ภาคกลาง'),
 	 (600501,60180,'ท่างิ้ว','บรรพตพิสัย','นครสวรรค์','ภาคกลาง'),
 	 (600503,60180,'หูกวาง','บรรพตพิสัย','นครสวรรค์','ภาคกลาง'),
@@ -14988,7 +14988,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (601203,60190,'สุขสำราญ','ตากฟ้า','นครสวรรค์','ภาคกลาง'),
 	 (601204,60190,'หนองพิกุล','ตากฟ้า','นครสวรรค์','ภาคกลาง'),
 	 (601205,60190,'พุนกยูง','ตากฟ้า','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (601206,60190,'อุดมธัญญา','ตากฟ้า','นครสวรรค์','ภาคกลาง'),
 	 (601207,60190,'เขาชายธง','ตากฟ้า','นครสวรรค์','ภาคกลาง'),
 	 (600710,60210,'พรหมนิมิต','ตาคลี','นครสวรรค์','ภาคกลาง'),
@@ -14999,7 +14999,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (600906,60220,'วังข่อย','ไพศาลี','นครสวรรค์','ภาคกลาง'),
 	 (600905,60220,'โพธิ์ประสาท','ไพศาลี','นครสวรรค์','ภาคกลาง'),
 	 (600904,60220,'ตะคร้อ','ไพศาลี','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (600903,60220,'วังน้ำลัด','ไพศาลี','นครสวรรค์','ภาคกลาง'),
 	 (600902,60220,'สำโรงชัย','ไพศาลี','นครสวรรค์','ภาคกลาง'),
 	 (600901,60220,'โคกเดื่อ','ไพศาลี','นครสวรรค์','ภาคกลาง'),
@@ -15010,7 +15010,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (600602,60230,'เก้าเลี้ยว','เก้าเลี้ยว','นครสวรรค์','ภาคกลาง'),
 	 (600605,60230,'หัวดง','เก้าเลี้ยว','นครสวรรค์','ภาคกลาง'),
 	 (600114,60240,'หนองกรด','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (600115,60240,'หนองกระโดน','เมืองนครสวรรค์','นครสวรรค์','ภาคกลาง'),
 	 (600312,60250,'ทับกฤชใต้','ชุมแสง','นครสวรรค์','ภาคกลาง'),
 	 (600308,60250,'พันลาน','ชุมแสง','นครสวรรค์','ภาคกลาง'),
@@ -15021,7 +15021,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (610112,61000,'หนองพังค่า','เมืองอุทัยธานี','อุทัยธานี','ภาคกลาง'),
 	 (610111,61000,'หนองไผ่แบน','เมืองอุทัยธานี','อุทัยธานี','ภาคกลาง'),
 	 (610110,61000,'หนองเต่า','เมืองอุทัยธานี','อุทัยธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (610109,61000,'โนนเหล็ก','เมืองอุทัยธานี','อุทัยธานี','ภาคกลาง'),
 	 (610108,61000,'หนองแก','เมืองอุทัยธานี','อุทัยธานี','ภาคกลาง'),
 	 (610113,61000,'ทุ่งใหญ่','เมืองอุทัยธานี','อุทัยธานี','ภาคกลาง'),
@@ -15032,7 +15032,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (610104,61000,'ดอนขวาง','เมืองอุทัยธานี','อุทัยธานี','ภาคกลาง'),
 	 (610105,61000,'หาดทนง','เมืองอุทัยธานี','อุทัยธานี','ภาคกลาง'),
 	 (610103,61000,'สะแกกรัง','เมืองอุทัยธานี','อุทัยธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (610410,61110,'เขากวางทอง','หนองฉาง','อุทัยธานี','ภาคกลาง'),
 	 (610407,61110,'ทุ่งโพ','หนองฉาง','อุทัยธานี','ภาคกลาง'),
 	 (610405,61110,'บ้านเก่า','หนองฉาง','อุทัยธานี','ภาคกลาง'),
@@ -15043,7 +15043,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (610408,61110,'ทุ่งพง','หนองฉาง','อุทัยธานี','ภาคกลาง'),
 	 (610406,61110,'อุทัยเก่า','หนองฉาง','อุทัยธานี','ภาคกลาง'),
 	 (610208,61120,'หนองกระทุ่ม','ทัพทัน','อุทัยธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (610201,61120,'ทัพทัน','ทัพทัน','อุทัยธานี','ภาคกลาง'),
 	 (610202,61120,'ทุ่งนาไทย','ทัพทัน','อุทัยธานี','ภาคกลาง'),
 	 (610203,61120,'เขาขี้ฝอย','ทัพทัน','อุทัยธานี','ภาคกลาง'),
@@ -15054,7 +15054,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (610207,61120,'หนองกลางดง','ทัพทัน','อุทัยธานี','ภาคกลาง'),
 	 (610210,61120,'ตลุกดู่','ทัพทัน','อุทัยธานี','ภาคกลาง'),
 	 (610508,61130,'หลุมเข้า','หนองขาหย่าง','อุทัยธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (610509,61130,'ดงขวาง','หนองขาหย่าง','อุทัยธานี','ภาคกลาง'),
 	 (610507,61130,'หมกแถว','หนองขาหย่าง','อุทัยธานี','ภาคกลาง'),
 	 (610506,61130,'ท่าโพ','หนองขาหย่าง','อุทัยธานี','ภาคกลาง'),
@@ -15065,7 +15065,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (610501,61130,'หนองขาหย่าง','หนองขาหย่าง','อุทัยธานี','ภาคกลาง'),
 	 (610604,61140,'คอกควาย','บ้านไร่','อุทัยธานี','ภาคกลาง'),
 	 (610611,61140,'บ้านบึง','บ้านไร่','อุทัยธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (610614,61140,'เจ้าวัด','บ้านไร่','อุทัยธานี','ภาคกลาง'),
 	 (610607,61140,'แก่นมะกรูด','บ้านไร่','อุทัยธานี','ภาคกลาง'),
 	 (610603,61140,'ห้วยแห้ง','บ้านไร่','อุทัยธานี','ภาคกลาง'),
@@ -15076,7 +15076,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (610302,61150,'หนองหลวง','สว่างอารมณ์','อุทัยธานี','ภาคกลาง'),
 	 (610301,61150,'สว่างอารมณ์','สว่างอารมณ์','อุทัยธานี','ภาคกลาง'),
 	 (610304,61150,'ไผ่เขียว','สว่างอารมณ์','อุทัยธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (610706,61160,'ทุ่งนางาม','ลานสัก','อุทัยธานี','ภาคกลาง'),
 	 (610705,61160,'น้ำรอบ','ลานสัก','อุทัยธานี','ภาคกลาง'),
 	 (610704,61160,'ระบำ','ลานสัก','อุทัยธานี','ภาคกลาง'),
@@ -15087,7 +15087,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (610802,61170,'ทองหลาง','ห้วยคต','อุทัยธานี','ภาคกลาง'),
 	 (610803,61170,'ห้วยคต','ห้วยคต','อุทัยธานี','ภาคกลาง'),
 	 (610409,61170,'เขาบางแกรก','หนองฉาง','อุทัยธานี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (610610,61180,'หูช้าง','บ้านไร่','อุทัยธานี','ภาคกลาง'),
 	 (610605,61180,'วังหิน','บ้านไร่','อุทัยธานี','ภาคกลาง'),
 	 (610606,61180,'เมืองการุ้ง','บ้านไร่','อุทัยธานี','ภาคกลาง'),
@@ -15098,7 +15098,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (621102,62000,'เพชรชมภู','โกสัมพีนคร','กำแพงเพชร','ภาคกลาง'),
 	 (620111,62000,'คณฑี','เมืองกำแพงเพชร','กำแพงเพชร','ภาคกลาง'),
 	 (620117,62000,'คลองแม่ลาย','เมืองกำแพงเพชร','กำแพงเพชร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (621101,62000,'โกสัมพี','โกสัมพีนคร','กำแพงเพชร','ภาคกลาง'),
 	 (620106,62000,'ทรงธรรม','เมืองกำแพงเพชร','กำแพงเพชร','ภาคกลาง'),
 	 (620115,62000,'ท่าขุนราม','เมืองกำแพงเพชร','กำแพงเพชร','ภาคกลาง'),
@@ -15109,7 +15109,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (620101,62000,'ในเมือง','เมืองกำแพงเพชร','กำแพงเพชร','ภาคกลาง'),
 	 (620107,62000,'ลานดอกไม้','เมืองกำแพงเพชร','กำแพงเพชร','ภาคกลาง'),
 	 (620114,62000,'วังทอง','เมืองกำแพงเพชร','กำแพงเพชร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (620119,62000,'สระแก้ว','เมืองกำแพงเพชร','กำแพงเพชร','ภาคกลาง'),
 	 (620110,62000,'หนองปลิง','เมืองกำแพงเพชร','กำแพงเพชร','ภาคกลาง'),
 	 (620103,62000,'อ่างทอง','เมืองกำแพงเพชร','กำแพงเพชร','ภาคกลาง'),
@@ -15120,7 +15120,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (620604,62110,'วังควง','พรานกระต่าย','กำแพงเพชร','ภาคกลาง'),
 	 (620605,62110,'วังตะแบก','พรานกระต่าย','กำแพงเพชร','ภาคกลาง'),
 	 (620602,62110,'หนองหัววัว','พรานกระต่าย','กำแพงเพชร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (620610,62110,'ห้วยยั้ง','พรานกระต่าย','กำแพงเพชร','ภาคกลาง'),
 	 (620608,62110,'คลองพิไกร','พรานกระต่าย','กำแพงเพชร','ภาคกลาง'),
 	 (620601,62110,'พรานกระต่าย','พรานกระต่าย','กำแพงเพชร','ภาคกลาง'),
@@ -15131,7 +15131,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (620504,62120,'ท่าพุทรา','คลองขลุง','กำแพงเพชร','ภาคกลาง'),
 	 (620502,62120,'ท่ามะเขือ','คลองขลุง','กำแพงเพชร','ภาคกลาง'),
 	 (620505,62120,'แม่ลาด','คลองขลุง','กำแพงเพชร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (620507,62120,'วังแขม','คลองขลุง','กำแพงเพชร','ภาคกลาง'),
 	 (620509,62120,'วังไทร','คลองขลุง','กำแพงเพชร','ภาคกลาง'),
 	 (620513,62120,'วังบัว','คลองขลุง','กำแพงเพชร','ภาคกลาง'),
@@ -15142,7 +15142,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (620405,62130,'แสนตอ','ขาณุวรลักษบุรี','กำแพงเพชร','ภาคกลาง'),
 	 (620404,62130,'ป่าพุทรา','ขาณุวรลักษบุรี','กำแพงเพชร','ภาคกลาง'),
 	 (620413,62130,'เกาะตาล','ขาณุวรลักษบุรี','กำแพงเพชร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (620409,62140,'วังชะพลู','ขาณุวรลักษบุรี','กำแพงเพชร','ภาคกลาง'),
 	 (620412,62140,'วังหามแห','ขาณุวรลักษบุรี','กำแพงเพชร','ภาคกลาง'),
 	 (620406,62140,'สลกบาตร','ขาณุวรลักษบุรี','กำแพงเพชร','ภาคกลาง'),
@@ -15153,7 +15153,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (620203,62150,'หนองทอง','ไทรงาม','กำแพงเพชร','ภาคกลาง'),
 	 (620202,62150,'หนองคล้า','ไทรงาม','กำแพงเพชร','ภาคกลาง'),
 	 (620205,62150,'มหาชัย','ไทรงาม','กำแพงเพชร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (620206,62150,'พานทอง','ไทรงาม','กำแพงเพชร','ภาคกลาง'),
 	 (620201,62150,'ไทรงาม','ไทรงาม','กำแพงเพชร','ภาคกลาง'),
 	 (620207,62150,'หนองแม่แตง','ไทรงาม','กำแพงเพชร','ภาคกลาง'),
@@ -15164,7 +15164,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (620706,62170,'บึงทับแรต','ลานกระบือ','กำแพงเพชร','ภาคกลาง'),
 	 (620702,62170,'ช่องลม','ลานกระบือ','กำแพงเพชร','ภาคกลาง'),
 	 (620701,62170,'ลานกระบือ','ลานกระบือ','กำแพงเพชร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (620704,62170,'โนนพลวง','ลานกระบือ','กำแพงเพชร','ภาคกลาง'),
 	 (620707,62170,'จันทิมา','ลานกระบือ','กำแพงเพชร','ภาคกลาง'),
 	 (620703,62170,'หนองหลวง','ลานกระบือ','กำแพงเพชร','ภาคกลาง'),
@@ -15175,7 +15175,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (620802,62190,'ทุ่งทอง','ทรายทองวัฒนา','กำแพงเพชร','ภาคกลาง'),
 	 (620801,62190,'ทุ่งทราย','ทรายทองวัฒนา','กำแพงเพชร','ภาคกลาง'),
 	 (620803,62190,'ถาวรวัฒนา','ทรายทองวัฒนา','กำแพงเพชร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (621001,62210,'บึงสามัคคี','บึงสามัคคี','กำแพงเพชร','ภาคกลาง'),
 	 (621004,62210,'เทพนิมิต','บึงสามัคคี','กำแพงเพชร','ภาคกลาง'),
 	 (621002,62210,'วังชะโอน','บึงสามัคคี','กำแพงเพชร','ภาคกลาง'),
@@ -15186,7 +15186,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (630106,63000,'ไม้งาม','เมืองตาก','ตาก','ภาคตะวันตก'),
 	 (630108,63000,'น้ำรึม','เมืองตาก','ตาก','ภาคตะวันตก'),
 	 (630112,63000,'ป่ามะม่วง','เมืองตาก','ตาก','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (630115,63000,'ตลุกกลางทุ่ง','เมืองตาก','ตาก','ภาคตะวันตก'),
 	 (630103,63000,'เชียงเงิน','เมืองตาก','ตาก','ภาคตะวันตก'),
 	 (630113,63000,'หนองบัวใต้','เมืองตาก','ตาก','ภาคตะวันตก'),
@@ -15197,7 +15197,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (630104,63000,'หัวเดียด','เมืองตาก','ตาก','ภาคตะวันตก'),
 	 (630608,63110,'มหาวัน','แม่สอด','ตาก','ภาคตะวันตก'),
 	 (630603,63110,'พะวอ','แม่สอด','ตาก','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (630610,63110,'พระธาตุผาแดง','แม่สอด','ตาก','ภาคตะวันตก'),
 	 (630605,63110,'แม่กาษา','แม่สอด','ตาก','ภาคตะวันตก'),
 	 (630606,63110,'ท่าสายลวด','แม่สอด','ตาก','ภาคตะวันตก'),
@@ -15208,7 +15208,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (630607,63110,'แม่ปะ','แม่สอด','ตาก','ภาคตะวันตก'),
 	 (630205,63120,'เกาะตะเภา','บ้านตาก','ตาก','ภาคตะวันตก'),
 	 (630204,63120,'ตากตก','บ้านตาก','ตาก','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (630201,63120,'ตากออก','บ้านตาก','ตาก','ภาคตะวันตก'),
 	 (630207,63120,'ท้องฟ้า','บ้านตาก','ตาก','ภาคตะวันตก'),
 	 (630206,63120,'ทุ่งกระเชาะ','บ้านตาก','ตาก','ภาคตะวันตก'),
@@ -15219,7 +15219,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (630306,63130,'วังจันทร์','สามเงา','ตาก','ภาคตะวันตก'),
 	 (630301,63130,'สามเงา','สามเงา','ตาก','ภาคตะวันตก'),
 	 (630303,63130,'ยกกระบัตร','สามเงา','ตาก','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (630304,63130,'ย่านรี','สามเงา','ตาก','ภาคตะวันตก'),
 	 (630402,63140,'แม่จะเรา','แม่ระมาด','ตาก','ภาคตะวันตก'),
 	 (630403,63140,'ขะเนจื้อ','แม่ระมาด','ตาก','ภาคตะวันตก'),
@@ -15230,7 +15230,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (630501,63150,'ท่าสองยาง','ท่าสองยาง','ตาก','ภาคตะวันตก'),
 	 (630503,63150,'แม่สอง','ท่าสองยาง','ตาก','ภาคตะวันตก'),
 	 (630505,63150,'แม่วะหลวง','ท่าสองยาง','ตาก','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (630502,63150,'แม่ต้าน','ท่าสองยาง','ตาก','ภาคตะวันตก'),
 	 (630504,63150,'แม่หละ','ท่าสองยาง','ตาก','ภาคตะวันตก'),
 	 (630506,63150,'แม่อุสุ','ท่าสองยาง','ตาก','ภาคตะวันตก'),
@@ -15241,7 +15241,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (630704,63160,'วาเล่ย์','พบพระ','ตาก','ภาคตะวันตก'),
 	 (630801,63170,'อุ้มผาง','อุ้มผาง','ตาก','ภาคตะวันตก'),
 	 (630802,63170,'หนองหลวง','อุ้มผาง','ตาก','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (630803,63170,'โมโกร','อุ้มผาง','ตาก','ภาคตะวันตก'),
 	 (630806,63170,'แม่กลอง','อุ้มผาง','ตาก','ภาคตะวันตก'),
 	 (630805,63170,'แม่ละมุ้ง','อุ้มผาง','ตาก','ภาคตะวันตก'),
@@ -15252,7 +15252,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (640101,64000,'ธานี','เมืองสุโขทัย','สุโขทัย','ภาคกลาง'),
 	 (640104,64000,'ปากแคว','เมืองสุโขทัย','สุโขทัย','ภาคกลาง'),
 	 (640105,64000,'ยางซ้าย','เมืองสุโขทัย','สุโขทัย','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (640107,64000,'บ้านหลุม','เมืองสุโขทัย','สุโขทัย','ภาคกลาง'),
 	 (640109,64000,'ปากพระ','เมืองสุโขทัย','สุโขทัย','ภาคกลาง'),
 	 (640106,64000,'บ้านกล้วย','เมืองสุโขทัย','สุโขทัย','ภาคกลาง'),
@@ -15263,7 +15263,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (640704,64110,'วังพิณพาทย์','สวรรคโลก','สุโขทัย','ภาคกลาง'),
 	 (640710,64110,'ท่าทอง','สวรรคโลก','สุโขทัย','ภาคกลาง'),
 	 (640703,64110,'คลองกระจง','สวรรคโลก','สุโขทัย','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (640701,64110,'เมืองสวรรคโลก','สวรรคโลก','สุโขทัย','ภาคกลาง'),
 	 (640706,64110,'ย่านยาว','สวรรคโลก','สุโขทัย','ภาคกลาง'),
 	 (640711,64110,'ปากน้ำ','สวรรคโลก','สุโขทัย','ภาคกลาง'),
@@ -15274,7 +15274,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (640610,64120,'ทับผึ้ง','ศรีสำโรง','สุโขทัย','ภาคกลาง'),
 	 (640604,64120,'บ้านนา','ศรีสำโรง','สุโขทัย','ภาคกลาง'),
 	 (640603,64120,'สามเรือน','ศรีสำโรง','สุโขทัย','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (640602,64120,'วังลึก','ศรีสำโรง','สุโขทัย','ภาคกลาง'),
 	 (640601,64120,'คลองตาล','ศรีสำโรง','สุโขทัย','ภาคกลาง'),
 	 (640611,64120,'บ้านซ่าน','ศรีสำโรง','สุโขทัย','ภาคกลาง'),
@@ -15285,7 +15285,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (640609,64120,'บ้านไร่','ศรีสำโรง','สุโขทัย','ภาคกลาง'),
 	 (640605,64120,'วังทอง','ศรีสำโรง','สุโขทัย','ภาคกลาง'),
 	 (640607,64120,'เกาะตาเลี้ยง','ศรีสำโรง','สุโขทัย','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (640502,64130,'ป่างิ้ว','ศรีสัชนาลัย','สุโขทัย','ภาคกลาง'),
 	 (640501,64130,'หาดเสี้ยว','ศรีสัชนาลัย','สุโขทัย','ภาคกลาง'),
 	 (640503,64130,'แม่สำ','ศรีสัชนาลัย','สุโขทัย','ภาคกลาง'),
@@ -15296,7 +15296,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (640510,64130,'บ้านแก่ง','ศรีสัชนาลัย','สุโขทัย','ภาคกลาง'),
 	 (640511,64130,'สารจิตร','ศรีสัชนาลัย','สุโขทัย','ภาคกลาง'),
 	 (640202,64140,'บ้านด่าน','บ้านด่านลานหอย','สุโขทัย','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (640201,64140,'ลานหอย','บ้านด่านลานหอย','สุโขทัย','ภาคกลาง'),
 	 (640207,64140,'วังลึก','บ้านด่านลานหอย','สุโขทัย','ภาคกลาง'),
 	 (640203,64140,'วังตะคร้อ','บ้านด่านลานหอย','สุโขทัย','ภาคกลาง'),
@@ -15307,7 +15307,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (640904,64150,'กลางดง','ทุ่งเสลี่ยม','สุโขทัย','ภาคกลาง'),
 	 (640903,64150,'ทุ่งเสลี่ยม','ทุ่งเสลี่ยม','สุโขทัย','ภาคกลาง'),
 	 (640301,64160,'โตนด','คีรีมาศ','สุโขทัย','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (640304,64160,'สามพวง','คีรีมาศ','สุโขทัย','ภาคกลาง'),
 	 (640303,64160,'บ้านป้อม','คีรีมาศ','สุโขทัย','ภาคกลาง'),
 	 (640305,64160,'ศรีคีรีมาศ','คีรีมาศ','สุโขทัย','ภาคกลาง'),
@@ -15318,7 +15318,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (640308,64160,'หนองกระดิ่ง','คีรีมาศ','สุโขทัย','ภาคกลาง'),
 	 (640302,64160,'ทุ่งหลวง','คีรีมาศ','สุโขทัย','ภาคกลาง'),
 	 (640411,64170,'บ้านใหม่สุขเกษม','กงไกรลาศ','สุโขทัย','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (640410,64170,'หนองตูม','กงไกรลาศ','สุโขทัย','ภาคกลาง'),
 	 (640408,64170,'กกแรต','กงไกรลาศ','สุโขทัย','ภาคกลาง'),
 	 (640407,64170,'ป่าแฝก','กงไกรลาศ','สุโขทัย','ภาคกลาง'),
@@ -15329,7 +15329,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (640402,64170,'บ้านกร่าง','กงไกรลาศ','สุโขทัย','ภาคกลาง'),
 	 (640401,64170,'กง','กงไกรลาศ','สุโขทัย','ภาคกลาง'),
 	 (640409,64170,'ท่าฉนวน','กงไกรลาศ','สุโขทัย','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (640801,64180,'ศรีนคร','ศรีนคร','สุโขทัย','ภาคกลาง'),
 	 (640802,64180,'นครเดิฐ','ศรีนคร','สุโขทัย','ภาคกลาง'),
 	 (640804,64180,'คลองมะพลับ','ศรีนคร','สุโขทัย','ภาคกลาง'),
@@ -15340,7 +15340,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (640110,64210,'วังทองแดง','เมืองสุโขทัย','สุโขทัย','ภาคกลาง'),
 	 (640103,64210,'เมืองเก่า','เมืองสุโขทัย','สุโขทัย','ภาคกลาง'),
 	 (640106,64210,'บ้านกล้วย','เมืองสุโขทัย','สุโขทัย','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (640102,64220,'บ้านสวน','เมืองสุโขทัย','สุโขทัย','ภาคกลาง'),
 	 (640108,64220,'ตาลเตี้ย','เมืองสุโขทัย','สุโขทัย','ภาคกลาง'),
 	 (640905,64230,'เขาแก้วศรีสมบูรณ์','ทุ่งเสลี่ยม','สุโขทัย','ภาคกลาง'),
@@ -15351,7 +15351,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (650108,65000,'ดอนทอง','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง'),
 	 (650109,65000,'บ้านป่า','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง'),
 	 (650110,65000,'ปากโทก','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (650111,65000,'หัวรอ','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง'),
 	 (650112,65000,'จอมทอง','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง'),
 	 (650115,65000,'พลายชุมพล','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง'),
@@ -15362,7 +15362,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (650118,65000,'บึงพระ','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง'),
 	 (650119,65000,'ไผ่ขอดอน','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง'),
 	 (650113,65000,'บ้านกร่าง','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (650117,65000,'อรัญญิก','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง'),
 	 (650504,65110,'สนามคลี','บางกระทุ่ม','พิษณุโลก','ภาคกลาง'),
 	 (650507,65110,'นครป่าหมาก','บางกระทุ่ม','พิษณุโลก','ภาคกลาง'),
@@ -15373,7 +15373,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (650505,65110,'ท่าตาล','บางกระทุ่ม','พิษณุโลก','ภาคกลาง'),
 	 (650201,65120,'นครไทย','นครไทย','พิษณุโลก','ภาคกลาง'),
 	 (650203,65120,'บ้านแยง','นครไทย','พิษณุโลก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (650204,65120,'เนินเพิ่ม','นครไทย','พิษณุโลก','ภาคกลาง'),
 	 (650205,65120,'นาบัว','นครไทย','พิษณุโลก','ภาคกลาง'),
 	 (650206,65120,'นครชุม','นครไทย','พิษณุโลก','ภาคกลาง'),
@@ -15384,7 +15384,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (650211,65120,'ห้วยเฮี้ย','นครไทย','พิษณุโลก','ภาคกลาง'),
 	 (650202,65120,'หนองกะท้าว','นครไทย','พิษณุโลก','ภาคกลาง'),
 	 (650801,65130,'วังทอง','วังทอง','พิษณุโลก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (650802,65130,'พันชาลี','วังทอง','พิษณุโลก','ภาคกลาง'),
 	 (650803,65130,'แม่ระกา','วังทอง','พิษณุโลก','ภาคกลาง'),
 	 (650805,65130,'วังพิกุล','วังทอง','พิษณุโลก','ภาคกลาง'),
@@ -15395,7 +15395,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (650807,65130,'ท่าหมื่นราม','วังทอง','พิษณุโลก','ภาคกลาง'),
 	 (650410,65140,'ท่านางงาม','บางระกำ','พิษณุโลก','ภาคกลาง'),
 	 (650409,65140,'บ่อทอง','บางระกำ','พิษณุโลก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (650404,65140,'วังอิทก','บางระกำ','พิษณุโลก','ภาคกลาง'),
 	 (650406,65140,'หนองกุลา','บางระกำ','พิษณุโลก','ภาคกลาง'),
 	 (650401,65140,'บางระกำ','บางระกำ','พิษณุโลก','ภาคกลาง'),
@@ -15406,7 +15406,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (650601,65150,'พรหมพิราม','พรหมพิราม','พิษณุโลก','ภาคกลาง'),
 	 (650602,65150,'ท่าช้าง','พรหมพิราม','พิษณุโลก','ภาคกลาง'),
 	 (650604,65150,'มะตูม','พรหมพิราม','พิษณุโลก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (650605,65150,'หอกลอง','พรหมพิราม','พิษณุโลก','ภาคกลาง'),
 	 (650608,65150,'วังวน','พรหมพิราม','พิษณุโลก','ภาคกลาง'),
 	 (650609,65150,'หนองแขม','พรหมพิราม','พิษณุโลก','ภาคกลาง'),
@@ -15417,7 +15417,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (650706,65160,'คันโช้ง','วัดโบสถ์','พิษณุโลก','ภาคกลาง'),
 	 (650701,65160,'วัดโบสถ์','วัดโบสถ์','พิษณุโลก','ภาคกลาง'),
 	 (650702,65160,'ท่างาม','วัดโบสถ์','พิษณุโลก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (650301,65170,'ป่าแดง','ชาติตระการ','พิษณุโลก','ภาคกลาง'),
 	 (650302,65170,'ชาติตระการ','ชาติตระการ','พิษณุโลก','ภาคกลาง'),
 	 (650303,65170,'สวนเมี่ยง','ชาติตระการ','พิษณุโลก','ภาคกลาง'),
@@ -15428,7 +15428,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (650606,65180,'ศรีภิรมย์','พรหมพิราม','พิษณุโลก','ภาคกลาง'),
 	 (650610,65180,'มะต้อง','พรหมพิราม','พิษณุโลก','ภาคกลาง'),
 	 (650612,65180,'ดงประคำ','พรหมพิราม','พิษณุโลก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (650607,65180,'ตลุกเทียม','พรหมพิราม','พิษณุโลก','ภาคกลาง'),
 	 (650901,65190,'ชมพู','เนินมะปราง','พิษณุโลก','ภาคกลาง'),
 	 (650902,65190,'บ้านมุง','เนินมะปราง','พิษณุโลก','ภาคกลาง'),
@@ -15439,7 +15439,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (650907,65190,'วังยาง','เนินมะปราง','พิษณุโลก','ภาคกลาง'),
 	 (650508,65210,'เนินกุ่ม','บางกระทุ่ม','พิษณุโลก','ภาคกลาง'),
 	 (650509,65210,'วัดตายม','บางกระทุ่ม','พิษณุโลก','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (650806,65220,'แก่งโสภา','วังทอง','พิษณุโลก','ภาคกลาง'),
 	 (650804,65220,'บ้านกลาง','วังทอง','พิษณุโลก','ภาคกลาง'),
 	 (650102,65230,'วังน้ำคู้','เมืองพิษณุโลก','พิษณุโลก','ภาคกลาง'),
@@ -15450,7 +15450,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (660115,66000,'ป่ามะคาบ','เมืองพิจิตร','พิจิตร','ภาคกลาง'),
 	 (660119,66000,'สายคำโห้','เมืองพิจิตร','พิจิตร','ภาคกลาง'),
 	 (660110,66000,'บ้านบุ่ง','เมืองพิจิตร','พิจิตร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (660108,66000,'เมืองเก่า','เมืองพิจิตร','พิจิตร','ภาคกลาง'),
 	 (660107,66000,'โรงช้าง','เมืองพิจิตร','พิจิตร','ภาคกลาง'),
 	 (660106,66000,'คลองคะเชนทร์','เมืองพิจิตร','พิจิตร','ภาคกลาง'),
@@ -15461,7 +15461,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (660101,66000,'ในเมือง','เมืองพิจิตร','พิจิตร','ภาคกลาง'),
 	 (660105,66000,'ปากทาง','เมืองพิจิตร','พิจิตร','ภาคกลาง'),
 	 (660111,66000,'ฆะมัง','เมืองพิจิตร','พิจิตร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (660410,66110,'วังหว้า','ตะพานหิน','พิจิตร','ภาคกลาง'),
 	 (660407,66110,'ดงตะขบ','ตะพานหิน','พิจิตร','ภาคกลาง'),
 	 (660405,66110,'หนองพยอม','ตะพานหิน','พิจิตร','ภาคกลาง'),
@@ -15472,7 +15472,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (660413,66110,'ไผ่หลวง','ตะพานหิน','พิจิตร','ภาคกลาง'),
 	 (660408,66110,'คลองคูณ','ตะพานหิน','พิจิตร','ภาคกลาง'),
 	 (660402,66110,'งิ้วราย','ตะพานหิน','พิจิตร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (660409,66110,'วังสำโรง','ตะพานหิน','พิจิตร','ภาคกลาง'),
 	 (660502,66120,'บางไผ่','บางมูลนาก','พิจิตร','ภาคกลาง'),
 	 (660514,66120,'ลำประดา','บางมูลนาก','พิจิตร','ภาคกลาง'),
@@ -15483,7 +15483,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (660503,66120,'หอไกร','บางมูลนาก','พิจิตร','ภาคกลาง'),
 	 (660508,66120,'ห้วยเขน','บางมูลนาก','พิจิตร','ภาคกลาง'),
 	 (660501,66120,'บางมูลนาก','บางมูลนาก','พิจิตร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (660605,66130,'ทุ่งน้อย','โพทะเล','พิจิตร','ภาคกลาง'),
 	 (661003,66130,'แหลมรัง','บึงนาราง','พิจิตร','ภาคกลาง'),
 	 (661002,66130,'โพธิ์ไทรงาม','บึงนาราง','พิจิตร','ภาคกลาง'),
@@ -15494,7 +15494,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (660604,66130,'ท่าบัว','โพทะเล','พิจิตร','ภาคกลาง'),
 	 (661004,66130,'บางลาย','บึงนาราง','พิจิตร','ภาคกลาง'),
 	 (661005,66130,'บึงนาราง','บึงนาราง','พิจิตร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (660607,66130,'ท่าเสา','โพทะเล','พิจิตร','ภาคกลาง'),
 	 (660608,66130,'บางคลาน','โพทะเล','พิจิตร','ภาคกลาง'),
 	 (660611,66130,'ท่านั่ง','โพทะเล','พิจิตร','ภาคกลาง'),
@@ -15505,7 +15505,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (660707,66140,'หนองโสน','สามง่าม','พิจิตร','ภาคกลาง'),
 	 (660706,66140,'เนินปอ','สามง่าม','พิจิตร','ภาคกลาง'),
 	 (660703,66140,'รังนก','สามง่าม','พิจิตร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (661201,66140,'บ้านนา','วชิรบารมี','พิจิตร','ภาคกลาง'),
 	 (661202,66140,'บึงบัว','วชิรบารมี','พิจิตร','ภาคกลาง'),
 	 (661203,66140,'วังโมกข์','วชิรบารมี','พิจิตร','ภาคกลาง'),
@@ -15516,7 +15516,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (660901,66160,'สากเหล็ก','สากเหล็ก','พิจิตร','ภาคกลาง'),
 	 (660902,66160,'ท่าเยี่ยม','สากเหล็ก','พิจิตร','ภาคกลาง'),
 	 (660905,66160,'วังทับไทร','สากเหล็ก','พิจิตร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (660903,66160,'คลองทราย','สากเหล็ก','พิจิตร','ภาคกลาง'),
 	 (660904,66160,'หนองหญ้าไทร','สากเหล็ก','พิจิตร','ภาคกลาง'),
 	 (660113,66170,'หัวดง','เมืองพิจิตร','พิจิตร','ภาคกลาง'),
@@ -15527,7 +15527,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (660203,66180,'หนองพระ','วังทรายพูน','พิจิตร','ภาคกลาง'),
 	 (660204,66180,'หนองปล้อง','วังทรายพูน','พิจิตร','ภาคกลาง'),
 	 (660201,66180,'วังทรายพูน','วังทรายพูน','พิจิตร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (660305,66190,'ดงเสือเหลือง','โพธิ์ประทับช้าง','พิจิตร','ภาคกลาง'),
 	 (660304,66190,'ไผ่รอบ','โพธิ์ประทับช้าง','พิจิตร','ภาคกลาง'),
 	 (660303,66190,'วังจิก','โพธิ์ประทับช้าง','พิจิตร','ภาคกลาง'),
@@ -15538,7 +15538,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (661104,66210,'ห้วยพุก','ดงเจริญ','พิจิตร','ภาคกลาง'),
 	 (661101,66210,'วังงิ้วใต้','ดงเจริญ','พิจิตร','ภาคกลาง'),
 	 (661105,66210,'สำนักขุนเณร','ดงเจริญ','พิจิตร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (660509,66210,'วังตะกู','บางมูลนาก','พิจิตร','ภาคกลาง'),
 	 (661102,66210,'วังงิ้ว','ดงเจริญ','พิจิตร','ภาคกลาง'),
 	 (661103,66210,'ห้วยร่วม','ดงเจริญ','พิจิตร','ภาคกลาง'),
@@ -15549,7 +15549,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (670109,67000,'บ้านโคก','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
 	 (670103,67000,'บ้านโตก','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
 	 (670104,67000,'สะเดียง','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (670105,67000,'ป่าเลา','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
 	 (670106,67000,'นางั่ว','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
 	 (670101,67000,'ในเมือง','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
@@ -15560,7 +15560,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (670114,67000,'น้ำร้อน','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
 	 (670111,67000,'นาป่า','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
 	 (670315,67110,'หนองไขว่','หล่มสัก','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (670314,67110,'น้ำชุน','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
 	 (670321,67110,'บ้านไร่','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
 	 (670312,67110,'น้ำก้อ','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
@@ -15571,7 +15571,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (670306,67110,'น้ำเฮี้ย','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
 	 (670305,67110,'หนองสว่าง','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
 	 (670304,67110,'ฝายนาแซง','หล่มสัก','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (670303,67110,'ตาลเดี่ยว','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
 	 (670302,67110,'วัดป่า','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
 	 (670301,67110,'หล่มสัก','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
@@ -15582,7 +15582,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (670322,67110,'ปากดุก','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
 	 (670319,67110,'บ้านกลาง','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
 	 (670323,67110,'บ้านหวาย','หล่มสัก','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (670318,67110,'บุ่งน้ำเต้า','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
 	 (670317,67110,'บุ่งคล้า','หล่มสัก','เพชรบูรณ์','ภาคกลาง'),
 	 (670406,67120,'นาแซง','หล่มเก่า','เพชรบูรณ์','ภาคกลาง'),
@@ -15593,7 +15593,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (670409,67120,'ตาดกลอย','หล่มเก่า','เพชรบูรณ์','ภาคกลาง'),
 	 (670408,67120,'นาเกาะ','หล่มเก่า','เพชรบูรณ์','ภาคกลาง'),
 	 (670404,67120,'บ้านเนิน','หล่มเก่า','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (670403,67120,'หินฮาว','หล่มเก่า','เพชรบูรณ์','ภาคกลาง'),
 	 (670511,67130,'บึงกระจับ','วิเชียรบุรี','เพชรบูรณ์','ภาคกลาง'),
 	 (670504,67130,'โคกปรง','วิเชียรบุรี','เพชรบูรณ์','ภาคกลาง'),
@@ -15604,7 +15604,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (670513,67130,'ยางสาว','วิเชียรบุรี','เพชรบูรณ์','ภาคกลาง'),
 	 (670502,67130,'สระประดู่','วิเชียรบุรี','เพชรบูรณ์','ภาคกลาง'),
 	 (670706,67140,'บ่อไทย','หนองไผ่','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (670710,67140,'หนองไผ่','หนองไผ่','เพชรบูรณ์','ภาคกลาง'),
 	 (670711,67140,'วังโบสถ์','หนองไผ่','เพชรบูรณ์','ภาคกลาง'),
 	 (670701,67140,'กองทูล','หนองไผ่','เพชรบูรณ์','ภาคกลาง'),
@@ -15615,7 +15615,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (670709,67140,'บัววัฒนา','หนองไผ่','เพชรบูรณ์','ภาคกลาง'),
 	 (670705,67140,'เพชรละคร','หนองไผ่','เพชรบูรณ์','ภาคกลาง'),
 	 (670208,67150,'ซับพุทรา','ชนแดน','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (670210,67150,'ศาลาลาย','ชนแดน','เพชรบูรณ์','ภาคกลาง'),
 	 (670201,67150,'ชนแดน','ชนแดน','เพชรบูรณ์','ภาคกลาง'),
 	 (670205,67150,'ลาดแค','ชนแดน','เพชรบูรณ์','ภาคกลาง'),
@@ -15626,7 +15626,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (670804,67160,'กันจุ','บึงสามพัน','เพชรบูรณ์','ภาคกลาง'),
 	 (670808,67160,'สระแก้ว','บึงสามพัน','เพชรบูรณ์','ภาคกลาง'),
 	 (670809,67160,'บึงสามพัน','บึงสามพัน','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (670801,67160,'ซับสมอทอด','บึงสามพัน','เพชรบูรณ์','ภาคกลาง'),
 	 (670803,67160,'หนองแจง','บึงสามพัน','เพชรบูรณ์','ภาคกลาง'),
 	 (670806,67160,'พญาวัง','บึงสามพัน','เพชรบูรณ์','ภาคกลาง'),
@@ -15637,7 +15637,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (670606,67170,'หนองย่างทอย','ศรีเทพ','เพชรบูรณ์','ภาคกลาง'),
 	 (670602,67170,'สระกรวด','ศรีเทพ','เพชรบูรณ์','ภาคกลาง'),
 	 (670601,67170,'ศรีเทพ','ศรีเทพ','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (670509,67180,'ภูน้ำหยด','วิเชียรบุรี','เพชรบูรณ์','ภาคกลาง'),
 	 (670507,67180,'พุเตย','วิเชียรบุรี','เพชรบูรณ์','ภาคกลาง'),
 	 (670514,67180,'ซับน้อย','วิเชียรบุรี','เพชรบูรณ์','ภาคกลาง'),
@@ -15648,7 +15648,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (670209,67190,'ตะกุดไร','ชนแดน','เพชรบูรณ์','ภาคกลาง'),
 	 (670206,67190,'บ้านกล้วย','ชนแดน','เพชรบูรณ์','ภาคกลาง'),
 	 (670113,67210,'วังชมภู','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (670117,67210,'ระวิง','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
 	 (670112,67210,'นายม','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
 	 (670115,67210,'ห้วยสะแก','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
@@ -15659,7 +15659,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (671002,67240,'ท้ายดง','วังโป่ง','เพชรบูรณ์','ภาคกลาง'),
 	 (671003,67240,'ซับเปิบ','วังโป่ง','เพชรบูรณ์','ภาคกลาง'),
 	 (671004,67240,'วังหิน','วังโป่ง','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (671001,67240,'วังโป่ง','วังโป่ง','เพชรบูรณ์','ภาคกลาง'),
 	 (671005,67240,'วังศาล','วังโป่ง','เพชรบูรณ์','ภาคกลาง'),
 	 (670107,67250,'ท่าพล','เมืองเพชรบูรณ์','เพชรบูรณ์','ภาคกลาง'),
@@ -15670,7 +15670,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (671106,67270,'หนองแม่นา','เขาค้อ','เพชรบูรณ์','ภาคกลาง'),
 	 (671105,67270,'สะเดาะพง','เขาค้อ','เพชรบูรณ์','ภาคกลาง'),
 	 (671104,67270,'ริมสีม่วง','เขาค้อ','เพชรบูรณ์','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (671103,67270,'เขาค้อ','เขาค้อ','เพชรบูรณ์','ภาคกลาง'),
 	 (671101,67270,'ทุ่งสมอ','เขาค้อ','เพชรบูรณ์','ภาคกลาง'),
 	 (671107,67280,'เข็กน้อย','เขาค้อ','เพชรบูรณ์','ภาคกลาง'),
@@ -15681,7 +15681,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700122,70000,'บ้านไร่','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก'),
 	 (700117,70000,'หลุมดิน','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก'),
 	 (700118,70000,'บางป่า','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (700119,70000,'พงสวาย','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก'),
 	 (700114,70000,'หินกอง','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก'),
 	 (700112,70000,'น้ำพุ','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก'),
@@ -15692,7 +15692,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700104,70000,'หนองกลางนา','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก'),
 	 (700103,70000,'ดอนตะโก','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก'),
 	 (700109,70000,'โคกหม้อ','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (700102,70000,'เจดีย์หัก','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก'),
 	 (700101,70000,'หน้าเมือง','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก'),
 	 (700105,70000,'ห้วยไผ่','เมืองราชบุรี','ราชบุรี','ภาคตะวันตก'),
@@ -15703,7 +15703,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700515,70110,'ลาดบัวขาว','บ้านโป่ง','ราชบุรี','ภาคตะวันตก'),
 	 (700514,70110,'เบิกไพร','บ้านโป่ง','ราชบุรี','ภาคตะวันตก'),
 	 (700513,70110,'เขาขลุง','บ้านโป่ง','ราชบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (700509,70110,'นครชุมน์','บ้านโป่ง','ราชบุรี','ภาคตะวันตก'),
 	 (700504,70110,'ปากแรต','บ้านโป่ง','ราชบุรี','ภาคตะวันตก'),
 	 (700505,70110,'หนองกบ','บ้านโป่ง','ราชบุรี','ภาคตะวันตก'),
@@ -15714,7 +15714,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700510,70110,'บ้านม่วง','บ้านโป่ง','ราชบุรี','ภาคตะวันตก'),
 	 (700507,70110,'ดอนกระเบื้อง','บ้านโป่ง','ราชบุรี','ภาคตะวันตก'),
 	 (700508,70110,'สวนกล้วย','บ้านโป่ง','ราชบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (700705,70120,'คลองตาคต','โพธาราม','ราชบุรี','ภาคตะวันตก'),
 	 (700706,70120,'บ้านฆ้อง','โพธาราม','ราชบุรี','ภาคตะวันตก'),
 	 (700703,70120,'หนองโพ','โพธาราม','ราชบุรี','ภาคตะวันตก'),
@@ -15725,7 +15725,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700710,70120,'คลองข่อย','โพธาราม','ราชบุรี','ภาคตะวันตก'),
 	 (700711,70120,'ชำแระ','โพธาราม','ราชบุรี','ภาคตะวันตก'),
 	 (700712,70120,'สร้อยฟ้า','โพธาราม','ราชบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (700713,70120,'ท่าชุมพล','โพธาราม','ราชบุรี','ภาคตะวันตก'),
 	 (700714,70120,'บางโตนด','โพธาราม','ราชบุรี','ภาคตะวันตก'),
 	 (700715,70120,'เตาปูน','โพธาราม','ราชบุรี','ภาคตะวันตก'),
@@ -15736,7 +15736,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700707,70120,'บ้านสิงห์','โพธาราม','ราชบุรี','ภาคตะวันตก'),
 	 (700702,70120,'ดอนกระเบื้อง','โพธาราม','ราชบุรี','ภาคตะวันตก'),
 	 (700413,70130,'ดอนไผ่','ดำเนินสะดวก','ราชบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (700406,70130,'ดอนคลัง','ดำเนินสะดวก','ราชบุรี','ภาคตะวันตก'),
 	 (700412,70130,'ขุนพิทักษ์','ดำเนินสะดวก','ราชบุรี','ภาคตะวันตก'),
 	 (700411,70130,'ท่านัด','ดำเนินสะดวก','ราชบุรี','ภาคตะวันตก'),
@@ -15747,7 +15747,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700401,70130,'ดำเนินสะดวก','ดำเนินสะดวก','ราชบุรี','ภาคตะวันตก'),
 	 (700405,70130,'ดอนกรวย','ดำเนินสะดวก','ราชบุรี','ภาคตะวันตก'),
 	 (700404,70130,'ตาหลวง','ดำเนินสะดวก','ราชบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (700801,70140,'ทุ่งหลวง','ปากท่อ','ราชบุรี','ภาคตะวันตก'),
 	 (700812,70140,'ห้วยยางโทน','ปากท่อ','ราชบุรี','ภาคตะวันตก'),
 	 (700806,70140,'ป่าไก่','ปากท่อ','ราชบุรี','ภาคตะวันตก'),
@@ -15758,7 +15758,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700802,70140,'วังมะนาว','ปากท่อ','ราชบุรี','ภาคตะวันตก'),
 	 (700804,70140,'หนองกระทุ่ม','ปากท่อ','ราชบุรี','ภาคตะวันตก'),
 	 (700808,70140,'อ่างหิน','ปากท่อ','ราชบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (700803,70140,'ดอนทราย','ปากท่อ','ราชบุรี','ภาคตะวันตก'),
 	 (700807,70140,'วัดยางงาม','ปากท่อ','ราชบุรี','ภาคตะวันตก'),
 	 (700206,70150,'รางบัว','จอมบึง','ราชบุรี','ภาคตะวันตก'),
@@ -15769,7 +15769,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700201,70150,'จอมบึง','จอมบึง','ราชบุรี','ภาคตะวันตก'),
 	 (700607,70160,'โพหัก','บางแพ','ราชบุรี','ภาคตะวันตก'),
 	 (700606,70160,'ดอนคา','บางแพ','ราชบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (700602,70160,'วังเย็น','บางแพ','ราชบุรี','ภาคตะวันตก'),
 	 (700605,70160,'ดอนใหญ่','บางแพ','ราชบุรี','ภาคตะวันตก'),
 	 (700604,70160,'วัดแก้ว','บางแพ','ราชบุรี','ภาคตะวันตก'),
@@ -15780,7 +15780,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700903,70170,'วัดเพลง','วัดเพลง','ราชบุรี','ภาคตะวันตก'),
 	 (701003,70180,'หนองพันจันทร์','บ้านคา','ราชบุรี','ภาคตะวันตก'),
 	 (701002,70180,'บ้านบึง','บ้านคา','ราชบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (700304,70180,'ท่าเคย','สวนผึ้ง','ราชบุรี','ภาคตะวันตก'),
 	 (700301,70180,'สวนผึ้ง','สวนผึ้ง','ราชบุรี','ภาคตะวันตก'),
 	 (700302,70180,'ป่าหวาย','สวนผึ้ง','ราชบุรี','ภาคตะวันตก'),
@@ -15791,7 +15791,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (700407,70210,'บัวงาม','ดำเนินสะดวก','ราชบุรี','ภาคตะวันตก'),
 	 (700402,70210,'ประสาทสิทธิ์','ดำเนินสะดวก','ราชบุรี','ภาคตะวันตก'),
 	 (740305,70210,'หนองสองห้อง','บ้านแพ้ว','สมุทรสาคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (740304,70210,'โรงเข้','บ้านแพ้ว','สมุทรสาคร','ภาคกลาง'),
 	 (710110,71000,'หนองหญ้า','เมืองกาญจนบุรี','กาญจนบุรี','ภาคตะวันตก'),
 	 (710116,71000,'วังเย็น','เมืองกาญจนบุรี','กาญจนบุรี','ภาคตะวันตก'),
@@ -15802,7 +15802,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (710105,71000,'แก่งเสี้ยน','เมืองกาญจนบุรี','กาญจนบุรี','ภาคตะวันตก'),
 	 (710111,71000,'เกาะสำโรง','เมืองกาญจนบุรี','กาญจนบุรี','ภาคตะวันตก'),
 	 (710103,71000,'ปากแพรก','เมืองกาญจนบุรี','กาญจนบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (710604,71000,'ท่าล้อ','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก'),
 	 (710605,71110,'หนองขาว','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก'),
 	 (710608,71110,'ม่วงชุม','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก'),
@@ -15813,7 +15813,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (710607,71110,'เขาน้อย','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก'),
 	 (710613,71110,'หนองตากยา','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก'),
 	 (710602,71110,'วังขนาย','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (710610,71110,'พังตรุ','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก'),
 	 (710604,71110,'ท่าล้อ','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก'),
 	 (710603,71110,'วังศาลา','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก'),
@@ -15824,7 +15824,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (710502,71120,'ยางม่วง','ท่ามะกา','กาญจนบุรี','ภาคตะวันตก'),
 	 (710513,71120,'หวายเหนียว','ท่ามะกา','กาญจนบุรี','ภาคตะวันตก'),
 	 (710511,71120,'เขาสามสิบหาบ','ท่ามะกา','กาญจนบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (710516,71120,'ท่าเสา','ท่ามะกา','กาญจนบุรี','ภาคตะวันตก'),
 	 (710509,71120,'ดอนขมิ้น','ท่ามะกา','กาญจนบุรี','ภาคตะวันตก'),
 	 (710503,71130,'ดอนชะเอม','ท่ามะกา','กาญจนบุรี','ภาคตะวันตก'),
@@ -15835,7 +15835,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (710517,71130,'หนองลาน','ท่ามะกา','กาญจนบุรี','ภาคตะวันตก'),
 	 (710611,71130,'ท่าตะคร้อ','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก'),
 	 (710510,71130,'อุโลกสี่หมื่น','ท่ามะกา','กาญจนบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (710603,71130,'วังศาลา','ท่าม่วง','กาญจนบุรี','ภาคตะวันตก'),
 	 (710903,71140,'ทุ่งสมอ','พนมทวน','กาญจนบุรี','ภาคตะวันตก'),
 	 (710904,71140,'ดอนเจดีย์','พนมทวน','กาญจนบุรี','ภาคตะวันตก'),
@@ -15846,7 +15846,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (710912,71140,'ดอนตาเพชร','พนมทวน','กาญจนบุรี','ภาคตะวันตก'),
 	 (710203,71150,'สิงห์','ไทรโยค','กาญจนบุรี','ภาคตะวันตก'),
 	 (710205,71150,'วังกระแจะ','ไทรโยค','กาญจนบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (710201,71150,'ลุ่มสุ่ม','ไทรโยค','กาญจนบุรี','ภาคตะวันตก'),
 	 (710202,71150,'ท่าเสา','ไทรโยค','กาญจนบุรี','ภาคตะวันตก'),
 	 (710206,71150,'ศรีมงคล','ไทรโยค','กาญจนบุรี','ภาคตะวันตก'),
@@ -15857,7 +15857,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (710302,71160,'หนองกุ่ม','บ่อพลอย','กาญจนบุรี','ภาคตะวันตก'),
 	 (710305,71160,'หลุมรัง','บ่อพลอย','กาญจนบุรี','ภาคตะวันตก'),
 	 (711302,71170,'วังไผ่','ห้วยกระเจา','กาญจนบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (711304,71170,'สระลงเรือ','ห้วยกระเจา','กาญจนบุรี','ภาคตะวันตก'),
 	 (711303,71170,'ดอนแสลบ','ห้วยกระเจา','กาญจนบุรี','ภาคตะวันตก'),
 	 (710906,71170,'รางหวาย','พนมทวน','กาญจนบุรี','ภาคตะวันตก'),
@@ -15868,7 +15868,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (710701,71180,'ท่าขนุน','ทองผาภูมิ','กาญจนบุรี','ภาคตะวันตก'),
 	 (710703,71180,'หินดาด','ทองผาภูมิ','กาญจนบุรี','ภาคตะวันตก'),
 	 (710706,71180,'ห้วยเขย่ง','ทองผาภูมิ','กาญจนบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (710704,71180,'ลิ่นถิ่น','ทองผาภูมิ','กาญจนบุรี','ภาคตะวันตก'),
 	 (710702,71180,'ปิล๊อก','ทองผาภูมิ','กาญจนบุรี','ภาคตะวันตก'),
 	 (710705,71180,'ชะแล','ทองผาภูมิ','กาญจนบุรี','ภาคตะวันตก'),
@@ -15879,7 +15879,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (711005,71210,'หนองนกแก้ว','เลาขวัญ','กาญจนบุรี','ภาคตะวันตก'),
 	 (711003,71210,'หนองประดู่','เลาขวัญ','กาญจนบุรี','ภาคตะวันตก'),
 	 (711001,71210,'เลาขวัญ','เลาขวัญ','กาญจนบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (711002,71210,'หนองโสน','เลาขวัญ','กาญจนบุรี','ภาคตะวันตก'),
 	 (711004,71210,'หนองปลิง','เลาขวัญ','กาญจนบุรี','ภาคตะวันตก'),
 	 (711006,71210,'ทุ่งกระบ่ำ','เลาขวัญ','กาญจนบุรี','ภาคตะวันตก'),
@@ -15890,7 +15890,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (710405,71220,'เขาโจด','ศรีสวัสดิ์','กาญจนบุรี','ภาคตะวันตก'),
 	 (711201,71220,'หนองปรือ','หนองปรือ','กาญจนบุรี','ภาคตะวันตก'),
 	 (711202,71220,'หนองปลาไหล','หนองปรือ','กาญจนบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (710802,71240,'ปรังเผล','สังขละบุรี','กาญจนบุรี','ภาคตะวันตก'),
 	 (710803,71240,'ไล่โว่','สังขละบุรี','กาญจนบุรี','ภาคตะวันตก'),
 	 (710801,71240,'หนองลู','สังขละบุรี','กาญจนบุรี','ภาคตะวันตก'),
@@ -15901,7 +15901,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (710403,71250,'หนองเป็ด','ศรีสวัสดิ์','กาญจนบุรี','ภาคตะวันตก'),
 	 (711103,71260,'จรเข้เผือก','ด่านมะขามเตี้ย','กาญจนบุรี','ภาคตะวันตก'),
 	 (711101,71260,'ด่านมะขามเตี้ย','ด่านมะขามเตี้ย','กาญจนบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (711104,71260,'หนองไผ่','ด่านมะขามเตี้ย','กาญจนบุรี','ภาคตะวันตก'),
 	 (711102,71260,'กลอนโด','ด่านมะขามเตี้ย','กาญจนบุรี','ภาคตะวันตก'),
 	 (720105,72000,'ไผ่ขวาง','เมืองสุพรรณบุรี','สุพรรณบุรี','ภาคกลาง'),
@@ -15912,7 +15912,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (720103,72000,'ทับตีเหล็ก','เมืองสุพรรณบุรี','สุพรรณบุรี','ภาคกลาง'),
 	 (720112,72000,'บ้านโพธิ์','เมืองสุพรรณบุรี','สุพรรณบุรี','ภาคกลาง'),
 	 (720111,72000,'ดอนโพธิ์ทอง','เมืองสุพรรณบุรี','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (720104,72000,'ท่าระหัด','เมืองสุพรรณบุรี','สุพรรณบุรี','ภาคกลาง'),
 	 (720110,72000,'ดอนกำยาน','เมืองสุพรรณบุรี','สุพรรณบุรี','ภาคกลาง'),
 	 (720101,72000,'ท่าพี่เลี้ยง','เมืองสุพรรณบุรี','สุพรรณบุรี','ภาคกลาง'),
@@ -15923,7 +15923,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (720701,72110,'สองพี่น้อง','สองพี่น้อง','สุพรรณบุรี','ภาคกลาง'),
 	 (720707,72110,'บางพลับ','สองพี่น้อง','สุพรรณบุรี','ภาคกลาง'),
 	 (720702,72110,'บางเลน','สองพี่น้อง','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (720708,72110,'เนินพระปรางค์','สองพี่น้อง','สุพรรณบุรี','ภาคกลาง'),
 	 (720706,72110,'หัวโพธิ์','สองพี่น้อง','สุพรรณบุรี','ภาคกลาง'),
 	 (720704,72110,'บางตะเคียน','สองพี่น้อง','สุพรรณบุรี','ภาคกลาง'),
@@ -15934,7 +15934,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (720711,72110,'ศรีสำราญ','สองพี่น้อง','สุพรรณบุรี','ภาคกลาง'),
 	 (720712,72110,'ทุ่งคอก','สองพี่น้อง','สุพรรณบุรี','ภาคกลาง'),
 	 (720212,72120,'ป่าสะแก','เดิมบางนางบวช','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (720211,72120,'วังศรีราช','เดิมบางนางบวช','สุพรรณบุรี','ภาคกลาง'),
 	 (720213,72120,'ยางนอน','เดิมบางนางบวช','สุพรรณบุรี','ภาคกลาง'),
 	 (720214,72120,'หนองกระทุ่ม','เดิมบางนางบวช','สุพรรณบุรี','ภาคกลาง'),
@@ -15945,7 +15945,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (720206,72120,'ทุ่งคลี','เดิมบางนางบวช','สุพรรณบุรี','ภาคกลาง'),
 	 (720205,72120,'ปากน้ำ','เดิมบางนางบวช','สุพรรณบุรี','ภาคกลาง'),
 	 (720204,72120,'เขาดิน','เดิมบางนางบวช','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (720202,72120,'เดิมบาง','เดิมบางนางบวช','สุพรรณบุรี','ภาคกลาง'),
 	 (720201,72120,'เขาพระ','เดิมบางนางบวช','สุพรรณบุรี','ภาคกลาง'),
 	 (720203,72120,'นางบวช','เดิมบางนางบวช','สุพรรณบุรี','ภาคกลาง'),
@@ -15956,7 +15956,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (720806,72130,'หนองสะเดา','สามชุก','สุพรรณบุรี','ภาคกลาง'),
 	 (720807,72130,'กระเสียว','สามชุก','สุพรรณบุรี','ภาคกลาง'),
 	 (720803,72130,'สามชุก','สามชุก','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (720509,72140,'วังยาง','ศรีประจันต์','สุพรรณบุรี','ภาคกลาง'),
 	 (720501,72140,'ศรีประจันต์','ศรีประจันต์','สุพรรณบุรี','ภาคกลาง'),
 	 (720502,72140,'บ้านกร่าง','ศรีประจันต์','สุพรรณบุรี','ภาคกลาง'),
@@ -15967,7 +15967,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (720507,72140,'วังหว้า','ศรีประจันต์','สุพรรณบุรี','ภาคกลาง'),
 	 (720508,72140,'วังน้ำซับ','ศรีประจันต์','สุพรรณบุรี','ภาคกลาง'),
 	 (720408,72150,'องครักษ์','บางปลาม้า','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (720406,72150,'สาลี','บางปลาม้า','สุพรรณบุรี','ภาคกลาง'),
 	 (720409,72150,'จรเข้ใหญ่','บางปลาม้า','สุพรรณบุรี','ภาคกลาง'),
 	 (720405,72150,'กฤษณา','บางปลาม้า','สุพรรณบุรี','ภาคกลาง'),
@@ -15978,7 +15978,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (720414,72150,'วัดดาว','บางปลาม้า','สุพรรณบุรี','ภาคกลาง'),
 	 (720413,72150,'วัดโบสถ์','บางปลาม้า','สุพรรณบุรี','ภาคกลาง'),
 	 (720412,72150,'วังน้ำเย็น','บางปลาม้า','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (720411,72150,'มะขามล้ม','บางปลาม้า','สุพรรณบุรี','ภาคกลาง'),
 	 (720410,72150,'บ้านแหลม','บางปลาม้า','สุพรรณบุรี','ภาคกลาง'),
 	 (720402,72150,'บางปลาม้า','บางปลาม้า','สุพรรณบุรี','ภาคกลาง'),
@@ -15989,7 +15989,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (720908,72160,'ดอนคา','อู่ทอง','สุพรรณบุรี','ภาคกลาง'),
 	 (720909,72160,'พลับพลาไชย','อู่ทอง','สุพรรณบุรี','ภาคกลาง'),
 	 (720910,72160,'บ้านโข้ง','อู่ทอง','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (720911,72160,'เจดีย์','อู่ทอง','สุพรรณบุรี','ภาคกลาง'),
 	 (720913,72160,'กระจัน','อู่ทอง','สุพรรณบุรี','ภาคกลาง'),
 	 (720903,72160,'จรเข้สามพัน','อู่ทอง','สุพรรณบุรี','ภาคกลาง'),
@@ -16000,7 +16000,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (720304,72180,'องค์พระ','ด่านช้าง','สุพรรณบุรี','ภาคกลาง'),
 	 (720307,72180,'วังยาว','ด่านช้าง','สุพรรณบุรี','ภาคกลาง'),
 	 (720301,72180,'หนองมะค่าโมง','ด่านช้าง','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (720302,72180,'ด่านช้าง','ด่านช้าง','สุพรรณบุรี','ภาคกลาง'),
 	 (720305,72180,'วังคัน','ด่านช้าง','สุพรรณบุรี','ภาคกลาง'),
 	 (720303,72180,'ห้วยขมิ้น','ด่านช้าง','สุพรรณบุรี','ภาคกลาง'),
@@ -16011,7 +16011,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (720711,72190,'ศรีสำราญ','สองพี่น้อง','สุพรรณบุรี','ภาคกลาง'),
 	 (720116,72210,'ศาลาขาว','เมืองสุพรรณบุรี','สุพรรณบุรี','ภาคกลาง'),
 	 (720117,72210,'สวนแตง','เมืองสุพรรณบุรี','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (720115,72210,'บางกุ้ง','เมืองสุพรรณบุรี','สุพรรณบุรี','ภาคกลาง'),
 	 (720912,72220,'สระพังลาน','อู่ทอง','สุพรรณบุรี','ภาคกลาง'),
 	 (720902,72220,'สระยายโสม','อู่ทอง','สุพรรณบุรี','ภาคกลาง'),
@@ -16022,7 +16022,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (721004,72240,'แจงงาม','หนองหญ้าไซ','สุพรรณบุรี','ภาคกลาง'),
 	 (721003,72240,'หนองโพธิ์','หนองหญ้าไซ','สุพรรณบุรี','ภาคกลาง'),
 	 (721002,72240,'หนองราชวัตร','หนองหญ้าไซ','สุพรรณบุรี','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (721005,72240,'หนองขาม','หนองหญ้าไซ','สุพรรณบุรี','ภาคกลาง'),
 	 (721001,72240,'หนองหญ้าไซ','หนองหญ้าไซ','สุพรรณบุรี','ภาคกลาง'),
 	 (721006,72240,'ทัพหลวง','หนองหญ้าไซ','สุพรรณบุรี','ภาคกลาง'),
@@ -16033,7 +16033,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730111,73000,'นครปฐม','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
 	 (730115,73000,'ทุ่งน้อย','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
 	 (730123,73000,'ทัพหลวง','เมืองนครปฐม','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730109,73000,'ถนนขาด','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
 	 (730104,73000,'ธรรมศาลา','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
 	 (730110,73000,'บ่อพลับ','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
@@ -16044,7 +16044,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730113,73000,'หนองปากโลง','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
 	 (730116,73000,'หนองดินแดง','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
 	 (730124,73000,'หนองงูเหลือม','เมืองนครปฐม','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730114,73000,'สามควายเผือก','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
 	 (730121,73000,'สวนป่าน','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
 	 (730122,73000,'ห้วยจรเข้','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
@@ -16055,7 +16055,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730112,73000,'วังตะกู','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
 	 (730117,73000,'วังเย็น','เมืองนครปฐม','นครปฐม','ภาคกลาง'),
 	 (730119,73000,'ลำพยา','เมืองนครปฐม','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730613,73110,'คลองจินดา','สามพราน','นครปฐม','ภาคกลาง'),
 	 (730611,73110,'คลองใหม่','สามพราน','นครปฐม','ภาคกลาง'),
 	 (730612,73110,'ตลาดจินดา','สามพราน','นครปฐม','ภาคกลาง'),
@@ -16066,7 +16066,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730606,73110,'สามพราน','สามพราน','นครปฐม','ภาคกลาง'),
 	 (730603,73110,'หอมเกร็ด','สามพราน','นครปฐม','ภาคกลาง'),
 	 (730601,73110,'ท่าข้าม','สามพราน','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730305,73120,'บางแก้ว','นครชัยศรี','นครปฐม','ภาคกลาง'),
 	 (730314,73120,'ศรีมหาโพธิ์','นครชัยศรี','นครปฐม','ภาคกลาง'),
 	 (730319,73120,'วัดละมุด','นครชัยศรี','นครปฐม','ภาคกลาง'),
@@ -16077,7 +16077,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730303,73120,'วัดแค','นครชัยศรี','นครปฐม','ภาคกลาง'),
 	 (730306,73120,'ท่ากระชับ','นครชัยศรี','นครปฐม','ภาคกลาง'),
 	 (730304,73120,'ท่าตำหนัก','นครชัยศรี','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730308,73120,'ท่าพระยา','นครชัยศรี','นครปฐม','ภาคกลาง'),
 	 (730324,73120,'ไทยาวาส','นครชัยศรี','นครปฐม','ภาคกลาง'),
 	 (730322,73120,'ลานตากฟ้า','นครชัยศรี','นครปฐม','ภาคกลาง'),
@@ -16088,7 +16088,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730316,73120,'วัดสำโรง','นครชัยศรี','นครปฐม','ภาคกลาง'),
 	 (730309,73120,'พะเนียด','นครชัยศรี','นครปฐม','ภาคกลาง'),
 	 (730310,73120,'บางระกำ','นครชัยศรี','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730315,73120,'สัมปทวน','นครชัยศรี','นครปฐม','ภาคกลาง'),
 	 (730318,73120,'ห้วยพลู','นครชัยศรี','นครปฐม','ภาคกลาง'),
 	 (730313,73120,'แหลมบัว','นครชัยศรี','นครปฐม','ภาคกลาง'),
@@ -16099,7 +16099,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730505,73130,'บางระกำ','บางเลน','นครปฐม','ภาคกลาง'),
 	 (730504,73130,'บางภาษี','บางเลน','นครปฐม','ภาคกลาง'),
 	 (730502,73130,'บางปลา','บางเลน','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730511,73130,'บัวปากท่า','บางเลน','นครปฐม','ภาคกลาง'),
 	 (730510,73130,'นิลเพชร','บางเลน','นครปฐม','ภาคกลาง'),
 	 (730513,73130,'นราภิรมย์','บางเลน','นครปฐม','ภาคกลาง'),
@@ -16110,7 +16110,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730213,73140,'รางพิกุล','กำแพงแสน','นครปฐม','ภาคกลาง'),
 	 (730215,73140,'วังน้ำเขียว','กำแพงแสน','นครปฐม','ภาคกลาง'),
 	 (730214,73140,'หนองกระทุ่ม','กำแพงแสน','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730203,73140,'ทุ่งลูกนก','กำแพงแสน','นครปฐม','ภาคกลาง'),
 	 (730207,73140,'ทุ่งบัว','กำแพงแสน','นครปฐม','ภาคกลาง'),
 	 (730204,73140,'ห้วยขวาง','กำแพงแสน','นครปฐม','ภาคกลาง'),
@@ -16121,7 +16121,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730212,73140,'กำแพงแสน','กำแพงแสน','นครปฐม','ภาคกลาง'),
 	 (730206,73140,'สระสี่มุม','กำแพงแสน','นครปฐม','ภาคกลาง'),
 	 (730408,73150,'ลำลูกบัว','ดอนตูม','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730405,73150,'บ้านหลวง','ดอนตูม','นครปฐม','ภาคกลาง'),
 	 (730404,73150,'ดอนพุทรา','ดอนตูม','นครปฐม','ภาคกลาง'),
 	 (730401,73150,'สามง่าม','ดอนตูม','นครปฐม','ภาคกลาง'),
@@ -16132,7 +16132,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730616,73160,'อ้อมใหญ่','สามพราน','นครปฐม','ภาคกลาง'),
 	 (730702,73170,'คลองโยง','พุทธมณฑล','นครปฐม','ภาคกลาง'),
 	 (730701,73170,'ศาลายา','พุทธมณฑล','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730703,73170,'มหาสวัสดิ์','พุทธมณฑล','นครปฐม','ภาคกลาง'),
 	 (730202,73180,'กระตีบ','กำแพงแสน','นครปฐม','ภาคกลาง'),
 	 (730211,73180,'ห้วยม่วง','กำแพงแสน','นครปฐม','ภาคกลาง'),
@@ -16143,7 +16143,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (730602,73210,'ทรงคนอง','สามพราน','นครปฐม','ภาคกลาง'),
 	 (730604,73210,'บางกระทึก','สามพราน','นครปฐม','ภาคกลาง'),
 	 (730605,73210,'บางเตย','สามพราน','นครปฐม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (730608,73210,'ไร่ขิง','สามพราน','นครปฐม','ภาคกลาง'),
 	 (730610,73220,'กระทุ่มล้ม','สามพราน','นครปฐม','ภาคกลาง'),
 	 (740104,74000,'บ้านบ่อ','เมืองสมุทรสาคร','สมุทรสาคร','ภาคกลาง'),
@@ -16154,7 +16154,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (740115,74000,'บ้านเกาะ','เมืองสมุทรสาคร','สมุทรสาคร','ภาคกลาง'),
 	 (740114,74000,'โคกขาม','เมืองสมุทรสาคร','สมุทรสาคร','ภาคกลาง'),
 	 (740113,74000,'พันท้ายนรสิงห์','เมืองสมุทรสาคร','สมุทรสาคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (740112,74000,'บางน้ำจืด','เมืองสมุทรสาคร','สมุทรสาคร','ภาคกลาง'),
 	 (740110,74000,'ท่าทราย','เมืองสมุทรสาคร','สมุทรสาคร','ภาคกลาง'),
 	 (740111,74000,'คอกกระบือ','เมืองสมุทรสาคร','สมุทรสาคร','ภาคกลาง'),
@@ -16165,7 +16165,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (740102,74000,'ท่าฉลอม','เมืองสมุทรสาคร','สมุทรสาคร','ภาคกลาง'),
 	 (740103,74000,'โกรกกราก','เมืองสมุทรสาคร','สมุทรสาคร','ภาคกลาง'),
 	 (740109,74000,'นาดี','เมืองสมุทรสาคร','สมุทรสาคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (740206,74110,'คลองมะเดื่อ','กระทุ่มแบน','สมุทรสาคร','ภาคกลาง'),
 	 (740208,74110,'ดอนไก่ดี','กระทุ่มแบน','สมุทรสาคร','ภาคกลาง'),
 	 (740210,74110,'ท่าเสา','กระทุ่มแบน','สมุทรสาคร','ภาคกลาง'),
@@ -16176,7 +16176,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (740201,74110,'ตลาดกระทุ่มแบน','กระทุ่มแบน','สมุทรสาคร','ภาคกลาง'),
 	 (740204,74110,'สวนหลวง','กระทุ่มแบน','สมุทรสาคร','ภาคกลาง'),
 	 (740311,74120,'สวนส้ม','บ้านแพ้ว','สมุทรสาคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (740307,74120,'หลักสอง','บ้านแพ้ว','สมุทรสาคร','ภาคกลาง'),
 	 (740310,74120,'อำแพง','บ้านแพ้ว','สมุทรสาคร','ภาคกลาง'),
 	 (740309,74120,'คลองตัน','บ้านแพ้ว','สมุทรสาคร','ภาคกลาง'),
@@ -16187,7 +16187,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (740302,74120,'หลักสาม','บ้านแพ้ว','สมุทรสาคร','ภาคกลาง'),
 	 (740301,74120,'บ้านแพ้ว','บ้านแพ้ว','สมุทรสาคร','ภาคกลาง'),
 	 (740305,74120,'หนองสองห้อง','บ้านแพ้ว','สมุทรสาคร','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (740304,74120,'โรงเข้','บ้านแพ้ว','สมุทรสาคร','ภาคกลาง'),
 	 (740202,74130,'อ้อมน้อย','กระทุ่มแบน','สมุทรสาคร','ภาคกลาง'),
 	 (750103,75000,'ลาดใหญ่','เมืองสมุทรสงคราม','สมุทรสงคราม','ภาคกลาง'),
@@ -16198,7 +16198,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (750101,75000,'แม่กลอง','เมืองสมุทรสงคราม','สมุทรสงคราม','ภาคกลาง'),
 	 (750108,75000,'คลองเขิน','เมืองสมุทรสงคราม','สมุทรสงคราม','ภาคกลาง'),
 	 (750109,75000,'คลองโคน','เมืองสมุทรสงคราม','สมุทรสงคราม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (750111,75000,'บางจะเกร็ง','เมืองสมุทรสงคราม','สมุทรสงคราม','ภาคกลาง'),
 	 (750102,75000,'บางขันแตก','เมืองสมุทรสงคราม','สมุทรสงคราม','ภาคกลาง'),
 	 (750110,75000,'นางตะเคียน','เมืองสมุทรสงคราม','สมุทรสงคราม','ภาคกลาง'),
@@ -16209,7 +16209,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (750304,75110,'วัดประดู่','อัมพวา','สมุทรสงคราม','ภาคกลาง'),
 	 (750311,75110,'ยี่สาร','อัมพวา','สมุทรสงคราม','ภาคกลาง'),
 	 (750306,75110,'บางช้าง','อัมพวา','สมุทรสงคราม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (750307,75110,'แควอ้อม','อัมพวา','สมุทรสงคราม','ภาคกลาง'),
 	 (750308,75110,'ปลายโพงพาง','อัมพวา','สมุทรสงคราม','ภาคกลาง'),
 	 (750309,75110,'บางแค','อัมพวา','สมุทรสงคราม','ภาคกลาง'),
@@ -16220,7 +16220,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (750202,75120,'บางสะแก','บางคนที','สมุทรสงคราม','ภาคกลาง'),
 	 (750203,75120,'บางยี่รงค์','บางคนที','สมุทรสงคราม','ภาคกลาง'),
 	 (750204,75120,'โรงหีบ','บางคนที','สมุทรสงคราม','ภาคกลาง');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (750206,75120,'ดอนมะโนรา','บางคนที','สมุทรสงคราม','ภาคกลาง'),
 	 (750209,75120,'จอมปลวก','บางคนที','สมุทรสงคราม','ภาคกลาง'),
 	 (750207,75120,'บางพรม','บางคนที','สมุทรสงคราม','ภาคกลาง'),
@@ -16231,7 +16231,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (750213,75120,'บ้านปราโมทย์','บางคนที','สมุทรสงคราม','ภาคกลาง'),
 	 (760109,76000,'เวียงคอย','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
 	 (760110,76000,'บางจาก','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (760111,76000,'บ้านหม้อ','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
 	 (760112,76000,'ต้นมะม่วง','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
 	 (760113,76000,'ช่องสะแก','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
@@ -16242,7 +16242,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (760124,76000,'หนองพลับ','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
 	 (760122,76000,'ดอนยาง','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
 	 (760121,76000,'โพไร่หวาน','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (760115,76000,'สำมะโรง','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
 	 (760107,76000,'หนองโสน','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
 	 (760106,76000,'บ้านกุ่ม','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
@@ -16253,7 +16253,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (760102,76000,'คลองกระแชง','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
 	 (760101,76000,'ท่าราบ','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
 	 (760120,76000,'วังตะโก','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (760123,76000,'หนองขนาน','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
 	 (760705,76100,'แหลมผักเบี้ย','บ้านแหลม','เพชรบุรี','ภาคตะวันตก'),
 	 (760117,76100,'หาดเจ้าสำราญ','เมืองเพชรบุรี','เพชรบุรี','ภาคตะวันตก'),
@@ -16264,7 +16264,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (760703,76110,'ปากทะเล','บ้านแหลม','เพชรบุรี','ภาคตะวันตก'),
 	 (760706,76110,'บางตะบูน','บ้านแหลม','เพชรบุรี','ภาคตะวันตก'),
 	 (760701,76110,'บ้านแหลม','บ้านแหลม','เพชรบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (760709,76110,'ท่าแร้ง','บ้านแหลม','เพชรบุรี','ภาคตะวันตก'),
 	 (760708,76110,'บางครก','บ้านแหลม','เพชรบุรี','ภาคตะวันตก'),
 	 (760710,76110,'ท่าแร้งออก','บ้านแหลม','เพชรบุรี','ภาคตะวันตก'),
@@ -16275,7 +16275,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (760408,76120,'สามพระยา','ชะอำ','เพชรบุรี','ภาคตะวันตก'),
 	 (760401,76120,'ชะอำ','ชะอำ','เพชรบุรี','ภาคตะวันตก'),
 	 (760406,76120,'ห้วยทรายเหนือ','ชะอำ','เพชรบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (760404,76120,'เขาใหญ่','ชะอำ','เพชรบุรี','ภาคตะวันตก'),
 	 (760407,76120,'ไร่ใหม่พัฒนา','ชะอำ','เพชรบุรี','ภาคตะวันตก'),
 	 (760501,76130,'ท่ายาง','ท่ายาง','เพชรบุรี','ภาคตะวันตก'),
@@ -16286,7 +16286,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (760511,76130,'กลัดหลวง','ท่ายาง','เพชรบุรี','ภาคตะวันตก'),
 	 (760512,76130,'ปึกเตียน','ท่ายาง','เพชรบุรี','ภาคตะวันตก'),
 	 (760513,76130,'เขากระปุก','ท่ายาง','เพชรบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (760514,76130,'ท่าแลง','ท่ายาง','เพชรบุรี','ภาคตะวันตก'),
 	 (760515,76130,'บ้านในดง','ท่ายาง','เพชรบุรี','ภาคตะวันตก'),
 	 (760504,76130,'หนองจอก','ท่ายาง','เพชรบุรี','ภาคตะวันตก'),
@@ -16297,7 +16297,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (760204,76140,'ทับคาง','เขาย้อย','เพชรบุรี','ภาคตะวันตก'),
 	 (760205,76140,'หนองปลาไหล','เขาย้อย','เพชรบุรี','ภาคตะวันตก'),
 	 (760206,76140,'หนองปรง','เขาย้อย','เพชรบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (760207,76140,'หนองชุมพล','เขาย้อย','เพชรบุรี','ภาคตะวันตก'),
 	 (760208,76140,'ห้วยโรง','เขาย้อย','เพชรบุรี','ภาคตะวันตก'),
 	 (760209,76140,'ห้วยท่าช้าง','เขาย้อย','เพชรบุรี','ภาคตะวันตก'),
@@ -16308,7 +16308,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (760616,76150,'ท่าช้าง','บ้านลาด','เพชรบุรี','ภาคตะวันตก'),
 	 (760605,76150,'สมอพลือ','บ้านลาด','เพชรบุรี','ภาคตะวันตก'),
 	 (760601,76150,'บ้านลาด','บ้านลาด','เพชรบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (760607,76150,'ท่าเสน','บ้านลาด','เพชรบุรี','ภาคตะวันตก'),
 	 (760608,76150,'หนองกระเจ็ด','บ้านลาด','เพชรบุรี','ภาคตะวันตก'),
 	 (760609,76150,'หนองกะปุ','บ้านลาด','เพชรบุรี','ภาคตะวันตก'),
@@ -16319,7 +16319,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (760613,76150,'โรงเข้','บ้านลาด','เพชรบุรี','ภาคตะวันตก'),
 	 (760602,76150,'บ้านหาด','บ้านลาด','เพชรบุรี','ภาคตะวันตก'),
 	 (760612,76150,'ไร่โคก','บ้านลาด','เพชรบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (760615,76150,'ห้วยข้อง','บ้านลาด','เพชรบุรี','ภาคตะวันตก'),
 	 (760614,76150,'ไร่สะท้อน','บ้านลาด','เพชรบุรี','ภาคตะวันตก'),
 	 (760303,76160,'ยางน้ำกลัดใต้','หนองหญ้าปล้อง','เพชรบุรี','ภาคตะวันตก'),
@@ -16330,7 +16330,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (760806,76170,'ห้วยแม่เพรียง','แก่งกระจาน','เพชรบุรี','ภาคตะวันตก'),
 	 (760805,76170,'พุสวรรค์','แก่งกระจาน','เพชรบุรี','ภาคตะวันตก'),
 	 (760804,76170,'ป่าเด็ง','แก่งกระจาน','เพชรบุรี','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (760802,76170,'สองพี่น้อง','แก่งกระจาน','เพชรบุรี','ภาคตะวันตก'),
 	 (760801,76170,'แก่งกระจาน','แก่งกระจาน','เพชรบุรี','ภาคตะวันตก'),
 	 (770102,77000,'เกาะหลัก','เมืองประจวบคีรีขันธ์','ประจวบคีรีขันธ์','ภาคตะวันตก'),
@@ -16341,7 +16341,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (770701,77110,'หัวหิน','หัวหิน','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770704,77110,'หนองพลับ','หัวหิน','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770705,77110,'ทับใต้','หัวหิน','ประจวบคีรีขันธ์','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (770702,77110,'หนองแก','หัวหิน','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770706,77110,'ห้วยสัตว์ใหญ่','หัวหิน','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770707,77110,'บึงนคร','หัวหิน','ประจวบคีรีขันธ์','ภาคตะวันตก'),
@@ -16352,7 +16352,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (770801,77120,'สามร้อยยอด','สามร้อยยอด','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770608,77120,'วังก์พง','ปราณบุรี','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770602,77120,'เขาน้อย','ปราณบุรี','ประจวบคีรีขันธ์','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (770302,77130,'อ่างทอง','ทับสะแก','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770303,77130,'นาหูกวาง','ทับสะแก','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770301,77130,'ทับสะแก','ทับสะแก','ประจวบคีรีขันธ์','ภาคตะวันตก'),
@@ -16363,7 +16363,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (770401,77140,'กำเนิดนพคุณ','บางสะพาน','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770402,77140,'พงศ์ประศาสน์','บางสะพาน','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770207,77150,'หาดขาม','กุยบุรี','ประจวบคีรีขันธ์','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (770206,77150,'สามกระทาย','กุยบุรี','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770203,77150,'เขาแดง','กุยบุรี','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770202,77150,'กุยเหนือ','กุยบุรี','ประจวบคีรีขันธ์','ภาคตะวันตก'),
@@ -16374,7 +16374,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (770504,77170,'ช้างแรก','บางสะพานน้อย','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770503,77170,'ทรายทอง','บางสะพานน้อย','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770502,77170,'บางสะพาน','บางสะพานน้อย','ประจวบคีรีขันธ์','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (770505,77170,'ไชยราช','บางสะพานน้อย','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770805,77180,'ไร่ใหม่','สามร้อยยอด','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770804,77180,'ศาลาลัย','สามร้อยยอด','ประจวบคีรีขันธ์','ภาคตะวันตก'),
@@ -16385,7 +16385,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (770106,77210,'บ่อนอก','เมืองประจวบคีรีขันธ์','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770105,77210,'อ่าวน้อย','เมืองประจวบคีรีขันธ์','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770604,77220,'ปากน้ำปราณ','ปราณบุรี','ประจวบคีรีขันธ์','ภาคตะวันตก');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (770403,77230,'ร่อนทอง','บางสะพาน','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (770406,77230,'ทองมงคล','บางสะพาน','ประจวบคีรีขันธ์','ภาคตะวันตก'),
 	 (800103,80000,'คลัง','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้'),
@@ -16396,7 +16396,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (800115,80000,'นาเคียน','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้'),
 	 (800113,80000,'ไชยมนตรี','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้'),
 	 (802004,80000,'ช้างซ้าย','พระพรหม','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (800118,80000,'โพธิ์เสด็จ','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้'),
 	 (802001,80000,'นาพรุ','พระพรหม','นครศรีธรรมราช','ภาคใต้'),
 	 (800114,80000,'มะม่วงสองต้น','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้'),
@@ -16407,7 +16407,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (800122,80000,'ท่าเรือ','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้'),
 	 (800902,80110,'ชะมาย','ทุ่งสง','นครศรีธรรมราช','ภาคใต้'),
 	 (800904,80110,'ควนกรด','ทุ่งสง','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (800910,80110,'น้ำตก','ทุ่งสง','นครศรีธรรมราช','ภาคใต้'),
 	 (800911,80110,'ถ้ำใหญ่','ทุ่งสง','นครศรีธรรมราช','ภาคใต้'),
 	 (800906,80110,'นาหลวงเสน','ทุ่งสง','นครศรีธรรมราช','ภาคใต้'),
@@ -16418,7 +16418,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (800903,80110,'หนองหงส์','ทุ่งสง','นครศรีธรรมราช','ภาคใต้'),
 	 (800907,80110,'เขาโร','ทุ่งสง','นครศรีธรรมราช','ภาคใต้'),
 	 (800909,80110,'ที่วัง','ทุ่งสง','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (801405,80120,'เปลี่ยน','สิชล','นครศรีธรรมราช','ภาคใต้'),
 	 (801406,80120,'สี่ขีด','สิชล','นครศรีธรรมราช','ภาคใต้'),
 	 (801408,80120,'เขาน้อย','สิชล','นครศรีธรรมราช','ภาคใต้'),
@@ -16429,7 +16429,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (801904,80130,'ทุ่งโพธิ์','จุฬาภรณ์','นครศรีธรรมราช','ภาคใต้'),
 	 (801906,80130,'สามตำบล','จุฬาภรณ์','นครศรีธรรมราช','ภาคใต้'),
 	 (801905,80130,'นาหมอบุญ','จุฬาภรณ์','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (801903,80130,'ควนหนองคว้า','จุฬาภรณ์','นครศรีธรรมราช','ภาคใต้'),
 	 (801301,80130,'ร่อนพิบูลย์','ร่อนพิบูลย์','นครศรีธรรมราช','ภาคใต้'),
 	 (801304,80130,'ควนเกย','ร่อนพิบูลย์','นครศรีธรรมราช','ภาคใต้'),
@@ -16440,7 +16440,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (801208,80140,'หูล่อง','ปากพนัง','นครศรีธรรมราช','ภาคใต้'),
 	 (801216,80140,'ท่าพยา','ปากพนัง','นครศรีธรรมราช','ภาคใต้'),
 	 (801203,80140,'ป่าระกำ','ปากพนัง','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (801217,80140,'ปากแพรก','ปากพนัง','นครศรีธรรมราช','ภาคใต้'),
 	 (801214,80140,'ปากพนังฝั่งตะวันออก','ปากพนัง','นครศรีธรรมราช','ภาคใต้'),
 	 (801201,80140,'ปากพนัง','ปากพนัง','นครศรีธรรมราช','ภาคใต้'),
@@ -16451,7 +16451,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (801207,80140,'บ้านใหม่','ปากพนัง','นครศรีธรรมราช','ภาคใต้'),
 	 (801205,80140,'คลองกระบือ','ปากพนัง','นครศรีธรรมราช','ภาคใต้'),
 	 (801213,80140,'บางตะพง','ปากพนัง','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (800410,80150,'ไสหร้า','ฉวาง','นครศรีธรรมราช','ภาคใต้'),
 	 (800407,80150,'นากะชะ','ฉวาง','นครศรีธรรมราช','ภาคใต้'),
 	 (800404,80150,'นาแว','ฉวาง','นครศรีธรรมราช','ภาคใต้'),
@@ -16462,7 +16462,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (800809,80160,'ไทยบุรี','ท่าศาลา','นครศรีธรรมราช','ภาคใต้'),
 	 (800810,80160,'ดอนตะโก','ท่าศาลา','นครศรีธรรมราช','ภาคใต้'),
 	 (800811,80160,'ตลิ่งชัน','ท่าศาลา','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (800803,80160,'ท่าขึ้น','ท่าศาลา','นครศรีธรรมราช','ภาคใต้'),
 	 (800801,80160,'ท่าศาลา','ท่าศาลา','นครศรีธรรมราช','ภาคใต้'),
 	 (800804,80160,'หัวตะพาน','ท่าศาลา','นครศรีธรรมราช','ภาคใต้'),
@@ -16473,7 +16473,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (802102,80160,'กรุงชิง','นบพิตำ','นครศรีธรรมราช','ภาคใต้'),
 	 (802104,80160,'นาเหรง','นบพิตำ','นครศรีธรรมราช','ภาคใต้'),
 	 (801601,80170,'หัวไทร','หัวไทร','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (801608,80170,'ท่าซอม','หัวไทร','นครศรีธรรมราช','ภาคใต้'),
 	 (801603,80170,'ทรายขาว','หัวไทร','นครศรีธรรมราช','ภาคใต้'),
 	 (801609,80170,'ควนชะลิก','หัวไทร','นครศรีธรรมราช','ภาคใต้'),
@@ -16484,7 +16484,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (801611,80170,'เกาะเพชร','หัวไทร','นครศรีธรรมราช','ภาคใต้'),
 	 (801610,80170,'รามแก้ว','หัวไทร','นครศรีธรรมราช','ภาคใต้'),
 	 (801602,80170,'หน้าสตน','หัวไทร','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (801901,80180,'บ้านควนมุด','จุฬาภรณ์','นครศรีธรรมราช','ภาคใต้'),
 	 (800705,80180,'วังอ่าง','ชะอวด','นครศรีธรรมราช','ภาคใต้'),
 	 (800711,80180,'นางหลง','ชะอวด','นครศรีธรรมราช','ภาคใต้'),
@@ -16495,7 +16495,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (800704,80180,'เคร็ง','ชะอวด','นครศรีธรรมราช','ภาคใต้'),
 	 (800706,80180,'บ้านตูล','ชะอวด','นครศรีธรรมราช','ภาคใต้'),
 	 (800710,80180,'เขาพระทอง','ชะอวด','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (800707,80180,'ขอนหาด','ชะอวด','นครศรีธรรมราช','ภาคใต้'),
 	 (800708,80180,'เกาะขันธ์','ชะอวด','นครศรีธรรมราช','ภาคใต้'),
 	 (800709,80180,'ควนหนองหงษ์','ชะอวด','นครศรีธรรมราช','ภาคใต้'),
@@ -16506,7 +16506,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (800604,80190,'บ้านกลาง','เชียรใหญ่','นครศรีธรรมราช','ภาคใต้'),
 	 (800607,80190,'ท้องลำเจียก','เชียรใหญ่','นครศรีธรรมราช','ภาคใต้'),
 	 (800601,80190,'เชียรใหญ่','เชียรใหญ่','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (800612,80190,'เขาพระบาท','เชียรใหญ่','นครศรีธรรมราช','ภาคใต้'),
 	 (800611,80190,'การะเกด','เชียรใหญ่','นครศรีธรรมราช','ภาคใต้'),
 	 (800603,80190,'ท่าขนาน','เชียรใหญ่','นครศรีธรรมราช','ภาคใต้'),
@@ -16517,7 +16517,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (801503,80210,'ท้องเนียน','ขนอม','นครศรีธรรมราช','ภาคใต้'),
 	 (801001,80220,'นาบอน','นาบอน','นครศรีธรรมราช','ภาคใต้'),
 	 (801002,80220,'ทุ่งสง','นาบอน','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (801003,80220,'แก้วแสน','นาบอน','นครศรีธรรมราช','ภาคใต้'),
 	 (802201,80220,'ช้างกลาง','ช้างกลาง','นครศรีธรรมราช','ภาคใต้'),
 	 (800303,80230,'ท่าดี','ลานสกา','นครศรีธรรมราช','ภาคใต้'),
@@ -16528,7 +16528,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (810203,80240,'สินปุน','เขาพนม','กระบี่','ภาคใต้'),
 	 (810206,80240,'โคกหาร','เขาพนม','กระบี่','ภาคใต้'),
 	 (801105,80240,'ปริก','ทุ่งใหญ่','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (801101,80240,'ท่ายาง','ทุ่งใหญ่','นครศรีธรรมราช','ภาคใต้'),
 	 (801104,80240,'กุแหระ','ทุ่งใหญ่','นครศรีธรรมราช','ภาคใต้'),
 	 (801107,80240,'กรุงหยัน','ทุ่งใหญ่','นครศรีธรรมราช','ภาคใต้'),
@@ -16539,7 +16539,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (802202,80250,'หลักช้าง','ช้างกลาง','นครศรีธรรมราช','ภาคใต้'),
 	 (800416,80250,'จันดี','ฉวาง','นครศรีธรรมราช','ภาคใต้'),
 	 (800403,80250,'ละอาย','ฉวาง','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (801003,80250,'แก้วแสน','นาบอน','นครศรีธรรมราช','ภาคใต้'),
 	 (802201,80250,'ช้างกลาง','ช้างกลาง','นครศรีธรรมราช','ภาคใต้'),
 	 (800401,80250,'ฉวาง','ฉวาง','นครศรีธรรมราช','ภาคใต้'),
@@ -16550,7 +16550,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (800409,80260,'ห้วยปริก','ฉวาง','นครศรีธรรมราช','ภาคใต้'),
 	 (801802,80260,'คลองเส','ถ้ำพรรณรา','นครศรีธรรมราช','ภาคใต้'),
 	 (800407,80260,'นากะชะ','ฉวาง','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (800405,80260,'ไม้เรียง','ฉวาง','นครศรีธรรมราช','ภาคใต้'),
 	 (800404,80260,'นาแว','ฉวาง','นครศรีธรรมราช','ภาคใต้'),
 	 (800502,80270,'กะทูน','พิปูน','นครศรีธรรมราช','ภาคใต้'),
@@ -16561,7 +16561,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (800116,80280,'ท่างิ้ว','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้'),
 	 (800108,80280,'นาทราย','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้'),
 	 (800112,80280,'กำแพงเซา','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (802302,80290,'ดอนตรอ','เฉลิมพระเกียรติ','นครศรีธรรมราช','ภาคใต้'),
 	 (802304,80290,'ทางพูน','เฉลิมพระเกียรติ','นครศรีธรรมราช','ภาคใต้'),
 	 (800122,80290,'ท่าเรือ','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้'),
@@ -16572,7 +16572,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (800204,80320,'ทอนหงส์','พรหมคีรี','นครศรีธรรมราช','ภาคใต้'),
 	 (800203,80320,'อินคีรี','พรหมคีรี','นครศรีธรรมราช','ภาคใต้'),
 	 (800205,80320,'นาเรียง','พรหมคีรี','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (800202,80320,'บ้านเกาะ','พรหมคีรี','นครศรีธรรมราช','ภาคใต้'),
 	 (800119,80330,'บางจาก','เมืองนครศรีธรรมราช','นครศรีธรรมราช','ภาคใต้'),
 	 (801204,80330,'ชะเมา','ปากพนัง','นครศรีธรรมราช','ภาคใต้'),
@@ -16583,7 +16583,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (801303,80350,'เสาธง','ร่อนพิบูลย์','นครศรีธรรมราช','ภาคใต้'),
 	 (801302,80350,'หินตก','ร่อนพิบูลย์','นครศรีธรรมราช','ภาคใต้'),
 	 (802304,80350,'ทางพูน','เฉลิมพระเกียรติ','นครศรีธรรมราช','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (801704,80360,'บ้านนิคม','บางขัน','นครศรีธรรมราช','ภาคใต้'),
 	 (801702,80360,'บ้านลำนาว','บางขัน','นครศรีธรรมราช','ภาคใต้'),
 	 (801701,80360,'บางขัน','บางขัน','นครศรีธรรมราช','ภาคใต้'),
@@ -16594,7 +16594,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (810111,81000,'ทับปริก','เมืองกระบี่','กระบี่','ภาคใต้'),
 	 (810118,81000,'คลองประสงค์','เมืองกระบี่','กระบี่','ภาคใต้'),
 	 (810106,81000,'เขาทอง','เมืองกระบี่','กระบี่','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (810105,81000,'เขาคราม','เมืองกระบี่','กระบี่','ภาคใต้'),
 	 (810102,81000,'กระบี่ใหญ่','เมืองกระบี่','กระบี่','ภาคใต้'),
 	 (810103,81000,'กระบี่น้อย','เมืองกระบี่','กระบี่','ภาคใต้'),
@@ -16605,7 +16605,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (810502,81110,'แหลมสัก','อ่าวลึก','กระบี่','ภาคใต้'),
 	 (810507,81110,'เขาใหญ่','อ่าวลึก','กระบี่','ภาคใต้'),
 	 (810501,81110,'อ่าวลึกใต้','อ่าวลึก','กระบี่','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (810506,81110,'อ่าวลึกเหนือ','อ่าวลึก','กระบี่','ภาคใต้'),
 	 (810509,81110,'บ้านกลาง','อ่าวลึก','กระบี่','ภาคใต้'),
 	 (810505,81110,'อ่าวลึกน้อย','อ่าวลึก','กระบี่','ภาคใต้'),
@@ -16616,7 +16616,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (810304,81120,'คลองยาง','เกาะลันตา','กระบี่','ภาคใต้'),
 	 (810303,81120,'เกาะกลาง','เกาะลันตา','กระบี่','ภาคใต้'),
 	 (810406,81120,'พรุดินนา','คลองท่อม','กระบี่','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (810803,81130,'คลองขนาน','เหนือคลอง','กระบี่','ภาคใต้'),
 	 (810804,81130,'คลองเขม้า','เหนือคลอง','กระบี่','ภาคใต้'),
 	 (810805,81130,'โคกยาง','เหนือคลอง','กระบี่','ภาคใต้'),
@@ -16627,7 +16627,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (810801,81130,'เหนือคลอง','เหนือคลอง','กระบี่','ภาคใต้'),
 	 (810204,81140,'พรุเตียว','เขาพนม','กระบี่','ภาคใต้'),
 	 (810202,81140,'เขาดิน','เขาพนม','กระบี่','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (810205,81140,'หน้าเขา','เขาพนม','กระบี่','ภาคใต้'),
 	 (810201,81140,'เขาพนม','เขาพนม','กระบี่','ภาคใต้'),
 	 (810302,81150,'เกาะลันตาน้อย','เกาะลันตา','กระบี่','ภาคใต้'),
@@ -16638,7 +16638,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (810603,81160,'เขาต่อ','ปลายพระยา','กระบี่','ภาคใต้'),
 	 (810602,81160,'เขาเขน','ปลายพระยา','กระบี่','ภาคใต้'),
 	 (810403,81170,'คลองพน','คลองท่อม','กระบี่','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (810404,81170,'ทรายขาว','คลองท่อม','กระบี่','ภาคใต้'),
 	 (810701,81190,'ลำทับ','ลำทับ','กระบี่','ภาคใต้'),
 	 (810702,81190,'ดินอุดม','ลำทับ','กระบี่','ภาคใต้'),
@@ -16649,7 +16649,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (820103,82000,'ถ้ำน้ำผุด','เมืองพังงา','พังงา','ภาคใต้'),
 	 (820107,82000,'ทุ่งคาโงก','เมืองพังงา','พังงา','ภาคใต้'),
 	 (820108,82000,'เกาะปันหยี','เมืองพังงา','พังงา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (820102,82000,'นบปริง','เมืองพังงา','พังงา','ภาคใต้'),
 	 (820101,82000,'ท้ายช้าง','เมืองพังงา','พังงา','ภาคใต้'),
 	 (820109,82000,'ป่ากอ','เมืองพังงา','พังงา','ภาคใต้'),
@@ -16660,7 +16660,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (820505,82110,'ตำตัว','ตะกั่วป่า','พังงา','ภาคใต้'),
 	 (820506,82110,'โคกเคียน','ตะกั่วป่า','พังงา','ภาคใต้'),
 	 (820504,82110,'บางม่วง','ตะกั่วป่า','พังงา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (820805,82120,'ลำภี','ท้ายเหมือง','พังงา','ภาคใต้'),
 	 (820804,82120,'ทุ่งมะพร้าว','ท้ายเหมือง','พังงา','ภาคใต้'),
 	 (820803,82120,'บางทอง','ท้ายเหมือง','พังงา','ภาคใต้'),
@@ -16671,7 +16671,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (820407,82130,'คลองเคียน','ตะกั่วทุ่ง','พังงา','ภาคใต้'),
 	 (820404,82130,'ท่าอยู่','ตะกั่วทุ่ง','พังงา','ภาคใต้'),
 	 (820403,82130,'กะไหล','ตะกั่วทุ่ง','พังงา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (820402,82130,'กระโสม','ตะกั่วทุ่ง','พังงา','ภาคใต้'),
 	 (820406,82140,'โคกกลอย','ตะกั่วทุ่ง','พังงา','ภาคใต้'),
 	 (820405,82140,'หล่อยูง','ตะกั่วทุ่ง','พังงา','ภาคใต้'),
@@ -16682,7 +16682,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (820202,82160,'เกาะยาวใหญ่','เกาะยาว','พังงา','ภาคใต้'),
 	 (820201,82160,'เกาะยาวน้อย','เกาะยาว','พังงา','ภาคใต้'),
 	 (820302,82170,'ท่านา','กะปง','พังงา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (820305,82170,'รมณีย์','กะปง','พังงา','ภาคใต้'),
 	 (820303,82170,'เหมาะ','กะปง','พังงา','ภาคใต้'),
 	 (820301,82170,'กะปง','กะปง','พังงา','ภาคใต้'),
@@ -16693,7 +16693,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (820703,82180,'บ่อแสน','ทับปุด','พังงา','ภาคใต้'),
 	 (820706,82180,'บางเหรียง','ทับปุด','พังงา','ภาคใต้'),
 	 (820704,82180,'ถ้ำทองหลาง','ทับปุด','พังงา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (820508,82190,'เกาะคอเขา','ตะกั่วป่า','พังงา','ภาคใต้'),
 	 (820507,82190,'คึกคัก','ตะกั่วป่า','พังงา','ภาคใต้'),
 	 (820504,82190,'บางม่วง','ตะกั่วป่า','พังงา','ภาคใต้'),
@@ -16704,7 +16704,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (830105,83000,'วิชิต','เมืองภูเก็ต','ภูเก็ต','ภาคใต้'),
 	 (830103,83000,'เกาะแก้ว','เมืองภูเก็ต','ภูเก็ต','ภาคใต้'),
 	 (830102,83000,'ตลาดเหนือ','เมืองภูเก็ต','ภูเก็ต','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (830108,83100,'กะรน','เมืองภูเก็ต','ภูเก็ต','ภาคใต้'),
 	 (830302,83110,'ศรีสุนทร','ถลาง','ภูเก็ต','ภาคใต้'),
 	 (830301,83110,'เทพกระษัตรี','ถลาง','ภูเก็ต','ภาคใต้'),
@@ -16715,7 +16715,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (830201,83120,'กะทู้','กะทู้','ภูเก็ต','ภาคใต้'),
 	 (830106,83130,'ฉลอง','เมืองภูเก็ต','ภูเก็ต','ภาคใต้'),
 	 (830107,83130,'ราไวย์','เมืองภูเก็ต','ภูเก็ต','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (830202,83150,'ป่าตอง','กะทู้','ภูเก็ต','ภาคใต้'),
 	 (830203,83150,'กมลา','กะทู้','ภูเก็ต','ภาคใต้'),
 	 (840110,84000,'บางกุ้ง','เมืองสุราษฎร์ธานี','สุราษฎร์ธานี','ภาคใต้'),
@@ -16726,7 +16726,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (840107,84000,'คลองน้อย','เมืองสุราษฎร์ธานี','สุราษฎร์ธานี','ภาคใต้'),
 	 (840106,84000,'บางชนะ','เมืองสุราษฎร์ธานี','สุราษฎร์ธานี','ภาคใต้'),
 	 (840101,84000,'ตลาด','เมืองสุราษฎร์ธานี','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (840102,84000,'มะขามเตี้ย','เมืองสุราษฎร์ธานี','สุราษฎร์ธานี','ภาคใต้'),
 	 (840103,84000,'วัดประดู่','เมืองสุราษฎร์ธานี','สุราษฎร์ธานี','ภาคใต้'),
 	 (840104,84100,'ขุนทะเล','เมืองสุราษฎร์ธานี','สุราษฎร์ธานี','ภาคใต้'),
@@ -16737,7 +16737,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (840607,84110,'ตะกรบ','ไชยา','สุราษฎร์ธานี','ภาคใต้'),
 	 (840606,84110,'ป่าเว','ไชยา','สุราษฎร์ธานี','ภาคใต้'),
 	 (840604,84110,'เวียง','ไชยา','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (840603,84110,'เลม็ด','ไชยา','สุราษฎร์ธานี','ภาคใต้'),
 	 (840609,84110,'ปากหมาก','ไชยา','สุราษฎร์ธานี','ภาคใต้'),
 	 (841201,84120,'นาสาร','บ้านนาสาร','สุราษฎร์ธานี','ภาคใต้'),
@@ -16748,7 +16748,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (841210,84120,'ทุ่งเตาใหม่','บ้านนาสาร','สุราษฎร์ธานี','ภาคใต้'),
 	 (841205,84120,'ท่าชี','บ้านนาสาร','สุราษฎร์ธานี','ภาคใต้'),
 	 (841211,84120,'เพิ่มพูนทรัพย์','บ้านนาสาร','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (841207,84120,'ควนสุบรรณ','บ้านนาสาร','สุราษฎร์ธานี','ภาคใต้'),
 	 (841701,84130,'ท่าข้าม','พุนพิน','สุราษฎร์ธานี','ภาคใต้'),
 	 (841708,84130,'พุนพิน','พุนพิน','สุราษฎร์ธานี','ภาคใต้'),
@@ -16759,7 +16759,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (841713,84130,'หัวเตย','พุนพิน','สุราษฎร์ธานี','ภาคใต้'),
 	 (841706,84130,'ท่าโรงช้าง','พุนพิน','สุราษฎร์ธานี','ภาคใต้'),
 	 (841712,84130,'มะลวน','พุนพิน','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (841711,84130,'น้ำรอบ','พุนพิน','สุราษฎร์ธานี','ภาคใต้'),
 	 (841710,84130,'ศรีวิชัย','พุนพิน','สุราษฎร์ธานี','ภาคใต้'),
 	 (841709,84130,'บางงอน','พุนพิน','สุราษฎร์ธานี','ภาคใต้'),
@@ -16770,7 +16770,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (840404,84140,'หน้าเมือง','เกาะสมุย','สุราษฎร์ธานี','ภาคใต้'),
 	 (840403,84140,'ตลิ่งงาม','เกาะสมุย','สุราษฎร์ธานี','ภาคใต้'),
 	 (840402,84140,'ลิปะน้อย','เกาะสมุย','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (840401,84140,'อ่างทอง','เกาะสมุย','สุราษฎร์ธานี','ภาคใต้'),
 	 (841101,84150,'ท่าฉาง','ท่าฉาง','สุราษฎร์ธานี','ภาคใต้'),
 	 (841106,84150,'ปากฉลุย','ท่าฉาง','สุราษฎร์ธานี','ภาคใต้'),
@@ -16781,7 +16781,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (840209,84160,'ตะเคียนทอง','กาญจนดิษฐ์','สุราษฎร์ธานี','ภาคใต้'),
 	 (840210,84160,'ช้างขวา','กาญจนดิษฐ์','สุราษฎร์ธานี','ภาคใต้'),
 	 (840208,84160,'ป่าร่อน','กาญจนดิษฐ์','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (840213,84160,'คลองสระ','กาญจนดิษฐ์','สุราษฎร์ธานี','ภาคใต้'),
 	 (840302,84160,'ชลคราม','ดอนสัก','สุราษฎร์ธานี','ภาคใต้'),
 	 (840206,84160,'ช้างซ้าย','กาญจนดิษฐ์','สุราษฎร์ธานี','ภาคใต้'),
@@ -16792,7 +16792,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (840211,84160,'ท่าอุแท','กาญจนดิษฐ์','สุราษฎร์ธานี','ภาคใต้'),
 	 (840701,84170,'ท่าชนะ','ท่าชนะ','สุราษฎร์ธานี','ภาคใต้'),
 	 (840702,84170,'สมอทอง','ท่าชนะ','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (840703,84170,'ประสงค์','ท่าชนะ','สุราษฎร์ธานี','ภาคใต้'),
 	 (840704,84170,'คันธุลี','ท่าชนะ','สุราษฎร์ธานี','ภาคใต้'),
 	 (840706,84170,'คลองพา','ท่าชนะ','สุราษฎร์ธานี','ภาคใต้'),
@@ -16803,7 +16803,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (840806,84180,'กะเปา','คีรีรัฐนิคม','สุราษฎร์ธานี','ภาคใต้'),
 	 (840803,84180,'น้ำหัก','คีรีรัฐนิคม','สุราษฎร์ธานี','ภาคใต้'),
 	 (840802,84180,'บ้านยาง','คีรีรัฐนิคม','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (840801,84180,'ท่าขนอน','คีรีรัฐนิคม','สุราษฎร์ธานี','ภาคใต้'),
 	 (840810,84180,'บ้านทำเนียบ','คีรีรัฐนิคม','สุราษฎร์ธานี','ภาคใต้'),
 	 (841504,84190,'ทุ่งหลวง','เวียงสระ','สุราษฎร์ธานี','ภาคใต้'),
@@ -16814,7 +16814,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (841606,84210,'ไทรโสภา','พระแสง','สุราษฎร์ธานี','ภาคใต้'),
 	 (841605,84210,'สินเจริญ','พระแสง','สุราษฎร์ธานี','ภาคใต้'),
 	 (841402,84210,'พ่วงพรมคร','เคียนซา','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (841604,84210,'ไทรขึง','พระแสง','สุราษฎร์ธานี','ภาคใต้'),
 	 (841603,84210,'บางสวรรค์','พระแสง','สุราษฎร์ธานี','ภาคใต้'),
 	 (841602,84210,'สินปุน','พระแสง','สุราษฎร์ธานี','ภาคใต้'),
@@ -16825,7 +16825,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (840401,84220,'อ่างทอง','เกาะสมุย','สุราษฎร์ธานี','ภาคใต้'),
 	 (840904,84230,'เขาพัง','บ้านตาขุน','สุราษฎร์ธานี','ภาคใต้'),
 	 (840903,84230,'พรุไทย','บ้านตาขุน','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (840902,84230,'พะแสง','บ้านตาขุน','สุราษฎร์ธานี','ภาคใต้'),
 	 (840901,84230,'เขาวง','บ้านตาขุน','สุราษฎร์ธานี','ภาคใต้'),
 	 (841302,84240,'ท่าเรือ','บ้านนาเดิม','สุราษฎร์ธานี','ภาคใต้'),
@@ -16836,7 +16836,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (841001,84250,'พนม','พนม','สุราษฎร์ธานี','ภาคใต้'),
 	 (841002,84250,'ต้นยวน','พนม','สุราษฎร์ธานี','ภาคใต้'),
 	 (841003,84250,'คลองศก','พนม','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (841004,84250,'พลูเถื่อน','พนม','สุราษฎร์ธานี','ภาคใต้'),
 	 (841005,84250,'พังกาญจน์','พนม','สุราษฎร์ธานี','ภาคใต้'),
 	 (841006,84250,'คลองชะอุ่น','พนม','สุราษฎร์ธานี','ภาคใต้'),
@@ -16847,7 +16847,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (841206,84270,'ควนศรี','บ้านนาสาร','สุราษฎร์ธานี','ภาคใต้'),
 	 (841202,84270,'พรุพี','บ้านนาสาร','สุราษฎร์ธานี','ภาคใต้'),
 	 (840501,84280,'เกาะพะงัน','เกาะพะงัน','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (840502,84280,'บ้านใต้','เกาะพะงัน','สุราษฎร์ธานี','ภาคใต้'),
 	 (840201,84290,'ท่าทองใหม่','กาญจนดิษฐ์','สุราษฎร์ธานี','ภาคใต้'),
 	 (840212,84290,'ทุ่งรัง','กาญจนดิษฐ์','สุราษฎร์ธานี','ภาคใต้'),
@@ -16858,7 +16858,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (840304,84340,'ปากแพรก','ดอนสัก','สุราษฎร์ธานี','ภาคใต้'),
 	 (840211,84340,'ท่าอุแท','กาญจนดิษฐ์','สุราษฎร์ธานี','ภาคใต้'),
 	 (841803,84350,'คลองน้อย','ชัยบุรี','สุราษฎร์ธานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (841802,84350,'ชัยบุรี','ชัยบุรี','สุราษฎร์ธานี','ภาคใต้'),
 	 (841804,84350,'ไทรทอง','ชัยบุรี','สุราษฎร์ธานี','ภาคใต้'),
 	 (841801,84350,'สองแพรก','ชัยบุรี','สุราษฎร์ธานี','ภาคใต้'),
@@ -16869,7 +16869,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (850103,85000,'หงาว','เมืองระนอง','ระนอง','ภาคใต้'),
 	 (850104,85000,'บางริ้น','เมืองระนอง','ระนอง','ภาคใต้'),
 	 (850109,85000,'เกาะพยาม','เมืองระนอง','ระนอง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (850107,85000,'หาดส้มแป้น','เมืองระนอง','ระนอง','ภาคใต้'),
 	 (850106,85000,'บางนอน','เมืองระนอง','ระนอง','ภาคใต้'),
 	 (850101,85000,'เขานิเวศน์','เมืองระนอง','ระนอง','ภาคใต้'),
@@ -16880,7 +16880,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (850406,85110,'จ.ป.ร.','กระบุรี','ระนอง','ภาคใต้'),
 	 (850405,85110,'ลำเลียง','กระบุรี','ระนอง','ภาคใต้'),
 	 (850403,85110,'มะมุ','กระบุรี','ระนอง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (850404,85110,'ปากจั่น','กระบุรี','ระนอง','ภาคใต้'),
 	 (850303,85120,'เชี่ยวเหลียง','กะเปอร์','ระนอง','ภาคใต้'),
 	 (850305,85120,'บางหิน','กะเปอร์','ระนอง','ภาคใต้'),
@@ -16891,7 +16891,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (850501,85120,'นาคา','สุขสำราญ','ระนอง','ภาคใต้'),
 	 (850206,85130,'ในวงเหนือ','ละอุ่น','ระนอง','ภาคใต้'),
 	 (850205,85130,'บางแก้ว','ละอุ่น','ระนอง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (850204,85130,'บางพระเหนือ','ละอุ่น','ระนอง','ภาคใต้'),
 	 (850203,85130,'บางพระใต้','ละอุ่น','ระนอง','ภาคใต้'),
 	 (850201,85130,'ละอุ่นใต้','ละอุ่น','ระนอง','ภาคใต้'),
@@ -16902,7 +16902,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (860106,86000,'นาชะอัง','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860105,86000,'นาทุ่ง','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860108,86000,'บางลึก','เมืองชุมพร','ชุมพร','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (860104,86000,'บางหมาก','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860109,86000,'หาดพันไกร','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860103,86000,'ท่ายาง','เมืองชุมพร','ชุมพร','ภาคใต้'),
@@ -16913,7 +16913,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (860117,86100,'ถ้ำสิงห์','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860114,86100,'ทุ่งคา','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860403,86110,'ท่ามะพลา','หลังสวน','ชุมพร','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (860404,86110,'นาขา','หลังสวน','ชุมพร','ภาคใต้'),
 	 (860405,86110,'นาพญา','หลังสวน','ชุมพร','ภาคใต้'),
 	 (860406,86110,'บ้านควน','หลังสวน','ชุมพร','ภาคใต้'),
@@ -16924,7 +16924,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (860411,86110,'แหลมทราย','หลังสวน','ชุมพร','ภาคใต้'),
 	 (860412,86110,'วังตะกอ','หลังสวน','ชุมพร','ภาคใต้'),
 	 (860407,86110,'บางมะพร้าว','หลังสวน','ชุมพร','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (860116,86120,'หาดทรายรี','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860102,86120,'ปากน้ำ','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860103,86120,'ท่ายาง','เมืองชุมพร','ชุมพร','ภาคใต้'),
@@ -16935,7 +16935,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (860703,86130,'ทุ่งระยะ','สวี','ชุมพร','ภาคใต้'),
 	 (860704,86130,'ท่าหิน','สวี','ชุมพร','ภาคใต้'),
 	 (860702,86130,'สวี','สวี','ชุมพร','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (860708,86130,'วิสัยใต้','สวี','ชุมพร','ภาคใต้'),
 	 (860705,86130,'ปากแพรก','สวี','ชุมพร','ภาคใต้'),
 	 (860709,86130,'นาสัก','สวี','ชุมพร','ภาคใต้'),
@@ -16946,7 +16946,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (860207,86140,'หงษ์เจริญ','ท่าแซะ','ชุมพร','ภาคใต้'),
 	 (860209,86140,'ทรัพย์อนันต์','ท่าแซะ','ชุมพร','ภาคใต้'),
 	 (860203,86140,'สลุย','ท่าแซะ','ชุมพร','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (860202,86140,'คุริง','ท่าแซะ','ชุมพร','ภาคใต้'),
 	 (860204,86140,'นากระตาม','ท่าแซะ','ชุมพร','ภาคใต้'),
 	 (860205,86140,'รับร่อ','ท่าแซะ','ชุมพร','ภาคใต้'),
@@ -16957,7 +16957,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (860301,86160,'บางสน','ปะทิว','ชุมพร','ภาคใต้'),
 	 (860302,86160,'ทะเลทรัพย์','ปะทิว','ชุมพร','ภาคใต้'),
 	 (860504,86170,'ทุ่งคาวัด','ละแม','ชุมพร','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (860501,86170,'ละแม','ละแม','ชุมพร','ภาคใต้'),
 	 (860503,86170,'สวนแตง','ละแม','ชุมพร','ภาคใต้'),
 	 (860502,86170,'ทุ่งหลวง','ละแม','ชุมพร','ภาคใต้'),
@@ -16968,7 +16968,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (860112,86190,'บ้านนา','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860111,86190,'วังใหม่','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860208,86190,'หินแก้ว','ท่าแซะ','ชุมพร','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (860113,86190,'ขุนกระทิง','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860107,86190,'ตากแดด','เมืองชุมพร','ชุมพร','ภาคใต้'),
 	 (860205,86190,'รับร่อ','ท่าแซะ','ชุมพร','ภาคใต้'),
@@ -16979,7 +16979,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (860804,86220,'ช่องไม้แก้ว','ทุ่งตะโก','ชุมพร','ภาคใต้'),
 	 (860802,86220,'ทุ่งตะไคร','ทุ่งตะโก','ชุมพร','ภาคใต้'),
 	 (860801,86220,'ปากตะโก','ทุ่งตะโก','ชุมพร','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (860803,86220,'ตะโก','ทุ่งตะโก','ชุมพร','ภาคใต้'),
 	 (860303,86230,'สะพลี','ปะทิว','ชุมพร','ภาคใต้'),
 	 (900105,90000,'ทุ่งหวัง','เมืองสงขลา','สงขลา','ภาคใต้'),
@@ -16990,7 +16990,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (900106,90100,'เกาะยอ','เมืองสงขลา','สงขลา','ภาคใต้'),
 	 (901108,90110,'ฉลุง','หาดใหญ่','สงขลา','ภาคใต้'),
 	 (901112,90110,'ทุ่งตำเสา','หาดใหญ่','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (901101,90110,'หาดใหญ่','หาดใหญ่','สงขลา','ภาคใต้'),
 	 (901107,90110,'คลองอู่ตะเภา','หาดใหญ่','สงขลา','ภาคใต้'),
 	 (901102,90110,'ควนลัง','หาดใหญ่','สงขลา','ภาคใต้'),
@@ -17001,7 +17001,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (901111,90110,'ทุ่งใหญ่','หาดใหญ่','สงขลา','ภาคใต้'),
 	 (901401,90110,'บางกล่ำ','บางกล่ำ','สงขลา','ภาคใต้'),
 	 (901604,90110,'คลองหลา','คลองหอยโข่ง','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (901402,90110,'ท่าช้าง','บางกล่ำ','สงขลา','ภาคใต้'),
 	 (901404,90110,'บ้านหาร','บางกล่ำ','สงขลา','ภาคใต้'),
 	 (901403,90110,'แม่ทอม','บางกล่ำ','สงขลา','ภาคใต้'),
@@ -17012,7 +17012,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (901001,90120,'สะเดา','สะเดา','สงขลา','ภาคใต้'),
 	 (901002,90120,'ปริก','สะเดา','สงขลา','ภาคใต้'),
 	 (901008,90120,'สำนักขาม','สะเดา','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (900308,90130,'ขุนตัดหวาย','จะนะ','สงขลา','ภาคใต้'),
 	 (900312,90130,'แค','จะนะ','สงขลา','ภาคใต้'),
 	 (900314,90130,'ตลิ่งชัน','จะนะ','สงขลา','ภาคใต้'),
@@ -17023,7 +17023,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (900305,90130,'นาหว้า','จะนะ','สงขลา','ภาคใต้'),
 	 (900306,90130,'นาทับ','จะนะ','สงขลา','ภาคใต้'),
 	 (900304,90130,'สะกอม','จะนะ','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (900303,90130,'สะพานไม้แก่น','จะนะ','สงขลา','ภาคใต้'),
 	 (900302,90130,'ป่าชิง','จะนะ','สงขลา','ภาคใต้'),
 	 (900301,90130,'บ้านนา','จะนะ','สงขลา','ภาคใต้'),
@@ -17034,7 +17034,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (900708,90140,'พังยาง','ระโนด','สงขลา','ภาคใต้'),
 	 (900706,90140,'บ่อตรุ','ระโนด','สงขลา','ภาคใต้'),
 	 (900710,90140,'วัดสน','ระโนด','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (900705,90140,'บ้านใหม่','ระโนด','สงขลา','ภาคใต้'),
 	 (900702,90140,'คลองแดน','ระโนด','สงขลา','ภาคใต้'),
 	 (900703,90140,'ตะเครียะ','ระโนด','สงขลา','ภาคใต้'),
@@ -17045,7 +17045,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (900507,90150,'สะกอม','เทพา','สงขลา','ภาคใต้'),
 	 (900503,90150,'เกาะสะบ้า','เทพา','สงขลา','ภาคใต้'),
 	 (900502,90150,'ปากบาง','เทพา','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (900505,90150,'ท่าม่วง','เทพา','สงขลา','ภาคใต้'),
 	 (900410,90160,'คลองกวาง','นาทวี','สงขลา','ภาคใต้'),
 	 (900409,90160,'ประกอบ','นาทวี','สงขลา','ภาคใต้'),
@@ -17056,7 +17056,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (900406,90160,'ท่าประดู่','นาทวี','สงขลา','ภาคใต้'),
 	 (900402,90160,'ฉาง','นาทวี','สงขลา','ภาคใต้'),
 	 (900404,90160,'คลองทราย','นาทวี','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (900405,90160,'ปลักหนู','นาทวี','สงขลา','ภาคใต้'),
 	 (901003,90170,'พังลา','สะเดา','สงขลา','ภาคใต้'),
 	 (901006,90170,'ท่าโพธิ์','สะเดา','สงขลา','ภาคใต้'),
@@ -17067,7 +17067,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (900902,90180,'ท่าชะมวง','รัตภูมิ','สงขลา','ภาคใต้'),
 	 (900904,90180,'ควนรู','รัตภูมิ','สงขลา','ภาคใต้'),
 	 (900206,90190,'คลองรี','สทิงพระ','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (900205,90190,'ชุมพล','สทิงพระ','สงขลา','ภาคใต้'),
 	 (900204,90190,'ดีหลวง','สทิงพระ','สงขลา','ภาคใต้'),
 	 (900203,90190,'สนามชัย','สทิงพระ','สงขลา','ภาคใต้'),
@@ -17078,7 +17078,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (900210,90190,'บ่อแดง','สทิงพระ','สงขลา','ภาคใต้'),
 	 (900207,90190,'คูขุด','สทิงพระ','สงขลา','ภาคใต้'),
 	 (900211,90190,'บ่อดาน','สทิงพระ','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (900609,90210,'ธารคีรี','สะบ้าย้อย','สงขลา','ภาคใต้'),
 	 (900601,90210,'สะบ้าย้อย','สะบ้าย้อย','สงขลา','ภาคใต้'),
 	 (900607,90210,'เขาแดง','สะบ้าย้อย','สงขลา','ภาคใต้'),
@@ -17089,7 +17089,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (900603,90210,'เปียน','สะบ้าย้อย','สงขลา','ภาคใต้'),
 	 (900606,90210,'คูหา','สะบ้าย้อย','สงขลา','ภาคใต้'),
 	 (901304,90220,'บางเหรียง','ควนเนียง','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (901301,90220,'รัตภูมิ','ควนเนียง','สงขลา','ภาคใต้'),
 	 (901302,90220,'ควนโส','ควนเนียง','สงขลา','ภาคใต้'),
 	 (901303,90220,'ห้วยลึก','ควนเนียง','สงขลา','ภาคใต้'),
@@ -17100,7 +17100,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (901603,90230,'โคกม่วง','คลองหอยโข่ง','สงขลา','ภาคใต้'),
 	 (901005,90240,'ทุ่งหมอ','สะเดา','สงขลา','ภาคใต้'),
 	 (901007,90240,'ปาดังเบซาร์','สะเดา','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (901116,90250,'บ้านพรุ','หาดใหญ่','สงขลา','ภาคใต้'),
 	 (900506,90260,'วังใหญ่','เทพา','สงขลา','ภาคใต้'),
 	 (900504,90260,'ลำไพล','เทพา','สงขลา','ภาคใต้'),
@@ -17111,7 +17111,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (900804,90270,'กระแสสินธุ์','กระแสสินธุ์','สงขลา','ภาคใต้'),
 	 (901501,90280,'ชิงโค','สิงหนคร','สงขลา','ภาคใต้'),
 	 (901502,90280,'สทิงหม้อ','สิงหนคร','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (901503,90280,'ทำนบ','สิงหนคร','สงขลา','ภาคใต้'),
 	 (901509,90280,'หัวเขา','สิงหนคร','สงขลา','ภาคใต้'),
 	 (901201,90310,'นาหม่อม','นาหม่อม','สงขลา','ภาคใต้'),
@@ -17122,7 +17122,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (901504,90330,'รำแดง','สิงหนคร','สงขลา','ภาคใต้'),
 	 (901505,90330,'วัดขนุน','สิงหนคร','สงขลา','ภาคใต้'),
 	 (901506,90330,'ชะแล้','สิงหนคร','สงขลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (901507,90330,'ปากรอ','สิงหนคร','สงขลา','ภาคใต้'),
 	 (901511,90330,'ม่วงงาม','สิงหนคร','สงขลา','ภาคใต้'),
 	 (901510,90330,'บางเขียด','สิงหนคร','สงขลา','ภาคใต้'),
@@ -17133,7 +17133,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (910110,91000,'ปูยู','เมืองสตูล','สตูล','ภาคใต้'),
 	 (910109,91000,'ตำมะลัง','เมืองสตูล','สตูล','ภาคใต้'),
 	 (910108,91000,'เจ๊ะบิลัง','เมืองสตูล','สตูล','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (910103,91000,'ควนขัน','เมืองสตูล','สตูล','ภาคใต้'),
 	 (910106,91000,'เกาะสาหร่าย','เมืองสตูล','สตูล','ภาคใต้'),
 	 (910502,91110,'ละงู','ละงู','สตูล','ภาคใต้'),
@@ -17144,7 +17144,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (910506,91110,'แหลมสน','ละงู','สตูล','ภาคใต้'),
 	 (910106,91110,'เกาะสาหร่าย','เมืองสตูล','สตูล','ภาคใต้'),
 	 (910603,91120,'ขอนคลาน','ทุ่งหว้า','สตูล','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (910604,91120,'ทุ่งบุหลัง','ทุ่งหว้า','สตูล','ภาคใต้'),
 	 (910601,91120,'ทุ่งหว้า','ทุ่งหว้า','สตูล','ภาคใต้'),
 	 (910602,91120,'นาทอน','ทุ่งหว้า','สตูล','ภาคใต้'),
@@ -17155,7 +17155,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (910701,91130,'ปาล์มพัฒนา','มะนัง','สตูล','ภาคใต้'),
 	 (910303,91130,'อุใดเจริญ','ควนกาหลง','สตูล','ภาคใต้'),
 	 (910111,91140,'ควนโพธิ์','เมืองสตูล','สตูล','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (910112,91140,'เกตรี','เมืองสตูล','สตูล','ภาคใต้'),
 	 (910105,91140,'ฉลุง','เมืองสตูล','สตูล','ภาคใต้'),
 	 (910104,91140,'บ้านควน','เมืองสตูล','สตูล','ภาคใต้'),
@@ -17166,7 +17166,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (910202,91160,'ควนสตอ','ควนโดน','สตูล','ภาคใต้'),
 	 (910203,91160,'ย่านซื่อ','ควนโดน','สตูล','ภาคใต้'),
 	 (910201,91160,'ควนโดน','ควนโดน','สตูล','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (910204,91160,'วังประจัน','ควนโดน','สตูล','ภาคใต้'),
 	 (920114,92000,'หนองตรุด','เมืองตรัง','ตรัง','ภาคใต้'),
 	 (920101,92000,'ทับเที่ยง','เมืองตรัง','ตรัง','ภาคใต้'),
@@ -17177,7 +17177,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (920505,92000,'นาเมืองเพชร','สิเกา','ตรัง','ภาคใต้'),
 	 (920117,92000,'นาตาล่วง','เมืองตรัง','ตรัง','ภาคใต้'),
 	 (920113,92000,'นาโต๊ะหมิง','เมืองตรัง','ตรัง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (920115,92000,'น้ำผุด','เมืองตรัง','ตรัง','ภาคใต้'),
 	 (920104,92000,'นาพละ','เมืองตรัง','ตรัง','ภาคใต้'),
 	 (920118,92000,'บ้านโพธิ์','เมืองตรัง','ตรัง','ภาคใต้'),
@@ -17188,7 +17188,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (920209,92110,'ย่านซื่อ','กันตัง','ตรัง','ภาคใต้'),
 	 (920203,92110,'บางหมาก','กันตัง','ตรัง','ภาคใต้'),
 	 (920211,92110,'บางสัก','กันตัง','ตรัง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (920204,92110,'บางเป้า','กันตัง','ตรัง','ภาคใต้'),
 	 (920210,92110,'บ่อน้ำร้อน','กันตัง','ตรัง','ภาคใต้'),
 	 (920212,92110,'นาเกลือ','กันตัง','ตรัง','ภาคใต้'),
@@ -17199,7 +17199,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (920201,92110,'กันตัง','กันตัง','ตรัง','ภาคใต้'),
 	 (921002,92120,'บ้าหวี','หาดสำราญ','ตรัง','ภาคใต้'),
 	 (920401,92120,'ท่าข้าม','ปะเหลียน','ตรัง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (920411,92120,'เกาะสุกร','ปะเหลียน','ตรัง','ภาคใต้'),
 	 (920409,92120,'สุโสะ','ปะเหลียน','ตรัง','ภาคใต้'),
 	 (921003,92120,'ตะเสะ','หาดสำราญ','ตรัง','ภาคใต้'),
@@ -17210,7 +17210,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (920904,92130,'หนองปรือ','รัษฎา','ตรัง','ภาคใต้'),
 	 (920614,92130,'ท่างิ้ว','ห้วยยอด','ตรัง','ภาคใต้'),
 	 (920617,92130,'ห้วยนาง','ห้วยยอด','ตรัง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (920611,92130,'ปากคม','ห้วยยอด','ตรัง','ภาคใต้'),
 	 (920619,92130,'ในเตา','ห้วยยอด','ตรัง','ภาคใต้'),
 	 (920620,92130,'ทุ่งต่อ','ห้วยยอด','ตรัง','ภาคใต้'),
@@ -17221,7 +17221,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (920301,92140,'ย่านตาขาว','ย่านตาขาว','ตรัง','ภาคใต้'),
 	 (920305,92140,'โพรงจระเข้','ย่านตาขาว','ตรัง','ภาคใต้'),
 	 (920412,92140,'ท่าพญา','ปะเหลียน','ตรัง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (920308,92140,'เกาะเปียะ','ย่านตาขาว','ตรัง','ภาคใต้'),
 	 (920306,92140,'ทุ่งกระบือ','ย่านตาขาว','ตรัง','ภาคใต้'),
 	 (920307,92140,'ทุ่งค่าย','ย่านตาขาว','ตรัง','ภาคใต้'),
@@ -17232,7 +17232,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (920501,92150,'บ่อหิน','สิเกา','ตรัง','ภาคใต้'),
 	 (920504,92150,'ไม้ฝาด','สิเกา','ตรัง','ภาคใต้'),
 	 (920503,92150,'กะลาเส','สิเกา','ตรัง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (920903,92160,'หนองบัว','รัษฎา','ตรัง','ภาคใต้'),
 	 (920901,92160,'ควนเมา','รัษฎา','ตรัง','ภาคใต้'),
 	 (920902,92160,'คลองปาง','รัษฎา','ตรัง','ภาคใต้'),
@@ -17243,7 +17243,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (920804,92170,'โคกสะบ้า','นาโยง','ตรัง','ภาคใต้'),
 	 (920803,92170,'ละมอ','นาโยง','ตรัง','ภาคใต้'),
 	 (920802,92170,'ช่อง','นาโยง','ตรัง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (920801,92170,'นาโยงเหนือ','นาโยง','ตรัง','ภาคใต้'),
 	 (920806,92170,'นาข้าวเสีย','นาโยง','ตรัง','ภาคใต้'),
 	 (920413,92180,'แหลมสอม','ปะเหลียน','ตรัง','ภาคใต้'),
@@ -17254,7 +17254,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (920615,92190,'ลำภูรา','ห้วยยอด','ตรัง','ภาคใต้'),
 	 (920120,92190,'นาท่ามใต้','เมืองตรัง','ตรัง','ภาคใต้'),
 	 (920119,92190,'นาท่ามเหนือ','เมืองตรัง','ตรัง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (920605,92210,'บางดี','ห้วยยอด','ตรัง','ภาคใต้'),
 	 (920606,92210,'บางกุ้ง','ห้วยยอด','ตรัง','ภาคใต้'),
 	 (920616,92210,'นาวง','ห้วยยอด','ตรัง','ภาคใต้'),
@@ -17265,7 +17265,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (920703,92220,'อ่าวตง','วังวิเศษ','ตรัง','ภาคใต้'),
 	 (930111,93000,'ควนมะพร้าว','เมืองพัทลุง','พัทลุง','ภาคใต้'),
 	 (930101,93000,'คูหาสวรรค์','เมืองพัทลุง','พัทลุง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (930103,93000,'เขาเจียก','เมืองพัทลุง','พัทลุง','ภาคใต้'),
 	 (930202,93000,'ชะรัด','กงหรา','พัทลุง','ภาคใต้'),
 	 (930105,93000,'โคกชะงาย','เมืองพัทลุง','พัทลุง','ภาคใต้'),
@@ -17276,7 +17276,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (931101,93000,'ชุมพล','ศรีนครินทร์','พัทลุง','ภาคใต้'),
 	 (930114,93000,'นาโหนด','เมืองพัทลุง','พัทลุง','ภาคใต้'),
 	 (930107,93000,'ปรางหมู่','เมืองพัทลุง','พัทลุง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (930115,93000,'พญาขัน','เมืองพัทลุง','พัทลุง','ภาคใต้'),
 	 (930112,93000,'ร่มเมือง','เมืองพัทลุง','พัทลุง','ภาคใต้'),
 	 (930109,93000,'ลำปำ','เมืองพัทลุง','พัทลุง','ภาคใต้'),
@@ -17287,7 +17287,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (930106,93000,'นาท่อม','เมืองพัทลุง','พัทลุง','ภาคใต้'),
 	 (930508,93110,'ปันแต','ควนขนุน','พัทลุง','ภาคใต้'),
 	 (930506,93110,'แหลมโตนด','ควนขนุน','พัทลุง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (930505,93110,'พนมวังก์','ควนขนุน','พัทลุง','ภาคใต้'),
 	 (930510,93110,'ดอนทราย','ควนขนุน','พัทลุง','ภาคใต้'),
 	 (930513,93110,'ชะมวง','ควนขนุน','พัทลุง','ภาคใต้'),
@@ -17298,7 +17298,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (930602,93120,'ดอนประดู่','ปากพะยูน','พัทลุง','ภาคใต้'),
 	 (930601,93120,'ปากพะยูน','ปากพะยูน','พัทลุง','ภาคใต้'),
 	 (930604,93120,'เกาะหมาก','ปากพะยูน','พัทลุง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (930605,93120,'ฝาละมี','ปากพะยูน','พัทลุง','ภาคใต้'),
 	 (930603,93120,'เกาะนางคำ','ปากพะยูน','พัทลุง','ภาคใต้'),
 	 (930607,93120,'ดอนทราย','ปากพะยูน','พัทลุง','ภาคใต้'),
@@ -17309,7 +17309,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (930301,93130,'เขาชัยสน','เขาชัยสน','พัทลุง','ภาคใต้'),
 	 (930302,93130,'ควนขนุน','เขาชัยสน','พัทลุง','ภาคใต้'),
 	 (930902,93140,'นาปะขอ','บางแก้ว','พัทลุง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (930901,93140,'ท่ามะเดื่อ','บางแก้ว','พัทลุง','ภาคใต้'),
 	 (930903,93140,'โคกสัก','บางแก้ว','พัทลุง','ภาคใต้'),
 	 (930511,93150,'มะกอกเหนือ','ควนขนุน','พัทลุง','ภาคใต้'),
@@ -17320,7 +17320,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (930401,93160,'แม่ขรี','ตะโหมด','พัทลุง','ภาคใต้'),
 	 (930903,93160,'โคกสัก','บางแก้ว','พัทลุง','ภาคใต้'),
 	 (930806,93170,'วังใหม่','ป่าบอน','พัทลุง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (930802,93170,'โคกทราย','ป่าบอน','พัทลุง','ภาคใต้'),
 	 (930804,93170,'ทุ่งนารี','ป่าบอน','พัทลุง','ภาคใต้'),
 	 (930803,93170,'หนองธง','ป่าบอน','พัทลุง','ภาคใต้'),
@@ -17331,7 +17331,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (930702,93190,'เขาปู่','ศรีบรรพต','พัทลุง','ภาคใต้'),
 	 (930701,93190,'เขาย่า','ศรีบรรพต','พัทลุง','ภาคใต้'),
 	 (930703,93190,'ตะแพน','ศรีบรรพต','พัทลุง','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (931001,93210,'ป่าพะยอม','ป่าพะยอม','พัทลุง','ภาคใต้'),
 	 (931002,93210,'ลานข่อย','ป่าพะยอม','พัทลุง','ภาคใต้'),
 	 (931004,93210,'บ้านพร้าว','ป่าพะยอม','พัทลุง','ภาคใต้'),
@@ -17342,7 +17342,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (940109,94000,'ปะกาฮะรัง','เมืองปัตตานี','ปัตตานี','ภาคใต้'),
 	 (940112,94000,'บาราเฮาะ','เมืองปัตตานี','ปัตตานี','ภาคใต้'),
 	 (940102,94000,'อาเนาะรู','เมืองปัตตานี','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (940107,94000,'กะมิยอ','เมืองปัตตานี','ปัตตานี','ภาคใต้'),
 	 (940104,94000,'บานา','เมืองปัตตานี','ปัตตานี','ภาคใต้'),
 	 (940113,94000,'ปุยุด','เมืองปัตตานี','ปัตตานี','ภาคใต้'),
@@ -17353,7 +17353,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (940707,94110,'กะดุนง','สายบุรี','ปัตตานี','ภาคใต้'),
 	 (940704,94110,'บางเก่า','สายบุรี','ปัตตานี','ภาคใต้'),
 	 (940701,94110,'ตะลุบัน','สายบุรี','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (940708,94110,'ละหาร','สายบุรี','ปัตตานี','ภาคใต้'),
 	 (940702,94110,'ตะบิ้ง','สายบุรี','ปัตตานี','ภาคใต้'),
 	 (940710,94110,'แป้น','สายบุรี','ปัตตานี','ภาคใต้'),
@@ -17364,7 +17364,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (940215,94120,'ช้างให้ตก','โคกโพธิ์','ปัตตานี','ภาคใต้'),
 	 (940202,94120,'มะกรูด','โคกโพธิ์','ปัตตานี','ภาคใต้'),
 	 (940203,94120,'บางโกระ','โคกโพธิ์','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (940201,94120,'โคกโพธิ์','โคกโพธิ์','ปัตตานี','ภาคใต้'),
 	 (940204,94120,'ป่าบอน','โคกโพธิ์','ปัตตานี','ภาคใต้'),
 	 (940205,94120,'ทรายขาว','โคกโพธิ์','ปัตตานี','ภาคใต้'),
@@ -17375,7 +17375,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (940407,94130,'คอกกระบือ','ปะนาเระ','ปัตตานี','ภาคใต้'),
 	 (940410,94130,'บ้านน้ำบ่อ','ปะนาเระ','ปัตตานี','ภาคใต้'),
 	 (940406,94130,'ท่าน้ำ','ปะนาเระ','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (940403,94130,'บ้านนอก','ปะนาเระ','ปัตตานี','ภาคใต้'),
 	 (940409,94130,'บ้านกลาง','ปะนาเระ','ปัตตานี','ภาคใต้'),
 	 (940402,94130,'ท่าข้าม','ปะนาเระ','ปัตตานี','ภาคใต้'),
@@ -17386,7 +17386,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (940603,94140,'น้ำดำ','ทุ่งยางแดง','ปัตตานี','ภาคใต้'),
 	 (940505,94140,'ลุโบะยิไร','มายอ','ปัตตานี','ภาคใต้'),
 	 (940512,94140,'สะกำ','มายอ','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (940513,94140,'ปานัน','มายอ','ปัตตานี','ภาคใต้'),
 	 (940509,94140,'ปะโด','มายอ','ปัตตานี','ภาคใต้'),
 	 (940501,94140,'มายอ','มายอ','ปัตตานี','ภาคใต้'),
@@ -17397,7 +17397,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (940604,94140,'ปากู','ทุ่งยางแดง','ปัตตานี','ภาคใต้'),
 	 (940502,94140,'ถนน','มายอ','ปัตตานี','ภาคใต้'),
 	 (940504,94140,'กระหวะ','มายอ','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (940917,94150,'จะรัง','ยะหริ่ง','ปัตตานี','ภาคใต้'),
 	 (940905,94150,'ตอหลัง','ยะหริ่ง','ปัตตานี','ภาคใต้'),
 	 (940901,94150,'ตะโละ','ยะหริ่ง','ปัตตานี','ภาคใต้'),
@@ -17408,7 +17408,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (940909,94150,'บางปู','ยะหริ่ง','ปัตตานี','ภาคใต้'),
 	 (940911,94150,'ปิยามุมัง','ยะหริ่ง','ปัตตานี','ภาคใต้'),
 	 (940912,94150,'ปุลากง','ยะหริ่ง','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (940915,94150,'มะนังยง','ยะหริ่ง','ปัตตานี','ภาคใต้'),
 	 (940908,94150,'ยามู','ยะหริ่ง','ปัตตานี','ภาคใต้'),
 	 (940916,94150,'ราตาปันยัง','ยะหริ่ง','ปัตตานี','ภาคใต้'),
@@ -17419,7 +17419,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (941012,94160,'เขาตูม','ยะรัง','ปัตตานี','ภาคใต้'),
 	 (941009,94160,'คลองใหม่','ยะรัง','ปัตตานี','ภาคใต้'),
 	 (941003,94160,'ประจัน','ยะรัง','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (941006,94160,'ปิตูมุดี','ยะรัง','ปัตตานี','ภาคใต้'),
 	 (941007,94160,'วัด','ยะรัง','ปัตตานี','ภาคใต้'),
 	 (941005,94160,'ระแว้ง','ยะรัง','ปัตตานี','ภาคใต้'),
@@ -17430,7 +17430,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (941001,94160,'ยะรัง','ยะรัง','ปัตตานี','ภาคใต้'),
 	 (940311,94170,'ยาบี','หนองจิก','ปัตตานี','ภาคใต้'),
 	 (940303,94170,'ดอนรัก','หนองจิก','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (940310,94170,'ปุโละปุโย','หนองจิก','ปัตตานี','ภาคใต้'),
 	 (940309,94170,'บางตาวา','หนองจิก','ปัตตานี','ภาคใต้'),
 	 (940308,94170,'บางเขา','หนองจิก','ปัตตานี','ภาคใต้'),
@@ -17441,7 +17441,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (940304,94170,'ดาโต๊ะ','หนองจิก','ปัตตานี','ภาคใต้'),
 	 (940301,94170,'เกาะเปาะ','หนองจิก','ปัตตานี','ภาคใต้'),
 	 (940302,94170,'คอลอตันหยง','หนองจิก','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (940214,94180,'ควนโนรี','โคกโพธิ์','ปัตตานี','ภาคใต้'),
 	 (940208,94180,'ทุ่งพลา','โคกโพธิ์','ปัตตานี','ภาคใต้'),
 	 (941203,94180,'ป่าไร่','แม่ลาน','ปัตตานี','ภาคใต้'),
@@ -17452,7 +17452,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (940711,94190,'ทุ่งคล้า','สายบุรี','ปัตตานี','ภาคใต้'),
 	 (940913,94190,'บาโลย','ยะหริ่ง','ปัตตานี','ภาคใต้'),
 	 (940904,94190,'ตันหยงจึงงา','ยะหริ่ง','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (940405,94190,'ควน','ปะนาเระ','ปัตตานี','ภาคใต้'),
 	 (940506,94190,'ลางา','มายอ','ปัตตานี','ภาคใต้'),
 	 (940504,94190,'กระหวะ','มายอ','ปัตตานี','ภาคใต้'),
@@ -17463,7 +17463,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (940804,94220,'ดอนทราย','ไม้แก่น','ปัตตานี','ภาคใต้'),
 	 (941103,94230,'ปล่องหอย','กะพ้อ','ปัตตานี','ภาคใต้'),
 	 (941102,94230,'ตะโละดือรามัน','กะพ้อ','ปัตตานี','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (941101,94230,'กะรุบี','กะพ้อ','ปัตตานี','ภาคใต้'),
 	 (950115,95000,'บันนังสาเรง','เมืองยะลา','ยะลา','ภาคใต้'),
 	 (950102,95000,'บุดี','เมืองยะลา','ยะลา','ภาคใต้'),
@@ -17474,7 +17474,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (950116,95000,'สะเตงนอก','เมืองยะลา','ยะลา','ภาคใต้'),
 	 (950801,95000,'กรงปินัง','กรงปินัง','ยะลา','ภาคใต้'),
 	 (950802,95000,'สะเอะ','กรงปินัง','ยะลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (950803,95000,'ห้วยกระทิง','กรงปินัง','ยะลา','ภาคใต้'),
 	 (950804,95000,'ปุโรง','กรงปินัง','ยะลา','ภาคใต้'),
 	 (950101,95000,'สะเตง','เมืองยะลา','ยะลา','ภาคใต้'),
@@ -17485,7 +17485,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (950205,95110,'ธารน้ำทิพย์','เบตง','ยะลา','ภาคใต้'),
 	 (950203,95110,'ตาเนาะแมเราะ','เบตง','ยะลา','ภาคใต้'),
 	 (950201,95110,'เบตง','เบตง','ยะลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (950502,95120,'ละแอ','ยะหา','ยะลา','ภาคใต้'),
 	 (950501,95120,'ยะหา','ยะหา','ยะลา','ภาคใต้'),
 	 (950503,95120,'ปะแต','ยะหา','ยะลา','ภาคใต้'),
@@ -17496,7 +17496,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (950702,95120,'บาละ','กาบัง','ยะลา','ภาคใต้'),
 	 (950508,95120,'กาตอง','ยะหา','ยะลา','ภาคใต้'),
 	 (950306,95130,'เขื่อนบางลาง','บันนังสตา','ยะลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (950305,95130,'ตลิ่งชัน','บันนังสตา','ยะลา','ภาคใต้'),
 	 (950303,95130,'ตาเนาะปูเต๊ะ','บันนังสตา','ยะลา','ภาคใต้'),
 	 (950304,95130,'ถ้ำทะลุ','บันนังสตา','ยะลา','ภาคใต้'),
@@ -17507,7 +17507,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (950611,95140,'บาโงย','รามัน','ยะลา','ภาคใต้'),
 	 (950612,95140,'บือมัง','รามัน','ยะลา','ภาคใต้'),
 	 (950615,95140,'อาซ่อง','รามัน','ยะลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (950609,95140,'เนินงาม','รามัน','ยะลา','ภาคใต้'),
 	 (950616,95140,'ตะโล๊ะหะลอ','รามัน','ยะลา','ภาคใต้'),
 	 (950614,95140,'วังพญา','รามัน','ยะลา','ภาคใต้'),
@@ -17518,7 +17518,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (950604,95140,'กอตอตือร๊ะ','รามัน','ยะลา','ภาคใต้'),
 	 (950603,95140,'กาลอ','รามัน','ยะลา','ภาคใต้'),
 	 (950602,95140,'กาลูปัง','รามัน','ยะลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (950607,95140,'จะกว๊ะ','รามัน','ยะลา','ภาคใต้'),
 	 (950601,95140,'กายูบอเกาะ','รามัน','ยะลา','ภาคใต้'),
 	 (950404,95150,'คีรีเขต','ธารโต','ยะลา','ภาคใต้'),
@@ -17529,7 +17529,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (950114,95160,'พร่อน','เมืองยะลา','ยะลา','ภาคใต้'),
 	 (950111,95160,'ลำพะยา','เมืองยะลา','ยะลา','ภาคใต้'),
 	 (950403,95170,'แม่หวาด','ธารโต','ยะลา','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (960105,96000,'กะลุวอ','เมืองนราธิวาส','นราธิวาส','ภาคใต้'),
 	 (960107,96000,'โคกเคียน','เมืองนราธิวาส','นราธิวาส','ภาคใต้'),
 	 (960104,96000,'บางปอ','เมืองนราธิวาส','นราธิวาส','ภาคใต้'),
@@ -17540,7 +17540,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (960207,96110,'นานาค','ตากใบ','นราธิวาส','ภาคใต้'),
 	 (960206,96110,'เกาะสะท้อน','ตากใบ','นราธิวาส','ภาคใต้'),
 	 (960205,96110,'บางขุนทอง','ตากใบ','นราธิวาส','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (960208,96110,'โฆษิต','ตากใบ','นราธิวาส','ภาคใต้'),
 	 (960203,96110,'พร่อน','ตากใบ','นราธิวาส','ภาคใต้'),
 	 (960202,96110,'ไพรวัน','ตากใบ','นราธิวาส','ภาคใต้'),
@@ -17551,7 +17551,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (961002,96120,'ปาเสมัส','สุไหงโก-ลก','นราธิวาส','ภาคใต้'),
 	 (961001,96120,'สุไหงโก-ลก','สุไหงโก-ลก','นราธิวาส','ภาคใต้'),
 	 (961301,96130,'จวบ','เจาะไอร้อง','นราธิวาส','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (960502,96130,'ตันหยงลิมอ','ระแงะ','นราธิวาส','ภาคใต้'),
 	 (960510,96130,'มะรือโบตก','ระแงะ','นราธิวาส','ภาคใต้'),
 	 (960509,96130,'เฉลิม','ระแงะ','นราธิวาส','ภาคใต้'),
@@ -17562,7 +17562,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (961302,96130,'บูกิต','เจาะไอร้อง','นราธิวาส','ภาคใต้'),
 	 (961106,96140,'กาวะ','สุไหงปาดี','นราธิวาส','ภาคใต้'),
 	 (961105,96140,'ริโก๋','สุไหงปาดี','นราธิวาส','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (961104,96140,'สากอ','สุไหงปาดี','นราธิวาส','ภาคใต้'),
 	 (961103,96140,'โต๊ะเด็ง','สุไหงปาดี','นราธิวาส','ภาคใต้'),
 	 (961102,96140,'สุไหงปาดี','สุไหงปาดี','นราธิวาส','ภาคใต้'),
@@ -17573,7 +17573,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (960607,96150,'รือเสาะออก','รือเสาะ','นราธิวาส','ภาคใต้'),
 	 (960603,96150,'เรียง','รือเสาะ','นราธิวาส','ภาคใต้'),
 	 (960604,96150,'สามัคคี','รือเสาะ','นราธิวาส','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (960602,96150,'สาวอ','รือเสาะ','นราธิวาส','ภาคใต้'),
 	 (960601,96150,'รือเสาะ','รือเสาะ','นราธิวาส','ภาคใต้'),
 	 (960605,96150,'บาตง','รือเสาะ','นราธิวาส','ภาคใต้'),
@@ -17584,7 +17584,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (960805,96160,'แม่ดง','แว้ง','นราธิวาส','ภาคใต้'),
 	 (960804,96160,'โละจูด','แว้ง','นราธิวาส','ภาคใต้'),
 	 (960305,96170,'บาเระเหนือ','บาเจาะ','นราธิวาส','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (960303,96170,'กาเยาะมาตี','บาเจาะ','นราธิวาส','ภาคใต้'),
 	 (960302,96170,'ลุโบะสาวอ','บาเจาะ','นราธิวาส','ภาคใต้'),
 	 (960304,96170,'ปะลุกาสาเมาะ','บาเจาะ','นราธิวาส','ภาคใต้'),
@@ -17595,7 +17595,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (960402,96180,'ละหาร','ยี่งอ','นราธิวาส','ภาคใต้'),
 	 (960401,96180,'ยี่งอ','ยี่งอ','นราธิวาส','ภาคใต้'),
 	 (960406,96180,'ตะปอเยาะ','ยี่งอ','นราธิวาส','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (960405,96180,'ลุโบะบือซา','ยี่งอ','นราธิวาส','ภาคใต้'),
 	 (960905,96190,'ร่มไทร','สุคิริน','นราธิวาส','ภาคใต้'),
 	 (960904,96190,'ภูเขาทอง','สุคิริน','นราธิวาส','ภาคใต้'),
@@ -17606,7 +17606,7 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (960703,96210,'ศรีสาคร','ศรีสาคร','นราธิวาส','ภาคใต้'),
 	 (960702,96210,'ตะมะยูง','ศรีสาคร','นราธิวาส','ภาคใต้'),
 	 (960701,96210,'ซากอ','ศรีสาคร','นราธิวาส','ภาคใต้');
-INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
+INSERT INTO ProvinceDB.Postal (TambonID,PostCode,TambonThaiShort,DistrictThaiShort,ProvinceThai,Region) VALUES
 	 (960705,96210,'กาหลง','ศรีสาคร','นราธิวาส','ภาคใต้'),
 	 (960706,96210,'ศรีบรรพต','ศรีสาคร','นราธิวาส','ภาคใต้'),
 	 (960506,96220,'บองอ','ระแงะ','นราธิวาส','ภาคใต้'),
@@ -17614,4 +17614,3 @@ INSERT INTO ProvinceDB.postal (TambonID,PostCode,TambonThaiShort,DistrictThaiSho
 	 (961202,96220,'ดุซงญอ','จะแนะ','นราธิวาส','ภาคใต้'),
 	 (961203,96220,'ผดุงมาตร','จะแนะ','นราธิวาส','ภาคใต้'),
 	 (961204,96220,'ช้างเผือก','จะแนะ','นราธิวาส','ภาคใต้');
-commit;

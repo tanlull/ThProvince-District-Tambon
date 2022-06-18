@@ -5,7 +5,7 @@ services:
     container_name: tan-mysql-province
     volumes:
       #- c:/mysql/ThProvince:/var/lib/mysql
-      - ./db_all.sql:/docker-entrypoint-initdb.d/db_all.sql
+      - ./create_provincedb.sql:/docker-entrypoint-initdb.d/create_provincedb.sql
     restart: unless-stopped
     #tty: true
     environment:

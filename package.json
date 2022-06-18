@@ -1,0 +1,29 @@
+{
+  "name": "thprovince-district-tambon",
+  "version": "1.0.0",
+  "description": "docker-compose up ----------------------------------------------------------------",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanlull/ThProvince-District-Tambon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanlull/ThProvince-District-Tambon/issues"
+  },
+  "homepage": "https://github.com/tanlull/ThProvince-District-Tambon#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
