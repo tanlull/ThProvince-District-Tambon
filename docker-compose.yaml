@@ -1,5 +1,24 @@
 version: '3'
 services:
+  tan-node-api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: drtan/province-api:1.0.0
+    container_name: tan-api
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    tty: true
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+    depends_on:
+      - tan-mysql-service
+    networks:
+      - tan-network
+
+
   tan-mysql-service:
     image: mysql:latest
     container_name: tan-mysql-province

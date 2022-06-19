@@ -25,3 +25,7 @@ http://localhost:3000/provinces/พัทลุง/district/ป่าพะย�
 
 from : 
 https://blog.logrocket.com/build-rest-api-node-express-mysql/
+
+
+# docker-compose build
+# docker-compose up
