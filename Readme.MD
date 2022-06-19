@@ -42,9 +42,7 @@ sql  file = "create_provincedb.sql"
 #### Credit : 
 1. Province District Tumbon Data from : https://github.com/ThepExcel/download/raw/master/ThepExcel-Thailand-Tambon.xlsx
 2. Node Tutorial from from : https://blog.logrocket.com/build-rest-api-node-express-mysql/
-   
-
-#API
+3. API : 
 
 https://thaiaddressapi-thaikub.herokuapp.com/v1/thailand/provinces
 
