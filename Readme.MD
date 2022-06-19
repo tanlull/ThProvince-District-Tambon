@@ -1,12 +1,11 @@
-#Run
+# To Run
 
 docker-compose up
 
-npm run dev
 ----------------------------------------------------------------
 
 
-# API
+# API Usage
 
 ### Get All Provinces in Thailand
 Method Get : http://localhost:3000/provinces
