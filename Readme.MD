@@ -8,25 +8,25 @@ docker-compose up
 # API Usage
 
 ### Define username /password in config.js 
-<pre><code>
-  auth:{
+<pre><code>auth:{
     secretKey:"MySecretKeyOfNT",
     username: "nt",
     password: "ntntnt",
 
-  }
-</pre></code>
+  }</pre></code>
 
 # Login with 
 Method Post : http://localhost:3000/login
 json Body:
-<pre><code>
-{
+<pre><code>{
     "username":"nt",
     "password":"ntntnt"
-} 
-</pre></code>
-
+}</pre></code>
+Return Message :
+<pre><code>{
+    "message": "ok",
+    "authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJudCIsImlhdCI6MTY1NTcxOTU0MTE1M30.SuK9uumbvGr2PRD_vgRNOngvHj8NoRNlG4GjCY7yF4w"
+}</pre></code>
 ### Get All Provinces in Thailand
 
 Method Get : http://localhost:3000/provinces
