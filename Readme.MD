@@ -17,22 +17,25 @@ auth:{
 ```
 
 # Login with 
-    Method Post : http://localhost:3000/login
-    json Body:
-<pre><code>{
+Method Post : http://localhost:3000/login
+json Body:
+```
+{
     "username":"nt",
     "password":"ntntnt"
-}</code></pre>
-    Return Message :
-<pre><code>{
+}
+```
+Return Message :
+```{
     "message": "ok",
     "authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJudCIsImlhdCI6MTY1NTcxOTU0MTE1M30.SuK9uumbvGr2PRD_vgRNOngvHj8NoRNlG4GjCY7yF4w"
-}</code></pre>
+}```
+
 ### Get All Provinces in Thailand
-    Method Get : http://localhost:3000/provinces
-    Header :  
+Method Get : http://localhost:3000/provinces
+Header :  
     - authorization : <authorization code from login>
-    Return : 
+Return : 
 ```
 {"data":[{"province":"กระบี่"},{"province":"กรุงเทพมหานคร"},{"province":"กาญจนบุรี"},{"province":"กาฬสินธุ์"},{"province":"กำแพงเพชร"},{"province":"ขอนแก่น"},{"province":"จันทบุรี"},{"province":"ฉะเชิงเทรา"},{"province":"ชลบุรี"},{"province":"ชัยนาท"},{"province":"ชัยภูมิ"},{"province":"ชุมพร"},{"province":"ตรัง"},{"province":"ตราด"},{"province":"ตาก"},{"province":"นครนายก"},{"province":"นครปฐม"},{"province":"นครพนม"},{"province":"นครราชสีมา"},{"province":"นครศรีธรรมราช"},{"province":"นครสวรรค์"},{"province":"นนทบุรี"},{"province":"นราธิวาส"},{"province":"น่าน"},{"province":"บึงกาฬ"},{"province":"บุรีรัมย์"},{"province":"ปทุมธานี"},{"province":"ประจวบคีรีขันธ์"},{"province":"ปราจีนบุรี"},{"province":"ปัตตานี"},{"province":"พระนครศรีอยุธยา"},{"province":"พะเยา"},{"province":"พังงา"},{"province":"พัทลุง"},{"province":"พิจิตร"},{"province":"พิษณุโลก"},{"province":"ภูเก็ต"},{"province":"มหาสารคาม"},{"province":"มุกดาหาร"},{"province":"ยะลา"},{"province":"ยโสธร"},{"province":"ร้อยเอ็ด"},{"province":"ระนอง"},{"province":"ระยอง"},{"province":"ราชบุรี"},{"province":"ลพบุรี"},{"province":"ลำปาง"},{"province":"ลำพูน"},{"province":"ศรีสะเกษ"},{"province":"สกลนคร"},{"province":"สงขลา"},{"province":"สตูล"},{"province":"สมุทรปราการ"},{"province":"สมุทรสงคราม"},{"province":"สมุทรสาคร"},{"province":"สระบุรี"},{"province":"สระแก้ว"},{"province":"สิงห์บุรี"},{"province":"สุพรรณบุรี"},{"province":"สุราษฎร์ธานี"},{"province":"สุรินทร์"},{"province":"สุโขทัย"},{"province":"หนองคาย"},{"province":"หนองบัวลำภู"},{"province":"อ่างทอง"},{"province":"อำนาจเจริญ"},{"province":"อุดรธานี"},{"province":"อุตรดิตถ์"},{"province":"อุทัยธานี"},{"province":"อุบลราชธานี"},{"province":"เชียงราย"},{"province":"เชียงใหม่"},{"province":"เพชรบุรี"},{"province":"เพชรบูรณ์"},{"province":"เลย"},{"province":"แพร่"},{"province":"แม่ฮ่องสอน"}],"meta":{"page":1}}
 ```
