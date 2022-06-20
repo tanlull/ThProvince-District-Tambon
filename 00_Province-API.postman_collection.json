@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "d1998928-7848-4578-be29-d4569fc4d25b",
+		"name": "00_Province-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"nt\",\r\n    \"password\":\"ntntnt12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02_Province",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJudCIsImlhdCI6MTY1NTcxNTc2NjE5OH0.jqWmHVocQmaXAoUFp4ieD8Ag8915l5RrXFVhnUoj-SM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/provinces",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"provinces"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_District",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJudCIsImlhdCI6MTY1NTcxNTc2NjE5OH0.jqWmHVocQmaXAoUFp4ieD8Ag8915l5RrXFVhnUoj-SM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/provinces",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"provinces"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_Tumbon",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJudCIsImlhdCI6MTY1NTcxNTc2NjE5OH0.jqWmHVocQmaXAoUFp4ieD8Ag8915l5RrXFVhnUoj-SM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/provinces/กระบี่/district/คลองท่อม",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"provinces",
+						"กระบี่",
+						"district",
+						"คลองท่อม"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
