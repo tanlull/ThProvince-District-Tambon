@@ -2,8 +2,11 @@ const express = require("express");
 const app = express();
 const config = require("./config");
 const port = config.port;
+const jwt = require("jwt-simple");
 
 const provinceRouter = require("./routes/provinces");
+
+//  login return jwt
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json()); //ทำให้รับ json จาก body ได้
@@ -20,9 +23,30 @@ app.post("/login", loginMiddleware, (req, res) => {
     iat: new Date().getTime()//มาจากคำว่า issued at time (สร้างเมื่อ)
  };
  const SECRET = config.auth.secretKey; //ในการใช้งานจริง คีย์นี้ให้เก็บเป็นความลับ
- res.send(jwt.encode(payload, SECRET));
+ res.json({ 
+  message: "ok",
+  authorization : jwt.encode(payload, SECRET),
+  })
 });
 
+
+// get jwt from Header authorization
+// Passport ใช้ในการ decode jwt ออกมา
+const ExtractJwt = require("passport-jwt").ExtractJwt;
+//ใช้ในการประกาศ Strategy
+const JwtStrategy = require("passport-jwt").Strategy;
+const jwtOptions = {
+   jwtFromRequest: ExtractJwt.fromHeader("authorization"),
+   secretOrKey: config.auth.secretKey,//SECRETเดียวกับตอนencodeในกรณีนี้คือ MY_SECRET_KEY
+}
+const jwtAuth = new JwtStrategy(jwtOptions, (payload, done) => {
+   if(payload.sub=== config.auth.username) done(null, true);
+   else done(null, false);
+});
+
+const passport = require("passport");
+passport.use(jwtAuth);
+const requireJWTAuth = passport.authenticate("jwt",{session:false});
 
 app.use(express.json());
 app.use(
@@ -30,11 +54,11 @@ app.use(
     extended: true,
   })
 );
-app.get("/", (req, res) => {
+app.get("/",  (req, res) => {
   res.json({ message: "ok" });
 });
 
-app.use("/provinces", provinceRouter);
+app.use("/provinces", requireJWTAuth,provinceRouter);
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {
@@ -43,6 +67,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).json({ message: err.message });
   return;
 });
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
