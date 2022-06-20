@@ -35,7 +35,8 @@ Return Message :
 ```
 
 # Get All Provinces in Thailand
-Method Get : http://localhost:3000/provinces
+Method GET : http://localhost:3000/provinces
+
 Header :  
 ```
      authorization = <authorization code from login>
@@ -46,7 +47,12 @@ Return :
 ```
 
 # Get District by specific Province
-usage:  http://localhost:3000/provinces/<province_name>/district
+Method GET:  http://localhost:3000/provinces/<province_name>/district
+
+Header :  
+```
+     authorization = <authorization code from login>
+```
 
 example : http://localhost:3000/provinces/พัทลุง/district
 
@@ -56,7 +62,12 @@ Return :
 ```
 
 # Get Tambon by from District and Province
-usage:  http://localhost:3000/provinces/<province_name>/district/<district_name>
+Method GET:  http://localhost:3000/provinces/<province_name>/district/<district_name>
+
+Header :  
+```
+     authorization = <authorization code from login>
+```
 
 Example : http://localhost:3000/provinces/พัทลุง/district/ป่าพะยอม
 
