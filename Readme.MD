@@ -2,18 +2,19 @@
 ```
 docker-compose up
 ```
-----------------------------------------------------------------
-
 
 # API Usage
 
 ### Define username /password in config.js 
-<pre><code>auth:{
+file : config.js 
+```
+auth:{
     secretKey:"MySecretKeyOfNT",
     username: "nt",
     password: "ntntnt",
 
-  }</pre></code>
+  }
+```
 
 # Login with 
     Method Post : http://localhost:3000/login
