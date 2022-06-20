@@ -21,12 +21,12 @@ docker-compose up
 <pre><code>{
     "username":"nt",
     "password":"ntntnt"
-}</pre></code>
+}</code></pre>
     Return Message :
 <pre><code>{
     "message": "ok",
     "authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJudCIsImlhdCI6MTY1NTcxOTU0MTE1M30.SuK9uumbvGr2PRD_vgRNOngvHj8NoRNlG4GjCY7yF4w"
-}</pre></code>
+}</code></pre>
 ### Get All Provinces in Thailand
     Method Get : http://localhost:3000/provinces
     Header :  
