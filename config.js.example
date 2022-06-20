@@ -1,0 +1,20 @@
+const config = {
+  db: {
+    /* don't expose password or any sensitive info, done only for demo */
+    host: "localhost",
+    user: "root",
+    password: "toor",
+    database: "ProvinceDB",
+  },
+  listPerPage: 100,
+
+  auth:{
+    secretKey:"MySecretKey",
+    username: "nt",
+    password: "nt",
+
+  },
+  port : 3000,
+
+};
+module.exports = config;
