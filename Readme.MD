@@ -27,10 +27,12 @@ json Body:
 }
 ```
 Return Message :
-```{
+```
+{
     "message": "ok",
     "authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJudCIsImlhdCI6MTY1NTcxOTU0MTE1M30.SuK9uumbvGr2PRD_vgRNOngvHj8NoRNlG4GjCY7yF4w"
-}```
+}
+```
 
 # Get All Provinces in Thailand
 Method Get : http://localhost:3000/provinces
