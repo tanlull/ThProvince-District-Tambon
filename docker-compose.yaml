@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: drtan/province-api:2.0.0
+    image: drtan/province-api:2.1.0
     container_name: tan-api
     ports:
       - "3000:3000"
