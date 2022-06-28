@@ -1,3 +1,4 @@
+const cors = require("cors");
 const express = require("express");
 const app = express();
 const config = require("./config");
@@ -5,6 +6,9 @@ const port = config.port;
 const jwt = require("jwt-simple");
 
 const provinceRouter = require("./routes/provinces");
+
+// use cors
+app.use(cors());
 
 //  login return jwt
 
