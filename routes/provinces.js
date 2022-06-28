@@ -26,13 +26,13 @@ router.get("/:province/district", async function (req, res, next) {
 
 //Tambon
 //http://localhost:3000/provinces/พัทลุง/district/ป่าพะยอม
-router.get("/:province/district/:tambon", async function (req, res, next) {
+router.get("/:province/district/:district", async function (req, res, next) {
   try {
     res.json(
       await Provinces.getTambon(
         req.query.page,
         req.params.province,
-        req.params.tambon
+        req.params.district
       )
     );
   } catch (err) {
@@ -40,5 +40,25 @@ router.get("/:province/district/:tambon", async function (req, res, next) {
     next(err);
   }
 });
+
+
+//Postal
+//http://localhost:3000/provinces/พัทลุง/district/ป่าพะยอม/tambon/บ้านพร้าว
+router.get("/:province/district/:district/tambon/:tambon", async function (req, res, next) {
+  try {
+    res.json(
+      await Provinces.getPostal(
+        req.query.page,
+        req.params.province,
+        req.params.district,
+        req.params.tambon,
+      )
+    );
+  } catch (err) {
+    console.error(`Error while getting programming languages `, err.message);
+    next(err);
+  }
+});
+
 
 module.exports = router;

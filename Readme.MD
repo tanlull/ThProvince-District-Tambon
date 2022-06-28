@@ -73,6 +73,19 @@ Example : http://localhost:3000/provinces/พัทลุง/district/ป่า�
 
 <pre><code>{"data":["บ้านพร้าว","ป่าพะยอม","ลานข่อย","เกาะเต่า"],"meta":{"page":1}}</code></pre>
 
+
+# Get Postal by from District ,  Province and Tambon
+Method GET:  http://localhost:3000/provinces/<province_name>/district/<district_name>/tambon/<tambon_name
+
+Header :  
+```
+     authorization = <authorization code from login>
+```
+
+Example : http://localhost:3000/provinces/พัทลุง/district/ป่าพะยอม/tambon/บ้านพร้าว
+
+<pre><code>{"data":["93210"],"meta":{"page":1}}</code></pre>
+
 ### Database connection 
 edit file = "config.js"
 

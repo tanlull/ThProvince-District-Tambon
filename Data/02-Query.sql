@@ -16,13 +16,19 @@ and p.ProvinceID  =d.ProvinceID ;
 
 # Get Tambon from district
 select t.TambonThaiShort 
-from District d,Tambon t
-where d.DistrictThaiShort = 'ป่าพะยอม'
-and d.DistrictID =t.DistrictID;
-
-select t.TambonThaiShort 
 from Province p,District d,Tambon t
 where p.ProvinceThai  like 'พัทลุง'
 and p.ProvinceID  =d.ProvinceID 
 and d.DistrictID =t.DistrictID
 and d.DistrictThaiShort = 'ป่าพะยอม'
+
+
+# Get Postal from district
+select post.PostCode 
+from Province p,District d,Tambon t,Postal post
+where p.ProvinceThai  like 'พัทลุง'
+and p.ProvinceID  =d.ProvinceID 
+and d.DistrictID =t.DistrictID
+and d.DistrictThaiShort = 'ป่าพะยอม'
+and t.TambonID = post.TambonID 
+and t.TambonThaiShort = 'บ้านพร้าว'
