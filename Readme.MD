@@ -104,3 +104,5 @@ https://thaiaddressapi-thaikub.herokuapp.com/v1/thailand/provinces/พัทล�
 https://thaiaddressapi-thaikub.herokuapp.com/v1/thailand/provinces/พัทลุง/district/ป่าพะยอม
 
 4. Front End (Nuxtjs) : https://tinyurl.com/vue-frontend
+
+5. Back end (Nestjs + TypeORM): https://betterprogramming.pub/nest-js-project-with-typeorm-and-postgres-ce6b5afac3be
