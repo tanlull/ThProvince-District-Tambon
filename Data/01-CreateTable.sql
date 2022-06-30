@@ -33,6 +33,6 @@ create table  Postal (
   DistrictThaiShort varchar(200) NOT NULL,
   ProvinceThai varchar(200) NOT NULL,
   Region varchar(200) NOT NULL,
-  INDEX (TambonID) ,
+  PRIMARY KEY (TambonID,PostCode),
   FOREIGN KEY (TambonID) REFERENCES Tambon (TambonID)
 );
