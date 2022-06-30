@@ -8,7 +8,8 @@ import { AppService } from './app.service';
 import { getEnvPath } from './common/helper/env.helper';
 import { TypeOrmConfigService } from './shared/typeorm/typeorm.service';
 
-const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
+const envFilePath: string = getEnvPath(`${__dirname}/../common/envs`);
+console.log("Env File: "+envFilePath);
 
 @Module({
   imports: [
