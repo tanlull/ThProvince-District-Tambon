@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/tanlull/ThProvince-District-Tambon#readme",
   "dependencies": {
+    "@nestjs/typeorm": "^8.1.4",
     "@vue/cli": "^5.0.6",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",

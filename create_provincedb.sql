@@ -29,13 +29,13 @@ FOREIGN KEY (DistrictID) REFERENCES District(DistrictID)
 
 
 create table  Postal (
-  TambonID int DEFAULT NULL,
-  PostCode int DEFAULT NULL,
+  TambonID int NOT NULL,
+  PostCode int NOT NULL,
   TambonThaiShort varchar(200) NOT NULL,
   DistrictThaiShort varchar(200) NOT NULL,
   ProvinceThai varchar(200) NOT NULL,
   Region varchar(200) NOT NULL,
-  INDEX (TambonID) ,
+  PRIMARY KEY (TambonID,PostCode),
   FOREIGN KEY (TambonID) REFERENCES Tambon (TambonID)
 );
 
