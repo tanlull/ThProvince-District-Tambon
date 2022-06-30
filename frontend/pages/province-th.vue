@@ -44,8 +44,9 @@ export default {
     return {
       search: '',
       headers: [
-        { text: 'ชื่อไทย', value: 'province' },
-        { text: 'ชื่ออังกฤษ', value: 'province' },
+        { text: 'ชื่อไทย', value: 'provinceThai' },
+        { text: 'ชื่ออังกฤษ', value: 'provinceEng' },
+        { text: 'ภาค', value: 'region' },
         { text: 'Actions', value: 'action', sortable: false }
       ],
       desserts: [
@@ -63,13 +64,13 @@ export default {
     editItem (item) {},
     deleteItem (item) {},
     async fetchData () {
-      await this.$axios.$get('http://localhost:3000/provinces', {
+      await this.$axios.$get('http://localhost:3000/province', {
         headers: {
           authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJudCIsImlhdCI6MTY1NTcxNTc2NjE5OH0.jqWmHVocQmaXAoUFp4ieD8Ag8915l5RrXFVhnUoj-SM'
         }
       }).then((response) => {
-        this.provinces = response.data
-        // console.log(JSON.stringify(response.data))
+        this.provinces = response
+        console.log(JSON.stringify(response))
       })
     }
   }

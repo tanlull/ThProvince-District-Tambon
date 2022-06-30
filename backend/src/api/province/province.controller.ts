@@ -8,10 +8,19 @@ export class ProvinceController {
     @Inject(ProvinceService)
     private readonly service: ProvinceService;
   
-    @Get(':id')
+    @Get()
     public getProvince(): Promise<Province[]> {
-      return this.service.getProvince();
+      return this.service.getAllProvince();
     }
+
+    // @Get(':name')
+    // public getProvinceByName(name : string): Promise<Province> {
+    //   return this.service.getProvinceByName(name);
+    // }
+
+    @Get(':name')
+    public getProvinceByName(@Param('name') name : string): Promise<Province> { return this.service.getProvinceByName(name); }
+    //public getProvinceById(id:number): Promise<Province> { return this.service.getProvinceById(id); }
   
     @Post()
     public createProvince(@Body() body: CreateProvinceDto): Promise<Province> {

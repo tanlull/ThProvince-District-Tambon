@@ -11,17 +11,33 @@ export class ProvinceService {
     @InjectRepository(Province)
     private readonly repository: Repository<Province>;
   
-    public async getProvince(): Promise<Province[]> {
-        const [photos, photosCount]= await this.repository.findAndCount();
+    public  async getAllProvince(): Promise<Province[]> {
+        const [photos]=  await this.repository.findAndCount();
       return photos;
     }
+
+    
   
+    public  getProvinceByName(searchData :string): Promise<Province> {
+        const data=  this.repository.findOne({ where :
+           { provinceThai: searchData }
+        }
+            );
+      return data;
+    }
+
+    public getProvinceById(id:number): Promise<Province> {
+        const data=  this.repository.findOne({where: {provinceId: id}});
+      return data;
+    }
+
     public createProvince(body: CreateProvinceDto): Promise<Province> {
       const province: Province = new Province();
   
-      province.provinceId = parseInt(body.ProvinceID);
+      province.provinceId = body.ProvinceID;
       province.provinceThai = body.ProvinceThai;
       province.provinceEng = body.ProvinceEng;
+        province.region = body.Region;
   
       return this.repository.save(province);
     }
