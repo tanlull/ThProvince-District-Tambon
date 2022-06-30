@@ -1,17 +1,21 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { User } from "./entity/User"
+import { Photo } from "./entity/Photo"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
-    host: "localhost",
+    host: "tan-mysql-service",
     port: 3306,
-    username: "test",
-    password: "test",
+    username: "root",
+    password: "toor",
     database: "test",
     synchronize: true,
     logging: false,
-    entities: [User],
-    migrations: [],
-    subscribers: [],
+    entities: [Photo],
 })
+
+AppDataSource.initialize()
+    .then(() => {
+        console.log("DB OK!")
+    })
+    .catch((error) => console.log(error))

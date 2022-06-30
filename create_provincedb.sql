@@ -1,3 +1,5 @@
+create database test;
+
 create table Province(
 ProvinceID INT ,
 ProvinceThai VARCHAR(200) NOT NULL,
